@@ -42,7 +42,7 @@
 ## 文件说明
 
 - `HANDBOOK.md`：可直接在 GitHub 阅读的完整正文，目录可跳转。
-- `learning-flow.svg`：静态原理图，GitHub 可直接显示；正文含 Mermaid 原理流程图。
+- `learning-flow.svg`：静态原理图，GitHub 可直接显示；正文另含 16 张静态原理流程图及可编辑源文本。
 - `SOURCES.md`、`sources.json`：资料说明和结构化核验记录。
 - `VALIDATION.md`：完成与未完成边界。
 

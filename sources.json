@@ -1,0 +1,312 @@
+{
+  "verification_date": "2026-11-12",
+  "scope": "Original teaching material with linked third-party resources; no third-party source vendored.",
+  "resources": [
+    {
+      "repository": "microsoft/ML-For-Beginners",
+      "title": "Microsoft ML for Beginners",
+      "url": "https://github.com/microsoft/ML-For-Beginners",
+      "verified_at": "2026-11-12",
+      "license": "MIT",
+      "license_url": "https://github.com/microsoft/ML-For-Beginners/blob/main/LICENSE",
+      "license_blob_sha": "9e841e7a26e4eb057b24511e7b92d42b257a80e5",
+      "license_note": "Checked root LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "AI 基础：机器学习",
+      "exercise": "先读机器学习简介。用房租预测说明特征、标签、训练与预测；能解释为什么不能拿考试答案训练，再往下读。无需安装环境。",
+      "reading_entry": {
+        "path": "1-Introduction/1-intro-to-ML/README.md",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/main/1-Introduction/1-intro-to-ML/README.md",
+        "blob_sha": "ec296b105d4fb4c521ae0d7f6164d49311b70b09",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "microsoft/AI-For-Beginners",
+      "title": "Microsoft AI for Beginners：神经网络",
+      "url": "https://github.com/microsoft/AI-For-Beginners",
+      "verified_at": "2026-11-12",
+      "license": "MIT",
+      "license_url": "https://github.com/microsoft/AI-For-Beginners/blob/main/LICENSE",
+      "license_blob_sha": "9e841e7a26e4eb057b24511e7b92d42b257a80e5",
+      "license_note": "Checked root LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "AI 基础：深度学习",
+      "exercise": "先读神经网络导言。画出输入、权重、输出，用一次预测误差解释训练为什么要调整权重；先建立直觉，不要求写代码。",
+      "reading_entry": {
+        "path": "lessons/3-NeuralNetworks/README.md",
+        "url": "https://github.com/microsoft/AI-For-Beginners/blob/main/lessons/3-NeuralNetworks/README.md",
+        "blob_sha": "dd77ad2f6148b1ae328fceacad4e0828766af3c1",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "huggingface/course",
+      "title": "Hugging Face Course：LLM / Transformers 入门",
+      "url": "https://github.com/huggingface/course",
+      "verified_at": "2026-11-12",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/huggingface/course/blob/main/LICENSE",
+      "license_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "license_note": "Checked root LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "AI 基础：语言模型",
+      "exercise": "从已核实的中文第 1 章开始理解 NLP、Transformer、tokenizer；Python 程序可先跳过。学完说清模型生成文本与检索事实不是一回事。",
+      "reading_entry": {
+        "path": "chapters/zh-CN/chapter1/1.mdx",
+        "url": "https://github.com/huggingface/course/blob/main/chapters/zh-CN/chapter1/1.mdx",
+        "blob_sha": "e509d628f0f5c4a2e7510a2e1bc8d2870dcf986e",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "microsoft/ai-agents-for-beginners",
+      "title": "Microsoft AI Agents for Beginners",
+      "url": "https://github.com/microsoft/ai-agents-for-beginners",
+      "verified_at": "2026-11-12",
+      "license": "MIT",
+      "license_url": "https://github.com/microsoft/ai-agents-for-beginners/blob/main/LICENSE",
+      "license_blob_sha": "9e841e7a26e4eb057b24511e7b92d42b257a80e5",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "01–02",
+      "exercise": "从课程 README 选择一个工具使用单元，画出观察、工具、结果的顺序。",
+      "reading_entry": {
+        "path": "README.md",
+        "url": "https://github.com/microsoft/ai-agents-for-beginners/blob/main/README.md",
+        "blob_sha": "58d295fa647db1c9bc30a9d370ed1e5fb6a6787a",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "huggingface/agents-course",
+      "title": "Hugging Face Agents Course",
+      "url": "https://github.com/huggingface/agents-course",
+      "verified_at": "2026-11-12",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/huggingface/agents-course/blob/main/LICENSE",
+      "license_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "01–02、07",
+      "exercise": "先读课程结构，再做一个无外部副作用的工具练习。",
+      "reading_entry": {
+        "path": "README.md",
+        "url": "https://github.com/huggingface/agents-course/blob/main/README.md",
+        "blob_sha": "540d14ac71b29b3ea5569371e21690fa0c4bb077",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "Haozhe-Xing/agent_learning",
+      "title": "agent_learning（匹配候选）",
+      "url": "https://github.com/Haozhe-Xing/agent_learning",
+      "verified_at": "2026-11-12",
+      "license": "MIT",
+      "license_url": "https://github.com/Haozhe-Xing/agent_learning/blob/main/LICENSE",
+      "license_blob_sha": "b635b7313d4ad6f25cf3a74e028ac990a0a914d1",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "全章辅助",
+      "exercise": "此项目与用户给的短名称相符，但原清单未给 owner；将其作为补充教材，不声称就是原链接。",
+      "reading_entry": {
+        "path": "README.md",
+        "url": "https://github.com/Haozhe-Xing/agent_learning/blob/main/README.md",
+        "blob_sha": null,
+        "inspection": "Repository/search metadata only; not inspected source."
+      }
+    },
+    {
+      "repository": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "title": "Agent Skills for Context Engineering",
+      "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "verified_at": "2026-11-12",
+      "license": "MIT",
+      "license_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/blob/main/LICENSE",
+      "license_blob_sha": "387dad51962f18a262524740e762deb62844d817",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "03–06、08–10",
+      "exercise": "对照 context-compression 技能，设计能保护用户决定的压缩质量测试。",
+      "reading_entry": {
+        "path": "skills/context-compression/SKILL.md",
+        "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/blob/main/skills/context-compression/SKILL.md",
+        "blob_sha": "44b78abf987b07ee5c63bc325a5ced366ffd7d15",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "langchain-ai/langgraph",
+      "title": "LangGraph",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "verified_at": "2026-11-12",
+      "license": "MIT",
+      "license_url": "https://github.com/langchain-ai/langgraph/blob/main/LICENSE",
+      "license_blob_sha": "fc0602feecdd6748623c852ab534e1ca612673c7",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "02、05、08–09",
+      "exercise": "沿状态与 checkpoint 接口追踪一次中断及恢复；区分状态持久化和消息摘要。",
+      "reading_entry": {
+        "path": "libs/langgraph/langgraph/types.py",
+        "url": "https://github.com/langchain-ai/langgraph/blob/main/libs/langgraph/langgraph/types.py",
+        "blob_sha": "4385c0e00c0af9dc3e73c981c8899ca93ab40c15",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "mem0ai/mem0",
+      "title": "Mem0",
+      "url": "https://github.com/mem0ai/mem0",
+      "verified_at": "2026-11-12",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/mem0ai/mem0/blob/main/LICENSE",
+      "license_blob_sha": "d20d5102c3cf97ecbee54afd65893de4a11d26fe",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "06",
+      "exercise": "沿 memory/main.py 查找写入和检索边界；不要把托管平台性能数字当作 OSS 实测。",
+      "reading_entry": {
+        "path": "mem0/memory/main.py",
+        "url": "https://github.com/mem0ai/mem0/blob/main/mem0/memory/main.py",
+        "blob_sha": "07326f4546c20bb8dfa6a0762e0bcdd114f6b657",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "letta-ai/letta",
+      "title": "Letta",
+      "url": "https://github.com/letta-ai/letta",
+      "verified_at": "2026-11-12",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/letta-ai/letta/blob/main/LICENSE",
+      "license_blob_sha": "f75c3422907f55d71685ae59afdc28498cde5a40",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "06",
+      "exercise": "从 README 找记忆与 Agent API 的入口，画出工作记忆和持久存储的分工。",
+      "reading_entry": {
+        "path": "README.md",
+        "url": "https://github.com/letta-ai/letta/blob/main/README.md",
+        "blob_sha": "9a23cb4226d462b555ae75052e32370a7d82adee",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "langchain-ai/deepagents",
+      "title": "Deep Agents",
+      "url": "https://github.com/langchain-ai/deepagents",
+      "verified_at": "2026-11-12",
+      "license": "MIT",
+      "license_url": "https://github.com/langchain-ai/deepagents/blob/main/LICENSE",
+      "license_blob_sha": "3957738673765912ca83a0048f833e095d61e087",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "03–04、08–10",
+      "exercise": "读 summarization middleware，比较自动压缩与工具触发压缩，并解释原文卸载为什么重要。",
+      "reading_entry": {
+        "path": "libs/deepagents/deepagents/middleware/summarization.py",
+        "url": "https://github.com/langchain-ai/deepagents/blob/main/libs/deepagents/deepagents/middleware/summarization.py",
+        "blob_sha": "ad1c8edb1c2267f4339bf69e4df05dd5881abf4e",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "modelcontextprotocol/modelcontextprotocol",
+      "title": "MCP Specification",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+      "verified_at": "2026-11-12",
+      "license": "mixed-transition",
+      "license_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/LICENSE",
+      "license_blob_sha": "4a93985763241755401a10678395303de4e720ba",
+      "license_note": "LICENSE states new code/spec contributions Apache-2.0; documentation excluding specifications CC-BY-4.0; contributions without relicensing consent remain MIT. README MIT label is not authoritative.",
+      "chapters": "07",
+      "exercise": "阅读版本化 schema，区分工具/资源接口和本项目的任务调度协议。",
+      "reading_entry": {
+        "path": "README.md",
+        "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/README.md",
+        "blob_sha": "477b1bdfe6a8b6352a9fa8d307a9873b533b9498",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "a2aproject/A2A",
+      "title": "A2A",
+      "url": "https://github.com/a2aproject/A2A",
+      "verified_at": "2026-11-12",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/a2aproject/A2A/blob/main/LICENSE",
+      "license_blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "08",
+      "exercise": "从 README 进入协议文档，画出跨进程任务与产物交换；不把 A2A 当消息队列。",
+      "reading_entry": {
+        "path": "README.md",
+        "url": "https://github.com/a2aproject/A2A/blob/main/README.md",
+        "blob_sha": "d7c621c669e2c2961b9ecff27c79a466680e3084",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "openai/codex",
+      "title": "Codex",
+      "url": "https://github.com/openai/codex",
+      "verified_at": "2026-11-12",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/openai/codex/blob/main/LICENSE",
+      "license_blob_sha": "4606e72e042564097e8780d66c1d4dcb611869bd",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "09",
+      "exercise": "阅读 Rust thread manager 的依赖边界，借鉴生命周期、工具与审批机制，不调用 Codex CLI 充当自有 runtime。",
+      "reading_entry": {
+        "path": "codex-rs/core/src/thread_manager.rs",
+        "url": "https://github.com/openai/codex/blob/main/codex-rs/core/src/thread_manager.rs",
+        "blob_sha": "b7d841c3990960f706b6a004910c495a7f6d84e9",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "0xPlaygrounds/rig",
+      "title": "Rig",
+      "url": "https://github.com/0xPlaygrounds/rig",
+      "verified_at": "2026-11-12",
+      "license": "MIT",
+      "license_url": "https://github.com/0xPlaygrounds/rig/blob/main/LICENSE",
+      "license_blob_sha": "878b5fbc3deb84fe0ea016c2b1e6f6fdc8325154",
+      "license_note": "Checked LICENSE header/terms; individual files and third-party components may differ.",
+      "chapters": "09",
+      "exercise": "区分模型抽象库与 CLI，选择模型适配接口学习；main 与已发布版本可能差异很大。",
+      "reading_entry": {
+        "path": "README.md",
+        "url": "https://github.com/0xPlaygrounds/rig/blob/main/README.md",
+        "blob_sha": "6e119fe027c7b83ddaa945f74dc2967c1f87bc5f",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "huggingface/context-course",
+      "title": "Hugging Face Context Course",
+      "url": "https://github.com/huggingface/context-course",
+      "verified_at": "2026-11-12",
+      "license": null,
+      "license_url": null,
+      "license_blob_sha": null,
+      "license_note": "Not verified: root LICENSE returned 404; context-course LICENSE.md also returned 404. Does not prove absence of all licensing terms.",
+      "chapters": "03、07–10",
+      "exercise": "已确认官方仓库；阅读 Skills/MCP/Subagents/Hooks/Nano Harness 课程目录。许可证未确认，只链接学习。",
+      "reading_entry": {
+        "path": "README.md",
+        "url": "https://github.com/huggingface/context-course/blob/main/README.md",
+        "blob_sha": "1efa091c61ae0b9abf1f6e523a995c4f28c923c4",
+        "inspection": "Entry content inspected; not a full source audit."
+      }
+    },
+    {
+      "repository": "amangupta05/agent-engineering-curriculum",
+      "title": "Agent Engineering Curriculum（匹配候选）",
+      "url": "https://github.com/amangupta05/agent-engineering-curriculum",
+      "verified_at": "2026-11-12",
+      "license": null,
+      "license_url": null,
+      "license_blob_sha": null,
+      "license_note": "Not verified: root LICENSE returned 404; context-course LICENSE.md also returned 404. Does not prove absence of all licensing terms.",
+      "chapters": "11–12",
+      "exercise": "匹配到同名课程，但原清单没给 owner，许可证未确认；仅作高级知识索引，不复制教材。",
+      "reading_entry": {
+        "path": "README.md",
+        "url": "https://github.com/amangupta05/agent-engineering-curriculum/blob/main/README.md",
+        "blob_sha": null,
+        "inspection": "Repository/search metadata only; not inspected source."
+      }
+    }
+  ]
+}

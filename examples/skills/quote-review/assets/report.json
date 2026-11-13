@@ -1,0 +1,8 @@
+{
+  "totals": [
+    {"quote_id": "A", "total_cents": null},
+    {"quote_id": "B", "total_cents": 250}
+  ],
+  "incomplete_quote_ids": ["A"],
+  "cheapest_quote_id": null
+}

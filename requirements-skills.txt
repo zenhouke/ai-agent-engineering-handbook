@@ -1,0 +1,2 @@
+# Optional educational Skill loader; no model or training dependencies.
+PyYAML==6.0.3

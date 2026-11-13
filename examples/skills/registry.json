@@ -1,0 +1,10 @@
+{
+  "quote-review": {
+    "version": "1.0.0",
+    "sha256": "8c5709cf59a268d8ebf4c27275cad170db2e4767e2475094912bd187f57a7329",
+    "bindings": [
+      "read_quote"
+    ],
+    "metadata_sha256": "36422db8be6a0d5b725d9569fa805c791aafdc5909ad60d209e0fee2b602b43e"
+  }
+}

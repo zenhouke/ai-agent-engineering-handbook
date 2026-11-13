@@ -79,5 +79,6 @@
       "measure": "Inspect a tiny known graph.",
       "case": "Reference values: weight 1.8, loss before 4, after .16; training is not executed."
     }
-  ]
+  ],
+  "scope": "The reference shows one PyTorch autograd/SGD update. The standard-library lab illustrates gradients numerically; no model training is run."
 }

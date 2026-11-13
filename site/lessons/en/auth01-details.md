@@ -6,4 +6,4 @@ The reference implements application sessions and pending draft preparation, not
 
 Consumption prepares a pending local operation, not a remote write. Workers recheck current revocation/policy before fresh effects and query existing UNKNOWN outcomes. Session expiry does not erase tasks or issued effects.
 
-References: [Official 1](https://docs.cedarpolicy.com/authorization/overview.html), [Official 2](https://openfga.dev/docs/authorization-concepts).
+References: [Cedar Authorization](https://docs.cedarpolicy.com/auth/authorization.html), [OpenFGA Authorization Concepts](https://openfga.dev/docs/authorization-concepts).

@@ -9,4 +9,4 @@
 **测试范围：** 没有模型请求、网络采购或训练。SDK 测试证明所列契约与拒绝路径，不证明任意第三方技能安全。摘要固定用于检测变更，不能把恶意包变成可信包。
 
 
-依据：[Official 1](https://agentskills.io/client-implementation/adding-skills-support), [Official 2](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。
+依据：[Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support), [MCP Architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。

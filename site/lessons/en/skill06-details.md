@@ -14,4 +14,4 @@ Precision is TP/(TP+FP); recall is TP/(TP+FN). Zero denominators are undefined. 
 Current checks cover format, helpers, loading and authorization, with no model-selection experiment or uplift statistic. Skill evaluation belongs to the architecture evaluation module; telemetry and trust connect to observability and security, whose evidence remains distinct.
 
 
-References: [Official 1](https://agentskills.io/skill-creation/evaluating-skills)。
+References: [Agent Skills Evaluation](https://agentskills.io/skill-creation/evaluating-skills)。

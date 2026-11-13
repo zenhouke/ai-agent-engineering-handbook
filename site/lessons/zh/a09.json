@@ -91,5 +91,6 @@
       "title": "Temporal：持久等待与 Activity 重试",
       "scope": "框架参考代码；未启动 Temporal 服务或 Worker，未执行远程 Activity。"
     }
-  ]
+  ],
+  "scope": "主代码检查本地步数与期限预算；框架和 Outbox 配套示例各自标注恢复范围，截止检查不保证已发出的外部调用已取消。"
 }

@@ -32,7 +32,7 @@ Tool 是可执行能力，Resource 是由应用选用的上下文，Prompt 是�
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -84,4 +84,4 @@ Server 返回 Prompt 模板，是否就启动了一个 Agent？
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

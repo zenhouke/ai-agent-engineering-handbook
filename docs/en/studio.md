@@ -42,11 +42,41 @@ Use the order as the business spine. Agents interpret and propose; scoped worker
 
 **Concrete trace:** A 1000 CNY job requires a 300 CNY deposit: a chat claim is insufficient; verify a matching 30000-minor-unit receipt.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Discover and deduplicate native order IDs
+2. Freeze scope and quote with the lead agent
+3. Human approves exact platform communication
+4. Verify confirmation and deposit before start
+
+**State** Order/quote revisions, customer confirmation, verified funds, commercial and run approvals.
+
+**Failure / recovery** Changed terms reopen quotation; a payment claim waits for verification.
+
+**Verification** Zero starts without quote/funds gates; quotes trace back to scoped requirements.
+
+</details>
+
 ### 2 · Durable state + frozen handoffs
 
 ![Durable state + frozen handoffs](../../assets/diagrams/projects/studio/en/solution-2.png)
 
 **Concrete trace:** Report v3 was approved; v4 changes an attachment and needs renewed review despite the same order ID.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Freeze workflow and bounded work units
+2. Execution agent commits versioned artifacts
+3. Reviewer binds original content hashes
+4. Approve exact delivery after full settlement
+
+**State** Flow snapshot, task/run, scopes, artifact hashes, original references and review/delivery approvals.
+
+**Failure / recovery** Changed output invalidates delivery approval; rejected work returns to its owner.
+
+**Verification** Delivered hash equals reviewed hash; reject cross-order access and credential exposure.
+
+</details>
 
 ### 3 · Isolated workers + action ledger
 
@@ -54,11 +84,26 @@ Use the order as the business spine. Agents interpret and propose; scoped worker
 
 **Concrete trace:** Delivery reached the platform but its response was lost: reconcile the original action instead of resending under a new key.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Atomically persist action and unique operation
+2. Current owner claims authorized work
+3. Send exact payload and save native receipt
+4. Lost response enters UNKNOWN reconciliation
+
+**State** Owner token, operation ID, payload hash, attempt, native receipt and unknown/confirmed state.
+
+**Failure / recovery** Fence obsolete owners; unqueryable platform writes require human reconciliation.
+
+**Verification** Repeated events create no new operation; uncertainty remains visible and traceable.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -660,4 +705,4 @@ No. Run authority, commercial terms, verified funds and exact artifact delivery 
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

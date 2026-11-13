@@ -79,5 +79,6 @@
       "measure": "Quality, diversity and format failures.",
       "case": "A length-limited half-object is not a complete answer."
     }
-  ]
+  ],
+  "scope": "The code is a smoothed character-bigram count model; modern tokenization, embeddings and decoding services require separate implementations."
 }

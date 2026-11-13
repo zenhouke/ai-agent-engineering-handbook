@@ -15,4 +15,4 @@ Provider call_id correlates model observations; JSON-RPC id correlates one MCP r
 Real MCP is used with a fixed synthetic model proposal. Direct SDK execution needs no MCP, and fixed workflows can use MCP without model Function Calling. Schema constraints, errors and versions require explicit adaptation at the Host.
 
 
-References: [Official 1](https://developers.openai.com/api/docs/guides/function-calling), [Official 2](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。
+References: [OpenAI Function Calling](https://developers.openai.com/api/docs/guides/function-calling), [MCP Architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。

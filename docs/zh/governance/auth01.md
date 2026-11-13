@@ -36,11 +36,41 @@
 
 **具体推演：** operator可提出草稿，reviewer可审批，但不是同一职责。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 可信查成员角色
+2. 匹配动作集合
+3. 默认拒绝未知角色
+4. 记录策略版本
+
+**关键状态** subject/tenant/role/action。
+
+**失败与恢复** 不能接受模型传来的role；允许read_quote不等于可读任意报价。
+
+**如何验证** 角色变化立即影响后续动作。
+
+</details>
+
 ### 2 · ABAC
 
 ![ABAC](../../../assets/diagrams/architecture/permissions/auth01/zh/solution-2.png)
 
 **具体推演：** Alice有create_draft角色，但金额超出其限额仍拒绝。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 读取可信属性
+2. 比较租户与所有者
+3. 检查金额和证据版
+4. 返回原因与版本
+
+**关键状态** 资源所属、限额、证据版、policy epoch。
+
+**失败与恢复** 相同角色也可能因金额或跨租户被拒绝；旧allow不能永久缓存。
+
+**如何验证** 跨租户、超限、新证据拒绝。
+
+</details>
 
 ### 3 · ReBAC
 
@@ -48,11 +78,26 @@
 
 **具体推演：** 用OpenFGA建项目成员到报价的viewer关系；不是在Prompt中写“同团队”。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 建授权关系模型
+2. 写受控关系元组
+3. 查询subject对object关系
+4. 按一致性要求执行
+
+**关键状态** 关系元组、模型版本、查询一致性。
+
+**失败与恢复** 知道对象ID不建立关系；新撤销后的旧查询结果不可无限复用。
+
+**如何验证** 共享/撤销/继承与跨租户隔离。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -82,7 +127,7 @@ def narrow_worker(
 
 审批只被原子消费为本地pending操作，没有执行网络写入。执行worker在新副作用前仍须复核撤销/权限，已有UNKNOWN先查原回执。会话失效不抹除业务任务或已经产生的外部效果。
 
-依据：[Official 1](https://docs.cedarpolicy.com/authorization/overview.html), [Official 2](https://openfga.dev/docs/authorization-concepts).
+依据：[Cedar Authorization](https://docs.cedarpolicy.com/auth/authorization.html), [OpenFGA Authorization Concepts](https://openfga.dev/docs/authorization-concepts).
 
 
 ### 局部角色与属性策略
@@ -157,4 +202,4 @@ RBAC、ABAC、ReBAC必须三选一吗？
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

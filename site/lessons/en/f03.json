@@ -79,5 +79,6 @@
       "measure": "Audit entity overlap and future features.",
       "case": "Hold suppliers out as whole groups when targeting unseen suppliers."
     }
-  ]
+  ],
+  "scope": "The code supplies a time-split scaling/logistic-regression pipeline. Tree models, threshold tuning and production drift monitoring are design alternatives."
 }

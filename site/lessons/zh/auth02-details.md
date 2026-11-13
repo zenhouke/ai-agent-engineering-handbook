@@ -6,4 +6,4 @@ PEP/PDP位置、缓存失效键、不可用处理、委派范围与审计关联�
 
 审批只被原子消费为本地pending操作，没有执行网络写入。执行worker在新副作用前仍须复核撤销/权限，已有UNKNOWN先查原回执。会话失效不抹除业务任务或已经产生的外部效果。
 
-依据：[Official 1](https://www.openpolicyagent.org/docs/policy-language), [Official 2](https://openfga.dev/docs/authorization-concepts).
+依据：[OPA Policy Language](https://www.openpolicyagent.org/docs/policy-language), [OpenFGA Authorization Concepts](https://openfga.dev/docs/authorization-concepts).

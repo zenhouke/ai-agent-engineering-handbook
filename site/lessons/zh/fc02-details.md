@@ -15,4 +15,4 @@
 本例复用真实 MCP SDK，但模型提议是固定测试输入。另一条直接 SDK 路径无需 MCP；固定工作流用 MCP 时也无需生成 Function Calling。Function Calling 与 MCP 的 schema 约束、错误层次及版本各自不同，必须在 Host 边界适配。
 
 
-依据：[Official 1](https://developers.openai.com/api/docs/guides/function-calling), [Official 2](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。
+依据：[OpenAI Function Calling](https://developers.openai.com/api/docs/guides/function-calling), [MCP Architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。

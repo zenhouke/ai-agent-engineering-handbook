@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 from asset_paths import VISUAL_MANIFEST, lesson_diagrams, prune_lesson_diagrams
@@ -102,6 +103,7 @@ def render_diagrams(data: dict, ui: dict, language: str, item: dict) -> list[Pat
 
 def render_lessons() -> None:
     manifest = load_curriculum()
+    by_id = {item["id"]: item for item in manifest}
     visual_index = []
     for language in ("zh", "en"):
         ui = json.loads((ROOT / f"site/i18n/visual-{language}.json").read_text())
@@ -123,6 +125,13 @@ def render_lessons() -> None:
                 }
             )
             prefix = "../../../" if language == "zh" else "../../"
+            source_field = "source" if language == "zh" else "en_source"
+            localized_links = {
+                key: Path(
+                    os.path.relpath(ROOT / by_id[key][source_field], destination.parent)
+                ).as_posix()
+                for key in ("code-guide", "resources")
+            }
             intro = data.get("intro_image", {})
             lines = [
                 f"# {title}",
@@ -155,6 +164,15 @@ def render_lessons() -> None:
                         f"### {index + 1} · {name}",
                         f"![{name}]({prefix}{image})",
                         f"**{ui['walkthrough']}** {procedure['case']}",
+                        f"<details><summary>{ui['procedure_text']}</summary>",
+                        "\n".join(
+                            f"{step + 1}. {text}"
+                            for step, text in enumerate(procedure["steps"])
+                        ),
+                        f"**{ui['state']}** {procedure['state']}",
+                        f"**{ui['failure']}** {procedure['failure']}",
+                        f"**{ui['measure']}** {procedure['measure']}",
+                        "</details>",
                     ]
             if key == "f07":
                 lines += [
@@ -171,7 +189,7 @@ def render_lessons() -> None:
             lines += [
                 f"## {ui['code']}",
                 ui["code_note"],
-                f"[{ui['code_guide']}]({prefix}docs/zh/projects/03-code-guide.md)",
+                f"[{ui['code_guide']}]({localized_links['code-guide']})",
                 f"<details><summary>{ui['expand_code']}</summary>",
                 "```python\n" + code.rstrip() + "\n```",
                 "</details>",
@@ -215,7 +233,7 @@ def render_lessons() -> None:
                     notes.read_text(),
                     "</details>",
                 ]
-            lines += [f"[{ui['sources']}]({prefix}docs/zh/resources.md)"]
+            lines += [f"[{ui['sources']}]({localized_links['resources']})"]
             write_changed(destination, "\n\n".join(lines) + "\n")
     write_changed(
         VISUAL_MANIFEST,

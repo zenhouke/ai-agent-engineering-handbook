@@ -12,4 +12,4 @@
 strict=true 有助于约束参数结构，不能证明对象可访问、价格有证据或业务动作已发生。流式参数要等该调用完整结束并校验后再执行；不能边收到一段 JSON 边触发写入。
 
 
-依据：[Official 1](https://developers.openai.com/api/docs/guides/function-calling), [Official 2](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)。
+依据：[OpenAI Function Calling](https://developers.openai.com/api/docs/guides/function-calling), [Anthropic Tool Use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)。

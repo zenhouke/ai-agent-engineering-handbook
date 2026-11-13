@@ -36,11 +36,41 @@ Disclose catalog, instructions and resources separately; deduplicate within the 
 
 **Concrete trace:** Do not equate intent selection with a keyword match.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Expose metadata
+2. Model proposes activation
+3. Validate chosen name
+4. Inject selected body
+
+**State** Catalog, activation schema and active set.
+
+**Failure / recovery** Ambiguous descriptions misroute; reject unknown names.
+
+**Verification** Selection precision/recall and injected context cost.
+
+</details>
+
 ### 2 · Explicit activation
 
 ![Explicit activation](../../assets/diagrams/intermediate/skills/skill03/en/solution-2.svg)
 
 **Concrete trace:** Two activations retain one copy of the review method.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Receive explicit name
+2. Check registry scope
+3. Verify pinned digest
+4. Deduplicate this session
+
+**State** Task session and name/version/digest.
+
+**Failure / recovery** New tasks cannot inherit old permissions.
+
+**Verification** No duplicate injection or cross-session leakage.
+
+</details>
 
 ### 3 · Candidate retrieval
 
@@ -48,11 +78,26 @@ Disclose catalog, instructions and resources separately; deduplicate within the 
 
 **Concrete trace:** Do not inject 200 bodies; no relevant candidate means no forced activation.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Apply scope filters
+2. Retrieve metadata
+3. Select or refine
+4. Expand candidates when justified
+
+**State** Retrieval version, candidate cap and misses.
+
+**Failure / recovery** Retrieval is a Host option, not a format requirement.
+
+**Verification** Candidate recall, selection, tokens and latency.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -99,7 +144,7 @@ The baseline pattern exposes names/descriptions and lets the model load a select
 Integrity reads touch bundle bytes without injecting all resources. Character budgets are illustrative; production needs the relevant tokenizer. Session-local state is not durable recovery or an OS sandbox, and storage is assumed trusted/read-only. Updates need a new reviewed registration while active tasks retain their pinned package.
 
 
-References: [Official 1](https://agentskills.io/client-implementation/adding-skills-support)。
+References: [Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support)。
 
 
 ### Sessions and trusted policy
@@ -476,4 +521,4 @@ No. Disk reads, integrity verification and model-context injection differ. The e
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

@@ -36,11 +36,41 @@ Identity, application session, conversation, task and run have different lifetim
 
 **Concrete trace:** The Skills Session is only a context container.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Create session object
+2. Keep temporary state
+3. Scope its task
+4. Discard at end
+
+**State** Subject and session lifetime.
+
+**Failure / recovery** A Python session object is not an authentication credential.
+
+**Verification** No cross-subject inheritance.
+
+</details>
+
 ### 2 · Server session + task store
 
 ![Server session + task store](../../assets/diagrams/architecture/sessions/session01/en/solution-2.png)
 
 **Concrete trace:** Alice resumes in a new session; Bob cannot use a guessed task ID.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Inject identity
+2. Create server session
+3. Persist independent task
+4. Authorize each access
+
+**State** session_id, subject, tenant, task_id and version.
+
+**Failure / recovery** Session closure does not cancel effects.
+
+**Verification** Cross-scope denial and task survival.
+
+</details>
 
 ### 3 · Framework thread/checkpointer
 
@@ -48,11 +78,26 @@ Identity, application session, conversation, task and run have different lifetim
 
 **Concrete trace:** Authorize access before loading a LangGraph thread.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Map task to thread
+2. Persist checkpoint
+3. Authorize actor
+4. Resume same thread
+
+**State** Task mapping, thread ID and checkpoint version.
+
+**Failure / recovery** Storage does not invent business authorization.
+
+**Verification** Authorized resume and cross-scope denial.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -82,7 +127,7 @@ The reference implements application sessions and pending draft preparation, not
 
 Consumption prepares a pending local operation, not a remote write. Workers recheck current revocation/policy before fresh effects and query existing UNKNOWN outcomes. Session expiry does not erase tasks or issued effects.
 
-References: [Official 1](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html), [Official 2](https://docs.langchain.com/oss/python/langgraph/persistence).
+References: [OWASP Session Management](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html), [LangGraph Persistence](https://docs.langchain.com/oss/python/langgraph/persistence).
 
 
 ### Identity, context and action contracts
@@ -260,4 +305,4 @@ No. Session invalidation, task cancellation and remote reconciliation are distin
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

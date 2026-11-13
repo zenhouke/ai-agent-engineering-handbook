@@ -53,7 +53,7 @@
       "state": "Layer K/V, positions, length and cache ownership.",
       "failure": "Do not mix models/prefixes/access scopes; long context still costs memory.",
       "measure": "First-token latency, token time and KV bytes.",
-      "case": "The stated 32-layer example needs about 512 MiB of KV, excluding other memory."
+      "case": "B=1, 32 layers, 4096 tokens, 8 KV heads, head dimension 128 and 2 bytes/element give 512 MiB of KV, excluding other tensors."
     },
     {
       "steps": [
@@ -79,5 +79,6 @@
       "measure": "Quality, latency and peak memory under fixed loads.",
       "case": "Fitting weights alone does not establish long-context concurrency capacity."
     }
-  ]
+  ],
+  "scope": "The code estimates KV bytes and admission numerically. Cache, continuous-batching and quantization benefits require real-service tests under controlled workloads."
 }

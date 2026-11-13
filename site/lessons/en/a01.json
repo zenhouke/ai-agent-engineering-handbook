@@ -79,5 +79,6 @@
       "measure": "Compare reliability/cost with ReAct on the same tasks.",
       "case": "Extraction, validation, arithmetic and approval can remain deterministic."
     }
-  ]
+  ],
+  "scope": "The code demonstrates a bounded loop with injected model/tool functions; deterministic doubles replace live model requests in tests."
 }

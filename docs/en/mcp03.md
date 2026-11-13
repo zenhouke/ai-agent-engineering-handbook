@@ -32,7 +32,7 @@ Current requests carry version metadata. Discovery is optional for clients; serv
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -92,4 +92,4 @@ No. It is tool-execution failure, distinct from request/protocol failure and bus
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

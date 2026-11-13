@@ -32,7 +32,7 @@ MCP 统一能力和上下文交换；Host 管模型、上下文和策略，Clien
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -82,4 +82,4 @@ LLM 生成了一段 read_quote 的参数，它已经发送 MCP 请求了吗？
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

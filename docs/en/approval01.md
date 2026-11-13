@@ -36,11 +36,41 @@ Approval is a server-side record bound to canonical action, evidence, tenant, ta
 
 **Concrete trace:** Liking the comparison does not approve an amount/recipient.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Prepare read-only report
+2. Preserve sources
+3. Show unknowns
+4. Await exact action request
+
+**State** Report and evidence versions.
+
+**Failure / recovery** A positive report comment does not authorize an order.
+
+**Verification** Zero writes before approval.
+
+</details>
+
 ### 2 · Server-side action approval
 
 ![Server-side action approval](../../assets/diagrams/architecture/approvals/approval01/en/solution-2.png)
 
 **Concrete trace:** 25000 cents to supplier-a is not approval for supplier-b.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Check request authority
+2. Fix action fields
+3. Review identical action
+4. Persist approver/deadline
+
+**State** Tenant/task, hash, evidence, requester/approver and expiry.
+
+**Failure / recovery** Changed facts require review; no self-approval in this example.
+
+**Verification** Mutation, self-approval, tenant and expiry denial.
+
+</details>
 
 ### 3 · Workflow human interrupt
 
@@ -48,11 +78,26 @@ Approval is a server-side record bound to canonical action, evidence, tenant, ta
 
 **Concrete trace:** LangGraph/Temporal resume execution; service validates authority.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Persist pending action
+2. Interrupt/signal wait
+3. Authenticate review entry
+4. Validate approval record
+
+**State** Workflow ID, pending action and approval reference.
+
+**Failure / recovery** resume=true is not an approval credential.
+
+**Verification** No effect without valid approval.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -87,7 +132,7 @@ The reference implements application sessions and pending draft preparation, not
 
 Consumption prepares a pending local operation, not a remote write. Workers recheck current revocation/policy before fresh effects and query existing UNKNOWN outcomes. Session expiry does not erase tasks or issued effects.
 
-References: [Official 1](https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html), [Official 2](https://docs.langchain.com/oss/python/langgraph/interrupts).
+References: [OWASP Transaction Authorization](https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html), [LangGraph Interrupts](https://docs.langchain.com/oss/python/langgraph/interrupts).
 
 
 ### Server-side approval and consumption
@@ -287,4 +332,4 @@ Not necessarily: bind actor/task/action and reauthenticate/re-authorize the new 
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

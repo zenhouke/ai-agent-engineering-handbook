@@ -13,4 +13,4 @@
 参考实现检查产物完整性和来源后才调用就绪节点选择。它展示编排契约，不自动规划所有步骤，也没有安装多个第三方技能。实际多方法并行还须接入 Runtime 的预算、取消、检查点和版本策略。
 
 
-依据：[Official 1](https://agentskills.io/specification)。
+依据：[Agent Skills Specification](https://agentskills.io/specification)。

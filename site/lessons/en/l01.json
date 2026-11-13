@@ -79,5 +79,6 @@
       "measure": "Evidence support and arithmetic consistency.",
       "case": "1000×180 cents is a subtotal, not a total including unknown shipping."
     }
-  ]
+  ],
+  "scope": "The code checks quotation fields and caller-supplied evidence IDs, withholding totals when shipping is unknown. Full schema parsing and factual evidence verification remain separate."
 }

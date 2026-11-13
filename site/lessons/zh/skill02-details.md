@@ -13,4 +13,4 @@ description 要让模型区分“审查报价”和“创建订单”；正文�
 Agent Skills 是包格式与加载约定，没有在本例中强制一个跨 Host 的执行引擎。metadata.version、注册表、摘要固定和工具绑定都是示例应用的部署约定。allowed-tools 为实验字段，不能把声明解释为绕过可信 Host 权限。
 
 
-依据：[Official 1](https://agentskills.io/specification)。
+依据：[Agent Skills Specification](https://agentskills.io/specification)。

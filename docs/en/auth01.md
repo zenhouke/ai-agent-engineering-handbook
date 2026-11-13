@@ -36,11 +36,41 @@ Authorize trusted principal/action/resource/context. RBAC maps roles, ABAC check
 
 **Concrete trace:** Operators propose drafts; reviewers approve them.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Read trusted membership
+2. Check action set
+3. Deny unknown roles
+4. Record policy version
+
+**State** Subject, tenant, role and action.
+
+**Failure / recovery** Model roles are untrusted; read_quote does not grant every object.
+
+**Verification** Role changes affect later actions.
+
+</details>
+
 ### 2 · ABAC
 
 ![ABAC](../../assets/diagrams/architecture/permissions/auth01/en/solution-2.png)
 
 **Concrete trace:** A role allowing drafts still rejects excessive amounts.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Load trusted facts
+2. Check tenant/owner
+3. Check limit/evidence
+4. Return reason/version
+
+**State** Resource ownership, limits, evidence and policy epoch.
+
+**Failure / recovery** An old allow is not permanent.
+
+**Verification** Cross-scope, excess amount and evidence-change denial.
+
+</details>
 
 ### 3 · ReBAC
 
@@ -48,11 +78,26 @@ Authorize trusted principal/action/resource/context. RBAC maps roles, ABAC check
 
 **Concrete trace:** OpenFGA can model project membership to quotation viewer access.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Define relations
+2. Write trusted tuples
+3. Check subject/object relation
+4. Enforce consistency
+
+**State** Relationship tuples, model version and consistency.
+
+**Failure / recovery** Knowing an ID does not establish a relation.
+
+**Verification** Sharing, revocation, inheritance and isolation.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -82,7 +127,7 @@ The reference implements application sessions and pending draft preparation, not
 
 Consumption prepares a pending local operation, not a remote write. Workers recheck current revocation/policy before fresh effects and query existing UNKNOWN outcomes. Session expiry does not erase tasks or issued effects.
 
-References: [Official 1](https://docs.cedarpolicy.com/authorization/overview.html), [Official 2](https://openfga.dev/docs/authorization-concepts).
+References: [Cedar Authorization](https://docs.cedarpolicy.com/auth/authorization.html), [OpenFGA Authorization Concepts](https://openfga.dev/docs/authorization-concepts).
 
 
 ### Local role/attribute policy
@@ -157,4 +202,4 @@ No. Coarse role gates can combine with attributes/relations based on the domain.
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

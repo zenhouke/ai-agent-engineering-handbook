@@ -13,4 +13,4 @@
 **贯穿案例：** A 单价180分、运费未知，B 单价170分、运费80分。技能教会保留未知，工具提供证据，程序计算总价；本报告契约在所有总价已知前不宣布最便宜。技能不会让基础模型参数发生变化。
 
 
-依据：[Official 1](https://agentskills.io/specification), [Official 2](https://agentskills.io/client-implementation/adding-skills-support)。
+依据：[Agent Skills Specification](https://agentskills.io/specification), [Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support)。

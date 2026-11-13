@@ -36,11 +36,41 @@ Separate selection, artifact quality and operating cost. Pair identical tasks wi
 
 **Concrete trace:** Reject a definitive A total when shipping remains unknown.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Parse actual metadata
+2. Check resource paths
+3. Run deterministic helper
+4. Reject changed bundles
+
+**State** Formats, input/output boundaries and bundle digest.
+
+**Failure / recovery** Null-to-zero must fail; integrity is not behavior quality.
+
+**Verification** Money, unknowns, scope and traversal denial.
+
+</details>
+
 ### 2 · Selection + ablation
 
 ![Selection + ablation](../../assets/diagrams/intermediate/skills/skill06/en/solution-2.svg)
 
 **Concrete trace:** Review reports should activate; weather requests should not. No fabricated results.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Create positive/negative tasks
+2. Fix model/tool environment
+3. Run paired variants
+4. Separate quality/cost metrics
+
+**State** Prompt variants, snapshots, outputs, traces and rubric version.
+
+**Failure / recovery** High selection can be overactivation; calibrate semantic judging.
+
+**Verification** Precision/recall, completeness, violations, tokens and p95.
+
+</details>
 
 ### 3 · Versioned rollout/regression
 
@@ -48,11 +78,26 @@ Separate selection, artifact quality and operating cost. Pair identical tasks wi
 
 **Concrete trace:** Keep old packages/contracts available for tasks already pinned to them.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Review candidate bundle
+2. Pin version/digest
+3. Regress limited rollout
+4. Rollback with audit
+
+**State** Version, artifact contract, traces and active-task pins.
+
+**Failure / recovery** Never silently replace an active task bundle.
+
+**Verification** Reproducible old/new regression and rollback.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -103,7 +148,7 @@ Precision is TP/(TP+FP); recall is TP/(TP+FN). Zero denominators are undefined. 
 Current checks cover format, helpers, loading and authorization, with no model-selection experiment or uplift statistic. Skill evaluation belongs to the architecture evaluation module; telemetry and trust connect to observability and security, whose evidence remains distinct.
 
 
-References: [Official 1](https://agentskills.io/skill-creation/evaluating-skills)。
+References: [Agent Skills Evaluation](https://agentskills.io/skill-creation/evaluating-skills)。
 
 
 ## Change a condition
@@ -116,4 +161,4 @@ No. Deterministic correctness and model benefit differ; without paired measureme
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

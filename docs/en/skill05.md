@@ -36,11 +36,41 @@ Compose around task dependencies and typed artifacts. Methods do not replace sta
 
 **Concrete trace:** Unknown shipping must stay unknown in later stages.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Define stage contracts
+2. Run first method
+3. Validate artifact
+4. Pass accepted output
+
+**State** Schemas, skill version and provenance.
+
+**Failure / recovery** An invalid artifact cannot complete a node.
+
+**Verification** Schema, provenance and uncertainty propagation.
+
+</details>
+
 ### 2 · Explicit DAG
 
 ![Explicit DAG](../../assets/diagrams/intermediate/skills/skill05/en/solution-2.svg)
 
 **Concrete trace:** Independent markets run together; comparison waits for necessary evidence.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Declare edges
+2. Check cycles/policy
+3. Run ready branches
+4. Validate before join
+
+**State** Node state, budget, artifact version and deadline.
+
+**Failure / recovery** Required-branch failure blocks dependents.
+
+**Verification** Cycles, missing inputs and failure propagation.
+
+</details>
 
 ### 3 · Plan-and-Execute replanning
 
@@ -48,11 +78,26 @@ Compose around task dependencies and typed artifacts. Methods do not replace sta
 
 **Concrete trace:** Recompare/reapprove changed quotes; reconcile unknown writes first.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Receive new evidence
+2. Supersede stale nodes
+3. Invalidate descendants
+4. Plan under constraints
+
+**State** Plan version, reasons, approval hash and pending effects.
+
+**Failure / recovery** A new plan cannot erase an already-issued write.
+
+**Verification** Approval invalidation and pending-effect retention.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -112,7 +157,7 @@ Artifacts need schema versions, provenance and acceptance status. Consumers vali
 The reference validates completeness/provenance before selecting ready nodes. It demonstrates orchestration contracts, not autonomous universal planning or installed third-party Skills. Parallel methods still require Runtime budgets, cancellation, checkpoints and version control.
 
 
-References: [Official 1](https://agentskills.io/specification)。
+References: [Agent Skills Specification](https://agentskills.io/specification)。
 
 
 ## Change a condition
@@ -148,4 +193,4 @@ No. State follows observed results. Revise the plan and retain the unresolved co
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

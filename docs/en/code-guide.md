@@ -4,11 +4,10 @@ Training code is supplied for reading; actually training a model is not required
 
 | Stage | Implementations | Inspect |
 |---|---|---|
-| Foundations | Task contracts, autograd, classification pipeline, MLP, CNN, bigram | Shapes, data boundaries, training versus inference |
-| LLM mechanics | Causal decoder block, LoRA layer, KV estimate | Mask direction, frozen weights, dimensions |
-| Applications | Output/evidence checks, unknown shipping, RRF | Structure versus truth, authorized candidates |
-| Agent patterns | ReAct, Plan-and-Execute, bounded Reflection | Contracts, stopping rules, plan validation |
-| Architecture | Context budgets, compaction, checkpoints, scoped memory, concurrency, approval, layered composition | Decision authority, state ownership and recovery |
+| 1 Model foundations | Task contracts, autograd, classification pipeline, MLP, CNN, bigram, decoder block, LoRA | Shapes, data boundaries, masks and frozen weights |
+| 2 Applications and Agent principles | Output checks, RRF, KV estimate, ReAct, planning/reflection, context budgets, compaction, Function Calling, MCP, Skills, checkpoints and scoped memory | Structure versus truth, proposal versus execution, methods versus state |
+| 3 Architecture design | Ownership/messages, state conflicts, sessions, delegation, approval, scheduling, recovery, evaluation/operations and deployment | Decision authority, state ownership and recovery |
+| 4 Integrated practice | Studio commercial/run/delivery gates and four offline labs | Business conditions, transaction boundaries and evidence |
 
 ## Dependencies
 
@@ -39,7 +38,7 @@ Real in-memory and stdio MCP checks cover discovery, tools/resources/prompts and
 
 ## Skills and Function Calling
 
-The actual package follows Agent Skills metadata/body/resource structure. Host digests, versions and bindings are local application conventions. Optional PyYAML 6.0.3 supports loading; MCP integration uses SDK 2.3.0. Tests cover disclosure, deduplication, scope, paths, changed bundles, artifacts and provider call correlation. Proposals are fixed inputs, not model generations; no uplift results, training, OS sandbox or durable skill runtime are claimed.
+The actual package follows Agent Skills metadata/body/resource structure. The local format validator checks a subset of constraints, including required fields; it is not a complete specification validator. Host digests, versions and bindings are local application conventions. Optional PyYAML 6.0.3 supports loading; MCP integration uses SDK 2.3.0. Tests cover disclosure, deduplication, scope, paths, changed bundles, artifacts and provider call correlation. Proposals are fixed inputs, not model generations; no uplift results, training, OS sandbox or durable skill runtime are claimed.
 
 ## Governance and multi-Agent design
 

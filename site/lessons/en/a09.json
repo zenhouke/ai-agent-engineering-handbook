@@ -91,5 +91,6 @@
       "title": "Temporal: durable waits and Activity retries",
       "scope": "Framework reference; no Temporal service/Worker is started and no remote Activity runs."
     }
-  ]
+  ],
+  "scope": "The main code checks local step/deadline budgets. Framework and outbox references state their recovery limits; deadline checks do not guarantee cancellation of an external call already issued."
 }

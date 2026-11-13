@@ -51,7 +51,7 @@
         "Backpropagate layers"
       ],
       "state": "Layer shapes and parameters.",
-      "failure": "No activation remains linear; reject shape/label mismatches.",
+      "failure": "No activation remains affine; reject shape/label mismatches.",
       "measure": "Tiny-set fitting diagnoses code; held-out data tests generalization.",
       "case": "Both the diagram and code use 2→2→1."
     },
@@ -79,5 +79,6 @@
       "measure": "Train/validation gap and repeated-run variation.",
       "case": "Choose the best validation checkpoint rather than always the last epoch."
     }
-  ]
+  ],
+  "scope": "The code defines a 2→2→1 MLP. Worked numbers are teaching examples; model quality requires independent data validation."
 }

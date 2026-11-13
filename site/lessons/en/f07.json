@@ -87,5 +87,6 @@
       "alt": "Actual attention demo screenshot: q=1, second position unmasked",
       "caption": "Captured from the local interactive demo after reset and three step clicks: output [1.4621, 0.5379]. This is a fixed numeric example, not a trained-model result; open the demo to change Query and Mask."
     }
-  ]
+  ],
+  "scope": "The code implements one causal decoder block. A complete language model also needs tokenization, position information, a vocabulary head and training/inference assembly."
 }

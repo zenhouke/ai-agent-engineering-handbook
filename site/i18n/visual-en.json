@@ -320,5 +320,6 @@
       "formula": "Mean concurrency ≈ task arrival rate × mean calls/task × mean call time",
       "footer": "Split processes by resources, authority and failure domains, not role names; validate estimates under real load."
     }
-  }
+  },
+  "procedure_text": "Expand steps, state and failure boundaries"
 }

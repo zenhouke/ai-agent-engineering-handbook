@@ -36,11 +36,41 @@
 
 **具体推演：** Skills加载器的Session只是上下文容器，不是完整登录会话。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 创建会话对象
+2. 保存临时状态
+3. 限制任务范围
+4. 结束后丢弃
+
+**关键状态** subject、会话状态、生命周期。
+
+**失败与恢复** 不能声称跨进程恢复，也不能把Python对象当登录凭据。
+
+**如何验证** 新会话不继承其他主体上下文。
+
+</details>
+
 ### 2 · 服务端会话 + 独立任务库
 
 ![服务端会话 + 独立任务库](../../../assets/diagrams/architecture/sessions/session01/zh/solution-2.png)
 
 **具体推演：** Alice用新会话继续原任务，Bob知道task_id仍不能读取。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 可信认证注入主体
+2. 服务端建会话
+3. 单独持久化任务
+4. 访问时校验主体租户
+
+**关键状态** session_id、subject、tenant、task_id、状态版本。
+
+**失败与恢复** 会话失效不等于任务取消；猜ID不能跳过归属检查。
+
+**如何验证** 跨用户/租户拒绝，会话关闭后任务仍存在。
+
+</details>
 
 ### 3 · 框架 thread + Checkpointer
 
@@ -48,11 +78,26 @@
 
 **具体推演：** LangGraph thread只定位图状态，业务层先判断谁可以恢复它。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 映射业务任务到thread
+2. 保存checkpoint
+3. 验证调用主体
+4. 恢复同一线程
+
+**关键状态** 业务任务映射、thread_id、checkpoint版本。
+
+**失败与恢复** 客户端提供别人的thread_id仍须拒绝；存储本身不能补业务授权。
+
+**如何验证** 授权恢复与跨作用域拒绝。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -82,7 +127,7 @@ def session_service(connection) -> SessionService:
 
 审批只被原子消费为本地pending操作，没有执行网络写入。执行worker在新副作用前仍须复核撤销/权限，已有UNKNOWN先查原回执。会话失效不抹除业务任务或已经产生的外部效果。
 
-依据：[Official 1](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html), [Official 2](https://docs.langchain.com/oss/python/langgraph/persistence).
+依据：[OWASP Session Management](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html), [LangGraph Persistence](https://docs.langchain.com/oss/python/langgraph/persistence).
 
 
 ### 身份、上下文与动作契约
@@ -260,4 +305,4 @@ class SessionService:
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

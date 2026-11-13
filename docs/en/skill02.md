@@ -36,11 +36,41 @@ Metadata supports discovery; the body contains the method; references, templates
 
 **Concrete trace:** Reviewing quotations is distinct from placing an order.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Define use cases
+2. Write decision rules
+3. Specify artifact
+4. Check adjacent negatives
+
+**State** Name, description and output contract.
+
+**Failure / recovery** Catch-all descriptions overactivate.
+
+**Verification** Relevant hits and false activations.
+
+</details>
+
 ### 2 · Layered package
 
 ![Layered package](../../assets/diagrams/intermediate/skills/skill02/en/solution-2.svg)
 
 **Concrete trace:** The helper rejects invented totals when shipping is null.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Reference conditions
+2. Store output template
+3. Bundle deterministic helper
+4. Read by need
+
+**State** Entrypoint links, formats and helper dependencies.
+
+**Failure / recovery** Reading source is not permission to execute it.
+
+**Verification** Actually test helpers and missing resources.
+
+</details>
 
 ### 3 · Trusted registry + digest
 
@@ -48,11 +78,26 @@ Metadata supports discovery; the body contains the method; references, templates
 
 **Concrete trace:** Same name/version with changed code fails the stored digest.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Review actual bundle
+2. Pin its digest
+3. Verify deployment bytes
+4. Review updates again
+
+**State** Provenance, version, sha256 and trusted bindings.
+
+**Failure / recovery** Rehashing modified content and automatically trusting it defeats the pin.
+
+**Verification** Body/helper changes cause rejection.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -90,7 +135,7 @@ The real package below has YAML metadata, a custom version field and a validator
 Version pins, registry bindings and bundle digests are local Host conventions. allowed-tools is experimental; a declaration does not override trusted Host policy.
 
 
-References: [Official 1](https://agentskills.io/specification)。
+References: [Agent Skills Specification](https://agentskills.io/specification)。
 
 
 ### Actual skill entrypoint
@@ -221,4 +266,4 @@ No. name and description are required. This example adds version/bindings as Hos
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

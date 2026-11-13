@@ -36,11 +36,41 @@
 
 **具体推演：** 过期session不能恢复，但同主体的新有效session可以。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 定位会话
+2. 核验主体
+3. 检查过期撤销
+4. 查当前成员关系
+
+**关键状态** subject、tenant、expires_at、revoked。
+
+**失败与恢复** 关闭会话不删除任务；不能把旧客户端标记当有效性证明。
+
+**如何验证** 过期、撤销、跨主体请求拒绝。
+
+</details>
+
 ### 2 · 版本化任务领取
 
 ![版本化任务领取](../../../assets/diagrams/architecture/sessions/session02/zh/solution-2.png)
 
 **具体推演：** 两个恢复请求读v1，只有一个可以把任务推进到v2。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 读任务版本
+2. 检查允许状态
+3. CAS更新状态
+4. 插入唯一run
+
+**关键状态** task version、run_id、session关联。
+
+**失败与恢复** run插入失败回滚状态；过期worker后续仍需fencing，本例未实现租约。
+
+**如何验证** 旧版本拒绝，唯一键故障不遗留running。
+
+</details>
 
 ### 3 · 受限后台执行身份
 
@@ -48,11 +78,26 @@
 
 **具体推演：** 人工次日审批后由受控worker续跑，不依赖昨天的浏览器Cookie。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 从已授权任务派生范围
+2. 绑定资源及截止期
+3. worker重新校验策略
+4. 执行后记录回执
+
+**关键状态** task/run、工作负载身份、委派范围与policy版本。
+
+**失败与恢复** 不是无限保留登录Token；权限撤销和未知结果仍需处理。
+
+**如何验证** 委派不扩权，过期能力不触发新写入。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -91,7 +136,7 @@ def resume_task(
 
 审批只被原子消费为本地pending操作，没有执行网络写入。执行worker在新副作用前仍须复核撤销/权限，已有UNKNOWN先查原回执。会话失效不抹除业务任务或已经产生的外部效果。
 
-依据：[Official 1](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).
+依据：[OWASP Session Management](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).
 
 
 ### 持久化约束
@@ -146,4 +191,4 @@ CREATE TABLE operations (
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

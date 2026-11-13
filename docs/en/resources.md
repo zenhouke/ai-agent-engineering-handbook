@@ -4,11 +4,11 @@
 
 ## Read each source to answer a specific question
 
-The course organization draws on D2L for a progression from mathematical prerequisites to models, Neural Networks: Zero to Hero for inspecting small numerical computations, LLM Cookbook for required versus optional application topics, and Hello-Agents for the progression toward agent construction.
+The course organization draws on [D2L](https://d2l.ai/chapter_preface/index.html) for a progression from mathematical prerequisites to models, [Neural Networks: Zero to Hero](https://github.com/karpathy/nn-zero-to-hero) for inspecting small numerical computations, [LLM Cookbook](https://github.com/datawhalechina/llm-cookbook) for required versus optional application topics, and [Hello-Agents](https://github.com/datawhalechina/hello-agents) for the progression toward agent construction.
 
 The explanations, examples and vector diagrams in this repository are independently written. Reference courses have their own prerequisites and licenses. Reading their tables of contents is not a claim to have executed their projects.
 
-For technical mechanisms, consult the original Transformer and LoRA papers and official framework documentation. Record a version before relying on a changing software interface. Avoid collecting frameworks without completing a concrete reading exercise.
+For technical mechanisms, consult the original [Transformer](https://arxiv.org/abs/1706.03762), [LoRA](https://arxiv.org/abs/2106.09685) and [ReAct](https://arxiv.org/abs/2210.03629) papers and official framework documentation. Record a version before relying on a changing software interface. Avoid collecting frameworks without completing a concrete reading exercise.
 
 ## Check your understanding
 

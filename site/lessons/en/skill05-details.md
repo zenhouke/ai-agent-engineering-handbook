@@ -13,4 +13,4 @@ Artifacts need schema versions, provenance and acceptance status. Consumers vali
 The reference validates completeness/provenance before selecting ready nodes. It demonstrates orchestration contracts, not autonomous universal planning or installed third-party Skills. Parallel methods still require Runtime budgets, cancellation, checkpoints and version control.
 
 
-References: [Official 1](https://agentskills.io/specification)。
+References: [Agent Skills Specification](https://agentskills.io/specification)。

@@ -79,5 +79,6 @@
       "measure": "Cross-scope denial, approval mismatch and duplicate effects.",
       "case": "Changing A to B invalidates approval of the original action."
     }
-  ]
+  ],
+  "scope": "The code demonstrates local tool registration, scope and integrity checks. Real MCP transport and SDK integration are shown separately in the MCP lessons."
 }

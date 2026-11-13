@@ -84,5 +84,6 @@
     "file": "assets/illustrations/l02/evidence-desk.png",
     "alt": "查证场景插画：对照检索结果、原书与资料",
     "caption": "AI生成的查证场景插画：检索命中只是候选材料，回答仍需回到原文核对来源、版本与适用条件。画中的页面不是实际引用证据。"
-  }
+  },
+  "scope": "代码对已给定的排名执行 RRF 融合；BM25、Embedding、索引和 reranker 是待接入的检索环节。"
 }

@@ -84,5 +84,6 @@
     "file": "assets/illustrations/f05/visual-input.png",
     "alt": "Example visual input: a mug, laptop, plant and fabric",
     "caption": "AI-generated example photograph for discussing position, edges, texture and lighting; not a collected dataset or model prediction. What information disappears if pixels are shuffled?"
-  }
+  },
+  "scope": "The code supplies a CNN structure. RNNs, Transformers, multimodal and diffusion models are mechanism comparisons rather than an implemented model suite."
 }

@@ -14,4 +14,4 @@
 正文或脚本更新后旧摘要拒绝加载。正式升级应保留旧包供活动任务续接，创建新版本注册，再决定何时把新任务切换过去。
 
 
-依据：[Official 1](https://agentskills.io/client-implementation/adding-skills-support)。
+依据：[Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support)。

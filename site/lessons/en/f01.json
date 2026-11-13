@@ -79,5 +79,6 @@
       "measure": "Evaluate complete-task success and wrong actions.",
       "case": "Use a model for quotation text, code for amounts and separate approval for ordering."
     }
-  ]
+  ],
+  "scope": "The code checks task constraints and integer cost budgets; acceptance criteria, approval and training belong to separate modules."
 }

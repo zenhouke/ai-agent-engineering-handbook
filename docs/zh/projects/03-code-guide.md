@@ -6,11 +6,10 @@
 
 | 阶段 | 已提供的实现 | 阅读时重点检查 |
 |---|---|---|
-| 初级原理 | 任务契约、自动求导、分类 Pipeline、MLP、CNN、Bigram | 输入输出、训练/推理区别、数据边界 |
-| 大模型机制 | 因果 Decoder Block、LoRA 层、KV 容量估算 | mask 方向、维度、冻结参数、内存口径 |
-| 应用方案 | 输出校验、未知运费处理、RRF 融合 | 结构不等于事实、授权候选、排名分数 |
-| Agent 范式 | ReAct、Plan-and-Execute、有限 Reflection | 工具契约、停止条件、计划校验 |
-| 高级架构 | 上下文预算、Compaction、版本化 Checkpoint、记忆范围、并发、审批与分层装配 | 谁决策、谁授权、谁存状态、失败由谁接管 |
+| 1 入门 · 模型原理 | 任务契约、自动求导、分类 Pipeline、MLP、CNN、Bigram、Decoder Block、LoRA 层 | 输入输出、数据边界、mask 方向、冻结参数 |
+| 2 进阶 · 应用与 Agent 原理 | 输出校验、RRF、KV 估算、ReAct、规划与反思、上下文预算、Compaction、Function Calling、MCP、Skills、Checkpoint、记忆范围 | 结构与事实、模型提议与执行、方法与状态的区别 |
+| 3 高级 · 架构设计 | 职责/消息契约、状态冲突、会话、权限委派、审批、并发调度、恢复、评测运营与部署装配 | 谁决策、谁授权、谁存状态、失败由谁接管 |
+| 4 综合实践 | 工作室报价、资金、运行与交付门禁；四个离线实验 | 业务条件、事务边界与验证证据 |
 
 ## 哪些代码需要依赖
 
@@ -52,7 +51,7 @@ python3 -m unittest discover -s tests -p 'test_outbox_recovery.py' -v
 
 ## Skills 与 Function Calling 专题
 
-实际技能包遵循 Agent Skills 的元数据/正文/资源结构；Host 的版本摘要、绑定与任务权限为示例应用约定，不是通用格式授权。可选依赖为 PyYAML 6.0.3；MCP 集成沿用官方 SDK 2.3.0。格式、辅助函数、按需披露、去重、路径拒绝、摘要变更、任务隔离与参数/权限契约有独立测试。
+实际技能包遵循 Agent Skills 的元数据/正文/资源结构；本地格式校验器只检查必需字段等部分约束，不替代完整规范校验。Host 的版本摘要、绑定与任务权限为示例应用约定，不是通用格式授权。可选依赖为 PyYAML 6.0.3；MCP 集成沿用官方 SDK 2.3.0。格式、辅助函数、按需披露、去重、路径拒绝、摘要变更、任务隔离与参数/权限契约有独立测试。
 
 ```sh
 python3 -m pip install -r requirements-skills.txt -r requirements-mcp.txt

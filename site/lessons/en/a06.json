@@ -79,5 +79,6 @@
       "measure": "Zero cross-scope leakage; memory recall and stale-use rate.",
       "case": "Exclude other customers before retrieving purchasing preferences."
     }
-  ]
+  ],
+  "scope": "The code filters memory by metadata and keywords. Vector retrieval, automatic extraction and cross-store deletion are further design components."
 }

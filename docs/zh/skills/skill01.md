@@ -36,11 +36,41 @@ Skill 打包可复用方法与配套资源；模型选择方法并提出动作�
 
 **具体推演：** 一次性改写段落用短 Prompt 即可。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 写当前任务要求
+2. 附必要材料
+3. 模型产生结果
+4. 按结果验收
+
+**关键状态** 当前输入和验收条件。
+
+**失败与恢复** 复制长说明易漏版本；不自动获得工具。
+
+**如何验证** 任务正确性、重复维护与输入成本。
+
+</details>
+
 ### 2 · Agent Skills 技能包
 
 ![Agent Skills 技能包](../../../assets/diagrams/intermediate/skills/skill01/zh/solution-2.svg)
 
 **具体推演：** 报价审查技能规定保留未知运费，实际报价由工具提供。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 目录呈现方法
+2. 按任务激活正文
+3. 按需读取资源
+4. 执行后验证产物
+
+**关键状态** 技能标识、版本、来源及激活状态。
+
+**失败与恢复** 加载指令不是运行代码；方法不能增加权限。
+
+**如何验证** 选择是否准确、产物是否改善。
+
+</details>
 
 ### 3 · 确定性工作流
 
@@ -48,11 +78,26 @@ Skill 打包可复用方法与配套资源；模型选择方法并提出动作�
 
 **具体推演：** 创建草稿前审批由服务规则落实，不只写在 Skill 里。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 定义状态与依赖
+2. 调用受控能力
+3. 校验节点产物
+4. 保存进度并续接
+
+**关键状态** 任务状态、版本、待执行节点、回执。
+
+**失败与恢复** 模型提议不得越过审批或状态机。
+
+**如何验证** 崩溃恢复、越权拒绝、步骤完整性。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -107,7 +152,7 @@ def build_host(root: Path | None = None) -> tuple[SkillService, Session]:
 **贯穿案例：** A 单价180分、运费未知，B 单价170分、运费80分。技能教会保留未知，工具提供证据，程序计算总价；本报告契约在所有总价已知前不宣布最便宜。技能不会让基础模型参数发生变化。
 
 
-依据：[Official 1](https://agentskills.io/specification), [Official 2](https://agentskills.io/client-implementation/adding-skills-support)。
+依据：[Agent Skills Specification](https://agentskills.io/specification), [Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support)。
 
 
 ## 改变条件，检查理解
@@ -120,4 +165,4 @@ Skill、Function Calling、MCP 和工作流可以一起使用吗？
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

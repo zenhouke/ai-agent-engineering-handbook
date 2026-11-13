@@ -36,11 +36,41 @@
 
 **具体推演：** 同一session中的角色降级立即阻止新run。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 集中权限函数
+2. 可信传入上下文
+3. 每次查当前对象
+4. 记录决策原因
+
+**关键状态** 业务对象、身份与策略版本。
+
+**失败与恢复** handlers不得绕过service访问repos；相同拒绝逻辑不可散落。
+
+**如何验证** 入口和后台任务复用同一拒绝规则。
+
+</details>
+
 ### 2 · 外部策略引擎
 
 ![外部策略引擎](../../../assets/diagrams/architecture/permissions/auth02/zh/solution-2.png)
 
 **具体推演：** 不能只按user_id缓存allow并复用于另一个对象。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. PEP构造可信输入
+2. PDP求值
+3. 处理不可用为拒绝或受审策略
+4. 执行前检查事实新鲜
+
+**关键状态** subject/action/resource/context、版本、决策原因。
+
+**失败与恢复** Cedar/OPA做策略求值，OpenFGA做关系查询；部署差异不能忽略。
+
+**如何验证** 缓存失效、引擎不可用和对象变更。
+
+</details>
 
 ### 3 · 任务级能力收窄
 
@@ -48,11 +78,26 @@
 
 **具体推演：** 只读quote-a的worker不能请求create_draft或quote-b。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 明确父任务资源
+2. 请求最小子范围
+3. 拒绝扩权委派
+4. 服务端再次授权
+
+**关键状态** task/run、资源动作集合、到期时间和policy版。
+
+**失败与恢复** 本例集合只展示不扩权，不冒充签名能力Token或工作负载身份系统。
+
+**如何验证** 子范围越界拒绝，父权限撤销后续拒绝。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -87,7 +132,7 @@ PEP/PDP位置、缓存失效键、不可用处理、委派范围与审计关联�
 
 审批只被原子消费为本地pending操作，没有执行网络写入。执行worker在新副作用前仍须复核撤销/权限，已有UNKNOWN先查原回执。会话失效不抹除业务任务或已经产生的外部效果。
 
-依据：[Official 1](https://www.openpolicyagent.org/docs/policy-language), [Official 2](https://openfga.dev/docs/authorization-concepts).
+依据：[OPA Policy Language](https://www.openpolicyagent.org/docs/policy-language), [OpenFGA Authorization Concepts](https://openfga.dev/docs/authorization-concepts).
 
 
 ## 改变条件，检查理解
@@ -100,4 +145,4 @@ PEP/PDP位置、缓存失效键、不可用处理、委派范围与审计关联�
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

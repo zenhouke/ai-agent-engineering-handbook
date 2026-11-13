@@ -12,4 +12,4 @@ The baseline pattern exposes names/descriptions and lets the model load a select
 Integrity reads touch bundle bytes without injecting all resources. Character budgets are illustrative; production needs the relevant tokenizer. Session-local state is not durable recovery or an OS sandbox, and storage is assumed trusted/read-only. Updates need a new reviewed registration while active tasks retain their pinned package.
 
 
-References: [Official 1](https://agentskills.io/client-implementation/adding-skills-support)。
+References: [Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support)。

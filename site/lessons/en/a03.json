@@ -79,5 +79,6 @@
       "measure": "Cost, accuracy and constraint violations on fixed tasks.",
       "case": "Database state and external artifacts stay separate from model context."
     }
-  ]
+  ],
+  "scope": "The code packs context using caller-supplied costs. Actual token counts should come from the target model tokenizer."
 }

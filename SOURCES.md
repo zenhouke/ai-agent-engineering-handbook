@@ -28,7 +28,9 @@
 
 ## 已核实来源
 
-| 项目 | 用于章节 | 许可证核验 | 阅读作业 |
+章节栏保留旧版 Agent 01–12 的历史编号，不对应当前分级序号；当前学习顺序以课程目录为准。
+
+| 项目 | 旧版章节（历史） | 许可证核验 | 阅读作业 |
 |---|---|---|---|
 | [Microsoft AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) | 01–02 | [MIT](https://github.com/microsoft/ai-agents-for-beginners/blob/main/LICENSE) | 从课程 README 选择工具使用单元，理解观察、工具、结果的顺序。 |
 | [Hugging Face Agents Course](https://github.com/huggingface/agents-course) | 01–02、07 | [Apache-2.0](https://github.com/huggingface/agents-course/blob/main/LICENSE) | 先读课程结构，再做一个无外部副作用的工具练习。 |
@@ -95,7 +97,7 @@
 ## 架构设计维度与治理依据
 
 - [OWASP 会话管理](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)：身份、失效与撤销边界；本例应用会话不是浏览器登录实现。
-- [Cedar 授权概念](https://docs.cedarpolicy.com/authorization/overview.html)、[OPA 策略](https://www.openpolicyagent.org/docs/policy-language)、[OpenFGA 授权模型](https://openfga.dev/docs/authorization-concepts)：区分策略求值、角色属性和关系模型。
+- [Cedar 授权概念](https://docs.cedarpolicy.com/auth/authorization.html)、[OPA 策略](https://www.openpolicyagent.org/docs/policy-language)、[OpenFGA 授权模型](https://openfga.dev/docs/authorization-concepts)：区分策略求值、角色属性和关系模型。
 - [OWASP 事务授权](https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html)：明确交易数据、服务端校验、时效和单次授权。
 - [多Agent研究系统实践](https://www.anthropic.com/research/multi-agent-research-system)：任务分解、协调、评测和可靠性经验，不能把上游效果套用成本例收益。
 - [OpenTelemetry Traces](https://opentelemetry.io/docs/concepts/signals/traces/)、[Saga 编排](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html)：链路关联与补偿机制。

@@ -79,5 +79,6 @@
       "measure": "Duplicate writes, failed recovery and unauthorized actions.",
       "case": "Lose the create response and verify only one draft exists after recovery."
     }
-  ]
+  ],
+  "scope": "The code aggregates rule-based metrics. Diagram values are synthetic; model judging, production telemetry and protection effectiveness require separate deployment and validation."
 }

@@ -65,7 +65,7 @@
 ## 架构设计维度与治理依据
 
 - [OWASP 会话管理](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)：身份、失效与撤销边界；本例应用会话不是浏览器登录实现。
-- [Cedar 授权概念](https://docs.cedarpolicy.com/authorization/overview.html)、[OPA 策略](https://www.openpolicyagent.org/docs/policy-language)、[OpenFGA 授权模型](https://openfga.dev/docs/authorization-concepts)：区分策略求值、角色属性和关系模型。
+- [Cedar 授权概念](https://docs.cedarpolicy.com/auth/authorization.html)、[OPA 策略](https://www.openpolicyagent.org/docs/policy-language)、[OpenFGA 授权模型](https://openfga.dev/docs/authorization-concepts)：区分策略求值、角色属性和关系模型。
 - [OWASP 事务授权](https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html)：明确交易数据、服务端校验、时效和单次授权。
 - [多Agent研究系统实践](https://www.anthropic.com/research/multi-agent-research-system)：任务分解、协调、评测和可靠性经验，不能把上游效果套用成本例收益。
 - [OpenTelemetry Traces](https://opentelemetry.io/docs/concepts/signals/traces/)、[Saga 编排](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html)：链路关联与补偿机制。

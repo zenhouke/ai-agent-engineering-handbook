@@ -79,5 +79,6 @@
       "measure": "Trainable count, resources and held-out quality.",
       "case": "At rank 8 a 4096-square layer adds 65,536 parameters; output uses scaled BA."
     }
-  ]
+  ],
+  "scope": "The code implements one LoRA layer with frozen base weights. SFT, QLoRA, RLHF and DPO are design comparisons, without an end-to-end training pipeline."
 }

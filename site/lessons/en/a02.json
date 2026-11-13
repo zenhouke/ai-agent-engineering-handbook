@@ -79,5 +79,6 @@
       "measure": "Error reduction versus extra calls/cost.",
       "case": "Useful feedback identifies missing delivery evidence, not just writing style."
     }
-  ]
+  ],
+  "scope": "The code demonstrates routing, plan validation and bounded reflection control flow. Generated-plan quality requires separate model evaluations."
 }

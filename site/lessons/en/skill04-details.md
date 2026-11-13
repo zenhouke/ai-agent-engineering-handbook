@@ -9,4 +9,4 @@ The real in-memory SDK returns A at 180 cents with unknown shipping and rejects 
 These tests make no model request, purchase or training run. They check specified contracts, not arbitrary third-party Skill safety; digests detect changes rather than establish trust.
 
 
-References: [Official 1](https://agentskills.io/client-implementation/adding-skills-support), [Official 2](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。
+References: [Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support), [MCP Architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。

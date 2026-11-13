@@ -64,7 +64,7 @@
       ],
       "state": "Task ID, version, lease and fencing token where required.",
       "failure": "Zero updated rows means lost ownership; stale workers cannot overwrite.",
-      "measure": "Only one concurrent version wins; stale worker is rejected.",
+      "measure": "Only one writer commits at the same expected version; stale versions fail. Test leases/fencing separately.",
       "case": "Two workers read v7; one writes v8 and the other reloads."
     },
     {
@@ -79,5 +79,6 @@
       "measure": "Lose a success response; verify restart creates no duplicate.",
       "case": "Find draft-42 by original key after a timed-out creation."
     }
-  ]
+  ],
+  "scope": "The code implements tenant-scoped SQLite versioned checkpoints and CAS. Lease expiry/fencing and external idempotency/reconciliation are additional execution mechanisms."
 }

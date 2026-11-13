@@ -36,11 +36,41 @@ name 与 description 帮助发现，正文保存关键方法；条件细则、�
 
 **具体推演：** 报价审查与真正下单分开，不用“处理全部采购工作”。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 明确使用场景
+2. 写必要判断规则
+3. 给出输入输出例子
+4. 用相邻负例检查
+
+**关键状态** name、description、产物约定。
+
+**失败与恢复** 万能描述会过度触发；正文不重复通用常识。
+
+**如何验证** 相关命中与不相关误触发。
+
+</details>
+
 ### 2 · 技能包分层资源
 
 ![技能包分层资源](../../../assets/diagrams/intermediate/skills/skill02/zh/solution-2.svg)
 
 **具体推演：** null 运费留为 null；校验器拒绝捏造总价。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 条件放 reference
+2. 模板放 assets
+3. 确定计算放 script
+4. 按需引用对应文件
+
+**关键状态** 入口引用、资源格式、脚本依赖。
+
+**失败与恢复** 读取脚本源码不等于授权执行；路径逃逸须拒绝。
+
+**如何验证** 脚本真运行测试、资源可读与缺失处理。
+
+</details>
 
 ### 3 · Host 注册与摘要固定
 
@@ -48,11 +78,26 @@ name 与 description 帮助发现，正文保存关键方法；条件细则、�
 
 **具体推演：** 同名同版本替换脚本后，旧注册摘要不能继续通过。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 审阅实际包内容
+2. 形成固定摘要
+3. 部署时校验摘要
+4. 更新须重新批准
+
+**关键状态** 来源、版本、sha256、批准绑定。
+
+**失败与恢复** 重新对修改包计算摘要并自动信任会让固定失效。
+
+**如何验证** 修改正文或脚本均触发拒绝。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -90,7 +135,7 @@ description 要让模型区分“审查报价”和“创建订单”；正文�
 Agent Skills 是包格式与加载约定，没有在本例中强制一个跨 Host 的执行引擎。metadata.version、注册表、摘要固定和工具绑定都是示例应用的部署约定。allowed-tools 为实验字段，不能把声明解释为绕过可信 Host 权限。
 
 
-依据：[Official 1](https://agentskills.io/specification)。
+依据：[Agent Skills Specification](https://agentskills.io/specification)。
 
 
 ### 实际技能入口
@@ -246,4 +291,4 @@ Skill：针对某类任务的可复用方法说明。规划：为当前目标安
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

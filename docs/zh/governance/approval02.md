@@ -36,11 +36,41 @@
 
 **具体推演：** 两个worker抢approval-a，仅一个可创建待执行op。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 读有效审批
+2. 比对当前动作
+3. CAS消费审批
+4. 插入唯一approval关联操作
+
+**关键状态** approval_id、operation_id、动作摘要、任务状态。
+
+**失败与恢复** 操作唯一键冲突回滚消费；不能吞错误后标成功。
+
+**如何验证** 两个连接只一个成功，故障无半提交。
+
+</details>
+
 ### 2 · Outbox可靠派发
 
 ![Outbox可靠派发](../../../assets/diagrams/architecture/approvals/approval02/zh/solution-2.png)
 
 **具体推演：** 入队pending只说明本地保存，不能回复用户草稿已创建。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 事务保存待办
+2. 提交后发布
+3. 重复投递同操作键
+4. 按回执更新状态
+
+**关键状态** 待发事件、稳定operation_id、远端回执。
+
+**失败与恢复** 本例operations是持久待办，未部署broker或实际派发器。
+
+**如何验证** 丢成功响应后取同一回执，不重复创建。
+
+</details>
 
 ### 3 · 撤销 + 未知结果核查
 
@@ -48,11 +78,26 @@
 
 **具体推演：** 远端已创建但响应丢失，先找原op，不能以撤销成功声称没发生。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 派发前查撤销权限
+2. 未派发可停止
+3. 已派发查原回执
+4. 必要时补偿或人工核查
+
+**关键状态** 撤销时间、派发状态、unknown、回执与补偿记录。
+
+**失败与恢复** 消费后撤销不能自动恢复成未发生；不支持查询时人工核查。
+
+**如何验证** 撤销后不发新写入，UNKNOWN不被抹成cancelled。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -87,7 +132,7 @@ def inspect_operation(
 
 审批只被原子消费为本地pending操作，没有执行网络写入。执行worker在新副作用前仍须复核撤销/权限，已有UNKNOWN先查原回执。会话失效不抹除业务任务或已经产生的外部效果。
 
-依据：[Official 1](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html).
+依据：[AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html).
 
 
 ### 事务、CAS与唯一约束的数据访问
@@ -322,4 +367,4 @@ CREATE TABLE operations (
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

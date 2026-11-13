@@ -36,11 +36,41 @@
 
 **具体推演：** 校验器检测A运费未知却声称总价180。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 解析实际元数据
+2. 检查资源路径
+3. 运行确定性校验器
+4. 验证变更包被拒绝
+
+**关键状态** 格式、输入输出边界、bundle digest。
+
+**失败与恢复** 把null改0必须失败；摘要不等于行为质量。
+
+**如何验证** 金额计算、未知字段、越权与路径拒绝。
+
+</details>
+
 ### 2 · 触发集 + 消融对照
 
 ![触发集 + 消融对照](../../../assets/diagrams/intermediate/skills/skill06/zh/solution-2.svg)
 
 **具体推演：** 写报价报告该触发，询问天气不该触发；无实测不填虚构分数。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 准备相关与相邻负例
+2. 固定模型工具环境
+3. 有无技能成对运行
+4. 分别统计质量成本
+
+**关键状态** 提示变体、数据快照、输出、轨迹及评分版本。
+
+**失败与恢复** 选择率高可能只是过度触发；人工校准语义评价。
+
+**如何验证** precision/recall、完整性、违规数、tokens与p95。
+
+</details>
 
 ### 3 · 版本化灰度与回归
 
@@ -48,11 +78,26 @@
 
 **具体推演：** 更新比较规则时保留旧任务所绑定的包和产物契约。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 审阅候选包
+2. 固定版本摘要
+3. 小流量检查回归
+4. 异常回滚并留审计
+
+**关键状态** 包版本、兼容契约、执行轨迹和活动任务引用。
+
+**失败与恢复** 活动任务不能静默换包；同名不同字节拒绝。
+
+**如何验证** 新旧版本回归、回滚后可复现。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -105,7 +150,7 @@ def selection_metrics(cases: list[SelectionCase]) -> dict:
 当前只运行格式、辅助函数、加载和权限契约，没有模型选用实验，因此没有“提升百分比”。它属于 Agent 架构的评测模块；运行轨迹接监控模块，代码来源与权限接安全模块，三个模块协作但证据不能互相替代。
 
 
-依据：[Official 1](https://agentskills.io/skill-creation/evaluating-skills)。
+依据：[Agent Skills Evaluation](https://agentskills.io/skill-creation/evaluating-skills)。
 
 
 ## 改变条件，检查理解
@@ -118,4 +163,4 @@ def selection_metrics(cases: list[SelectionCase]) -> dict:
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

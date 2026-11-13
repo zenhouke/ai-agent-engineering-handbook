@@ -79,5 +79,6 @@
       "measure": "Same recovered events should permit the same lawful decisions.",
       "case": "Preserve operation_id and UNKNOWN to prevent duplicate effects."
     }
-  ]
+  ],
+  "scope": "The code demonstrates structured continuation, trusted-field retention and recovery checks. Summary quality and compression benefits require separate evaluation."
 }

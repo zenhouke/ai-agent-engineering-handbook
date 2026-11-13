@@ -9,4 +9,4 @@ The example uses Responses function_call/function_call_output shapes. Chat Compl
 Strict structure does not establish object access, supported facts or completed business effects. Complete and validate streamed arguments before execution; partial JSON must not trigger writes.
 
 
-References: [Official 1](https://developers.openai.com/api/docs/guides/function-calling), [Official 2](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)。
+References: [OpenAI Function Calling](https://developers.openai.com/api/docs/guides/function-calling), [Anthropic Tool Use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)。

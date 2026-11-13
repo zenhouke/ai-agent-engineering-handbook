@@ -16,4 +16,4 @@
 当前只运行格式、辅助函数、加载和权限契约，没有模型选用实验，因此没有“提升百分比”。它属于 Agent 架构的评测模块；运行轨迹接监控模块，代码来源与权限接安全模块，三个模块协作但证据不能互相替代。
 
 
-依据：[Official 1](https://agentskills.io/skill-creation/evaluating-skills)。
+依据：[Agent Skills Evaluation](https://agentskills.io/skill-creation/evaluating-skills)。

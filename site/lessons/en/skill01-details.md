@@ -13,4 +13,4 @@ These parts compose. A review Skill guides a model proposal; the Host authorizes
 The running example has A at 180 cents plus unknown shipping and B at 170+80 cents. Preserve unknowns and compute totals from evidence. The conservative report contract declares no cheapest quote until all totals are known. Loading a Skill does not update model parameters.
 
 
-References: [Official 1](https://agentskills.io/specification), [Official 2](https://agentskills.io/client-implementation/adding-skills-support)。
+References: [Agent Skills Specification](https://agentskills.io/specification), [Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support)。

@@ -36,11 +36,41 @@
 
 **具体推演：** 不是查到“报价”两字就机械选择；让模型判断任务意图。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 展示元数据
+2. 模型提议激活
+3. Host 校验名称
+4. 只注入所选正文
+
+**关键状态** 候选目录、激活工具 schema、已激活集。
+
+**失败与恢复** 描述歧义导致误选；不存在的名称拒绝。
+
+**如何验证** 触发精确率、召回率和正文注入成本。
+
+</details>
+
 ### 2 · 显式指定技能
 
 ![显式指定技能](../../../assets/diagrams/intermediate/skills/skill03/zh/solution-2.svg)
 
 **具体推演：** 同一 quote-review 本轮激活两次只保存一份正文。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 接收明确名称
+2. 校验注册范围
+3. 验证固定摘要
+4. 会话内去重加载
+
+**关键状态** 任务会话、name/version/digest。
+
+**失败与恢复** 新任务不可复用旧权限；版本变化不能悄悄覆盖。
+
+**如何验证** 重复激活不增加上下文，跨会话不串状态。
+
+</details>
 
 ### 3 · 受控检索候选
 
@@ -48,11 +78,26 @@
 
 **具体推演：** 200个长正文不全塞入；候选无关时不强行激活。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 先按权限过滤
+2. 检索候选元数据
+3. 模型选择与补查
+4. 必要时扩大候选
+
+**关键状态** 召回版本、候选上限、遗漏与无匹配原因。
+
+**失败与恢复** 大规模检索是 Host 选项，不是格式强制机制。
+
+**如何验证** 候选召回、误选、Token与延迟。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -101,7 +146,7 @@ def disclosure_trace() -> dict:
 正文或脚本更新后旧摘要拒绝加载。正式升级应保留旧包供活动任务续接，创建新版本注册，再决定何时把新任务切换过去。
 
 
-依据：[Official 1](https://agentskills.io/client-implementation/adding-skills-support)。
+依据：[Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support)。
 
 
 ### 会话与可信策略
@@ -478,4 +523,4 @@ def activate_entry(handler: SkillHandler, request: dict, session: Session) -> di
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

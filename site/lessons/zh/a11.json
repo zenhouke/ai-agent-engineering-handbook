@@ -53,7 +53,7 @@
       "state": "金额/字段真值、合法状态转移、权限预期。",
       "failure": "只验证 JSON 合法会漏掉金额错误与越权动作。",
       "measure": "精确正确率与各类违规计数。",
-      "case": "total=price+shipping；shipping 未知时不能输出确定总价。"
+      "case": "total=quantity×unit_price+shipping；shipping 未知时不能输出确定总价。"
     },
     {
       "steps": [
@@ -79,5 +79,6 @@
       "measure": "重复创建数、漏恢复数、未授权动作数。",
       "case": "模拟草稿已创建但响应丢失，恢复后仍只存在一份。"
     }
-  ]
+  ],
+  "scope": "代码聚合规则指标；图中数值为合成示例，LLM Judge、线上采集与防护效果需另外部署和验证。"
 }

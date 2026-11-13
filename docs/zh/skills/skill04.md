@@ -36,11 +36,41 @@ Skill 写着“读取所有报价并创建订单”，是否就能扩大工具�
 
 **具体推演：** 报价读取可用直连 SDK；比较方法仍由 Skill 提供。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 配置可信函数表
+2. 限制可用函数
+3. 解析类型化参数
+4. 复用业务服务
+
+**关键状态** 函数表、任务范围和错误类别。
+
+**失败与恢复** 禁止模型生成模块名后动态导入执行。
+
+**如何验证** 未注册工具拒绝与对象级权限。
+
+</details>
+
 ### 2 · MCP 能力适配器
 
 ![MCP 能力适配器](../../../assets/diagrams/intermediate/skills/skill04/zh/solution-2.svg)
 
 **具体推演：** 真实 SDK 测试读A；读B不得返回报价170。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 发现 MCP schema
+2. 绑定已批准工具
+3. Host 校验范围
+4. 服务端查领域权限
+
+**关键状态** MCP 协议版本、工具契约与调用关联 ID。
+
+**失败与恢复** 发现工具只说明能力存在，不能读取任意报价。
+
+**如何验证** A正常返回，B被Host或Server拒绝。
+
+</details>
 
 ### 3 · 技能绑定网关
 
@@ -48,11 +78,26 @@ Skill 写着“读取所有报价并创建订单”，是否就能扩大工具�
 
 **具体推演：** 激活方法后仍不能创建订单或读取另一客户记录。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 固定审阅包与绑定
+2. 与任务权限取交集
+3. 逐次检查参数对象
+4. 审计动作与结果
+
+**关键状态** Policy、bindings、资源ID、审批和操作键。
+
+**失败与恢复** 指令中的“忽略规则”不能扩权；摘要只保完整性。
+
+**如何验证** 技能修改拒绝、越权拒绝、未知结果对账。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -103,7 +148,7 @@ async def review_quote(quote_id: str) -> dict:
 **测试范围：** 没有模型请求、网络采购或训练。SDK 测试证明所列契约与拒绝路径，不证明任意第三方技能安全。摘要固定用于检测变更，不能把恶意包变成可信包。
 
 
-依据：[Official 1](https://agentskills.io/client-implementation/adding-skills-support), [Official 2](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。
+依据：[Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support), [MCP Architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。
 
 
 ## 改变条件，检查理解
@@ -116,4 +161,4 @@ async def review_quote(quote_id: str) -> dict:
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

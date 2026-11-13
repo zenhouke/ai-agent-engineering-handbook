@@ -88,5 +88,6 @@
       "alt": "Complete multi-Agent studio system: control, execution, data and external boundaries",
       "caption": "Complete reference design, 3600px wide; click to enlarge. Follow intake → orchestration → agents → Host → workers/external systems → artifacts/receipts → review/delivery. Then inspect authority, context, durable state and operational support. Boxes express responsibilities, not mandatory microservices or a claim that ForgePilot deploys every component."
     }
-  ]
+  ],
+  "scope": "The complete diagram is a reference architecture. The code demonstrates layered in-process read-only quotation composition; the depicted services, queues and isolation facilities are not all deployed."
 }

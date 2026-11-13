@@ -36,11 +36,41 @@ Commit approval consumption, task transition and pending operation atomically. U
 
 **Concrete trace:** Two workers claim approval-a; only one prepares work.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Load valid approval
+2. Match current action
+3. CAS consumption
+4. Insert unique approval operation
+
+**State** Approval ID, operation ID, hash and task state.
+
+**Failure / recovery** Insert conflicts must roll back consumption.
+
+**Verification** One winning connection; no partial commit.
+
+</details>
+
 ### 2 · Transactional Outbox
 
 ![Transactional Outbox](../../assets/diagrams/architecture/approvals/approval02/en/solution-2.png)
 
 **Concrete trace:** Pending does not mean the remote draft exists.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Persist pending work
+2. Publish after commit
+3. Redeliver same key
+4. Record receipt
+
+**State** Event, stable operation ID and receipt.
+
+**Failure / recovery** The operations table is pending work, not a deployed broker.
+
+**Verification** Lost replies recover the same receipt.
+
+</details>
 
 ### 3 · Revocation + reconciliation
 
@@ -48,11 +78,26 @@ Commit approval consumption, task transition and pending operation atomically. U
 
 **Concrete trace:** Find the old operation after a lost success reply rather than asserting cancellation.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Check before dispatch
+2. Stop undispatched work
+3. Query issued operation
+4. Compensate or reconcile
+
+**State** Revocation time, dispatch state, UNKNOWN and receipts.
+
+**Failure / recovery** Do not reset consumed effects to never-happened.
+
+**Verification** No new writes after revocation; preserve UNKNOWN.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -87,7 +132,7 @@ The reference implements application sessions and pending draft preparation, not
 
 Consumption prepares a pending local operation, not a remote write. Workers recheck current revocation/policy before fresh effects and query existing UNKNOWN outcomes. Session expiry does not erase tasks or issued effects.
 
-References: [Official 1](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html).
+References: [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html).
 
 
 ### Transaction, CAS and unique constraints
@@ -322,4 +367,4 @@ No. Stable operation keys and remote deduplication/reconciliation remain necessa
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

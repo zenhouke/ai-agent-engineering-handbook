@@ -13,4 +13,4 @@ The real package below has YAML metadata, a custom version field and a validator
 Version pins, registry bindings and bundle digests are local Host conventions. allowed-tools is experimental; a declaration does not override trusted Host policy.
 
 
-References: [Official 1](https://agentskills.io/specification)。
+References: [Agent Skills Specification](https://agentskills.io/specification)。

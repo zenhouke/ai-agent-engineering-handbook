@@ -84,5 +84,6 @@
     "file": "assets/illustrations/l02/evidence-desk.png",
     "alt": "Source-checking illustration: comparing retrieved results and original material",
     "caption": "AI-generated editorial illustration: retrieved candidates still need source, version and applicability checks. The pictured pages are not actual cited evidence."
-  }
+  },
+  "scope": "The code applies RRF to supplied rankings; BM25, embeddings, indexes and rerankers are separate retrieval components to integrate."
 }

@@ -36,11 +36,41 @@ Trusted task policy, deployed capabilities and reviewed bindings constrain actio
 
 **Concrete trace:** Direct SDK can read evidence while the Skill supplies review method.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Register trusted functions
+2. Filter allowed names
+3. Validate typed arguments
+4. Reuse domain services
+
+**State** Registry, task scope and failure categories.
+
+**Failure / recovery** Do not dynamically import model-supplied module names.
+
+**Verification** Unknown functions and resource denial.
+
+</details>
+
 ### 2 · MCP adapter
 
 ![MCP adapter](../../assets/diagrams/intermediate/skills/skill04/en/solution-2.svg)
 
 **Concrete trace:** Real SDK tests read A and reject B.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Discover MCP schema
+2. Bind approved tool
+3. Check Host scope
+4. Authorize in service
+
+**State** Protocol version, contract and correlation IDs.
+
+**Failure / recovery** Discovery grants no access to arbitrary quotations.
+
+**Verification** A succeeds; B is denied without leaking its price.
+
+</details>
 
 ### 3 · Binding gateway
 
@@ -48,11 +78,26 @@ Trusted task policy, deployed capabilities and reviewed bindings constrain actio
 
 **Concrete trace:** Activating a method cannot create an order or read another customer.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Pin reviewed bindings
+2. Intersect task policy
+3. Check each object
+4. Audit outcome
+
+**State** Policy, bindings, resource IDs, approval and operation key.
+
+**Failure / recovery** Ignore-rules text grants nothing; hashes only prove integrity.
+
+**Verification** Mutation denial, scope denial and reconciliation.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -103,7 +148,7 @@ The real in-memory SDK returns A at 180 cents with unknown shipping and rejects 
 These tests make no model request, purchase or training run. They check specified contracts, not arbitrary third-party Skill safety; digests detect changes rather than establish trust.
 
 
-References: [Official 1](https://agentskills.io/client-implementation/adding-skills-support), [Official 2](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。
+References: [Agent Skills Host Integration](https://agentskills.io/client-implementation/adding-skills-support), [MCP Architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)。
 
 
 ## Change a condition
@@ -116,4 +161,4 @@ No. Trusted Policy and registry bindings govern this example; declarations canno
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

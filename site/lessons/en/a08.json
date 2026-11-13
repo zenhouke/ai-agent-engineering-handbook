@@ -79,5 +79,6 @@
       "measure": "Critical-path latency, peak concurrency and missing/duplicate nodes.",
       "case": "Fetch A/B concurrently; comparison C waits for both."
     }
-  ]
+  ],
+  "scope": "The code implements bounded in-process read-only concurrency. Distributed supervision, persistent handoff and full DAG scheduling require the dedicated design mechanisms."
 }

@@ -36,11 +36,41 @@
 
 **具体推演：** 用户认可比较报告，不等于认可某个金额和收款人。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 生成只读产物
+2. 保留证据引用
+3. 明确未知条件
+4. 等待明确动作请求
+
+**关键状态** 报告和证据版本。
+
+**失败与恢复** 不能由一次“报告不错”推断创建订单授权。
+
+**如何验证** 审批前写动作数为0。
+
+</details>
+
 ### 2 · 服务端动作审批
 
 ![服务端动作审批](../../../assets/diagrams/architecture/approvals/approval01/zh/solution-2.png)
 
 **具体推演：** 25000分给supplier-a的草稿，不能换成24000分给supplier-b。
+
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 校验申请权限
+2. 固定动作字段
+3. 审批人看同一动作
+4. 保存签署人与截止期
+
+**关键状态** task/tenant、action_hash、evidence、requester/approver、expiry。
+
+**失败与恢复** 金额、对象、证据变化都需重审；本例独立审批禁止自批。
+
+**如何验证** 字段变更、自批、跨租户、过期拒绝。
+
+</details>
 
 ### 3 · 工作流人工中断
 
@@ -48,11 +78,26 @@
 
 **具体推演：** LangGraph/Temporal负责等待恢复，业务service决定审批是否有效。
 
+<details><summary>展开文字步骤、状态与失败边界</summary>
+
+1. 保存待审动作
+2. interrupt或signal等待
+3. 认证审批入口
+4. 核验记录后续跑
+
+**关键状态** 工作流ID、待审动作、审批记录关联。
+
+**失败与恢复** Command(resume=true)不是可信审批凭证；恢复节点可重入。
+
+**如何验证** 无审批无写入，错误主体不能resume执行业务。
+
+</details>
+
 ## 参考代码
 
 展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。
 
-[配套代码说明与验证范围](../../../docs/zh/projects/03-code-guide.md)
+[配套代码说明与验证范围](../projects/03-code-guide.md)
 
 <details><summary>展开代码与实现边界</summary>
 
@@ -87,7 +132,7 @@ def claim_approved(
 
 审批只被原子消费为本地pending操作，没有执行网络写入。执行worker在新副作用前仍须复核撤销/权限，已有UNKNOWN先查原回执。会话失效不抹除业务任务或已经产生的外部效果。
 
-依据：[Official 1](https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html), [Official 2](https://docs.langchain.com/oss/python/langgraph/interrupts).
+依据：[OWASP Transaction Authorization](https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html), [LangGraph Interrupts](https://docs.langchain.com/oss/python/langgraph/interrupts).
 
 
 ### 服务端审批与消费服务
@@ -287,4 +332,4 @@ def claim_entry(
 
 </details>
 
-[查看官方资料与方案依据](../../../docs/zh/resources.md)
+[查看官方资料与方案依据](../resources.md)

@@ -12,6 +12,25 @@ Retrieval returns candidate evidence. RAG includes that evidence in generation. 
 
 A checkpoint persists task progress. Idempotency means repeating an operation under the defined key has the specified same effect. A timeout may leave the external outcome unknown. An approval authorizes a particular action under a policy; it is not a permanent blanket permission.
 
+## Agent engineering terms
+
+| Term | Meaning | Boundary |
+|---|---|---|
+| Function Calling | A model proposes a tool name and structured arguments; the application validates and executes | It is distinct from MCP and does not mean execution has occurred |
+| MCP | A protocol for connecting model applications to tools, resources and prompts | Connection does not grant business authorization |
+| Skills | Progressively loaded packages of methods, instructions and resources | They grant no authority and do not replace current plans or state |
+| Authentication / AuthN | Establishing who the current principal is | Identity alone does not permit an action |
+| Authorization / AuthZ | Deciding whether the current principal may act on an object | Previous approval does not establish current permission |
+| Session | An interaction association with a defined scope and lifecycle | Application sessions, model threads and external-account sessions are separate |
+| Run | One execution instance of a business task | It is distinct from both the task and a login session |
+| operation_id | A stable identifier correlating an operation, fixed payload and receipt | Keep it on retry; services must implement its deduplication semantics |
+| CAS | Update only when the current value matches the expected value | A version check alone does not enforce lease expiry |
+| Fencing token | A monotonically increasing ownership generation checked by the resource | Giving a worker a lock or number without resource-side enforcement is insufficient |
+| Outbox | An event saved in the business transaction and published asynchronously | Delivery can repeat; consumers and external effects still need idempotency |
+| Evaluation | Checking quality and rules with defined tasks, criteria and comparisons | Aggregate success must not hide unauthorized actions or synthetic examples |
+| Monitoring | Observing live states, latency, errors and queues to trigger action | Logs alone do not establish evaluated quality |
+| A2A | A protocol for exchanging tasks and artifacts across Agent systems | It is not a queue or a prerequisite for multi-Agent design |
+
 ## Check your understanding
 
 How do context, checkpoint and long-term memory differ?

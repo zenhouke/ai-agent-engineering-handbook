@@ -36,11 +36,41 @@ Recheck current session and policy, then claim a task with an expected version a
 
 **Concrete trace:** An expired session fails; a new authorized session can resume.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Locate session
+2. Verify subject
+3. Check expiry/revocation
+4. Read current membership
+
+**State** Subject, tenant, expiry and revocation.
+
+**Failure / recovery** Closing a session does not delete tasks.
+
+**Verification** Expiry, revocation and cross-subject denials.
+
+</details>
+
 ### 2 · Versioned task claim
 
 ![Versioned task claim](../../assets/diagrams/architecture/sessions/session02/en/solution-2.png)
 
 **Concrete trace:** Two v1 claims produce only one v2 transition.
+
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Read version
+2. Check state
+3. CAS transition
+4. Insert unique run
+
+**State** Task version, run ID and session binding.
+
+**Failure / recovery** Insert failure rolls back; stale workers later require fencing.
+
+**Verification** Reject stale versions and rollback failed inserts.
+
+</details>
 
 ### 3 · Scoped background identity
 
@@ -48,11 +78,26 @@ Recheck current session and policy, then claim a task with an expected version a
 
 **Concrete trace:** Next-day approval resumes via a worker identity, not yesterday’s browser cookie.
 
+<details><summary>Expand steps, state and failure boundaries</summary>
+
+1. Derive authorized scope
+2. Bind resources/deadline
+3. Recheck policy
+4. Record receipt
+
+**State** Task/run, workload identity, delegated scope and policy version.
+
+**Failure / recovery** Do not retain unlimited login tokens.
+
+**Verification** No amplification or fresh writes after expiry.
+
+</details>
+
 ## Reference code
 
 Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.
 
-[Reference code and verification limits](../../docs/zh/projects/03-code-guide.md)
+[Reference code and verification limits](code-guide.md)
 
 <details><summary>Expand code and limits</summary>
 
@@ -91,7 +136,7 @@ The reference implements application sessions and pending draft preparation, not
 
 Consumption prepares a pending local operation, not a remote write. Workers recheck current revocation/policy before fresh effects and query existing UNKNOWN outcomes. Session expiry does not erase tasks or issued effects.
 
-References: [Official 1](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).
+References: [OWASP Session Management](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).
 
 
 ### Persistence constraints
@@ -146,4 +191,4 @@ No. Run identity and task ownership/version checks serve separate purposes.
 
 </details>
 
-[Official sources and approach rationale](../../docs/zh/resources.md)
+[Official sources and approach rationale](resources.md)

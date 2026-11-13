@@ -1,0 +1,2 @@
+# Optional real MCP SDK checks; no model library or training dependency.
+mcp==2.3.0

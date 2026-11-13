@@ -8,17 +8,19 @@ Based on Agent Skills format; version pins, bundle digests and tool bindings are
 
 Does a Skill instructing “read everything and order” grant those abilities? Does MCP discovery grant object access?
 
-![Failure path versus controlled path](../../assets/lessons/en/skill04-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/skills/skill04/en/problem.svg)
+
+
 
 ## See the mechanism
 
 Trusted task policy, deployed capabilities and reviewed bindings constrain actions; services authorize objects again. Skills supply method, Function Calling expresses proposals and MCP carries capability calls.
 
-![How data, computation or state changes](../../assets/lessons/en/skill04-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/skills/skill04/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/skill04-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/skills/skill04/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Trusted task policy, deployed capabilities and reviewed bindings constrain actio
 
 ### 1 · Direct SDK adapter
 
-![Direct SDK adapter](../../assets/lessons/en/skill04-solution-1.svg)
+![Direct SDK adapter](../../assets/diagrams/intermediate/skills/skill04/en/solution-1.svg)
 
 **Concrete trace:** Direct SDK can read evidence while the Skill supplies review method.
 
 ### 2 · MCP adapter
 
-![MCP adapter](../../assets/lessons/en/skill04-solution-2.svg)
+![MCP adapter](../../assets/diagrams/intermediate/skills/skill04/en/solution-2.svg)
 
 **Concrete trace:** Real SDK tests read A and reject B.
 
 ### 3 · Binding gateway
 
-![Binding gateway](../../assets/lessons/en/skill04-solution-3.svg)
+![Binding gateway](../../assets/diagrams/intermediate/skills/skill04/en/solution-3.svg)
 
 **Concrete trace:** Activating a method cannot create an order or read another customer.
 

@@ -8,17 +8,19 @@
 
 Skill 写着“读取所有报价并创建订单”，是否就能扩大工具权限？发现了 MCP 工具就可以调用任意对象吗？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/skill04-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/skills/skill04/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 可信任务范围、已部署能力、受审技能绑定共同约束可用动作；服务端再次校验对象。Skill 提供方法，Function Calling 表达提议，MCP 承载外部能力调用。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/skill04-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/skills/skill04/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/skill04-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/skills/skill04/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Skill 写着“读取所有报价并创建订单”，是否就能扩大工具�
 
 ### 1 · 直接 SDK 适配器
 
-![直接 SDK 适配器](../../../assets/lessons/zh/skill04-solution-1.svg)
+![直接 SDK 适配器](../../../assets/diagrams/intermediate/skills/skill04/zh/solution-1.svg)
 
 **具体推演：** 报价读取可用直连 SDK；比较方法仍由 Skill 提供。
 
 ### 2 · MCP 能力适配器
 
-![MCP 能力适配器](../../../assets/lessons/zh/skill04-solution-2.svg)
+![MCP 能力适配器](../../../assets/diagrams/intermediate/skills/skill04/zh/solution-2.svg)
 
 **具体推演：** 真实 SDK 测试读A；读B不得返回报价170。
 
 ### 3 · 技能绑定网关
 
-![技能绑定网关](../../../assets/lessons/zh/skill04-solution-3.svg)
+![技能绑定网关](../../../assets/diagrams/intermediate/skills/skill04/zh/solution-3.svg)
 
 **具体推演：** 激活方法后仍不能创建订单或读取另一客户记录。
 

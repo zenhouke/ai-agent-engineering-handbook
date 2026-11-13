@@ -1,0 +1,1280 @@
+[
+  {
+    "lesson": "a01",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/agent-foundations/a01/zh/problem.svg",
+      "assets/diagrams/intermediate/agent-foundations/a01/zh/mechanism.svg",
+      "assets/diagrams/intermediate/agent-foundations/a01/zh/selection.svg",
+      "assets/diagrams/intermediate/agent-foundations/a01/zh/solution-1.svg",
+      "assets/diagrams/intermediate/agent-foundations/a01/zh/solution-2.svg",
+      "assets/diagrams/intermediate/agent-foundations/a01/zh/solution-3.svg"
+    ],
+    "example": "examples/react_loop.py"
+  },
+  {
+    "lesson": "a02",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/agent-foundations/a02/zh/problem.svg",
+      "assets/diagrams/intermediate/agent-foundations/a02/zh/mechanism.svg",
+      "assets/diagrams/intermediate/agent-foundations/a02/zh/selection.svg",
+      "assets/diagrams/intermediate/agent-foundations/a02/zh/solution-1.svg",
+      "assets/diagrams/intermediate/agent-foundations/a02/zh/solution-2.svg",
+      "assets/diagrams/intermediate/agent-foundations/a02/zh/solution-3.svg"
+    ],
+    "example": "examples/agent_patterns.py"
+  },
+  {
+    "lesson": "a03",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/context/a03/zh/problem.svg",
+      "assets/diagrams/intermediate/context/a03/zh/mechanism.svg",
+      "assets/diagrams/intermediate/context/a03/zh/selection.svg",
+      "assets/diagrams/intermediate/context/a03/zh/solution-1.svg",
+      "assets/diagrams/intermediate/context/a03/zh/solution-2.svg",
+      "assets/diagrams/intermediate/context/a03/zh/solution-3.svg"
+    ],
+    "example": "examples/context_budget.py"
+  },
+  {
+    "lesson": "a04",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/context/a04/zh/problem.svg",
+      "assets/diagrams/intermediate/context/a04/zh/mechanism.svg",
+      "assets/diagrams/intermediate/context/a04/zh/selection.svg",
+      "assets/diagrams/intermediate/context/a04/zh/solution-1.svg",
+      "assets/diagrams/intermediate/context/a04/zh/solution-2.svg",
+      "assets/diagrams/intermediate/context/a04/zh/solution-3.svg"
+    ],
+    "example": "examples/compaction.py"
+  },
+  {
+    "lesson": "a05",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/memory/a05/zh/problem.svg",
+      "assets/diagrams/intermediate/memory/a05/zh/mechanism.svg",
+      "assets/diagrams/intermediate/memory/a05/zh/selection.svg",
+      "assets/diagrams/intermediate/memory/a05/zh/solution-1.svg",
+      "assets/diagrams/intermediate/memory/a05/zh/solution-2.svg",
+      "assets/diagrams/intermediate/memory/a05/zh/solution-3.svg"
+    ],
+    "example": "examples/checkpoints.py"
+  },
+  {
+    "lesson": "a06",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/memory/a06/zh/problem.svg",
+      "assets/diagrams/intermediate/memory/a06/zh/mechanism.svg",
+      "assets/diagrams/intermediate/memory/a06/zh/selection.svg",
+      "assets/diagrams/intermediate/memory/a06/zh/solution-1.svg",
+      "assets/diagrams/intermediate/memory/a06/zh/solution-2.svg",
+      "assets/diagrams/intermediate/memory/a06/zh/solution-3.svg"
+    ],
+    "example": "examples/memory_scope.py"
+  },
+  {
+    "lesson": "a07",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/function-calling/a07/zh/problem.svg",
+      "assets/diagrams/intermediate/function-calling/a07/zh/mechanism.svg",
+      "assets/diagrams/intermediate/function-calling/a07/zh/selection.svg",
+      "assets/diagrams/intermediate/function-calling/a07/zh/solution-1.svg",
+      "assets/diagrams/intermediate/function-calling/a07/zh/solution-2.svg",
+      "assets/diagrams/intermediate/function-calling/a07/zh/solution-3.svg"
+    ],
+    "example": "examples/tool_gateway.py"
+  },
+  {
+    "lesson": "a08",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/collaboration/a08/zh/problem.png",
+      "assets/diagrams/architecture/collaboration/a08/zh/mechanism.png",
+      "assets/diagrams/architecture/collaboration/a08/zh/selection.png",
+      "assets/diagrams/architecture/collaboration/a08/zh/solution-1.png",
+      "assets/diagrams/architecture/collaboration/a08/zh/solution-2.png",
+      "assets/diagrams/architecture/collaboration/a08/zh/solution-3.png"
+    ],
+    "example": "examples/parallel_agents.py"
+  },
+  {
+    "lesson": "a09",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/execution-design/a09/zh/problem.png",
+      "assets/diagrams/architecture/execution-design/a09/zh/mechanism.png",
+      "assets/diagrams/architecture/execution-design/a09/zh/selection.png",
+      "assets/diagrams/architecture/execution-design/a09/zh/solution-1.png",
+      "assets/diagrams/architecture/execution-design/a09/zh/solution-2.png",
+      "assets/diagrams/architecture/execution-design/a09/zh/solution-3.png",
+      "assets/diagrams/architecture/execution-design/a09/zh/replay-boundary.png"
+    ],
+    "example": "examples/runtime_budget.py"
+  },
+  {
+    "lesson": "a11",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/assurance/a11/zh/problem.png",
+      "assets/diagrams/architecture/assurance/a11/zh/mechanism.png",
+      "assets/diagrams/architecture/assurance/a11/zh/selection.png",
+      "assets/diagrams/architecture/assurance/a11/zh/solution-1.png",
+      "assets/diagrams/architecture/assurance/a11/zh/solution-2.png",
+      "assets/diagrams/architecture/assurance/a11/zh/solution-3.png"
+    ],
+    "example": "examples/evaluation.py"
+  },
+  {
+    "lesson": "a12",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/deployment/a12/zh/problem.png",
+      "assets/diagrams/architecture/deployment/a12/zh/mechanism.png",
+      "assets/diagrams/architecture/deployment/a12/zh/selection.png",
+      "assets/diagrams/architecture/deployment/a12/zh/solution-1.png",
+      "assets/diagrams/architecture/deployment/a12/zh/solution-2.png",
+      "assets/diagrams/architecture/deployment/a12/zh/solution-3.png"
+    ],
+    "example": "examples/architecture_recipe.py"
+  },
+  {
+    "lesson": "approval01",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/approvals/approval01/zh/problem.png",
+      "assets/diagrams/architecture/approvals/approval01/zh/mechanism.png",
+      "assets/diagrams/architecture/approvals/approval01/zh/selection.png",
+      "assets/diagrams/architecture/approvals/approval01/zh/solution-1.png",
+      "assets/diagrams/architecture/approvals/approval01/zh/solution-2.png",
+      "assets/diagrams/architecture/approvals/approval01/zh/solution-3.png"
+    ],
+    "example": "examples/approval_lifecycle.py"
+  },
+  {
+    "lesson": "approval02",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/approvals/approval02/zh/problem.png",
+      "assets/diagrams/architecture/approvals/approval02/zh/mechanism.png",
+      "assets/diagrams/architecture/approvals/approval02/zh/selection.png",
+      "assets/diagrams/architecture/approvals/approval02/zh/solution-1.png",
+      "assets/diagrams/architecture/approvals/approval02/zh/solution-2.png",
+      "assets/diagrams/architecture/approvals/approval02/zh/solution-3.png"
+    ],
+    "example": "examples/approval_recovery.py"
+  },
+  {
+    "lesson": "auth01",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/permissions/auth01/zh/problem.png",
+      "assets/diagrams/architecture/permissions/auth01/zh/mechanism.png",
+      "assets/diagrams/architecture/permissions/auth01/zh/selection.png",
+      "assets/diagrams/architecture/permissions/auth01/zh/solution-1.png",
+      "assets/diagrams/architecture/permissions/auth01/zh/solution-2.png",
+      "assets/diagrams/architecture/permissions/auth01/zh/solution-3.png"
+    ],
+    "example": "examples/permission_policy.py"
+  },
+  {
+    "lesson": "auth02",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/permissions/auth02/zh/problem.png",
+      "assets/diagrams/architecture/permissions/auth02/zh/mechanism.png",
+      "assets/diagrams/architecture/permissions/auth02/zh/selection.png",
+      "assets/diagrams/architecture/permissions/auth02/zh/solution-1.png",
+      "assets/diagrams/architecture/permissions/auth02/zh/solution-2.png",
+      "assets/diagrams/architecture/permissions/auth02/zh/solution-3.png"
+    ],
+    "example": "examples/permission_decisions.py"
+  },
+  {
+    "lesson": "f01",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/foundations/f01/zh/problem.svg",
+      "assets/diagrams/foundations/f01/zh/mechanism.svg",
+      "assets/diagrams/foundations/f01/zh/selection.svg",
+      "assets/diagrams/foundations/f01/zh/solution-1.svg",
+      "assets/diagrams/foundations/f01/zh/solution-2.svg",
+      "assets/diagrams/foundations/f01/zh/solution-3.svg"
+    ],
+    "example": "examples/problem_framing.py"
+  },
+  {
+    "lesson": "f02",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/foundations/f02/zh/problem.svg",
+      "assets/diagrams/foundations/f02/zh/mechanism.svg",
+      "assets/diagrams/foundations/f02/zh/selection.svg",
+      "assets/diagrams/foundations/f02/zh/solution-1.svg",
+      "assets/diagrams/foundations/f02/zh/solution-2.svg",
+      "assets/diagrams/foundations/f02/zh/solution-3.svg"
+    ],
+    "example": "examples/autograd.py"
+  },
+  {
+    "lesson": "f03",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/foundations/f03/zh/problem.svg",
+      "assets/diagrams/foundations/f03/zh/mechanism.svg",
+      "assets/diagrams/foundations/f03/zh/selection.svg",
+      "assets/diagrams/foundations/f03/zh/solution-1.svg",
+      "assets/diagrams/foundations/f03/zh/solution-2.svg",
+      "assets/diagrams/foundations/f03/zh/solution-3.svg"
+    ],
+    "example": "examples/ml_pipeline.py"
+  },
+  {
+    "lesson": "f04",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/foundations/f04/zh/problem.svg",
+      "assets/diagrams/foundations/f04/zh/mechanism.svg",
+      "assets/diagrams/foundations/f04/zh/selection.svg",
+      "assets/diagrams/foundations/f04/zh/solution-1.svg",
+      "assets/diagrams/foundations/f04/zh/solution-2.svg",
+      "assets/diagrams/foundations/f04/zh/solution-3.svg"
+    ],
+    "example": "examples/mlp.py"
+  },
+  {
+    "lesson": "f05",
+    "language": "zh",
+    "images": [
+      "assets/illustrations/f05/visual-input.png",
+      "assets/diagrams/foundations/f05/zh/mechanism.svg",
+      "assets/diagrams/foundations/f05/zh/selection.svg",
+      "assets/diagrams/foundations/f05/zh/solution-1.svg",
+      "assets/diagrams/foundations/f05/zh/solution-2.svg",
+      "assets/diagrams/foundations/f05/zh/solution-3.svg"
+    ],
+    "example": "examples/vision.py"
+  },
+  {
+    "lesson": "f06",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/foundations/f06/zh/problem.svg",
+      "assets/diagrams/foundations/f06/zh/mechanism.svg",
+      "assets/diagrams/foundations/f06/zh/selection.svg",
+      "assets/diagrams/foundations/f06/zh/solution-1.svg",
+      "assets/diagrams/foundations/f06/zh/solution-2.svg",
+      "assets/diagrams/foundations/f06/zh/solution-3.svg"
+    ],
+    "example": "examples/language_model.py"
+  },
+  {
+    "lesson": "f07",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/foundations/f07/zh/problem.svg",
+      "assets/diagrams/foundations/f07/zh/mechanism.svg",
+      "assets/diagrams/foundations/f07/zh/selection.svg",
+      "assets/diagrams/foundations/f07/zh/architecture.png",
+      "assets/diagrams/foundations/f07/zh/solution-1.svg",
+      "assets/diagrams/foundations/f07/zh/solution-2.svg",
+      "assets/diagrams/foundations/f07/zh/solution-3.svg"
+    ],
+    "example": "examples/transformer.py"
+  },
+  {
+    "lesson": "f08",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/foundations/f08/zh/problem.svg",
+      "assets/diagrams/foundations/f08/zh/mechanism.svg",
+      "assets/diagrams/foundations/f08/zh/selection.svg",
+      "assets/diagrams/foundations/f08/zh/solution-1.svg",
+      "assets/diagrams/foundations/f08/zh/solution-2.svg",
+      "assets/diagrams/foundations/f08/zh/solution-3.svg"
+    ],
+    "example": "examples/lora.py"
+  },
+  {
+    "lesson": "fc01",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/function-calling/fc01/zh/problem.svg",
+      "assets/diagrams/intermediate/function-calling/fc01/zh/mechanism.svg",
+      "assets/diagrams/intermediate/function-calling/fc01/zh/selection.svg",
+      "assets/diagrams/intermediate/function-calling/fc01/zh/solution-1.svg",
+      "assets/diagrams/intermediate/function-calling/fc01/zh/solution-2.svg",
+      "assets/diagrams/intermediate/function-calling/fc01/zh/solution-3.svg"
+    ],
+    "example": "examples/function_calling.py"
+  },
+  {
+    "lesson": "fc02",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/function-calling/fc02/zh/problem.svg",
+      "assets/diagrams/intermediate/function-calling/fc02/zh/mechanism.svg",
+      "assets/diagrams/intermediate/function-calling/fc02/zh/selection.svg",
+      "assets/diagrams/intermediate/function-calling/fc02/zh/solution-1.svg",
+      "assets/diagrams/intermediate/function-calling/fc02/zh/solution-2.svg",
+      "assets/diagrams/intermediate/function-calling/fc02/zh/solution-3.svg"
+    ],
+    "example": "examples/function_calling_mcp.py"
+  },
+  {
+    "lesson": "l01",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/llm-applications/l01/zh/problem.svg",
+      "assets/diagrams/intermediate/llm-applications/l01/zh/mechanism.svg",
+      "assets/diagrams/intermediate/llm-applications/l01/zh/selection.svg",
+      "assets/diagrams/intermediate/llm-applications/l01/zh/solution-1.svg",
+      "assets/diagrams/intermediate/llm-applications/l01/zh/solution-2.svg",
+      "assets/diagrams/intermediate/llm-applications/l01/zh/solution-3.svg"
+    ],
+    "example": "examples/output_contract.py"
+  },
+  {
+    "lesson": "l02",
+    "language": "zh",
+    "images": [
+      "assets/illustrations/l02/evidence-desk.png",
+      "assets/diagrams/intermediate/llm-applications/l02/zh/mechanism.svg",
+      "assets/diagrams/intermediate/llm-applications/l02/zh/selection.svg",
+      "assets/diagrams/intermediate/llm-applications/l02/zh/solution-1.svg",
+      "assets/diagrams/intermediate/llm-applications/l02/zh/solution-2.svg",
+      "assets/diagrams/intermediate/llm-applications/l02/zh/solution-3.svg",
+      "assets/diagrams/intermediate/llm-applications/l02/zh/rank-trace.svg"
+    ],
+    "example": "examples/hybrid_retrieval.py"
+  },
+  {
+    "lesson": "l03",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/llm-applications/l03/zh/problem.svg",
+      "assets/diagrams/intermediate/llm-applications/l03/zh/mechanism.svg",
+      "assets/diagrams/intermediate/llm-applications/l03/zh/selection.svg",
+      "assets/diagrams/intermediate/llm-applications/l03/zh/solution-1.svg",
+      "assets/diagrams/intermediate/llm-applications/l03/zh/solution-2.svg",
+      "assets/diagrams/intermediate/llm-applications/l03/zh/solution-3.svg"
+    ],
+    "example": "examples/inference_budget.py"
+  },
+  {
+    "lesson": "ma01",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/task-design/ma01/zh/problem.png",
+      "assets/diagrams/architecture/task-design/ma01/zh/mechanism.png",
+      "assets/diagrams/architecture/task-design/ma01/zh/selection.png",
+      "assets/diagrams/architecture/task-design/ma01/zh/solution-1.png",
+      "assets/diagrams/architecture/task-design/ma01/zh/solution-2.png",
+      "assets/diagrams/architecture/task-design/ma01/zh/solution-3.png"
+    ],
+    "example": "examples/task_decomposition.py"
+  },
+  {
+    "lesson": "ma02",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/collaboration/ma02/zh/problem.png",
+      "assets/diagrams/architecture/collaboration/ma02/zh/mechanism.png",
+      "assets/diagrams/architecture/collaboration/ma02/zh/selection.png",
+      "assets/diagrams/architecture/collaboration/ma02/zh/solution-1.png",
+      "assets/diagrams/architecture/collaboration/ma02/zh/solution-2.png",
+      "assets/diagrams/architecture/collaboration/ma02/zh/solution-3.png"
+    ],
+    "example": "examples/agent_messages.py"
+  },
+  {
+    "lesson": "ma03",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/state-consistency/ma03/zh/problem.png",
+      "assets/diagrams/architecture/state-consistency/ma03/zh/mechanism.png",
+      "assets/diagrams/architecture/state-consistency/ma03/zh/selection.png",
+      "assets/diagrams/architecture/state-consistency/ma03/zh/solution-1.png",
+      "assets/diagrams/architecture/state-consistency/ma03/zh/solution-2.png",
+      "assets/diagrams/architecture/state-consistency/ma03/zh/solution-3.png"
+    ],
+    "example": "examples/shared_artifacts.py"
+  },
+  {
+    "lesson": "ma04",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/execution-design/ma04/zh/problem.png",
+      "assets/diagrams/architecture/execution-design/ma04/zh/mechanism.png",
+      "assets/diagrams/architecture/execution-design/ma04/zh/selection.png",
+      "assets/diagrams/architecture/execution-design/ma04/zh/solution-1.png",
+      "assets/diagrams/architecture/execution-design/ma04/zh/solution-2.png",
+      "assets/diagrams/architecture/execution-design/ma04/zh/solution-3.png"
+    ],
+    "example": "examples/dag_scheduler.py"
+  },
+  {
+    "lesson": "ma05",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/execution-design/ma05/zh/problem.png",
+      "assets/diagrams/architecture/execution-design/ma05/zh/mechanism.png",
+      "assets/diagrams/architecture/execution-design/ma05/zh/selection.png",
+      "assets/diagrams/architecture/execution-design/ma05/zh/solution-1.png",
+      "assets/diagrams/architecture/execution-design/ma05/zh/solution-2.png",
+      "assets/diagrams/architecture/execution-design/ma05/zh/solution-3.png"
+    ],
+    "example": "examples/failure_recovery.py"
+  },
+  {
+    "lesson": "ma06",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/assurance/ma06/zh/problem.png",
+      "assets/diagrams/architecture/assurance/ma06/zh/mechanism.png",
+      "assets/diagrams/architecture/assurance/ma06/zh/selection.png",
+      "assets/diagrams/architecture/assurance/ma06/zh/solution-1.png",
+      "assets/diagrams/architecture/assurance/ma06/zh/solution-2.png",
+      "assets/diagrams/architecture/assurance/ma06/zh/solution-3.png"
+    ],
+    "example": "examples/collaboration_evaluation.py"
+  },
+  {
+    "lesson": "ma07",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/deployment/ma07/zh/problem.png",
+      "assets/diagrams/architecture/deployment/ma07/zh/mechanism.png",
+      "assets/diagrams/architecture/deployment/ma07/zh/selection.png",
+      "assets/diagrams/architecture/deployment/ma07/zh/solution-1.png",
+      "assets/diagrams/architecture/deployment/ma07/zh/solution-2.png",
+      "assets/diagrams/architecture/deployment/ma07/zh/solution-3.png"
+    ],
+    "example": "examples/deployment_capacity.py"
+  },
+  {
+    "lesson": "mcp01",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp01/zh/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp01/zh/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp01/zh/selection.svg"
+    ],
+    "example": "examples/mcp_overview.py"
+  },
+  {
+    "lesson": "mcp02",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp02/zh/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp02/zh/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp02/zh/selection.svg"
+    ],
+    "example": "examples/mcp_primitives.py"
+  },
+  {
+    "lesson": "mcp03",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp03/zh/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp03/zh/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp03/zh/selection.svg"
+    ],
+    "example": "examples/mcp_messages.py"
+  },
+  {
+    "lesson": "mcp04",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp04/zh/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp04/zh/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp04/zh/selection.svg"
+    ],
+    "example": "examples/mcp_transports.py"
+  },
+  {
+    "lesson": "mcp05",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp05/zh/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp05/zh/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp05/zh/selection.svg"
+    ],
+    "example": "examples/mcp_server_example.py"
+  },
+  {
+    "lesson": "mcp06",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp06/zh/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp06/zh/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp06/zh/selection.svg"
+    ],
+    "example": "examples/mcp_host_bridge.py"
+  },
+  {
+    "lesson": "session01",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/sessions/session01/zh/problem.png",
+      "assets/diagrams/architecture/sessions/session01/zh/mechanism.png",
+      "assets/diagrams/architecture/sessions/session01/zh/selection.png",
+      "assets/diagrams/architecture/sessions/session01/zh/solution-1.png",
+      "assets/diagrams/architecture/sessions/session01/zh/solution-2.png",
+      "assets/diagrams/architecture/sessions/session01/zh/solution-3.png"
+    ],
+    "example": "examples/session_lifecycle.py"
+  },
+  {
+    "lesson": "session02",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/architecture/sessions/session02/zh/problem.png",
+      "assets/diagrams/architecture/sessions/session02/zh/mechanism.png",
+      "assets/diagrams/architecture/sessions/session02/zh/selection.png",
+      "assets/diagrams/architecture/sessions/session02/zh/solution-1.png",
+      "assets/diagrams/architecture/sessions/session02/zh/solution-2.png",
+      "assets/diagrams/architecture/sessions/session02/zh/solution-3.png"
+    ],
+    "example": "examples/task_resume.py"
+  },
+  {
+    "lesson": "skill01",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill01/zh/problem.svg",
+      "assets/diagrams/intermediate/skills/skill01/zh/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill01/zh/selection.svg",
+      "assets/diagrams/intermediate/skills/skill01/zh/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill01/zh/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill01/zh/solution-3.svg"
+    ],
+    "example": "examples/skill_host.py"
+  },
+  {
+    "lesson": "skill02",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill02/zh/problem.svg",
+      "assets/diagrams/intermediate/skills/skill02/zh/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill02/zh/selection.svg",
+      "assets/diagrams/intermediate/skills/skill02/zh/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill02/zh/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill02/zh/solution-3.svg"
+    ],
+    "example": "examples/skill_package.py"
+  },
+  {
+    "lesson": "skill03",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill03/zh/problem.svg",
+      "assets/diagrams/intermediate/skills/skill03/zh/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill03/zh/selection.svg",
+      "assets/diagrams/intermediate/skills/skill03/zh/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill03/zh/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill03/zh/solution-3.svg"
+    ],
+    "example": "examples/skill_loading.py"
+  },
+  {
+    "lesson": "skill04",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill04/zh/problem.svg",
+      "assets/diagrams/intermediate/skills/skill04/zh/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill04/zh/selection.svg",
+      "assets/diagrams/intermediate/skills/skill04/zh/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill04/zh/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill04/zh/solution-3.svg"
+    ],
+    "example": "examples/skill_mcp_integration.py"
+  },
+  {
+    "lesson": "skill05",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill05/zh/problem.svg",
+      "assets/diagrams/intermediate/skills/skill05/zh/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill05/zh/selection.svg",
+      "assets/diagrams/intermediate/skills/skill05/zh/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill05/zh/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill05/zh/solution-3.svg"
+    ],
+    "example": "examples/skill_composition.py"
+  },
+  {
+    "lesson": "skill06",
+    "language": "zh",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill06/zh/problem.svg",
+      "assets/diagrams/intermediate/skills/skill06/zh/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill06/zh/selection.svg",
+      "assets/diagrams/intermediate/skills/skill06/zh/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill06/zh/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill06/zh/solution-3.svg"
+    ],
+    "example": "examples/skill_evaluation.py"
+  },
+  {
+    "lesson": "studio",
+    "language": "zh",
+    "images": [
+      "assets/illustrations/studio/solo-studio.png",
+      "assets/diagrams/projects/studio/zh/mechanism.png",
+      "assets/diagrams/projects/studio/zh/selection.png",
+      "assets/diagrams/projects/studio/zh/solution-1.png",
+      "assets/diagrams/projects/studio/zh/solution-2.png",
+      "assets/diagrams/projects/studio/zh/solution-3.png",
+      "assets/diagrams/projects/studio/zh/deployment.png",
+      "assets/diagrams/projects/studio/zh/gates.png",
+      "assets/diagrams/projects/studio/zh/sessions.png",
+      "assets/diagrams/projects/studio/zh/recovery.png"
+    ],
+    "example": "examples/studio_contracts.py"
+  },
+  {
+    "lesson": "a01",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/agent-foundations/a01/en/problem.svg",
+      "assets/diagrams/intermediate/agent-foundations/a01/en/mechanism.svg",
+      "assets/diagrams/intermediate/agent-foundations/a01/en/selection.svg",
+      "assets/diagrams/intermediate/agent-foundations/a01/en/solution-1.svg",
+      "assets/diagrams/intermediate/agent-foundations/a01/en/solution-2.svg",
+      "assets/diagrams/intermediate/agent-foundations/a01/en/solution-3.svg"
+    ],
+    "example": "examples/react_loop.py"
+  },
+  {
+    "lesson": "a02",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/agent-foundations/a02/en/problem.svg",
+      "assets/diagrams/intermediate/agent-foundations/a02/en/mechanism.svg",
+      "assets/diagrams/intermediate/agent-foundations/a02/en/selection.svg",
+      "assets/diagrams/intermediate/agent-foundations/a02/en/solution-1.svg",
+      "assets/diagrams/intermediate/agent-foundations/a02/en/solution-2.svg",
+      "assets/diagrams/intermediate/agent-foundations/a02/en/solution-3.svg"
+    ],
+    "example": "examples/agent_patterns.py"
+  },
+  {
+    "lesson": "a03",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/context/a03/en/problem.svg",
+      "assets/diagrams/intermediate/context/a03/en/mechanism.svg",
+      "assets/diagrams/intermediate/context/a03/en/selection.svg",
+      "assets/diagrams/intermediate/context/a03/en/solution-1.svg",
+      "assets/diagrams/intermediate/context/a03/en/solution-2.svg",
+      "assets/diagrams/intermediate/context/a03/en/solution-3.svg"
+    ],
+    "example": "examples/context_budget.py"
+  },
+  {
+    "lesson": "a04",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/context/a04/en/problem.svg",
+      "assets/diagrams/intermediate/context/a04/en/mechanism.svg",
+      "assets/diagrams/intermediate/context/a04/en/selection.svg",
+      "assets/diagrams/intermediate/context/a04/en/solution-1.svg",
+      "assets/diagrams/intermediate/context/a04/en/solution-2.svg",
+      "assets/diagrams/intermediate/context/a04/en/solution-3.svg"
+    ],
+    "example": "examples/compaction.py"
+  },
+  {
+    "lesson": "a05",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/memory/a05/en/problem.svg",
+      "assets/diagrams/intermediate/memory/a05/en/mechanism.svg",
+      "assets/diagrams/intermediate/memory/a05/en/selection.svg",
+      "assets/diagrams/intermediate/memory/a05/en/solution-1.svg",
+      "assets/diagrams/intermediate/memory/a05/en/solution-2.svg",
+      "assets/diagrams/intermediate/memory/a05/en/solution-3.svg"
+    ],
+    "example": "examples/checkpoints.py"
+  },
+  {
+    "lesson": "a06",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/memory/a06/en/problem.svg",
+      "assets/diagrams/intermediate/memory/a06/en/mechanism.svg",
+      "assets/diagrams/intermediate/memory/a06/en/selection.svg",
+      "assets/diagrams/intermediate/memory/a06/en/solution-1.svg",
+      "assets/diagrams/intermediate/memory/a06/en/solution-2.svg",
+      "assets/diagrams/intermediate/memory/a06/en/solution-3.svg"
+    ],
+    "example": "examples/memory_scope.py"
+  },
+  {
+    "lesson": "a07",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/function-calling/a07/en/problem.svg",
+      "assets/diagrams/intermediate/function-calling/a07/en/mechanism.svg",
+      "assets/diagrams/intermediate/function-calling/a07/en/selection.svg",
+      "assets/diagrams/intermediate/function-calling/a07/en/solution-1.svg",
+      "assets/diagrams/intermediate/function-calling/a07/en/solution-2.svg",
+      "assets/diagrams/intermediate/function-calling/a07/en/solution-3.svg"
+    ],
+    "example": "examples/tool_gateway.py"
+  },
+  {
+    "lesson": "a08",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/collaboration/a08/en/problem.png",
+      "assets/diagrams/architecture/collaboration/a08/en/mechanism.png",
+      "assets/diagrams/architecture/collaboration/a08/en/selection.png",
+      "assets/diagrams/architecture/collaboration/a08/en/solution-1.png",
+      "assets/diagrams/architecture/collaboration/a08/en/solution-2.png",
+      "assets/diagrams/architecture/collaboration/a08/en/solution-3.png"
+    ],
+    "example": "examples/parallel_agents.py"
+  },
+  {
+    "lesson": "a09",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/execution-design/a09/en/problem.png",
+      "assets/diagrams/architecture/execution-design/a09/en/mechanism.png",
+      "assets/diagrams/architecture/execution-design/a09/en/selection.png",
+      "assets/diagrams/architecture/execution-design/a09/en/solution-1.png",
+      "assets/diagrams/architecture/execution-design/a09/en/solution-2.png",
+      "assets/diagrams/architecture/execution-design/a09/en/solution-3.png",
+      "assets/diagrams/architecture/execution-design/a09/en/replay-boundary.png"
+    ],
+    "example": "examples/runtime_budget.py"
+  },
+  {
+    "lesson": "a11",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/assurance/a11/en/problem.png",
+      "assets/diagrams/architecture/assurance/a11/en/mechanism.png",
+      "assets/diagrams/architecture/assurance/a11/en/selection.png",
+      "assets/diagrams/architecture/assurance/a11/en/solution-1.png",
+      "assets/diagrams/architecture/assurance/a11/en/solution-2.png",
+      "assets/diagrams/architecture/assurance/a11/en/solution-3.png"
+    ],
+    "example": "examples/evaluation.py"
+  },
+  {
+    "lesson": "a12",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/deployment/a12/en/problem.png",
+      "assets/diagrams/architecture/deployment/a12/en/mechanism.png",
+      "assets/diagrams/architecture/deployment/a12/en/selection.png",
+      "assets/diagrams/architecture/deployment/a12/en/solution-1.png",
+      "assets/diagrams/architecture/deployment/a12/en/solution-2.png",
+      "assets/diagrams/architecture/deployment/a12/en/solution-3.png"
+    ],
+    "example": "examples/architecture_recipe.py"
+  },
+  {
+    "lesson": "approval01",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/approvals/approval01/en/problem.png",
+      "assets/diagrams/architecture/approvals/approval01/en/mechanism.png",
+      "assets/diagrams/architecture/approvals/approval01/en/selection.png",
+      "assets/diagrams/architecture/approvals/approval01/en/solution-1.png",
+      "assets/diagrams/architecture/approvals/approval01/en/solution-2.png",
+      "assets/diagrams/architecture/approvals/approval01/en/solution-3.png"
+    ],
+    "example": "examples/approval_lifecycle.py"
+  },
+  {
+    "lesson": "approval02",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/approvals/approval02/en/problem.png",
+      "assets/diagrams/architecture/approvals/approval02/en/mechanism.png",
+      "assets/diagrams/architecture/approvals/approval02/en/selection.png",
+      "assets/diagrams/architecture/approvals/approval02/en/solution-1.png",
+      "assets/diagrams/architecture/approvals/approval02/en/solution-2.png",
+      "assets/diagrams/architecture/approvals/approval02/en/solution-3.png"
+    ],
+    "example": "examples/approval_recovery.py"
+  },
+  {
+    "lesson": "auth01",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/permissions/auth01/en/problem.png",
+      "assets/diagrams/architecture/permissions/auth01/en/mechanism.png",
+      "assets/diagrams/architecture/permissions/auth01/en/selection.png",
+      "assets/diagrams/architecture/permissions/auth01/en/solution-1.png",
+      "assets/diagrams/architecture/permissions/auth01/en/solution-2.png",
+      "assets/diagrams/architecture/permissions/auth01/en/solution-3.png"
+    ],
+    "example": "examples/permission_policy.py"
+  },
+  {
+    "lesson": "auth02",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/permissions/auth02/en/problem.png",
+      "assets/diagrams/architecture/permissions/auth02/en/mechanism.png",
+      "assets/diagrams/architecture/permissions/auth02/en/selection.png",
+      "assets/diagrams/architecture/permissions/auth02/en/solution-1.png",
+      "assets/diagrams/architecture/permissions/auth02/en/solution-2.png",
+      "assets/diagrams/architecture/permissions/auth02/en/solution-3.png"
+    ],
+    "example": "examples/permission_decisions.py"
+  },
+  {
+    "lesson": "f01",
+    "language": "en",
+    "images": [
+      "assets/diagrams/foundations/f01/en/problem.svg",
+      "assets/diagrams/foundations/f01/en/mechanism.svg",
+      "assets/diagrams/foundations/f01/en/selection.svg",
+      "assets/diagrams/foundations/f01/en/solution-1.svg",
+      "assets/diagrams/foundations/f01/en/solution-2.svg",
+      "assets/diagrams/foundations/f01/en/solution-3.svg"
+    ],
+    "example": "examples/problem_framing.py"
+  },
+  {
+    "lesson": "f02",
+    "language": "en",
+    "images": [
+      "assets/diagrams/foundations/f02/en/problem.svg",
+      "assets/diagrams/foundations/f02/en/mechanism.svg",
+      "assets/diagrams/foundations/f02/en/selection.svg",
+      "assets/diagrams/foundations/f02/en/solution-1.svg",
+      "assets/diagrams/foundations/f02/en/solution-2.svg",
+      "assets/diagrams/foundations/f02/en/solution-3.svg"
+    ],
+    "example": "examples/autograd.py"
+  },
+  {
+    "lesson": "f03",
+    "language": "en",
+    "images": [
+      "assets/diagrams/foundations/f03/en/problem.svg",
+      "assets/diagrams/foundations/f03/en/mechanism.svg",
+      "assets/diagrams/foundations/f03/en/selection.svg",
+      "assets/diagrams/foundations/f03/en/solution-1.svg",
+      "assets/diagrams/foundations/f03/en/solution-2.svg",
+      "assets/diagrams/foundations/f03/en/solution-3.svg"
+    ],
+    "example": "examples/ml_pipeline.py"
+  },
+  {
+    "lesson": "f04",
+    "language": "en",
+    "images": [
+      "assets/diagrams/foundations/f04/en/problem.svg",
+      "assets/diagrams/foundations/f04/en/mechanism.svg",
+      "assets/diagrams/foundations/f04/en/selection.svg",
+      "assets/diagrams/foundations/f04/en/solution-1.svg",
+      "assets/diagrams/foundations/f04/en/solution-2.svg",
+      "assets/diagrams/foundations/f04/en/solution-3.svg"
+    ],
+    "example": "examples/mlp.py"
+  },
+  {
+    "lesson": "f05",
+    "language": "en",
+    "images": [
+      "assets/illustrations/f05/visual-input.png",
+      "assets/diagrams/foundations/f05/en/mechanism.svg",
+      "assets/diagrams/foundations/f05/en/selection.svg",
+      "assets/diagrams/foundations/f05/en/solution-1.svg",
+      "assets/diagrams/foundations/f05/en/solution-2.svg",
+      "assets/diagrams/foundations/f05/en/solution-3.svg"
+    ],
+    "example": "examples/vision.py"
+  },
+  {
+    "lesson": "f06",
+    "language": "en",
+    "images": [
+      "assets/diagrams/foundations/f06/en/problem.svg",
+      "assets/diagrams/foundations/f06/en/mechanism.svg",
+      "assets/diagrams/foundations/f06/en/selection.svg",
+      "assets/diagrams/foundations/f06/en/solution-1.svg",
+      "assets/diagrams/foundations/f06/en/solution-2.svg",
+      "assets/diagrams/foundations/f06/en/solution-3.svg"
+    ],
+    "example": "examples/language_model.py"
+  },
+  {
+    "lesson": "f07",
+    "language": "en",
+    "images": [
+      "assets/diagrams/foundations/f07/en/problem.svg",
+      "assets/diagrams/foundations/f07/en/mechanism.svg",
+      "assets/diagrams/foundations/f07/en/selection.svg",
+      "assets/diagrams/foundations/f07/en/architecture.png",
+      "assets/diagrams/foundations/f07/en/solution-1.svg",
+      "assets/diagrams/foundations/f07/en/solution-2.svg",
+      "assets/diagrams/foundations/f07/en/solution-3.svg"
+    ],
+    "example": "examples/transformer.py"
+  },
+  {
+    "lesson": "f08",
+    "language": "en",
+    "images": [
+      "assets/diagrams/foundations/f08/en/problem.svg",
+      "assets/diagrams/foundations/f08/en/mechanism.svg",
+      "assets/diagrams/foundations/f08/en/selection.svg",
+      "assets/diagrams/foundations/f08/en/solution-1.svg",
+      "assets/diagrams/foundations/f08/en/solution-2.svg",
+      "assets/diagrams/foundations/f08/en/solution-3.svg"
+    ],
+    "example": "examples/lora.py"
+  },
+  {
+    "lesson": "fc01",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/function-calling/fc01/en/problem.svg",
+      "assets/diagrams/intermediate/function-calling/fc01/en/mechanism.svg",
+      "assets/diagrams/intermediate/function-calling/fc01/en/selection.svg",
+      "assets/diagrams/intermediate/function-calling/fc01/en/solution-1.svg",
+      "assets/diagrams/intermediate/function-calling/fc01/en/solution-2.svg",
+      "assets/diagrams/intermediate/function-calling/fc01/en/solution-3.svg"
+    ],
+    "example": "examples/function_calling.py"
+  },
+  {
+    "lesson": "fc02",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/function-calling/fc02/en/problem.svg",
+      "assets/diagrams/intermediate/function-calling/fc02/en/mechanism.svg",
+      "assets/diagrams/intermediate/function-calling/fc02/en/selection.svg",
+      "assets/diagrams/intermediate/function-calling/fc02/en/solution-1.svg",
+      "assets/diagrams/intermediate/function-calling/fc02/en/solution-2.svg",
+      "assets/diagrams/intermediate/function-calling/fc02/en/solution-3.svg"
+    ],
+    "example": "examples/function_calling_mcp.py"
+  },
+  {
+    "lesson": "l01",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/llm-applications/l01/en/problem.svg",
+      "assets/diagrams/intermediate/llm-applications/l01/en/mechanism.svg",
+      "assets/diagrams/intermediate/llm-applications/l01/en/selection.svg",
+      "assets/diagrams/intermediate/llm-applications/l01/en/solution-1.svg",
+      "assets/diagrams/intermediate/llm-applications/l01/en/solution-2.svg",
+      "assets/diagrams/intermediate/llm-applications/l01/en/solution-3.svg"
+    ],
+    "example": "examples/output_contract.py"
+  },
+  {
+    "lesson": "l02",
+    "language": "en",
+    "images": [
+      "assets/illustrations/l02/evidence-desk.png",
+      "assets/diagrams/intermediate/llm-applications/l02/en/mechanism.svg",
+      "assets/diagrams/intermediate/llm-applications/l02/en/selection.svg",
+      "assets/diagrams/intermediate/llm-applications/l02/en/solution-1.svg",
+      "assets/diagrams/intermediate/llm-applications/l02/en/solution-2.svg",
+      "assets/diagrams/intermediate/llm-applications/l02/en/solution-3.svg",
+      "assets/diagrams/intermediate/llm-applications/l02/en/rank-trace.svg"
+    ],
+    "example": "examples/hybrid_retrieval.py"
+  },
+  {
+    "lesson": "l03",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/llm-applications/l03/en/problem.svg",
+      "assets/diagrams/intermediate/llm-applications/l03/en/mechanism.svg",
+      "assets/diagrams/intermediate/llm-applications/l03/en/selection.svg",
+      "assets/diagrams/intermediate/llm-applications/l03/en/solution-1.svg",
+      "assets/diagrams/intermediate/llm-applications/l03/en/solution-2.svg",
+      "assets/diagrams/intermediate/llm-applications/l03/en/solution-3.svg"
+    ],
+    "example": "examples/inference_budget.py"
+  },
+  {
+    "lesson": "ma01",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/task-design/ma01/en/problem.png",
+      "assets/diagrams/architecture/task-design/ma01/en/mechanism.png",
+      "assets/diagrams/architecture/task-design/ma01/en/selection.png",
+      "assets/diagrams/architecture/task-design/ma01/en/solution-1.png",
+      "assets/diagrams/architecture/task-design/ma01/en/solution-2.png",
+      "assets/diagrams/architecture/task-design/ma01/en/solution-3.png"
+    ],
+    "example": "examples/task_decomposition.py"
+  },
+  {
+    "lesson": "ma02",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/collaboration/ma02/en/problem.png",
+      "assets/diagrams/architecture/collaboration/ma02/en/mechanism.png",
+      "assets/diagrams/architecture/collaboration/ma02/en/selection.png",
+      "assets/diagrams/architecture/collaboration/ma02/en/solution-1.png",
+      "assets/diagrams/architecture/collaboration/ma02/en/solution-2.png",
+      "assets/diagrams/architecture/collaboration/ma02/en/solution-3.png"
+    ],
+    "example": "examples/agent_messages.py"
+  },
+  {
+    "lesson": "ma03",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/state-consistency/ma03/en/problem.png",
+      "assets/diagrams/architecture/state-consistency/ma03/en/mechanism.png",
+      "assets/diagrams/architecture/state-consistency/ma03/en/selection.png",
+      "assets/diagrams/architecture/state-consistency/ma03/en/solution-1.png",
+      "assets/diagrams/architecture/state-consistency/ma03/en/solution-2.png",
+      "assets/diagrams/architecture/state-consistency/ma03/en/solution-3.png"
+    ],
+    "example": "examples/shared_artifacts.py"
+  },
+  {
+    "lesson": "ma04",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/execution-design/ma04/en/problem.png",
+      "assets/diagrams/architecture/execution-design/ma04/en/mechanism.png",
+      "assets/diagrams/architecture/execution-design/ma04/en/selection.png",
+      "assets/diagrams/architecture/execution-design/ma04/en/solution-1.png",
+      "assets/diagrams/architecture/execution-design/ma04/en/solution-2.png",
+      "assets/diagrams/architecture/execution-design/ma04/en/solution-3.png"
+    ],
+    "example": "examples/dag_scheduler.py"
+  },
+  {
+    "lesson": "ma05",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/execution-design/ma05/en/problem.png",
+      "assets/diagrams/architecture/execution-design/ma05/en/mechanism.png",
+      "assets/diagrams/architecture/execution-design/ma05/en/selection.png",
+      "assets/diagrams/architecture/execution-design/ma05/en/solution-1.png",
+      "assets/diagrams/architecture/execution-design/ma05/en/solution-2.png",
+      "assets/diagrams/architecture/execution-design/ma05/en/solution-3.png"
+    ],
+    "example": "examples/failure_recovery.py"
+  },
+  {
+    "lesson": "ma06",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/assurance/ma06/en/problem.png",
+      "assets/diagrams/architecture/assurance/ma06/en/mechanism.png",
+      "assets/diagrams/architecture/assurance/ma06/en/selection.png",
+      "assets/diagrams/architecture/assurance/ma06/en/solution-1.png",
+      "assets/diagrams/architecture/assurance/ma06/en/solution-2.png",
+      "assets/diagrams/architecture/assurance/ma06/en/solution-3.png"
+    ],
+    "example": "examples/collaboration_evaluation.py"
+  },
+  {
+    "lesson": "ma07",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/deployment/ma07/en/problem.png",
+      "assets/diagrams/architecture/deployment/ma07/en/mechanism.png",
+      "assets/diagrams/architecture/deployment/ma07/en/selection.png",
+      "assets/diagrams/architecture/deployment/ma07/en/solution-1.png",
+      "assets/diagrams/architecture/deployment/ma07/en/solution-2.png",
+      "assets/diagrams/architecture/deployment/ma07/en/solution-3.png"
+    ],
+    "example": "examples/deployment_capacity.py"
+  },
+  {
+    "lesson": "mcp01",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp01/en/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp01/en/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp01/en/selection.svg"
+    ],
+    "example": "examples/mcp_overview.py"
+  },
+  {
+    "lesson": "mcp02",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp02/en/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp02/en/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp02/en/selection.svg"
+    ],
+    "example": "examples/mcp_primitives.py"
+  },
+  {
+    "lesson": "mcp03",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp03/en/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp03/en/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp03/en/selection.svg"
+    ],
+    "example": "examples/mcp_messages.py"
+  },
+  {
+    "lesson": "mcp04",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp04/en/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp04/en/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp04/en/selection.svg"
+    ],
+    "example": "examples/mcp_transports.py"
+  },
+  {
+    "lesson": "mcp05",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp05/en/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp05/en/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp05/en/selection.svg"
+    ],
+    "example": "examples/mcp_server_example.py"
+  },
+  {
+    "lesson": "mcp06",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/mcp/mcp06/en/problem.svg",
+      "assets/diagrams/intermediate/mcp/mcp06/en/mechanism.svg",
+      "assets/diagrams/intermediate/mcp/mcp06/en/selection.svg"
+    ],
+    "example": "examples/mcp_host_bridge.py"
+  },
+  {
+    "lesson": "session01",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/sessions/session01/en/problem.png",
+      "assets/diagrams/architecture/sessions/session01/en/mechanism.png",
+      "assets/diagrams/architecture/sessions/session01/en/selection.png",
+      "assets/diagrams/architecture/sessions/session01/en/solution-1.png",
+      "assets/diagrams/architecture/sessions/session01/en/solution-2.png",
+      "assets/diagrams/architecture/sessions/session01/en/solution-3.png"
+    ],
+    "example": "examples/session_lifecycle.py"
+  },
+  {
+    "lesson": "session02",
+    "language": "en",
+    "images": [
+      "assets/diagrams/architecture/sessions/session02/en/problem.png",
+      "assets/diagrams/architecture/sessions/session02/en/mechanism.png",
+      "assets/diagrams/architecture/sessions/session02/en/selection.png",
+      "assets/diagrams/architecture/sessions/session02/en/solution-1.png",
+      "assets/diagrams/architecture/sessions/session02/en/solution-2.png",
+      "assets/diagrams/architecture/sessions/session02/en/solution-3.png"
+    ],
+    "example": "examples/task_resume.py"
+  },
+  {
+    "lesson": "skill01",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill01/en/problem.svg",
+      "assets/diagrams/intermediate/skills/skill01/en/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill01/en/selection.svg",
+      "assets/diagrams/intermediate/skills/skill01/en/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill01/en/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill01/en/solution-3.svg"
+    ],
+    "example": "examples/skill_host.py"
+  },
+  {
+    "lesson": "skill02",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill02/en/problem.svg",
+      "assets/diagrams/intermediate/skills/skill02/en/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill02/en/selection.svg",
+      "assets/diagrams/intermediate/skills/skill02/en/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill02/en/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill02/en/solution-3.svg"
+    ],
+    "example": "examples/skill_package.py"
+  },
+  {
+    "lesson": "skill03",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill03/en/problem.svg",
+      "assets/diagrams/intermediate/skills/skill03/en/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill03/en/selection.svg",
+      "assets/diagrams/intermediate/skills/skill03/en/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill03/en/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill03/en/solution-3.svg"
+    ],
+    "example": "examples/skill_loading.py"
+  },
+  {
+    "lesson": "skill04",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill04/en/problem.svg",
+      "assets/diagrams/intermediate/skills/skill04/en/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill04/en/selection.svg",
+      "assets/diagrams/intermediate/skills/skill04/en/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill04/en/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill04/en/solution-3.svg"
+    ],
+    "example": "examples/skill_mcp_integration.py"
+  },
+  {
+    "lesson": "skill05",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill05/en/problem.svg",
+      "assets/diagrams/intermediate/skills/skill05/en/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill05/en/selection.svg",
+      "assets/diagrams/intermediate/skills/skill05/en/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill05/en/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill05/en/solution-3.svg"
+    ],
+    "example": "examples/skill_composition.py"
+  },
+  {
+    "lesson": "skill06",
+    "language": "en",
+    "images": [
+      "assets/diagrams/intermediate/skills/skill06/en/problem.svg",
+      "assets/diagrams/intermediate/skills/skill06/en/mechanism.svg",
+      "assets/diagrams/intermediate/skills/skill06/en/selection.svg",
+      "assets/diagrams/intermediate/skills/skill06/en/solution-1.svg",
+      "assets/diagrams/intermediate/skills/skill06/en/solution-2.svg",
+      "assets/diagrams/intermediate/skills/skill06/en/solution-3.svg"
+    ],
+    "example": "examples/skill_evaluation.py"
+  },
+  {
+    "lesson": "studio",
+    "language": "en",
+    "images": [
+      "assets/illustrations/studio/solo-studio.png",
+      "assets/diagrams/projects/studio/en/mechanism.png",
+      "assets/diagrams/projects/studio/en/selection.png",
+      "assets/diagrams/projects/studio/en/solution-1.png",
+      "assets/diagrams/projects/studio/en/solution-2.png",
+      "assets/diagrams/projects/studio/en/solution-3.png",
+      "assets/diagrams/projects/studio/en/deployment.png",
+      "assets/diagrams/projects/studio/en/gates.png",
+      "assets/diagrams/projects/studio/en/sessions.png",
+      "assets/diagrams/projects/studio/en/recovery.png"
+    ],
+    "example": "examples/studio_contracts.py"
+  }
+]

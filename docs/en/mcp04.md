@@ -8,17 +8,19 @@ Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are la
 
 Local calls work, but remote clients get auth errors or interrupted streams.
 
-![Failure path versus controlled path](../../assets/lessons/en/mcp04-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/mcp/mcp04/en/problem.svg)
+
+
 
 ## See the mechanism
 
 Transport carries messages; authentication establishes identity; domain services enforce scope and objects. Streamable HTTP may return JSON or SSE, unlike legacy HTTP+SSE.
 
-![How data, computation or state changes](../../assets/lessons/en/mcp04-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/mcp/mcp04/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/mcp04-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/mcp/mcp04/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|

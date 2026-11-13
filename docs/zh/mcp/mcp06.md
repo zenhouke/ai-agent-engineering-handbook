@@ -8,17 +8,19 @@
 
 接上十个 MCP Server 后工具太多、选错工具、版本不兼容；如何让它真正成为 Agent 的能力层？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/mcp06-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/mcp/mcp06/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 Host 按任务选择服务和工具，映射 Schema 到模型接口；调用前校验权限，调用后区分错误并回填观察。模型供应商接口不是 MCP，不能直接混传。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/mcp06-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/mcp/mcp06/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/mcp06-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/mcp/mcp06/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|

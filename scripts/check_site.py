@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import ast
 import json
+import struct
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+from asset_paths import DIAGRAMS, VISUAL_MANIFEST, lesson_diagrams
 from curriculum import load_curriculum
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -139,7 +141,7 @@ def check() -> None:
             rendered = (OUT / "zh" / f"{item['id']}.html").read_text()
             if "```" in rendered or "```mermaid" in source:
                 errors.append(f"{item['source']}: raw unrendered block")
-    visual_index = json.loads((ROOT / "assets/visual-manifest.json").read_text())
+    visual_index = json.loads(VISUAL_MANIFEST.read_text())
     protocols = [item for item in manifest if item.get("kind") == "protocol"]
     topics = [
         item
@@ -208,13 +210,82 @@ def check() -> None:
             for asset in entry["images"]:
                 if asset not in source or not (ROOT / asset).is_file():
                     errors.append(f"Missing lesson figure: {asset}")
-    diagrams = list((ROOT / "assets").rglob("*.svg"))
-    for path in diagrams + list(ROOT.glob("*.svg")):
-        ET.parse(path)
+                if asset.startswith("assets/diagrams/") and (
+                    ROOT / asset
+                ).parent != lesson_diagrams(item, language):
+                    errors.append(f"Figure outside its curriculum folder: {asset}")
+            media = data.get("media", []) + (
+                [data["intro_image"]] if data.get("intro_image") else []
+            )
+            for image in media:
+                if not image.get("alt") or not image.get("caption"):
+                    errors.append(f"Missing image context: {item['id']} {language}")
+                if image["file"] not in source or not (ROOT / image["file"]).is_file():
+                    errors.append(
+                        f"Missing photographic/illustrative media: {image['file']}"
+                    )
+            if item["group"] >= 3 and any(
+                asset.endswith(".svg") for asset in entry["images"]
+            ):
+                errors.append(
+                    f"Architecture lesson must publish PNG figures: {item['id']} {language}"
+                )
+    diagrams = [path for path in DIAGRAMS.rglob("*") if path.suffix in {".svg", ".png"}]
+    declared = {
+        ROOT / asset
+        for entry in visual_index
+        for asset in entry["images"]
+        if asset.startswith("assets/diagrams/")
+    }
+    declared.add(DIAGRAMS / "overview/learning-map.svg")
+    for path in set(diagrams) - declared:
+        errors.append(f"Unowned diagram asset: {path.relative_to(ROOT)}")
+    if list(ROOT.glob("*.svg")):
+        errors.append("SVG files must not be scattered in the repository root")
+    image_extensions = {".svg", ".png", ".jpg", ".jpeg", ".webp"}
+    published = {
+        p.relative_to(OUT)
+        for p in (OUT / "assets").rglob("*")
+        if p.suffix in image_extensions
+    }
+    originals = {
+        p.relative_to(ROOT)
+        for p in (ROOT / "assets").rglob("*")
+        if p.suffix in image_extensions
+    }
+    if published != originals or list(OUT.glob("*.svg")):
+        errors.append("Published image inventory differs from current source assets")
+    referenced = set()
+    for page, document in documents.items():
+        for tag, value in document.links:
+            parsed = urlsplit(value)
+            if tag == "img" and not parsed.scheme and not parsed.netloc:
+                target = (page.parent / unquote(parsed.path)).resolve()
+                if target.is_relative_to(OUT):
+                    referenced.add(target.relative_to(OUT))
+    # The historical reference index is read directly in the repository.
+    referenced.add(Path("assets/diagrams/overview/learning-map.svg"))
+    for path in originals - referenced:
+        errors.append(f"Unreferenced image: {path}")
+    for path in diagrams:
+        if path.suffix == ".svg":
+            ET.parse(path)
+        else:
+            header = path.read_bytes()[:24]
+            if header[:8] != b"\x89PNG\r\n\x1a\n" or struct.unpack(
+                ">II", header[16:24]
+            )[0] != (3600 if path.name == "system-architecture.png" else 2400):
+                errors.append(
+                    f"Architecture figure has an invalid PNG export size: {path}"
+                )
+    registry = json.loads((ROOT / "assets/media.json").read_text())
+    for media in registry["assets"]:
+        if not (ROOT / media["file"]).is_file() or not media.get("producer"):
+            errors.append(f"Missing media or provenance: {media['file']}")
     if errors:
         raise SystemExit("\n".join(errors))
     print(
-        f"Checked {len(manifest)} paired pages, {len(core)} core + {len(protocols)} MCP + {len(topics)} architecture/topic lessons, numbered navigation/headings, local links/anchors and {len(diagrams)} asset SVGs (training not executed)"
+        f"Checked {len(manifest)} paired pages, {len(core)} core + {len(protocols)} MCP + {len(topics)} architecture/topic lessons, numbered navigation/headings, local links/anchors and {len(originals)} image assets (training not executed)"
     )
 
 

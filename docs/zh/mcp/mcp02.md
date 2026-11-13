@@ -8,17 +8,19 @@
 
 读取报价、提供合同上下文、复用比较模板，为什么不全做成一个万能工具？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/mcp02-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/mcp/mcp02/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 Tool 是可执行能力，Resource 是由应用选用的上下文，Prompt 是可选择的交互模板。三者需要各自的发现、参数和授权规则，不能混为模型记忆。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/mcp02-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/mcp/mcp02/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/mcp02-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/mcp/mcp02/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|

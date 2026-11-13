@@ -6,17 +6,19 @@
 
 模型能运行，但长输入、长输出和并发请求使延迟与显存失控。
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/l03-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/llm-applications/l03/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 分开测量 Prefill、Decode 和排队；KV cache 复用历史 K/V，批处理与量化需要按目标负载权衡。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/l03-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/llm-applications/l03/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/l03-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/llm-applications/l03/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,19 +30,19 @@
 
 ### 1 · KV cache
 
-![KV cache](../../../assets/lessons/zh/l03-solution-1.svg)
+![KV cache](../../../assets/diagrams/intermediate/llm-applications/l03/zh/solution-1.svg)
 
 **具体推演：** 32层、4096Token、8KV头等给定配置约512MiB，不含其他张量。
 
 ### 2 · 连续批处理（如 vLLM）
 
-![连续批处理（如 vLLM）](../../../assets/lessons/zh/l03-solution-2.svg)
+![连续批处理（如 vLLM）](../../../assets/diagrams/intermediate/llm-applications/l03/zh/solution-2.svg)
 
 **具体推演：** vLLM类服务通过调度与KV管理提高利用率，但要按目标SLO测量。
 
 ### 3 · 量化/准入控制
 
-![量化/准入控制](../../../assets/lessons/zh/l03-solution-3.svg)
+![量化/准入控制](../../../assets/diagrams/intermediate/llm-applications/l03/zh/solution-3.svg)
 
 **具体推演：** 权重能装入显卡，不代表还能容纳多用户长上下文。
 

@@ -8,17 +8,19 @@
 
 把三个 Skill 正文拼起来，为什么仍出现顺序错误、互相冲突，以及旧报价沿用旧审批？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/skill05-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/skills/skill05/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 组合以任务计划和类型化产物为边界；方法不代替状态机。依赖就绪且产物验收成功才推进，新证据使下游产物失效，未决外部动作先对账。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/skill05-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/skills/skill05/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/skill05-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/skills/skill05/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@
 
 ### 1 · 顺序方法链
 
-![顺序方法链](../../../assets/lessons/zh/skill05-solution-1.svg)
+![顺序方法链](../../../assets/diagrams/intermediate/skills/skill05/zh/solution-1.svg)
 
 **具体推演：** 审查报告必须保留A运费未知，不能让下一步当全量比较。
 
 ### 2 · 显式 DAG 调度
 
-![显式 DAG 调度](../../../assets/lessons/zh/skill05-solution-2.svg)
+![显式 DAG 调度](../../../assets/diagrams/intermediate/skills/skill05/zh/solution-2.svg)
 
 **具体推演：** 两个独立地区可并行，但比较等所有必要证据。
 
 ### 3 · Plan-and-Execute 重规划
 
-![Plan-and-Execute 重规划](../../../assets/lessons/zh/skill05-solution-3.svg)
+![Plan-and-Execute 重规划](../../../assets/diagrams/intermediate/skills/skill05/zh/solution-3.svg)
 
 **具体推演：** 报价变动重做比较和审批；创建结果未知先对账。
 

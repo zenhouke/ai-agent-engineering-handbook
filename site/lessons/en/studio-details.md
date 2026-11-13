@@ -15,7 +15,7 @@ ForgePilot local revision `13d673c` was inspected read-only, including commercia
 
 ## Deployment: UI, control and execution
 
-![Studio deployment and credential boundaries](../../assets/lessons/en/studio-deployment.svg)
+![Studio deployment and credential boundaries](../../assets/diagrams/projects/studio/en/deployment.png)
 
 ForgePilot uses React/TypeScript for the workbench, a Node gateway for same-origin configuration, brokering and protocol adaptation, Rust Studio Worker for background control, and PostgreSQL for authoritative state. Browser workers isolate platform account sessions; task containers hold bounded execution and files without inheriting platform credentials. Closing the workbench does not terminate persisted work.
 
@@ -38,7 +38,7 @@ Original material references include content hash, byte count, source node/versi
 
 ## Four independent gates and order state
 
-![Quotation, funding, execution and delivery gates](../../assets/lessons/en/studio-gates.svg)
+![Quotation, funding, execution and delivery gates](../../assets/diagrams/projects/studio/en/gates.png)
 
 | Transition | Event | Required server-side check |
 |---|---|---|
@@ -58,7 +58,7 @@ The contract code evaluates business prerequisites from trusted, server-loaded f
 
 ## Sessions, context and memory
 
-![Independent session scopes and lifetimes](../../assets/lessons/en/studio-sessions.svg)
+![Independent session scopes and lifetimes](../../assets/diagrams/projects/studio/en/sessions.png)
 
 Application login identifies the operator; an agent thread carries reasoning context; a browser session binds a platform account; the task environment holds files and execution checkpoints. Each expires, revokes and recovers separately. One session ID cannot imply every permission. An order may outlive a login; a returning operator must be authorized again.
 
@@ -89,7 +89,7 @@ The database owns business facts, a vector index retrieves material, and model c
 
 ## Recovery, isolation and human takeover
 
-![Separate ownership loss from unknown external outcomes](../../assets/lessons/en/studio-recovery.svg)
+![Separate ownership loss from unknown external outcomes](../../assets/diagrams/projects/studio/en/recovery.png)
 
 ForgePilot protects execution ownership with database claiming and owner fencing, and considers persisted safe boundaries when recovering. This teaching design retains the original run, frozen configuration and committed artifacts. Automatically resume only steps known to be reentrant. In-flight model/tool calls can remain uncertain after process loss.
 

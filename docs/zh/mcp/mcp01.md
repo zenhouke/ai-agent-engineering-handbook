@@ -8,17 +8,19 @@
 
 每接一个模型和一个工具都要写适配器，为什么统一成 MCP 仍然不能直接替你规划任务？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/mcp01-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/mcp/mcp01/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 MCP 统一能力和上下文交换；Host 管模型、上下文和策略，Client 处理一条服务连接，Server 包装领域能力。Server 背后仍可调用已有业务 API。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/mcp01-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/mcp/mcp01/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/mcp01-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/mcp/mcp01/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|

@@ -2,7 +2,7 @@
 
 从零理解 AI 的学习仓库。沿着**数据与数学 → 机器学习与神经网络 → 大语言模型 → 应用工程 → Agent 系统 → 架构设计**学习，用数值例子、配图、流程图和失败推演建立可以迁移的理解。
 
-![从数据学习到系统行动](assets/learning-journey.jpg)
+![从数据学习到系统行动](assets/illustrations/learning-journey.jpg)
 
 ## 开始学习
 
@@ -25,7 +25,7 @@
 
 ## 原理与实验
 
-配图包含 agy 生成并经审核修订的概念插画，以及可编辑的精确 SVG 图。公式、注意力矩阵、检索流程、架构与恢复时序直接显示，不依赖 Mermaid 服务。
+配图按用途选择：场景和示例照片使用PNG/JPEG，真实界面使用截图，高级架构、部署与协作设计输出宽2400像素的高清PNG；公式、矩阵及计算原理保留SVG。架构图由绘图源码生成，场景插画不会代替精确的连接关系。所有图在正文直接显示，不依赖Mermaid服务。
 
 进阶篇讲控制流、上下文、函数调用、MCP、Skills和状态记忆；高级篇按任务、协作、会话、状态一致性、权限、审批、执行恢复、评测运营和部署装配逐项设计。Function Calling 两讲明确模型提议与执行边界；Skills 六讲提供实际技能包、按需加载、可信绑定、产物组合与回归方法。MCP 六讲：Host/Client/Server、Tools/Resources/Prompts、当前与旧版协议、传输与认证、真实 SDK、Host 接入。图分别解释计算或状态机制、方案选择、内部步骤与失败路径，网页中可点击看大图。
 
@@ -60,7 +60,26 @@ python3 -m venv .venv
 .venv/bin/python scripts/check_site.py
 ```
 
-生成的静态产物位于 `_site`，可交给普通静态文件服务器。构建依赖只含 Python Markdown；浏览器运行时不加载外部脚本或字体。
+生成的静态产物位于 `_site`，可交给普通静态文件服务器。构建依赖包含Python Markdown与resvg_py。PNG导出需要Noto Sans CJK字体；Docker和CI已配置，独立构建时安装 `fonts-noto-cjk`，或通过 `HANDBOOK_FONT_FILE` 指定字体文件。浏览器运行时不加载外部脚本或字体。
+
+## 目录结构
+
+```text
+docs/                 中英文课程正文与补充笔记
+site/                 课程清单、逐课内容、语言资源与阅读站界面
+assets/illustrations/ 场景图片与概念插画
+assets/screenshots/   真实页面截图
+assets/diagrams/      按阶段、专题、课程和语言组织的图
+scripts/diagrams/     绘图源与公共 SVG 画布
+scripts/              构建、校验与本地预览入口
+examples/             配套参考实现与技能包
+labs/                 四个标准库实验
+tests/                机制与契约检查
+references/           上游资料元数据
+_site/                自动生成的阅读站，不纳入版本管理
+```
+
+图片的生成方式与维护边界见[视觉资产说明](assets/README.md)。课程图按课就近管理；根目录不放散落 SVG。生成图保留在仓库供 Markdown 直接显示，站点构建会清理过期输出。
 
 ## 参考与贡献
 

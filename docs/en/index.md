@@ -2,7 +2,7 @@
 
 Learn mechanisms, then design around task boundaries, contracts, state, authority and recovery. Training code is supplied without running training.
 
-![Learning journey](../../assets/learning-journey.jpg)
+![Learning journey](../../assets/illustrations/learning-journey.jpg)
 
 ## Learning stages
 

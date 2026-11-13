@@ -8,17 +8,19 @@ This teaching design derives from inspected ForgePilot workflows and runtime bou
 
 A solo AI services studio must discover leads, quote, execute and deliver. Who owns each action when the UI closes, a worker crashes, terms change or a receipt is lost?
 
-![Failure path versus controlled path](../../assets/lessons/en/studio-problem.svg)
+![Solo studio scene: an operator reviews requirements and a deliverable](../../assets/illustrations/studio/solo-studio.png)
+
+AI-generated studio concept, not a screenshot of ForgePilot. Human review owns commercial commitments and acceptance; the architecture figures specify agents, workers, authority and state.
 
 ## See the mechanism
 
 Use the order as the business spine. Agents interpret and propose; scoped workers act. Server-owned transitions, trusted approvals and verified funds control progress.
 
-![How data, computation or state changes](../../assets/lessons/en/studio-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/projects/studio/en/mechanism.png)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/studio-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/projects/studio/en/selection.png)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Use the order as the business spine. Agents interpret and propose; scoped worker
 
 ### 1 · Business workflow + specialist agents
 
-![Business workflow + specialist agents](../../assets/lessons/en/studio-solution-1.svg)
+![Business workflow + specialist agents](../../assets/diagrams/projects/studio/en/solution-1.png)
 
 **Concrete trace:** A 1000 CNY job requires a 300 CNY deposit: a chat claim is insufficient; verify a matching 30000-minor-unit receipt.
 
 ### 2 · Durable state + frozen handoffs
 
-![Durable state + frozen handoffs](../../assets/lessons/en/studio-solution-2.svg)
+![Durable state + frozen handoffs](../../assets/diagrams/projects/studio/en/solution-2.png)
 
 **Concrete trace:** Report v3 was approved; v4 changes an attachment and needs renewed review despite the same order ID.
 
 ### 3 · Isolated workers + action ledger
 
-![Isolated workers + action ledger](../../assets/lessons/en/studio-solution-3.svg)
+![Isolated workers + action ledger](../../assets/diagrams/projects/studio/en/solution-3.png)
 
 **Concrete trace:** Delivery reached the platform but its response was lost: reconcile the original action instead of resending under a new key.
 
@@ -226,7 +228,7 @@ ForgePilot local revision `13d673c` was inspected read-only, including commercia
 
 ## Deployment: UI, control and execution
 
-![Studio deployment and credential boundaries](../../assets/lessons/en/studio-deployment.svg)
+![Studio deployment and credential boundaries](../../assets/diagrams/projects/studio/en/deployment.png)
 
 ForgePilot uses React/TypeScript for the workbench, a Node gateway for same-origin configuration, brokering and protocol adaptation, Rust Studio Worker for background control, and PostgreSQL for authoritative state. Browser workers isolate platform account sessions; task containers hold bounded execution and files without inheriting platform credentials. Closing the workbench does not terminate persisted work.
 
@@ -249,7 +251,7 @@ Original material references include content hash, byte count, source node/versi
 
 ## Four independent gates and order state
 
-![Quotation, funding, execution and delivery gates](../../assets/lessons/en/studio-gates.svg)
+![Quotation, funding, execution and delivery gates](../../assets/diagrams/projects/studio/en/gates.png)
 
 | Transition | Event | Required server-side check |
 |---|---|---|
@@ -269,7 +271,7 @@ The contract code evaluates business prerequisites from trusted, server-loaded f
 
 ## Sessions, context and memory
 
-![Independent session scopes and lifetimes](../../assets/lessons/en/studio-sessions.svg)
+![Independent session scopes and lifetimes](../../assets/diagrams/projects/studio/en/sessions.png)
 
 Application login identifies the operator; an agent thread carries reasoning context; a browser session binds a platform account; the task environment holds files and execution checkpoints. Each expires, revokes and recovers separately. One session ID cannot imply every permission. An order may outlive a login; a returning operator must be authorized again.
 
@@ -300,7 +302,7 @@ The database owns business facts, a vector index retrieves material, and model c
 
 ## Recovery, isolation and human takeover
 
-![Separate ownership loss from unknown external outcomes](../../assets/lessons/en/studio-recovery.svg)
+![Separate ownership loss from unknown external outcomes](../../assets/diagrams/projects/studio/en/recovery.png)
 
 ForgePilot protects execution ownership with database claiming and owner fencing, and considers persisted safe boundaries when recovering. This teaching design retains the original run, frozen configuration and committed artifacts. Automatically resume only steps known to be reentrant. In-flight model/tool calls can remain uncertain after process loss.
 

@@ -8,17 +8,19 @@
 
 安装后在一个问题上表现不错，为什么不能证明 Skill 有效？改了 description 或辅助脚本应测什么？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/skill06-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/skills/skill06/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 触发质量、产物质量和运行成本分开评；同一批任务做有/无技能及旧/新版对照。固定包摘要与版本便于回归、灰度和回滚，不伪造模型收益。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/skill06-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/skills/skill06/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/skill06-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/skills/skill06/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@
 
 ### 1 · 格式与确定性检查
 
-![格式与确定性检查](../../../assets/lessons/zh/skill06-solution-1.svg)
+![格式与确定性检查](../../../assets/diagrams/intermediate/skills/skill06/zh/solution-1.svg)
 
 **具体推演：** 校验器检测A运费未知却声称总价180。
 
 ### 2 · 触发集 + 消融对照
 
-![触发集 + 消融对照](../../../assets/lessons/zh/skill06-solution-2.svg)
+![触发集 + 消融对照](../../../assets/diagrams/intermediate/skills/skill06/zh/solution-2.svg)
 
 **具体推演：** 写报价报告该触发，询问天气不该触发；无实测不填虚构分数。
 
 ### 3 · 版本化灰度与回归
 
-![版本化灰度与回归](../../../assets/lessons/zh/skill06-solution-3.svg)
+![版本化灰度与回归](../../../assets/diagrams/intermediate/skills/skill06/zh/solution-3.svg)
 
 **具体推演：** 更新比较规则时保留旧任务所绑定的包和产物契约。
 

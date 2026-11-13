@@ -8,17 +8,19 @@
 
 工具在允许列表中，为什么仍可能读取别人数据？“已登录”和“可执行这次动作”差在哪里？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/auth01-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/architecture/permissions/auth01/zh/problem.png)
+
+
 
 ## 图解工作原理
 
 权限决策使用可信主体、动作、资源和上下文。RBAC控制角色动作，ABAC加入租户/金额/证据等条件，ReBAC描述资源关系；默认拒绝，模型不自报权限。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/auth01-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/architecture/permissions/auth01/zh/mechanism.png)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/auth01-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/architecture/permissions/auth01/zh/selection.png)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@
 
 ### 1 · RBAC
 
-![RBAC](../../../assets/lessons/zh/auth01-solution-1.svg)
+![RBAC](../../../assets/diagrams/architecture/permissions/auth01/zh/solution-1.png)
 
 **具体推演：** operator可提出草稿，reviewer可审批，但不是同一职责。
 
 ### 2 · ABAC
 
-![ABAC](../../../assets/lessons/zh/auth01-solution-2.svg)
+![ABAC](../../../assets/diagrams/architecture/permissions/auth01/zh/solution-2.png)
 
 **具体推演：** Alice有create_draft角色，但金额超出其限额仍拒绝。
 
 ### 3 · ReBAC
 
-![ReBAC](../../../assets/lessons/zh/auth01-solution-3.svg)
+![ReBAC](../../../assets/diagrams/architecture/permissions/auth01/zh/solution-3.png)
 
 **具体推演：** 用OpenFGA建项目成员到报价的viewer关系；不是在Prompt中写“同团队”。
 

@@ -8,17 +8,19 @@ Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are la
 
 Ten servers expose too many tools, wrong schemas and incompatible versions.
 
-![Failure path versus controlled path](../../assets/lessons/en/mcp06-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/mcp/mcp06/en/problem.svg)
+
+
 
 ## See the mechanism
 
 The host selects tools per task, adapts schemas to model APIs, authorizes calls and feeds observations back. A provider tool API is not MCP.
 
-![How data, computation or state changes](../../assets/lessons/en/mcp06-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/mcp/mcp06/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/mcp06-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/mcp/mcp06/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|

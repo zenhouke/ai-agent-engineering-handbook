@@ -8,17 +8,19 @@
 
 把操作经验复制进每次 Prompt，为什么仍然选错工具、遗漏条件？把它存成 Skill 就会自动执行吗？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/skill01-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/skills/skill01/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 Skill 打包可复用方法与配套资源；模型选择方法并提出动作，Host 管上下文、执行与权限。计划描述本次依赖，MCP 提供外部能力接入。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/skill01-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/skills/skill01/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/skill01-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/skills/skill01/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Skill 打包可复用方法与配套资源；模型选择方法并提出动作�
 
 ### 1 · 一次性 Prompt
 
-![一次性 Prompt](../../../assets/lessons/zh/skill01-solution-1.svg)
+![一次性 Prompt](../../../assets/diagrams/intermediate/skills/skill01/zh/solution-1.svg)
 
 **具体推演：** 一次性改写段落用短 Prompt 即可。
 
 ### 2 · Agent Skills 技能包
 
-![Agent Skills 技能包](../../../assets/lessons/zh/skill01-solution-2.svg)
+![Agent Skills 技能包](../../../assets/diagrams/intermediate/skills/skill01/zh/solution-2.svg)
 
 **具体推演：** 报价审查技能规定保留未知运费，实际报价由工具提供。
 
 ### 3 · 确定性工作流
 
-![确定性工作流](../../../assets/lessons/zh/skill01-solution-3.svg)
+![确定性工作流](../../../assets/diagrams/intermediate/skills/skill01/zh/solution-3.svg)
 
 **具体推演：** 创建草稿前审批由服务规则落实，不只写在 Skill 里。
 

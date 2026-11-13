@@ -79,5 +79,10 @@
       "measure": "Complete evidence, support, p95 and cost.",
       "case": "Retrieve both a price and its >500-unit exception before committing to delivery."
     }
-  ]
+  ],
+  "intro_image": {
+    "file": "assets/illustrations/l02/evidence-desk.png",
+    "alt": "Source-checking illustration: comparing retrieved results and original material",
+    "caption": "AI-generated editorial illustration: retrieved candidates still need source, version and applicability checks. The pictured pages are not actual cited evidence."
+  }
 }

@@ -8,17 +8,19 @@ Local reference: trusted identity injection and SQLite transactions, without a l
 
 Can a service trust one allow forever? Should child workers inherit all parent credentials?
 
-![Failure path versus controlled path](../../assets/lessons/en/auth02-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/architecture/permissions/auth02/en/problem.png)
+
+
 
 ## See the mechanism
 
 Enforce current facts at execution. Cache by principal/action/object plus policy/fact versions. Delegation narrows scope; approval cannot convert deny into allow.
 
-![How data, computation or state changes](../../assets/lessons/en/auth02-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/architecture/permissions/auth02/en/mechanism.png)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/auth02-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/architecture/permissions/auth02/en/selection.png)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Enforce current facts at execution. Cache by principal/action/object plus policy
 
 ### 1 · In-process policy service
 
-![In-process policy service](../../assets/lessons/en/auth02-solution-1.svg)
+![In-process policy service](../../assets/diagrams/architecture/permissions/auth02/en/solution-1.png)
 
 **Concrete trace:** Role downgrade blocks a new run in an existing session.
 
 ### 2 · External policy engine
 
-![External policy engine](../../assets/lessons/en/auth02-solution-2.svg)
+![External policy engine](../../assets/diagrams/architecture/permissions/auth02/en/solution-2.png)
 
 **Concrete trace:** Do not cache allow by user ID alone.
 
 ### 3 · Scoped task delegation
 
-![Scoped task delegation](../../assets/lessons/en/auth02-solution-3.svg)
+![Scoped task delegation](../../assets/diagrams/architecture/permissions/auth02/en/solution-3.png)
 
 **Concrete trace:** A quote-a reader cannot request quote-b or draft creation.
 

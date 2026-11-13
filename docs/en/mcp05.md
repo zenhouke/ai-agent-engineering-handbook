@@ -8,17 +8,19 @@ Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are la
 
 A plain Python function is not an MCP server or an interoperability test.
 
-![Failure path versus controlled path](../../assets/lessons/en/mcp05-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/mcp/mcp05/en/problem.svg)
+
+
 
 ## See the mechanism
 
 Register capabilities with official MCPServer 2.3.0 and use a real Client. Domain checks remain in layered code. In-memory calls need no model.
 
-![How data, computation or state changes](../../assets/lessons/en/mcp05-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/mcp/mcp05/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/mcp05-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/mcp/mcp05/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|

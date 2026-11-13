@@ -8,17 +8,19 @@
 
 一个人经营 AI 接单工作室：谁负责找单、报价、执行与交付？网页关闭、Worker 崩溃、客户改价或回执丢失时，订单怎样继续且不越权？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/studio-problem.svg)
+![个人工作室场景：操作者核对客户需求与待交付成果](../../../assets/illustrations/studio/solo-studio.png)
+
+AI生成的工作室场景示意，不是ForgePilot实际界面截图。人负责商业承诺和交付审查；后续架构图再展开Agent、Worker、权限与状态边界。
 
 ## 图解工作原理
 
 以订单为业务主线：主 Agent 解释需求、提出计划，专职 Worker 执行受限动作；服务端状态机、可信审批与资金证据决定能否推进。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/studio-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/projects/studio/zh/mechanism.png)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/studio-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/projects/studio/zh/selection.png)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@
 
 ### 1 · 确定性业务流程 + 专职 Agent
 
-![确定性业务流程 + 专职 Agent](../../../assets/lessons/zh/studio-solution-1.svg)
+![确定性业务流程 + 专职 Agent](../../../assets/diagrams/projects/studio/zh/solution-1.png)
 
 **具体推演：** 总价1000元、启动金300元：客户说“已付”不足以开工，须核验30000分的实际凭据。
 
 ### 2 · 持久状态 + 冻结交接契约
 
-![持久状态 + 冻结交接契约](../../../assets/lessons/zh/studio-solution-2.svg)
+![持久状态 + 冻结交接契约](../../../assets/diagrams/projects/studio/zh/solution-2.png)
 
 **具体推演：** 报告v3已批准；v4修改了附件，即使订单不变也必须重新审查交付。
 
 ### 3 · 隔离 Worker + 动作账本
 
-![隔离 Worker + 动作账本](../../../assets/lessons/zh/studio-solution-3.svg)
+![隔离 Worker + 动作账本](../../../assets/diagrams/projects/studio/zh/solution-3.png)
 
 **具体推演：** 平台已收到交付但响应丢失：保留原动作和内容，核对平台记录，不能生成新键重新发。
 
@@ -226,7 +228,7 @@ if __name__ == "__main__":
 
 ## 部署边界：UI、控制面与执行面
 
-![工作室部署与凭据边界](../../../assets/lessons/zh/studio-deployment.svg)
+![工作室部署与凭据边界](../../../assets/diagrams/projects/studio/zh/deployment.png)
 
 ForgePilot 的工作台采用 React/TypeScript，Node 层处理同源配置、代理和协议适配，Rust Studio Worker 持有后台流程与执行控制，PostgreSQL 保存权威状态。浏览器 Worker 按账号隔离会话；任务容器保存任务文件并受限执行，不能继承平台凭据。网页用于观察和控制，关闭网页不取消已持久化任务。
 
@@ -249,7 +251,7 @@ ForgePilot 的工作台采用 React/TypeScript，Node 层处理同源配置、�
 
 ## 四个独立门禁与订单状态
 
-![报价、资金、运行与交付门禁](../../../assets/lessons/zh/studio-gates.svg)
+![报价、资金、运行与交付门禁](../../../assets/diagrams/projects/studio/zh/gates.png)
 
 | 状态 | 推进事件 | 服务端必须核验 |
 |---|---|---|
@@ -269,7 +271,7 @@ ForgePilot 的工作台采用 React/TypeScript，Node 层处理同源配置、�
 
 ## 会话、上下文、记忆怎样关联
 
-![四类会话及关联作用域](../../../assets/lessons/zh/studio-sessions.svg)
+![四类会话及关联作用域](../../../assets/diagrams/projects/studio/zh/sessions.png)
 
 应用登录会话决定当前操作者；Agent 线程承载推理上下文；平台浏览器会话绑定外部账号；任务环境承载文件与执行检查点。四者独立过期、撤销和恢复，不能用同一个 `session_id` 隐式代表全部权限。任务与订单可以活得比某次登录更久，新操作者继续处理前重新授权。
 
@@ -300,7 +302,7 @@ ForgePilot 的工作台采用 React/TypeScript，Node 层处理同源配置、�
 
 ## 恢复、隔离与人工接管
 
-![执行权丢失与外部结果未知的分流](../../../assets/lessons/zh/studio-recovery.svg)
+![执行权丢失与外部结果未知的分流](../../../assets/diagrams/projects/studio/zh/recovery.png)
 
 ForgePilot 使用数据库领取与 owner fencing 等机制保护执行权，并依据持久化安全边界恢复任务。教学方案要求：保留同一 run、冻结配置和已提交产物；只有确认可重入的步骤自动恢复。模型或工具调用仍在途时保留未知状态，禁止把进程消失推断为调用失败。
 

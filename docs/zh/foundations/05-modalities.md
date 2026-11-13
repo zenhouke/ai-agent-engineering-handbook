@@ -6,17 +6,19 @@
 
 图片、时间序列和文本结构不同，为什么不能全用同一种输入处理方式？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/f05-problem.svg)
+![图像输入示例：桌上的杯子、电脑、植物与布料](../../../assets/illustrations/f05/visual-input.png)
+
+AI生成的示例照片，用于讨论空间位置、边缘、材质与光照；不作为真实采集数据或模型识别结果。对照照片想一想：把像素任意打乱后，哪些信息会丢失？
 
 ## 图解工作原理
 
 利用数据的结构选择归纳偏置：卷积利用局部性，递归利用顺序状态，注意力利用位置间交互。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/f05-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/foundations/f05/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/f05-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/foundations/f05/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,19 +30,19 @@
 
 ### 1 · CNN
 
-![CNN](../../../assets/lessons/zh/f05-solution-1.svg)
+![CNN](../../../assets/diagrams/foundations/f05/zh/solution-1.svg)
 
 **具体推演：** 2×2窗口逐项乘加得到-3；真实效果还需要训练数据。
 
 ### 2 · RNN/LSTM
 
-![RNN/LSTM](../../../assets/lessons/zh/f05-solution-2.svg)
+![RNN/LSTM](../../../assets/diagrams/foundations/f05/zh/solution-2.svg)
 
 **具体推演：** 连续传感器信号可增量维护状态，不必每次重读全部。
 
 ### 3 · Transformer/多模态
 
-![Transformer/多模态](../../../assets/lessons/zh/f05-solution-3.svg)
+![Transformer/多模态](../../../assets/diagrams/foundations/f05/zh/solution-3.svg)
 
 **具体推演：** 报价图识别1.80后仍需对照原图和货币单位。
 

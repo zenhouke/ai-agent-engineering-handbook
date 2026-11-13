@@ -8,17 +8,19 @@
 
 刷新页面、会话到期或打开新窗口之后，为什么任务不该凭空消失？知道 thread_id 就能读任务吗？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/session01-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/architecture/sessions/session01/zh/problem.png)
+
+
 
 ## 图解工作原理
 
 认证身份、应用会话、逻辑对话、业务任务和单次 run 有不同生命周期。定位符不授予访问权；恢复必须从可信身份重新关联并授权。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/session01-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/architecture/sessions/session01/zh/mechanism.png)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/session01-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/architecture/sessions/session01/zh/selection.png)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@
 
 ### 1 · 单会话内存
 
-![单会话内存](../../../assets/lessons/zh/session01-solution-1.svg)
+![单会话内存](../../../assets/diagrams/architecture/sessions/session01/zh/solution-1.png)
 
 **具体推演：** Skills加载器的Session只是上下文容器，不是完整登录会话。
 
 ### 2 · 服务端会话 + 独立任务库
 
-![服务端会话 + 独立任务库](../../../assets/lessons/zh/session01-solution-2.svg)
+![服务端会话 + 独立任务库](../../../assets/diagrams/architecture/sessions/session01/zh/solution-2.png)
 
 **具体推演：** Alice用新会话继续原任务，Bob知道task_id仍不能读取。
 
 ### 3 · 框架 thread + Checkpointer
 
-![框架 thread + Checkpointer](../../../assets/lessons/zh/session01-solution-3.svg)
+![框架 thread + Checkpointer](../../../assets/diagrams/architecture/sessions/session01/zh/solution-3.png)
 
 **具体推演：** LangGraph thread只定位图状态，业务层先判断谁可以恢复它。
 

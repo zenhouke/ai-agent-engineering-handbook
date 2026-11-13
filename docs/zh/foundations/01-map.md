@@ -6,17 +6,19 @@
 
 “帮我采购”同时包含预测、读文档与外部动作，能否都交给一个模型？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/f01-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/foundations/f01/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 先定义输入、输出和权限，再按问题类型选规则、学习或 Agent。模型分数与执行授权是两种对象。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/f01-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/foundations/f01/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/f01-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/foundations/f01/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,19 +30,19 @@
 
 ### 1 · 规则/工作流
 
-![规则/工作流](../../../assets/lessons/zh/f01-solution-1.svg)
+![规则/工作流](../../../assets/diagrams/foundations/f01/zh/solution-1.svg)
 
 **具体推演：** 数量与预算固定时由程序比较总价，缺运费时返回未知。
 
 ### 2 · 监督学习
 
-![监督学习](../../../assets/lessons/zh/f01-solution-2.svg)
+![监督学习](../../../assets/diagrams/foundations/f01/zh/solution-2.svg)
 
 **具体推演：** 只能用下单前已有记录预测延误，不能用最终发货日。
 
 ### 3 · LLM + 工具
 
-![LLM + 工具](../../../assets/lessons/zh/f01-solution-3.svg)
+![LLM + 工具](../../../assets/diagrams/foundations/f01/zh/solution-3.svg)
 
 **具体推演：** LLM 读报价文字，代码比较金额，创建订单另行审批。
 

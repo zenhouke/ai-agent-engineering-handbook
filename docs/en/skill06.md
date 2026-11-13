@@ -8,17 +8,19 @@ Based on Agent Skills format; version pins, bundle digests and tool bindings are
 
 Why is one good answer insufficient? What should change checks cover after editing descriptions or helpers?
 
-![Failure path versus controlled path](../../assets/lessons/en/skill06-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/skills/skill06/en/problem.svg)
+
+
 
 ## See the mechanism
 
 Separate selection, artifact quality and operating cost. Pair identical tasks with/without Skills and old/new versions; pin reviewed bytes for reproducible regression and rollback.
 
-![How data, computation or state changes](../../assets/lessons/en/skill06-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/skills/skill06/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/skill06-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/skills/skill06/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Separate selection, artifact quality and operating cost. Pair identical tasks wi
 
 ### 1 · Format/deterministic checks
 
-![Format/deterministic checks](../../assets/lessons/en/skill06-solution-1.svg)
+![Format/deterministic checks](../../assets/diagrams/intermediate/skills/skill06/en/solution-1.svg)
 
 **Concrete trace:** Reject a definitive A total when shipping remains unknown.
 
 ### 2 · Selection + ablation
 
-![Selection + ablation](../../assets/lessons/en/skill06-solution-2.svg)
+![Selection + ablation](../../assets/diagrams/intermediate/skills/skill06/en/solution-2.svg)
 
 **Concrete trace:** Review reports should activate; weather requests should not. No fabricated results.
 
 ### 3 · Versioned rollout/regression
 
-![Versioned rollout/regression](../../assets/lessons/en/skill06-solution-3.svg)
+![Versioned rollout/regression](../../assets/diagrams/intermediate/skills/skill06/en/solution-3.svg)
 
 **Concrete trace:** Keep old packages/contracts available for tasks already pinned to them.
 

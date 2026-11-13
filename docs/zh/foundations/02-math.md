@@ -6,17 +6,19 @@
 
 知道预测错了，却不知道该把哪个参数往哪边调整。
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/f02-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/foundations/f02/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 链式法则计算参数对损失的局部影响；优化器沿负梯度更新。自动求导替你计算导数，不替你选择数据与步长。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/f02-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/foundations/f02/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/f02-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/foundations/f02/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,19 +30,19 @@
 
 ### 1 · 解析求导
 
-![解析求导](../../../assets/lessons/zh/f02-solution-1.svg)
+![解析求导](../../../assets/diagrams/foundations/f02/zh/solution-1.svg)
 
 **具体推演：** x=2,y=4,w=1 时导数 -8，步长 0.1 得 w=1.8。
 
 ### 2 · 数值差分
 
-![数值差分](../../../assets/lessons/zh/f02-solution-2.svg)
+![数值差分](../../../assets/diagrams/foundations/f02/zh/solution-2.svg)
 
 **具体推演：** 比较 [L(w+ε)−L(w−ε)]/(2ε) 与 -8。
 
 ### 3 · 自动求导
 
-![自动求导](../../../assets/lessons/zh/f02-solution-3.svg)
+![自动求导](../../../assets/diagrams/foundations/f02/zh/solution-3.svg)
 
 **具体推演：** 返回 w=1.8、更新前损失4、更新后损失0.16；这里只提供代码。
 

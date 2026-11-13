@@ -8,17 +8,19 @@ Local reference: trusted identity injection and SQLite transactions, without a l
 
 Why does a tool allowlist still leak objects? How does login differ from permission for this exact action?
 
-![Failure path versus controlled path](../../assets/lessons/en/auth01-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/architecture/permissions/auth01/en/problem.png)
+
+
 
 ## See the mechanism
 
 Authorize trusted principal/action/resource/context. RBAC maps roles, ABAC checks attributes, ReBAC models relationships. Default deny; never accept model-asserted authority.
 
-![How data, computation or state changes](../../assets/lessons/en/auth01-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/architecture/permissions/auth01/en/mechanism.png)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/auth01-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/architecture/permissions/auth01/en/selection.png)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Authorize trusted principal/action/resource/context. RBAC maps roles, ABAC check
 
 ### 1 · RBAC
 
-![RBAC](../../assets/lessons/en/auth01-solution-1.svg)
+![RBAC](../../assets/diagrams/architecture/permissions/auth01/en/solution-1.png)
 
 **Concrete trace:** Operators propose drafts; reviewers approve them.
 
 ### 2 · ABAC
 
-![ABAC](../../assets/lessons/en/auth01-solution-2.svg)
+![ABAC](../../assets/diagrams/architecture/permissions/auth01/en/solution-2.png)
 
 **Concrete trace:** A role allowing drafts still rejects excessive amounts.
 
 ### 3 · ReBAC
 
-![ReBAC](../../assets/lessons/en/auth01-solution-3.svg)
+![ReBAC](../../assets/diagrams/architecture/permissions/auth01/en/solution-3.png)
 
 **Concrete trace:** OpenFGA can model project membership to quotation viewer access.
 

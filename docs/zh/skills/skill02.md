@@ -8,17 +8,19 @@
 
 同一个 Skill 名称触发了不相关任务；正文越来越长，脚本和规则改了也不知道版本变了。
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/skill02-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/skills/skill02/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 name 与 description 帮助发现，正文保存关键方法；条件细则、模板和确定性代码分开。格式校验、行为评测和代码执行是三件不同的事。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/skill02-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/skills/skill02/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/skill02-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/skills/skill02/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@ name 与 description 帮助发现，正文保存关键方法；条件细则、�
 
 ### 1 · 短而完整的 SKILL.md
 
-![短而完整的 SKILL.md](../../../assets/lessons/zh/skill02-solution-1.svg)
+![短而完整的 SKILL.md](../../../assets/diagrams/intermediate/skills/skill02/zh/solution-1.svg)
 
 **具体推演：** 报价审查与真正下单分开，不用“处理全部采购工作”。
 
 ### 2 · 技能包分层资源
 
-![技能包分层资源](../../../assets/lessons/zh/skill02-solution-2.svg)
+![技能包分层资源](../../../assets/diagrams/intermediate/skills/skill02/zh/solution-2.svg)
 
 **具体推演：** null 运费留为 null；校验器拒绝捏造总价。
 
 ### 3 · Host 注册与摘要固定
 
-![Host 注册与摘要固定](../../../assets/lessons/zh/skill02-solution-3.svg)
+![Host 注册与摘要固定](../../../assets/diagrams/intermediate/skills/skill02/zh/solution-3.svg)
 
 **具体推演：** 同名同版本替换脚本后，旧注册摘要不能继续通过。
 

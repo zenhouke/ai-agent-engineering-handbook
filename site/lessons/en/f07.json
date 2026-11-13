@@ -79,5 +79,13 @@
       "measure": "Layer shapes, gradients and mask consistency.",
       "case": "The block keeps [B,T,D]; embedding and vocabulary head are outside it."
     }
+  ],
+  "media": [
+    {
+      "file": "assets/screenshots/f07/en/attention.png",
+      "title": "Inspect the calculation in the actual interface",
+      "alt": "Actual attention demo screenshot: q=1, second position unmasked",
+      "caption": "Captured from the local interactive demo after reset and three step clicks: output [1.4621, 0.5379]. This is a fixed numeric example, not a trained-model result; open the demo to change Query and Mask."
+    }
   ]
 }

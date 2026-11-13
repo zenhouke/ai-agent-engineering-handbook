@@ -8,17 +8,19 @@ Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are la
 
 Why does every new model/tool pairing require another adapter?
 
-![Failure path versus controlled path](../../assets/lessons/en/mcp01-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/mcp/mcp01/en/problem.svg)
+
+
 
 ## See the mechanism
 
 MCP standardizes capability/context exchange. The host owns the model and policy; clients connect; servers wrap domain services rather than replacing them.
 
-![How data, computation or state changes](../../assets/lessons/en/mcp01-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/mcp/mcp01/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/mcp01-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/mcp/mcp01/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|

@@ -8,17 +8,19 @@ Local reference: trusted identity injection and SQLite transactions, without a l
 
 How do concurrent callbacks and crashes avoid duplicate effects or consumed approvals without work?
 
-![Failure path versus controlled path](../../assets/lessons/en/approval02-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/architecture/approvals/approval02/en/problem.png)
+
+
 
 ## See the mechanism
 
 Commit approval consumption, task transition and pending operation atomically. Uniqueness prevents multiple operations per approval. Queueing, effects and receipts are distinct; reconcile unknown outcomes.
 
-![How data, computation or state changes](../../assets/lessons/en/approval02-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/architecture/approvals/approval02/en/mechanism.png)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/approval02-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/architecture/approvals/approval02/en/selection.png)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Commit approval consumption, task transition and pending operation atomically. U
 
 ### 1 · Single consumption + uniqueness
 
-![Single consumption + uniqueness](../../assets/lessons/en/approval02-solution-1.svg)
+![Single consumption + uniqueness](../../assets/diagrams/architecture/approvals/approval02/en/solution-1.png)
 
 **Concrete trace:** Two workers claim approval-a; only one prepares work.
 
 ### 2 · Transactional Outbox
 
-![Transactional Outbox](../../assets/lessons/en/approval02-solution-2.svg)
+![Transactional Outbox](../../assets/diagrams/architecture/approvals/approval02/en/solution-2.png)
 
 **Concrete trace:** Pending does not mean the remote draft exists.
 
 ### 3 · Revocation + reconciliation
 
-![Revocation + reconciliation](../../assets/lessons/en/approval02-solution-3.svg)
+![Revocation + reconciliation](../../assets/diagrams/architecture/approvals/approval02/en/solution-3.png)
 
 **Concrete trace:** Find the old operation after a lost success reply rather than asserting cancellation.
 

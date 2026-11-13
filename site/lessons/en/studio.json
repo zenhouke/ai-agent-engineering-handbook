@@ -110,5 +110,10 @@
       "language": "sql",
       "title": "Database constraints and states"
     }
-  ]
+  ],
+  "intro_image": {
+    "file": "assets/illustrations/studio/solo-studio.png",
+    "alt": "Solo studio scene: an operator reviews requirements and a deliverable",
+    "caption": "AI-generated studio concept, not a screenshot of ForgePilot. Human review owns commercial commitments and acceptance; the architecture figures specify agents, workers, authority and state."
+  }
 }

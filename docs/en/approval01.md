@@ -8,17 +8,19 @@ Local reference: trusted identity injection and SQLite transactions, without a l
 
 Why cannot an old “yes” approve a changed amount or recipient?
 
-![Failure path versus controlled path](../../assets/lessons/en/approval01-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/architecture/approvals/approval01/en/problem.png)
+
+
 
 ## See the mechanism
 
 Approval is a server-side record bound to canonical action, evidence, tenant, task, requester, approver, expiry and policy version, not model-generated approved=true.
 
-![How data, computation or state changes](../../assets/lessons/en/approval01-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/architecture/approvals/approval01/en/mechanism.png)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/approval01-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/architecture/approvals/approval01/en/selection.png)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Approval is a server-side record bound to canonical action, evidence, tenant, ta
 
 ### 1 · Read-only preview
 
-![Read-only preview](../../assets/lessons/en/approval01-solution-1.svg)
+![Read-only preview](../../assets/diagrams/architecture/approvals/approval01/en/solution-1.png)
 
 **Concrete trace:** Liking the comparison does not approve an amount/recipient.
 
 ### 2 · Server-side action approval
 
-![Server-side action approval](../../assets/lessons/en/approval01-solution-2.svg)
+![Server-side action approval](../../assets/diagrams/architecture/approvals/approval01/en/solution-2.png)
 
 **Concrete trace:** 25000 cents to supplier-a is not approval for supplier-b.
 
 ### 3 · Workflow human interrupt
 
-![Workflow human interrupt](../../assets/lessons/en/approval01-solution-3.svg)
+![Workflow human interrupt](../../assets/diagrams/architecture/approvals/approval01/en/solution-3.png)
 
 **Concrete trace:** LangGraph/Temporal resume execution; service validates authority.
 

@@ -6,17 +6,19 @@
 
 准确率很高，上线仍漏掉多数延误；测试集还可能偷看了未来。
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/f03-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/foundations/f03/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 先约束数据时间与分组，再建立基线；分类阈值要服从误报、漏报与复核预算。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/f03-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/foundations/f03/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/f03-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/foundations/f03/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,19 +30,19 @@
 
 ### 1 · 逻辑回归
 
-![逻辑回归](../../../assets/lessons/zh/f03-solution-1.svg)
+![逻辑回归](../../../assets/diagrams/foundations/f03/zh/solution-1.svg)
 
 **具体推演：** 每天只能复核 10 单时比较两模型最高风险的 10 单。
 
 ### 2 · 树与梯度提升
 
-![树与梯度提升](../../../assets/lessons/zh/f03-solution-2.svg)
+![树与梯度提升](../../../assets/diagrams/foundations/f03/zh/solution-2.svg)
 
 **具体推演：** 交期同时受数量和地区影响时，树可表达交互。
 
 ### 3 · 时间/分组验证
 
-![时间/分组验证](../../../assets/lessons/zh/f03-solution-3.svg)
+![时间/分组验证](../../../assets/diagrams/foundations/f03/zh/solution-3.svg)
 
 **具体推演：** 要泛化到新供应商，就把一部分供应商整体留出。
 

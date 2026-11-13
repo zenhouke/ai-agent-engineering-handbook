@@ -8,17 +8,19 @@ Based on Agent Skills format; version pins, bundle digests and tool bindings are
 
 Many installed Skills crowd context, repeated activations waste tokens, and compaction loses active versions.
 
-![Failure path versus controlled path](../../assets/lessons/en/skill03-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/skills/skill03/en/problem.svg)
+
+
 
 ## See the mechanism
 
 Disclose catalog, instructions and resources separately; deduplicate within the task session. Distinguish storage integrity reads from actual model context and from code execution.
 
-![How data, computation or state changes](../../assets/lessons/en/skill03-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/skills/skill03/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/skill03-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/skills/skill03/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Disclose catalog, instructions and resources separately; deduplicate within the 
 
 ### 1 · Model-driven selection
 
-![Model-driven selection](../../assets/lessons/en/skill03-solution-1.svg)
+![Model-driven selection](../../assets/diagrams/intermediate/skills/skill03/en/solution-1.svg)
 
 **Concrete trace:** Do not equate intent selection with a keyword match.
 
 ### 2 · Explicit activation
 
-![Explicit activation](../../assets/lessons/en/skill03-solution-2.svg)
+![Explicit activation](../../assets/diagrams/intermediate/skills/skill03/en/solution-2.svg)
 
 **Concrete trace:** Two activations retain one copy of the review method.
 
 ### 3 · Candidate retrieval
 
-![Candidate retrieval](../../assets/lessons/en/skill03-solution-3.svg)
+![Candidate retrieval](../../assets/diagrams/intermediate/skills/skill03/en/solution-3.svg)
 
 **Concrete trace:** Do not inject 200 bodies; no relevant candidate means no forced activation.
 

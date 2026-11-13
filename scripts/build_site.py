@@ -13,6 +13,7 @@ import markdown
 from curriculum import group_label, load_curriculum, section_label
 from curriculum_docs import render as render_curriculum_docs
 from site_navigation import render_navigation
+from site_output import copy_tree, prune_output
 from visual_lessons import render_lessons
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -139,6 +140,7 @@ def build() -> None:
     render_curriculum_docs(manifest)
     render_lessons()
     OUT.mkdir(exist_ok=True)
+    expected = {OUT / "index.html", OUT / "app.js"}
     for language in ("zh", "en"):
         ui = json.loads((ROOT / f"site/i18n/{language}.json").read_text())
         target = OUT / language
@@ -148,6 +150,7 @@ def build() -> None:
             temporary = target / f"{item['id']}.html.tmp"
             temporary.write_text(result)
             temporary.replace(target / f"{item['id']}.html")
+            expected.add(target / f"{item['id']}.html")
         for alias, redirect in json.loads(
             (ROOT / "site/redirects.json").read_text()
         ).items():
@@ -155,12 +158,11 @@ def build() -> None:
             (target / f"{alias}.html").write_text(
                 f'<!doctype html><html lang="{language}"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url={destination}"><title>{ui["brand"]}</title><a href="{destination}">{ui["next"]}</a></html>'
             )
+            expected.add(target / f"{alias}.html")
     for directory in ("styles",):
-        shutil.copytree(ROOT / "site" / directory, OUT / directory, dirs_exist_ok=True)
+        expected |= copy_tree(ROOT / "site" / directory, OUT / directory)
     shutil.copy2(ROOT / "site/app.js", OUT / "app.js")
-    shutil.copytree(ROOT / "assets", OUT / "assets", dirs_exist_ok=True)
-    for image in ROOT.glob("*.svg"):
-        shutil.copy2(image, OUT / image.name)
+    expected |= copy_tree(ROOT / "assets", OUT / "assets")
     template = (ROOT / "site/demos/attention.html").read_text()
     (OUT / "demos").mkdir(exist_ok=True)
     for language in ("zh", "en"):
@@ -169,9 +171,11 @@ def build() -> None:
         for key, value in values.items():
             demo = demo.replace("{{" + key + "}}", html.escape(value, quote=True))
         (OUT / "demos" / f"attention-{language}.html").write_text(demo)
+        expected.add(OUT / "demos" / f"attention-{language}.html")
     (OUT / "index.html").write_text(
         '<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=zh/index.html"><title>AI 学习手册</title><a href="zh/index.html">开始学习</a></html>'
     )
+    prune_output(OUT, expected)
     print(f"Built {len(manifest) * 2} lesson pages in _site")
 
 

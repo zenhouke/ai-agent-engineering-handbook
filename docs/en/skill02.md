@@ -8,17 +8,19 @@ Based on Agent Skills format; version pins, bundle digests and tool bindings are
 
 A broad skill name activates on unrelated tasks; instructions grow and code changes unnoticed.
 
-![Failure path versus controlled path](../../assets/lessons/en/skill02-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/skills/skill02/en/problem.svg)
+
+
 
 ## See the mechanism
 
 Metadata supports discovery; the body contains the method; references, templates and deterministic helpers serve different purposes. Format validity, behavior quality and code execution require separate checks.
 
-![How data, computation or state changes](../../assets/lessons/en/skill02-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/skills/skill02/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/skill02-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/skills/skill02/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Metadata supports discovery; the body contains the method; references, templates
 
 ### 1 · Compact SKILL.md
 
-![Compact SKILL.md](../../assets/lessons/en/skill02-solution-1.svg)
+![Compact SKILL.md](../../assets/diagrams/intermediate/skills/skill02/en/solution-1.svg)
 
 **Concrete trace:** Reviewing quotations is distinct from placing an order.
 
 ### 2 · Layered package
 
-![Layered package](../../assets/lessons/en/skill02-solution-2.svg)
+![Layered package](../../assets/diagrams/intermediate/skills/skill02/en/solution-2.svg)
 
 **Concrete trace:** The helper rejects invented totals when shipping is null.
 
 ### 3 · Trusted registry + digest
 
-![Trusted registry + digest](../../assets/lessons/en/skill02-solution-3.svg)
+![Trusted registry + digest](../../assets/diagrams/intermediate/skills/skill02/en/solution-3.svg)
 
 **Concrete trace:** Same name/version with changed code fails the stored digest.
 

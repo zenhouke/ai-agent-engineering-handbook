@@ -8,17 +8,19 @@
 
 两个审批回调同时到达，或服务在审批消费后崩溃，怎样避免重复动作和“已批准却没入队”？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/approval02-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/architecture/approvals/approval02/zh/problem.png)
+
+
 
 ## 图解工作原理
 
 审批消费、任务转移与待执行操作在一个事务中提交；唯一约束阻止同审批生成多操作。入队、远端执行、回执确认分别建模，结果未知先对账。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/approval02-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/architecture/approvals/approval02/zh/mechanism.png)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/approval02-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/architecture/approvals/approval02/zh/selection.png)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@
 
 ### 1 · 单次消费 + 唯一约束
 
-![单次消费 + 唯一约束](../../../assets/lessons/zh/approval02-solution-1.svg)
+![单次消费 + 唯一约束](../../../assets/diagrams/architecture/approvals/approval02/zh/solution-1.png)
 
 **具体推演：** 两个worker抢approval-a，仅一个可创建待执行op。
 
 ### 2 · Outbox可靠派发
 
-![Outbox可靠派发](../../../assets/lessons/zh/approval02-solution-2.svg)
+![Outbox可靠派发](../../../assets/diagrams/architecture/approvals/approval02/zh/solution-2.png)
 
 **具体推演：** 入队pending只说明本地保存，不能回复用户草稿已创建。
 
 ### 3 · 撤销 + 未知结果核查
 
-![撤销 + 未知结果核查](../../../assets/lessons/zh/approval02-solution-3.svg)
+![撤销 + 未知结果核查](../../../assets/diagrams/architecture/approvals/approval02/zh/solution-3.png)
 
 **具体推演：** 远端已创建但响应丢失，先找原op，不能以撤销成功声称没发生。
 

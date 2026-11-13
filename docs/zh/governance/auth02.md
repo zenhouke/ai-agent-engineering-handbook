@@ -8,17 +8,19 @@
 
 网关说allow之后，服务能否永远信任？委派worker时，是否直接复制主Agent全部凭据？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/auth02-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/architecture/permissions/auth02/zh/problem.png)
+
+
 
 ## 图解工作原理
 
 在执行点基于当前事实落实策略；缓存键覆盖主体/动作/对象/策略事实版本。委派权限是父任务范围的子集，审批不能把deny变成allow。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/auth02-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/architecture/permissions/auth02/zh/mechanism.png)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/auth02-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/architecture/permissions/auth02/zh/selection.png)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@
 
 ### 1 · 应用内策略服务
 
-![应用内策略服务](../../../assets/lessons/zh/auth02-solution-1.svg)
+![应用内策略服务](../../../assets/diagrams/architecture/permissions/auth02/zh/solution-1.png)
 
 **具体推演：** 同一session中的角色降级立即阻止新run。
 
 ### 2 · 外部策略引擎
 
-![外部策略引擎](../../../assets/lessons/zh/auth02-solution-2.svg)
+![外部策略引擎](../../../assets/diagrams/architecture/permissions/auth02/zh/solution-2.png)
 
 **具体推演：** 不能只按user_id缓存allow并复用于另一个对象。
 
 ### 3 · 任务级能力收窄
 
-![任务级能力收窄](../../../assets/lessons/zh/auth02-solution-3.svg)
+![任务级能力收窄](../../../assets/diagrams/architecture/permissions/auth02/zh/solution-3.png)
 
 **具体推演：** 只读quote-a的worker不能请求create_draft或quote-b。
 

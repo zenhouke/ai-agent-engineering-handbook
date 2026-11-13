@@ -4,7 +4,7 @@
 
 [返回导读](README.md)
 
-核验日期：2026-11-12。这里不是下载清单，而是源码阅读作业。每轮只选一个资源回答一个问题，再回到正文对照原理。README 与列出的源码入口已读取的范围记录在 [sources.json](sources.json)；**不代表完整源码审计或运行验证**。blob SHA 是文件版本指纹，不是仓库 commit SHA；main 链接会变化。
+核验日期：2026-11-12。这里不是下载清单，而是源码阅读作业。每轮只选一个资源回答一个问题，再回到正文对照原理。README 与列出的源码入口已读取的范围记录在 [资料元数据](references/catalog.json)；**不代表完整源码审计或运行验证**。blob SHA 是文件版本指纹，不是仓库 commit SHA；main 链接会变化。
 
 ## 零基础先读这三站
 
@@ -22,7 +22,7 @@
 
 ## 推荐顺序
 
-![从基础到 Agent 系统的学习路线](assets/diagrams/learning-map.svg)
+![从基础到 Agent 系统的学习路线](assets/diagrams/overview/learning-map.svg)
 
 先读本手册的逐步案例，再读大型项目。不要为了学习记忆同时安装 Mem0 和 Letta，也不要从 Codex 全仓编译开始。找到接口、数据结构和失败测试，比浏览全部目录更有效。
 
@@ -75,7 +75,7 @@
 
 ## 每次升级前
 
-记录 commit/tag → 查许可证变化 → 查接口与数据迁移 → 运行本地回归集 → 更新 sources.json。依赖升级、课程链接可用和协议兼容是不同检查，不要用一个绿色勾代替全部。
+记录 commit/tag → 查许可证变化 → 查接口与数据迁移 → 运行本地回归集 → 更新 references/catalog.json。依赖升级、课程链接可用和协议兼容是不同检查，不要用一个绿色勾代替全部。
 
 
 ## MCP 版本与可靠执行专题依据（2026-11-13）
@@ -114,3 +114,5 @@
 | [Agent Skills](https://github.com/agentskills/agentskills) | 可复用方法与按需披露 | 冻结方法版本；不能替代当前计划和审批 |
 
 核对上游 README、LangGraph interrupt 实现和 Temporal 确定性说明；没有把这些仓库全部安装或部署。工作室项目正文给出具体取舍与故障验收。参考阅读不等于复制第三方实现，也不代表 ForgePilot 依赖上述框架。
+
+机器可读的历史参考目录集中在[资料元数据](references/catalog.json)，与课程正文和图片分开维护。

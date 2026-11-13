@@ -51,9 +51,9 @@ def render(manifest: list[dict]) -> None:
             "先理解机制，再按任务边界、协作契约、状态、权限和恢复等具体问题完成架构设计。训练仅提供代码，不实际训练。"
             if zh
             else "Learn mechanisms, then design around task boundaries, contracts, state, authority and recovery. Training code is supplied without running training.",
-            "![学习路径](../../assets/learning-journey.jpg)"
+            "![学习路径](../../assets/illustrations/learning-journey.jpg)"
             if zh
-            else "![Learning journey](../../assets/learning-journey.jpg)",
+            else "![Learning journey](../../assets/illustrations/learning-journey.jpg)",
             "## 学习阶段" if zh else "## Learning stages",
         ]
         for group, key in [(1, "f01"), (2, "l01"), (3, "ma01"), (4, "studio")]:

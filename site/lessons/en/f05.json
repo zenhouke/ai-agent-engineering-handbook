@@ -79,5 +79,10 @@
       "measure": "Blur, multi-page tables and citation location tests.",
       "case": "Check a recognized 1.80 against the original image and units."
     }
-  ]
+  ],
+  "intro_image": {
+    "file": "assets/illustrations/f05/visual-input.png",
+    "alt": "Example visual input: a mug, laptop, plant and fabric",
+    "caption": "AI-generated example photograph for discussing position, edges, texture and lighting; not a collected dataset or model prediction. What information disappears if pixels are shuffled?"
+  }
 }

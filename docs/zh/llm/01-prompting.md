@@ -6,17 +6,19 @@
 
 模型输出 JSON 合法，为什么总价和事实仍然可能错误？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/l01-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/llm-applications/l01/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 把输出当候选：结构检查负责字段，证据检查负责事实，权限检查负责动作。三关互不替代。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/l01-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/llm-applications/l01/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/l01-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/llm-applications/l01/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,19 +30,19 @@
 
 ### 1 · Schema/类型校验
 
-![Schema/类型校验](../../../assets/lessons/zh/l01-solution-1.svg)
+![Schema/类型校验](../../../assets/diagrams/intermediate/llm-applications/l01/zh/solution-1.svg)
 
 **具体推演：** 运费未知允许null；把字符串“免费”放进金额字段应报错。
 
 ### 2 · 约束生成 + 有限修复
 
-![约束生成 + 有限修复](../../../assets/lessons/zh/l01-solution-2.svg)
+![约束生成 + 有限修复](../../../assets/diagrams/intermediate/llm-applications/l01/zh/solution-2.svg)
 
 **具体推演：** 约束JSON能降低漏字段，但不能证明1.80这个价格来自原文。
 
 ### 3 · 确定性计算 + 引用
 
-![确定性计算 + 引用](../../../assets/lessons/zh/l01-solution-3.svg)
+![确定性计算 + 引用](../../../assets/diagrams/intermediate/llm-applications/l01/zh/solution-3.svg)
 
 **具体推演：** 1000×180分是货款180000分，未知运费不能补成0。
 

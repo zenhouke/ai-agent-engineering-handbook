@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "file": "assets/illustrations/f05/visual-input.png",
+      "lesson": "f05",
+      "kind": "generated-photograph",
+      "producer": "built-in image_gen",
+      "reviewed": "2026-11-13",
+      "prompt": "Create a photorealistic educational editorial photograph for an AI engineering textbook about image inputs and spatial structure. Wide landscape 16:9. A close overhead view of a real pale wooden desk: one navy ceramic coffee mug with a clearly visible curved handle, one closed silver notebook computer, one small leafy plant in a white pot, and a folded textured cloth. Soft natural side light, tactile surfaces and subtle shadows, believable proportions and strong spatial relationships. This is an example image to discuss objects, edges, texture, position and variation in lighting, not a diagram. Restrained colors harmonious with ink navy #0B1F3A, blue #1F4E9C and paper #F4F6FA. No text, no labels, no arrows, no charts, no logos, no robot, no watermark. Crisp clear objects with generous spacing, high-quality photography."
+    },
+    {
+      "file": "assets/illustrations/l02/evidence-desk.png",
+      "lesson": "l02",
+      "kind": "editorial-illustration",
+      "producer": "built-in image_gen",
+      "reviewed": "2026-11-13",
+      "prompt": "Create a sophisticated tactile editorial illustration for an AI engineering textbook about retrieval augmented generation and checking original evidence. Wide landscape 16:9. A human researcher seen from slightly above at a calm work desk, comparing an open book with printed reference pages and an abstract search interface on a laptop. Colored page tabs and a magnifying glass draw attention to looking up original material, and a hand checks one selected passage. Real paper fibers, gentle ink-and-gouache textures, restrained dimensional depth, warm off-white paper background with navy #0B1F3A and blue #1F4E9C accents. Composition should feel like an actual act of source verification, not a flowchart or technical system diagram. No readable text, no numbers, no citations rendered as text, no arrows, no boxes connected by lines, no logos, no glowing AI brain, no watermark."
+    },
+    {
+      "file": "assets/illustrations/studio/solo-studio.png",
+      "lesson": "studio",
+      "kind": "generated-photograph",
+      "producer": "built-in image_gen",
+      "reviewed": "2026-11-13",
+      "prompt": "Create a photorealistic editorial scene illustrating a solo professional running an AI-assisted freelance studio, for an engineering handbook case study. Wide landscape 16:9. A modest daylight home-office, one adult operator at a tidy desk reviewing a printed customer brief beside a laptop and an external monitor. The screens show understated, realistic but text-free work panels: a few order cards, a small document preview and a paused review panel, not futuristic holograms. The operator holds a pen above a paper checklist before approving a deliverable. Tangible notebooks and an invoice-shaped sheet communicate human review and business responsibility. Refined natural light, authentic materials, muted paper whites, navy #0B1F3A and blue #1F4E9C accents. It is a conceptual scene, not a screenshot of any actual software. No readable text, no brand names or logos, no robot assistants, no arrows, no flowcharts, no watermark."
+    },
+    {
+      "file": "assets/screenshots/f07/zh/attention.png",
+      "lesson": "f07",
+      "language": "zh",
+      "kind": "interface-screenshot",
+      "producer": "agent-browser with local Google Chrome",
+      "reviewed": "2026-11-13",
+      "capture": {
+        "viewport": [
+          1280,
+          1000
+        ],
+        "steps": [
+          "Open the matching localized attention demo",
+          "Click reset",
+          "Click next step three times",
+          "Capture the full page"
+        ],
+        "query": 1,
+        "mask": false,
+        "output": [
+          1.4621,
+          0.5379
+        ]
+      }
+    },
+    {
+      "file": "assets/screenshots/f07/en/attention.png",
+      "lesson": "f07",
+      "language": "en",
+      "kind": "interface-screenshot",
+      "producer": "agent-browser with local Google Chrome",
+      "reviewed": "2026-11-13",
+      "capture": {
+        "viewport": [
+          1280,
+          1000
+        ],
+        "steps": [
+          "Open the matching localized attention demo",
+          "Click reset",
+          "Click next step three times",
+          "Capture the full page"
+        ],
+        "query": 1,
+        "mask": false,
+        "output": [
+          1.4621,
+          0.5379
+        ]
+      }
+    }
+  ]
+}

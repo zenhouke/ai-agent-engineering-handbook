@@ -6,17 +6,19 @@
 
 怎样选择提示、RAG、SFT 或 LoRA？减少训练参数又会失去什么？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/f08-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/foundations/f08/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 先定位错误：新事实用检索，稳定行为用示范适配。LoRA 固定 W，训练低秩增量 BA；它是更新方法，不是独立任务目标。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/f08-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/foundations/f08/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/f08-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/foundations/f08/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,19 +30,19 @@
 
 ### 1 · RAG
 
-![RAG](../../../assets/lessons/zh/f08-solution-1.svg)
+![RAG](../../../assets/diagrams/foundations/f08/zh/solution-1.svg)
 
 **具体推演：** 当天价格变动应更新索引，而非反复微调背价格。
 
 ### 2 · SFT
 
-![SFT](../../../assets/lessons/zh/f08-solution-2.svg)
+![SFT](../../../assets/diagrams/foundations/f08/zh/solution-2.svg)
 
 **具体推演：** 对固定报价抽取格式提供含null/冲突的示范，而非只有完美样本。
 
 ### 3 · LoRA/QLoRA
 
-![LoRA/QLoRA](../../../assets/lessons/zh/f08-solution-3.svg)
+![LoRA/QLoRA](../../../assets/diagrams/foundations/f08/zh/solution-3.svg)
 
 **具体推演：** 4096矩阵r=8有65536个增量参数，W′=W+缩放后的BA。
 

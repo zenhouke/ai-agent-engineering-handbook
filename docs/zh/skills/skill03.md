@@ -8,17 +8,19 @@
 
 装了很多 Skills 后上下文挤满；重复激活浪费 Token；压缩后又忘了本轮正在用哪一版。
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/skill03-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/skills/skill03/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 按目录、正文、资源三层披露；激活去重以任务会话为单位。正文进入上下文，脚本不自动执行；完整性读取与模型实际看到的内容需要区分。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/skill03-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/skills/skill03/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/skill03-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/skills/skill03/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@
 
 ### 1 · 模型按目录选择
 
-![模型按目录选择](../../../assets/lessons/zh/skill03-solution-1.svg)
+![模型按目录选择](../../../assets/diagrams/intermediate/skills/skill03/zh/solution-1.svg)
 
 **具体推演：** 不是查到“报价”两字就机械选择；让模型判断任务意图。
 
 ### 2 · 显式指定技能
 
-![显式指定技能](../../../assets/lessons/zh/skill03-solution-2.svg)
+![显式指定技能](../../../assets/diagrams/intermediate/skills/skill03/zh/solution-2.svg)
 
 **具体推演：** 同一 quote-review 本轮激活两次只保存一份正文。
 
 ### 3 · 受控检索候选
 
-![受控检索候选](../../../assets/lessons/zh/skill03-solution-3.svg)
+![受控检索候选](../../../assets/diagrams/intermediate/skills/skill03/zh/solution-3.svg)
 
 **具体推演：** 200个长正文不全塞入；候选无关时不强行激活。
 

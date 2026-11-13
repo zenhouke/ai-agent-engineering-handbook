@@ -8,17 +8,19 @@ Local reference: trusted identity injection and SQLite transactions, without a l
 
 How can a new session resume work without cross-tenant access, stale authority or competing workers?
 
-![Failure path versus controlled path](../../assets/lessons/en/session02-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/architecture/sessions/session02/en/problem.png)
+
+
 
 ## See the mechanism
 
 Recheck current session and policy, then claim a task with an expected version and a new run. Conversation text cannot establish execution ownership.
 
-![How data, computation or state changes](../../assets/lessons/en/session02-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/architecture/sessions/session02/en/mechanism.png)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/session02-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/architecture/sessions/session02/en/selection.png)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Recheck current session and policy, then claim a task with an expected version a
 
 ### 1 · Server-side session state
 
-![Server-side session state](../../assets/lessons/en/session02-solution-1.svg)
+![Server-side session state](../../assets/diagrams/architecture/sessions/session02/en/solution-1.png)
 
 **Concrete trace:** An expired session fails; a new authorized session can resume.
 
 ### 2 · Versioned task claim
 
-![Versioned task claim](../../assets/lessons/en/session02-solution-2.svg)
+![Versioned task claim](../../assets/diagrams/architecture/sessions/session02/en/solution-2.png)
 
 **Concrete trace:** Two v1 claims produce only one v2 transition.
 
 ### 3 · Scoped background identity
 
-![Scoped background identity](../../assets/lessons/en/session02-solution-3.svg)
+![Scoped background identity](../../assets/diagrams/architecture/sessions/session02/en/solution-3.png)
 
 **Concrete trace:** Next-day approval resumes via a worker identity, not yesterday’s browser cookie.
 

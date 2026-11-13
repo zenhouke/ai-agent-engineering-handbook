@@ -6,17 +6,19 @@
 
 同一个词在不同上下文含义不同；模型怎样交换信息，又不偷看未来？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/f07-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/foundations/f07/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 Q/K 计算匹配，mask 屏蔽未来，softmax 归一化后混合 V；多头、残差和前馈层组成完整 Block。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/f07-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/foundations/f07/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/f07-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/foundations/f07/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,25 +30,25 @@ Q/K 计算匹配，mask 屏蔽未来，softmax 归一化后混合 V；多头、�
 
 ### 1 · 多头因果注意力
 
-![多头因果注意力](../../../assets/lessons/zh/f07-solution-1.svg)
+![多头因果注意力](../../../assets/diagrams/foundations/f07/zh/solution-1.svg)
 
 **具体推演：** d_k=1 的两位置例子得到权重0.731/0.269；屏蔽后为1/0。
 
 ### 2 · 位置编码/RoPE
 
-![位置编码/RoPE](../../../assets/lessons/zh/f07-solution-2.svg)
+![位置编码/RoPE](../../../assets/diagrams/foundations/f07/zh/solution-2.svg)
 
 **具体推演：** 同词不同顺序不能只靠一个无位置信息的词袋表示。
 
 ### 3 · Pre-Norm + 残差
 
-![Pre-Norm + 残差](../../../assets/lessons/zh/f07-solution-3.svg)
+![Pre-Norm + 残差](../../../assets/diagrams/foundations/f07/zh/solution-3.svg)
 
 **具体推演：** 完整Block参考代码保持[B,T,D]形状，词表头在Block外。
 
 ## 把模块连成完整架构
 
-![完整组件与数据流](../../../assets/lessons/zh/f07-architecture.svg)
+![完整组件与数据流](../../../assets/diagrams/foundations/f07/zh/architecture.png)
 
 ## 参考代码
 
@@ -99,6 +101,12 @@ def build_decoder_block(width: int = 64, heads: int = 4):
 </details>
 
 [打开可调 Query 与因果掩码的互动演示](../../../site/demos/attention.html)
+
+## 从界面观察计算结果
+
+![注意力互动演示真实截图：q=1，未屏蔽第二位置](../../../assets/screenshots/f07/zh/attention.png)
+
+本地互动演示的真实截图：重置后逐步展开四个阶段，输出为[1.4621, 0.5379]。这是固定数值机制演示，不是训练效果；可进入互动页改变Query和Mask对照。
 
 ## 改变条件，检查理解
 

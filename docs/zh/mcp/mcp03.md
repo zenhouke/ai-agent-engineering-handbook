@@ -8,17 +8,19 @@
 
 连上服务不代表工具可用；怎样识别版本、能力、请求、通知和两种错误？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/mcp03-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/mcp/mcp03/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 当前版本每个请求通过 _meta 携带版本等元数据；Client 可先调用 server/discover，再 tools/list 与 tools/call。请求 ID 只关联响应，不是幂等键。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/mcp03-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/mcp/mcp03/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/mcp03-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/mcp/mcp03/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|

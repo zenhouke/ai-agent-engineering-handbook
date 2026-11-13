@@ -6,17 +6,19 @@
 
 线性模型表达不了复杂关系，叠很多线性层也没有改善。
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/f04-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/foundations/f04/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 线性层之间加入非线性激活，再用损失、反向传播与优化器学习。图与代码统一为 2→2→1。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/f04-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/foundations/f04/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/f04-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/foundations/f04/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,19 +30,19 @@
 
 ### 1 · MLP + ReLU
 
-![MLP + ReLU](../../../assets/lessons/zh/f04-solution-1.svg)
+![MLP + ReLU](../../../assets/diagrams/foundations/f04/zh/solution-1.svg)
 
 **具体推演：** 图和代码都用2→2→1，而不是不对应的网络尺寸。
 
 ### 2 · SGD/Adam
 
-![SGD/Adam](../../../assets/lessons/zh/f04-solution-2.svg)
+![SGD/Adam](../../../assets/diagrams/foundations/f04/zh/solution-2.svg)
 
 **具体推演：** Adam 平滑方向和尺度，但不会纠正错误标签。
 
 ### 3 · 早停/权重衰减
 
-![早停/权重衰减](../../../assets/lessons/zh/f04-solution-3.svg)
+![早停/权重衰减](../../../assets/diagrams/foundations/f04/zh/solution-3.svg)
 
 **具体推演：** 训练损失继续下降、验证反升时，不选最后一轮。
 

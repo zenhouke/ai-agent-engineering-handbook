@@ -8,17 +8,19 @@ Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are la
 
 A connection is not proof of compatible versions, schemas or successful execution.
 
-![Failure path versus controlled path](../../assets/lessons/en/mcp03-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/mcp/mcp03/en/problem.svg)
+
+
 
 ## See the mechanism
 
 Current requests carry version metadata. Discovery is optional for clients; servers implement it. Tool listing and execution follow. Request IDs correlate responses, not durable effects.
 
-![How data, computation or state changes](../../assets/lessons/en/mcp03-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/mcp/mcp03/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/mcp03-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/mcp/mcp03/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|

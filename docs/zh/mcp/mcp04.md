@@ -8,17 +8,19 @@
 
 本地演示能用，远程部署却出现 401、403、串租户或 SSE 被代理断开。该改哪一层？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/mcp04-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/mcp/mcp04/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 传输负责消息载体，认证证明身份，服务根据可信身份校验 scope 和对象。Streamable HTTP 可返回 JSON 或 SSE；它不等于旧 HTTP+SSE 传输。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/mcp04-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/mcp/mcp04/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/mcp04-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/mcp/mcp04/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|

@@ -8,17 +8,19 @@ Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are la
 
 Why not expose document context, queries and templates as one generic tool?
 
-![Failure path versus controlled path](../../assets/lessons/en/mcp02-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/mcp/mcp02/en/problem.svg)
+
+
 
 ## See the mechanism
 
 Tools execute capabilities; resources supply application-selected context; prompts supply selectable message templates. Each has distinct discovery and access rules.
 
-![How data, computation or state changes](../../assets/lessons/en/mcp02-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/mcp/mcp02/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/mcp02-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/mcp/mcp02/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|

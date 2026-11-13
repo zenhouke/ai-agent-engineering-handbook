@@ -8,17 +8,19 @@ Local reference: trusted identity injection and SQLite transactions, without a l
 
 Why should tasks survive page refresh or session expiry? Does knowing thread_id grant access?
 
-![Failure path versus controlled path](../../assets/lessons/en/session01-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/architecture/sessions/session01/en/problem.png)
+
+
 
 ## See the mechanism
 
 Identity, application session, conversation, task and run have different lifetimes. Locators grant no authority; resumption requires fresh trusted identity and scope checks.
 
-![How data, computation or state changes](../../assets/lessons/en/session01-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/architecture/sessions/session01/en/mechanism.png)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/session01-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/architecture/sessions/session01/en/selection.png)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Identity, application session, conversation, task and run have different lifetim
 
 ### 1 · Process-local session
 
-![Process-local session](../../assets/lessons/en/session01-solution-1.svg)
+![Process-local session](../../assets/diagrams/architecture/sessions/session01/en/solution-1.png)
 
 **Concrete trace:** The Skills Session is only a context container.
 
 ### 2 · Server session + task store
 
-![Server session + task store](../../assets/lessons/en/session01-solution-2.svg)
+![Server session + task store](../../assets/diagrams/architecture/sessions/session01/en/solution-2.png)
 
 **Concrete trace:** Alice resumes in a new session; Bob cannot use a guessed task ID.
 
 ### 3 · Framework thread/checkpointer
 
-![Framework thread/checkpointer](../../assets/lessons/en/session01-solution-3.svg)
+![Framework thread/checkpointer](../../assets/diagrams/architecture/sessions/session01/en/solution-3.png)
 
 **Concrete trace:** Authorize access before loading a LangGraph thread.
 

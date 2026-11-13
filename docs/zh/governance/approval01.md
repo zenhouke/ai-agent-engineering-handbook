@@ -8,17 +8,19 @@
 
 聊天里说“同意”以后，模型修改了金额或收款对象，原审批为什么不能继续用？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/approval01-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/architecture/approvals/approval01/zh/problem.png)
+
+
 
 ## 图解工作原理
 
 审批是一条服务端业务记录，绑定规范化动作、证据版本、租户、任务、申请人、审批人、有效期与策略版本。不是模型输出的approved=true。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/approval01-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/architecture/approvals/approval01/zh/mechanism.png)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/approval01-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/architecture/approvals/approval01/zh/selection.png)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@
 
 ### 1 · 只读预览
 
-![只读预览](../../../assets/lessons/zh/approval01-solution-1.svg)
+![只读预览](../../../assets/diagrams/architecture/approvals/approval01/zh/solution-1.png)
 
 **具体推演：** 用户认可比较报告，不等于认可某个金额和收款人。
 
 ### 2 · 服务端动作审批
 
-![服务端动作审批](../../../assets/lessons/zh/approval01-solution-2.svg)
+![服务端动作审批](../../../assets/diagrams/architecture/approvals/approval01/zh/solution-2.png)
 
 **具体推演：** 25000分给supplier-a的草稿，不能换成24000分给supplier-b。
 
 ### 3 · 工作流人工中断
 
-![工作流人工中断](../../../assets/lessons/zh/approval01-solution-3.svg)
+![工作流人工中断](../../../assets/diagrams/architecture/approvals/approval01/zh/solution-3.png)
 
 **具体推演：** LangGraph/Temporal负责等待恢复，业务service决定审批是否有效。
 

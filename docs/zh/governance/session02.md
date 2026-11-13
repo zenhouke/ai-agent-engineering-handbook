@@ -8,17 +8,19 @@
 
 新会话接管旧任务时，如何避免跨租户续接、旧权限复活或两个worker同时推进？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/session02-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/architecture/sessions/session02/zh/problem.png)
+
+
 
 ## 图解工作原理
 
 恢复时检查当前会话和当前权限，按任务期望版本领取run。会话、任务、运行实例的状态变化分别记录，不能靠聊天里的“继续”决定所有权。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/session02-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/architecture/sessions/session02/zh/mechanism.png)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/session02-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/architecture/sessions/session02/zh/selection.png)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -30,19 +32,19 @@
 
 ### 1 · 会话状态留在服务端
 
-![会话状态留在服务端](../../../assets/lessons/zh/session02-solution-1.svg)
+![会话状态留在服务端](../../../assets/diagrams/architecture/sessions/session02/zh/solution-1.png)
 
 **具体推演：** 过期session不能恢复，但同主体的新有效session可以。
 
 ### 2 · 版本化任务领取
 
-![版本化任务领取](../../../assets/lessons/zh/session02-solution-2.svg)
+![版本化任务领取](../../../assets/diagrams/architecture/sessions/session02/zh/solution-2.png)
 
 **具体推演：** 两个恢复请求读v1，只有一个可以把任务推进到v2。
 
 ### 3 · 受限后台执行身份
 
-![受限后台执行身份](../../../assets/lessons/zh/session02-solution-3.svg)
+![受限后台执行身份](../../../assets/diagrams/architecture/sessions/session02/zh/solution-3.png)
 
 **具体推演：** 人工次日审批后由受控worker续跑，不依赖昨天的浏览器Cookie。
 

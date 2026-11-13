@@ -6,17 +6,19 @@
 
 语言模型怎样把一句话变成下一 Token 的概率？为什么生成流畅仍会出错？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/f06-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/foundations/f06/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 编码把片段变成 ID，Embedding 把 ID 变成向量；模型根据前缀预测下一 Token，再追加前缀。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/f06-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/foundations/f06/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/f06-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/foundations/f06/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,19 +30,19 @@
 
 ### 1 · Bigram
 
-![Bigram](../../../assets/lessons/zh/f06-solution-1.svg)
+![Bigram](../../../assets/diagrams/foundations/f06/zh/solution-1.svg)
 
 **具体推演：** aba/abb 的统计随是否加入句界和平滑而变化，代码明确加句界。
 
 ### 2 · 子词分词 + Embedding
 
-![子词分词 + Embedding](../../../assets/lessons/zh/f06-solution-2.svg)
+![子词分词 + Embedding](../../../assets/diagrams/foundations/f06/zh/solution-2.svg)
 
 **具体推演：** ID大小不表示语义远近，向量关系来自学习。
 
 ### 3 · 温度/top-p
 
-![温度/top-p](../../../assets/lessons/zh/f06-solution-3.svg)
+![温度/top-p](../../../assets/diagrams/foundations/f06/zh/solution-3.svg)
 
 **具体推演：** 输出达到长度上限时，不能把半个对象当完整答案。
 

@@ -8,17 +8,19 @@ Based on Agent Skills format; version pins, bundle digests and tool bindings are
 
 Why does concatenating three Skills still produce wrong order, conflicts and approval based on stale evidence?
 
-![Failure path versus controlled path](../../assets/lessons/en/skill05-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/skills/skill05/en/problem.svg)
+
+
 
 ## See the mechanism
 
 Compose around task dependencies and typed artifacts. Methods do not replace state machines. Validate artifacts before advancing; invalidate descendants after evidence changes and reconcile pending effects.
 
-![How data, computation or state changes](../../assets/lessons/en/skill05-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/skills/skill05/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/skill05-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/skills/skill05/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ Compose around task dependencies and typed artifacts. Methods do not replace sta
 
 ### 1 · Sequential method chain
 
-![Sequential method chain](../../assets/lessons/en/skill05-solution-1.svg)
+![Sequential method chain](../../assets/diagrams/intermediate/skills/skill05/en/solution-1.svg)
 
 **Concrete trace:** Unknown shipping must stay unknown in later stages.
 
 ### 2 · Explicit DAG
 
-![Explicit DAG](../../assets/lessons/en/skill05-solution-2.svg)
+![Explicit DAG](../../assets/diagrams/intermediate/skills/skill05/en/solution-2.svg)
 
 **Concrete trace:** Independent markets run together; comparison waits for necessary evidence.
 
 ### 3 · Plan-and-Execute replanning
 
-![Plan-and-Execute replanning](../../assets/lessons/en/skill05-solution-3.svg)
+![Plan-and-Execute replanning](../../assets/diagrams/intermediate/skills/skill05/en/solution-3.svg)
 
 **Concrete trace:** Recompare/reapprove changed quotes; reconcile unknown writes first.
 

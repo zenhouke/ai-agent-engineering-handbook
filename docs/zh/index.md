@@ -2,7 +2,7 @@
 
 先理解机制，再按任务边界、协作契约、状态、权限和恢复等具体问题完成架构设计。训练仅提供代码，不实际训练。
 
-![学习路径](../../assets/learning-journey.jpg)
+![学习路径](../../assets/illustrations/learning-journey.jpg)
 
 ## 学习阶段
 

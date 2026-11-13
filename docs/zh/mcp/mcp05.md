@@ -8,17 +8,19 @@
 
 教程只给一个普通 Python 函数，却没有 MCP 发现、Schema 或真实客户端，如何补齐？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/mcp05-problem.svg)
+![失败路径与解决路径对照](../../../assets/diagrams/intermediate/mcp/mcp05/zh/problem.svg)
+
+
 
 ## 图解工作原理
 
 用官方 SDK 2.3.0 的 MCPServer 注册三个原语，由 Client 真正发现和调用；业务权限仍经 handlers→services→repos。用内存连接验证，不依赖模型。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/mcp05-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/mcp/mcp05/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/mcp05-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/mcp/mcp05/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|

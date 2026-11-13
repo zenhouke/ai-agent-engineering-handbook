@@ -110,5 +110,10 @@
       "language": "sql",
       "title": "数据库约束与状态"
     }
-  ]
+  ],
+  "intro_image": {
+    "file": "assets/illustrations/studio/solo-studio.png",
+    "alt": "个人工作室场景：操作者核对客户需求与待交付成果",
+    "caption": "AI生成的工作室场景示意，不是ForgePilot实际界面截图。人负责商业承诺和交付审查；后续架构图再展开Agent、Worker、权限与状态边界。"
+  }
 }

@@ -8,17 +8,19 @@ Based on Agent Skills format; version pins, bundle digests and tool bindings are
 
 Why do copied instructions still miss conditions or choose the wrong tool? Does storing them as a Skill execute anything?
 
-![Failure path versus controlled path](../../assets/lessons/en/skill01-problem.svg)
+![Failure path versus controlled path](../../assets/diagrams/intermediate/skills/skill01/en/problem.svg)
+
+
 
 ## See the mechanism
 
 A Skill packages a reusable method and resources. Models select methods and propose actions; the Host owns context, execution and policy. A plan tracks this task; MCP connects external capabilities.
 
-![How data, computation or state changes](../../assets/lessons/en/skill01-mechanism.svg)
+![How data, computation or state changes](../../assets/diagrams/intermediate/skills/skill01/en/mechanism.svg)
 
 ## Choose an established approach
 
-![Choose by the problem condition](../../assets/lessons/en/skill01-selection.svg)
+![Choose by the problem condition](../../assets/diagrams/intermediate/skills/skill01/en/selection.svg)
 
 | Approach | Mechanism | Use when | Tradeoff / boundary |
 |---|---|---|---|
@@ -30,19 +32,19 @@ A Skill packages a reusable method and resources. Models select methods and prop
 
 ### 1 · One-off prompt
 
-![One-off prompt](../../assets/lessons/en/skill01-solution-1.svg)
+![One-off prompt](../../assets/diagrams/intermediate/skills/skill01/en/solution-1.svg)
 
 **Concrete trace:** A short temporary rewrite can use an ordinary prompt.
 
 ### 2 · Agent Skills package
 
-![Agent Skills package](../../assets/lessons/en/skill01-solution-2.svg)
+![Agent Skills package](../../assets/diagrams/intermediate/skills/skill01/en/solution-2.svg)
 
 **Concrete trace:** Review instructions preserve unknown shipping; tools supply quotations.
 
 ### 3 · Deterministic workflow
 
-![Deterministic workflow](../../assets/lessons/en/skill01-solution-3.svg)
+![Deterministic workflow](../../assets/diagrams/intermediate/skills/skill01/en/solution-3.svg)
 
 **Concrete trace:** The service enforces draft approval independently of the Skill.
 

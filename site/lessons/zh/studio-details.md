@@ -15,7 +15,7 @@
 
 ## 部署边界：UI、控制面与执行面
 
-![工作室部署与凭据边界](../../../assets/lessons/zh/studio-deployment.svg)
+![工作室部署与凭据边界](../../../assets/diagrams/projects/studio/zh/deployment.png)
 
 ForgePilot 的工作台采用 React/TypeScript，Node 层处理同源配置、代理和协议适配，Rust Studio Worker 持有后台流程与执行控制，PostgreSQL 保存权威状态。浏览器 Worker 按账号隔离会话；任务容器保存任务文件并受限执行，不能继承平台凭据。网页用于观察和控制，关闭网页不取消已持久化任务。
 
@@ -38,7 +38,7 @@ ForgePilot 的工作台采用 React/TypeScript，Node 层处理同源配置、�
 
 ## 四个独立门禁与订单状态
 
-![报价、资金、运行与交付门禁](../../../assets/lessons/zh/studio-gates.svg)
+![报价、资金、运行与交付门禁](../../../assets/diagrams/projects/studio/zh/gates.png)
 
 | 状态 | 推进事件 | 服务端必须核验 |
 |---|---|---|
@@ -58,7 +58,7 @@ ForgePilot 的工作台采用 React/TypeScript，Node 层处理同源配置、�
 
 ## 会话、上下文、记忆怎样关联
 
-![四类会话及关联作用域](../../../assets/lessons/zh/studio-sessions.svg)
+![四类会话及关联作用域](../../../assets/diagrams/projects/studio/zh/sessions.png)
 
 应用登录会话决定当前操作者；Agent 线程承载推理上下文；平台浏览器会话绑定外部账号；任务环境承载文件与执行检查点。四者独立过期、撤销和恢复，不能用同一个 `session_id` 隐式代表全部权限。任务与订单可以活得比某次登录更久，新操作者继续处理前重新授权。
 
@@ -89,7 +89,7 @@ ForgePilot 的工作台采用 React/TypeScript，Node 层处理同源配置、�
 
 ## 恢复、隔离与人工接管
 
-![执行权丢失与外部结果未知的分流](../../../assets/lessons/zh/studio-recovery.svg)
+![执行权丢失与外部结果未知的分流](../../../assets/diagrams/projects/studio/zh/recovery.png)
 
 ForgePilot 使用数据库领取与 owner fencing 等机制保护执行权，并依据持久化安全边界恢复任务。教学方案要求：保留同一 run、冻结配置和已提交产物；只有确认可重入的步骤自动恢复。模型或工具调用仍在途时保留未知状态，禁止把进程消失推断为调用失败。
 

@@ -6,17 +6,19 @@
 
 向量检索找到相似段落，却漏掉型号、限制条件或最新版本，怎么解决？
 
-![失败路径与解决路径对照](../../../assets/lessons/zh/l02-problem.svg)
+![查证场景插画：对照检索结果、原书与资料](../../../assets/illustrations/l02/evidence-desk.png)
+
+AI生成的查证场景插画：检索命中只是候选材料，回答仍需回到原文核对来源、版本与适用条件。画中的页面不是实际引用证据。
 
 ## 图解工作原理
 
 关键词补精确匹配，向量补语义召回，RRF 合并排序，reranker 重排候选；最后核验引用与版本。
 
-![机制：数据、计算或状态怎样变化](../../../assets/lessons/zh/l02-mechanism.svg)
+![机制：数据、计算或状态怎样变化](../../../assets/diagrams/intermediate/llm-applications/l02/zh/mechanism.svg)
 
 ## 主流方案怎么选
 
-![按问题条件选择方案](../../../assets/lessons/zh/l02-selection.svg)
+![按问题条件选择方案](../../../assets/diagrams/intermediate/llm-applications/l02/zh/selection.svg)
 
 | 方案 | 怎样解决 | 适用条件 | 代价与边界 |
 |---|---|---|---|
@@ -28,25 +30,25 @@
 
 ### 1 · BM25/关键词
 
-![BM25/关键词](../../../assets/lessons/zh/l02-solution-1.svg)
+![BM25/关键词](../../../assets/diagrams/intermediate/llm-applications/l02/zh/solution-1.svg)
 
 **具体推演：** 查询精确型号时，BM25能保留不适合语义改写的字符串。
 
 ### 2 · 向量检索
 
-![向量检索](../../../assets/lessons/zh/l02-solution-2.svg)
+![向量检索](../../../assets/diagrams/intermediate/llm-applications/l02/zh/solution-2.svg)
 
 **具体推演：** “多久能到”和“交货周期”可能通过向量接近召回。
 
 ### 3 · 混合检索 + Rerank
 
-![混合检索 + Rerank](../../../assets/lessons/zh/l02-solution-3.svg)
+![混合检索 + Rerank](../../../assets/diagrams/intermediate/llm-applications/l02/zh/solution-3.svg)
 
 **具体推演：** 价格与>500件另议必须同时出现；只找到一段不能承诺交期。
 
 ## 用具体数据推演边界
 
-![用具体数据推演边界](../../../assets/lessons/zh/l02-rank-trace.svg)
+![用具体数据推演边界](../../../assets/diagrams/intermediate/llm-applications/l02/zh/rank-trace.svg)
 
 ## 参考代码
 

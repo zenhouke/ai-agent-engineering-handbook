@@ -224,6 +224,26 @@ def check() -> None:
                     errors.append(
                         f"Missing photographic/illustrative media: {image['file']}"
                     )
+            if item["id"] in {"studio", "a12"}:
+                overviews = [
+                    image for image in media if image.get("placement") == "overview"
+                ]
+                first_image = next(
+                    (
+                        value
+                        for tag, value in documents[
+                            (OUT / language / f"{item['id']}.html").resolve()
+                        ].links
+                        if tag == "img"
+                    ),
+                    "",
+                )
+                if len(overviews) != 1 or not first_image.endswith(
+                    f"/studio/{language}/system-architecture.png"
+                ):
+                    errors.append(
+                        f"Complete system architecture must lead the lesson: {item['id']} {language}"
+                    )
             if item["group"] >= 3 and any(
                 asset.endswith(".svg") for asset in entry["images"]
             ):

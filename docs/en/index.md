@@ -14,6 +14,14 @@ Learn mechanisms, then design around task boundaries, contracts, state, authorit
 
 - **4 Projects and resources** · [4.1 Personal studio: multi-Agent architecture from leads to delivery](studio.md)
 
+## Complete Agent system architecture
+
+![Complete multi-Agent studio architecture](../../assets/diagrams/projects/studio/en/system-architecture.png)
+
+Follow ingress, business control, Agent roles, capabilities, durable state and feedback before studying each dimension. Click the 3600px PNG to enlarge. This is a complete reference design, not a claim that every component is deployed.
+
+[3.9.2 Layered architecture assembly and integration acceptance](a12.md) · [4.1 Personal studio: multi-Agent architecture from leads to delivery](studio.md)
+
 ## Dimensions of multi-Agent design
 
 | Module | Design decision |

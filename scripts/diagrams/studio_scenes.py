@@ -1,5 +1,6 @@
 """Personal studio diagrams: business gates and independently scoped runtimes."""
 
+from .studio_system import architecture as system_architecture
 from .svg_canvas import Canvas
 
 
@@ -35,7 +36,7 @@ def scenes(language: str) -> list[tuple[str, Canvas]]:
     def t(zh: str, en: str) -> str:
         return zh if language == "zh" else en
 
-    result = []
+    result = [("system-architecture", system_architecture(language))]
     c = Canvas(
         t(
             "运行部署：谁持有状态，谁持有凭据",

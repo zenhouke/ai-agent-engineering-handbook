@@ -79,5 +79,14 @@
       "measure": "Crash windows, stale-worker rejection, backlog and recovery latency.",
       "case": "Publisher retries still reference the same draft operation key."
     }
+  ],
+  "media": [
+    {
+      "placement": "overview",
+      "title": "Complete architecture: ingress to delivery and operational feedback",
+      "file": "assets/diagrams/projects/studio/en/system-architecture.png",
+      "alt": "Complete multi-Agent studio system: control, execution, data and external boundaries",
+      "caption": "Complete reference design, 3600px wide; click to enlarge. Follow intake → orchestration → agents → Host → workers/external systems → artifacts/receipts → review/delivery. Then inspect authority, context, durable state and operational support. Boxes express responsibilities, not mandatory microservices or a claim that ForgePilot deploys every component."
+    }
   ]
 }

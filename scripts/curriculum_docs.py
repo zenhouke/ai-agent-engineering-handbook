@@ -61,6 +61,16 @@ def render(manifest: list[dict]) -> None:
                 f"- **{group_label(group, ui['groups'][group])}** · {link(key)}"
             )
         home += [
+            "## 完整 Agent 系统架构图"
+            if zh
+            else "## Complete Agent system architecture",
+            f"![{'个人工作室完整多Agent系统架构' if zh else 'Complete multi-Agent studio architecture'}](../../assets/diagrams/projects/studio/{lang}/system-architecture.png)",
+            "先沿总图理解入口、业务控制、Agent协作、能力、持久状态和运营反馈，再进入各设计维度。图为3600像素宽PNG，可点击放大；它是一份完整参考设计，不代表所有组件已经部署。"
+            if zh
+            else "Follow ingress, business control, Agent roles, capabilities, durable state and feedback before studying each dimension. Click the 3600px PNG to enlarge. This is a complete reference design, not a claim that every component is deployed.",
+            link("a12") + " · " + link("studio"),
+        ]
+        home += [
             "## 从哪些方面设计多 Agent"
             if zh
             else "## Dimensions of multi-Agent design",

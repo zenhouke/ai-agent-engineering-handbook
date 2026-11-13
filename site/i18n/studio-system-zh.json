@@ -1,0 +1,212 @@
+{
+  "title": "个人工作室 · 完整多 Agent 系统架构",
+  "description": "统一展示入口、业务控制、Agent协作、上下文、能力、隔离、外部系统、持久状态和运营反馈。",
+  "subtitle": "一张图串联控制面、执行面、数据面与外部边界；实线为调用，虚线为事件/回执/观测。",
+  "regions": {
+    "control": "业务控制面 · 服务端持有执行权",
+    "agents": "Agent 协作 · 工作单、预算与独立审查",
+    "capabilities": "能力与执行面 · Host 校验后才允许调用",
+    "context": "上下文与方法 · 工作区隔离",
+    "data": "持久化数据面 · 服务经 repos 管理事实与版本",
+    "operations": "运营与质量反馈"
+  },
+  "labels": {
+    "authenticated": "可信身份与订单范围",
+    "gates": "当前策略 / 冻结审批 / 已核验资金",
+    "dispatch": "受限委派 / DAG / 超时与背压",
+    "proposals": "模型请求与结构化工具提议",
+    "receipt": "原生回执 → 服务落库 → 事件续接；未知结果进入对账。",
+    "boundary": "平台账号与任务执行隔离；Agent不能绕过商业门禁直接交付。",
+    "method": "Skills复用方法；检索结果仍须对象权限校验。",
+    "telemetry": "所有组件关联 order / task / run / operation",
+    "feedback": "质量门槛 / 暂停 / 人工接管"
+  },
+  "journey": "主链：接入需求 → 冻结工作单 → 专职 Agent → Host 授权 → 受限执行 → 产物与回执 → 审查、结算、交付。",
+  "legend": "实线：命令/读取　虚线：事件/回执/观测　分区：职责边界；不要求每块独立部署。总图是参考设计，具体已验证范围见正文。",
+  "nodes": {
+    "operator": {
+      "title": "人类操作者",
+      "lines": [
+        "需求、报价与最终交付审查"
+      ]
+    },
+    "entry": {
+      "title": "接入与会话服务",
+      "lines": [
+        "Web / Telegram / QQ · 可信身份绑定",
+        "应用会话、对话线程、订单与 run 分离"
+      ]
+    },
+    "policy": {
+      "title": "业务门禁与当前授权",
+      "lines": [
+        "身份与对象权限 / 精确动作审批",
+        "报价批准 / 可信启动金 / 足额结算 / 产物绑定"
+      ]
+    },
+    "secrets": {
+      "title": "密钥与账号存储",
+      "lines": [
+        "加密凭据与 Secret refs",
+        "只注入指定 Host / Worker",
+        "不进入 Agent 上下文"
+      ]
+    },
+    "lead": {
+      "title": "主 Agent / 任务规划",
+      "lines": [
+        "需求澄清、报价与计划提案",
+        "接收结果与修订工作单"
+      ]
+    },
+    "runtime": {
+      "title": "编排与执行控制服务",
+      "lines": [
+        "冻结流程 / 调度 / 预算 / 取消",
+        "owner fencing / checkpoint",
+        "业务门禁、事务与恢复"
+      ]
+    },
+    "contracts": {
+      "title": "工作单与事件路由",
+      "lines": [
+        "责任者 / 输入输出 / 因果",
+        "超时与产物版本契约",
+        "事件续接、失败回负责人"
+      ]
+    },
+    "context": {
+      "title": "上下文构建",
+      "lines": [
+        "订单范围 / Token预算"
+      ]
+    },
+    "skills": {
+      "title": "Skills 按需加载",
+      "lines": [
+        "版本化方法 / 资源引用"
+      ]
+    },
+    "retrieval": {
+      "title": "RAG / 记忆检索",
+      "lines": [
+        "授权过滤 / 来源与版本"
+      ]
+    },
+    "research": {
+      "title": "调研 Agent",
+      "lines": [
+        "只读发现、检索与证据",
+        "产物：有来源的候选材料"
+      ]
+    },
+    "execution": {
+      "title": "执行 Agent",
+      "lines": [
+        "受限工作单与工具范围",
+        "产物：版本化代码或报告"
+      ]
+    },
+    "review": {
+      "title": "审查 Agent + 人工",
+      "lines": [
+        "对照验收表与原始产物",
+        "通过、退回或请求人工判断"
+      ]
+    },
+    "platforms": {
+      "title": "外部接单与交付平台",
+      "lines": [
+        "客户 / 订单 / 消息原生身份",
+        "联系、接单、精确交付",
+        "外部写入须有有效授权",
+        "原生回执或 UNKNOWN 对账"
+      ]
+    },
+    "model": {
+      "title": "模型网关",
+      "lines": [
+        "Provider 适配与版本",
+        "超时、限流和成本预算",
+        "返回模型输出与调用提议"
+      ]
+    },
+    "host": {
+      "title": "工具 Host",
+      "lines": [
+        "Function Calling 参数校验",
+        "MCP Client / 原生适配器",
+        "权限、审批与操作键校验"
+      ]
+    },
+    "browser": {
+      "title": "平台 Browser Worker",
+      "lines": [
+        "账号隔离 / 精确动作"
+      ]
+    },
+    "sandbox": {
+      "title": "任务隔离运行时",
+      "lines": [
+        "文件、计算、出口与资源限额"
+      ]
+    },
+    "providers": {
+      "title": "外部模型服务",
+      "lines": [
+        "LLM Provider API",
+        "受控请求与取消边界",
+        "不持有平台账号权限"
+      ]
+    },
+    "mcp": {
+      "title": "外部能力与资料",
+      "lines": [
+        "MCP Tools / Resources",
+        "Prompts / 原生 API",
+        "授权范围内发现和读取",
+        "结果不是商业授权"
+      ]
+    },
+    "database": {
+      "title": "PostgreSQL 权威状态",
+      "lines": [
+        "订单 / 会话 / task / run",
+        "审批 / 资金凭据 / 操作账本",
+        "版本 CAS / 当前执行权"
+      ]
+    },
+    "artifacts": {
+      "title": "产物服务与对象存储",
+      "lines": [
+        "原始文件 / 内容哈希",
+        "审查版本 / 冻结交接引用",
+        "摘要不替代被审原文"
+      ]
+    },
+    "knowledge": {
+      "title": "知识与长期记忆存储",
+      "lines": [
+        "文档 / 检索索引 / 经验",
+        "工作区过滤 / 保留与删除",
+        "检索结果不覆盖业务事实"
+      ]
+    },
+    "outbox": {
+      "title": "Outbox 与回执事件",
+      "lines": [
+        "状态与事件同事务提交",
+        "去重 / 原操作键 / 原生回执",
+        "驱动续接与未知结果核查"
+      ]
+    },
+    "operations": {
+      "title": "评测、监控与审计",
+      "lines": [
+        "任务对照 / trace / metrics",
+        "预算、积压与越权告警",
+        "人工接管 / 发布门槛"
+      ]
+    }
+  }
+}

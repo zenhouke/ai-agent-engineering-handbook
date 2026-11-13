@@ -14,6 +14,14 @@
 
 - **4 综合实践与资料** · [4.1 个人工作室：AI 接单到交付的多 Agent 架构](projects/personal-studio.md)
 
+## 完整 Agent 系统架构图
+
+![个人工作室完整多Agent系统架构](../../assets/diagrams/projects/studio/zh/system-architecture.png)
+
+先沿总图理解入口、业务控制、Agent协作、能力、持久状态和运营反馈，再进入各设计维度。图为3600像素宽PNG，可点击放大；它是一份完整参考设计，不代表所有组件已经部署。
+
+[3.9.2 架构分层装配与集成验收](agent/12.md) · [4.1 个人工作室：AI 接单到交付的多 Agent 架构](projects/personal-studio.md)
+
 ## 从哪些方面设计多 Agent
 
 | 模块 | 该做出的设计 |

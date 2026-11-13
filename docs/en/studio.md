@@ -4,6 +4,12 @@
 
 This teaching design derives from inspected ForgePilot workflows and runtime boundaries. Pure Python contracts are rewritten here; project mechanisms, local tests and unverified production integrations are distinguished.
 
+## Complete architecture: ingress to delivery and operational feedback
+
+![Complete multi-Agent studio system: control, execution, data and external boundaries](../../assets/diagrams/projects/studio/en/system-architecture.png)
+
+Complete reference design, 3600px wide; click to enlarge. Follow intake → orchestration → agents → Host → workers/external systems → artifacts/receipts → review/delivery. Then inspect authority, context, durable state and operational support. Boxes express responsibilities, not mandatory microservices or a claim that ForgePilot deploys every component.
+
 ## Start with the problem
 
 A solo AI services studio must discover leads, quote, execute and deliver. Who owns each action when the UI closes, a worker crashes, terms change or a receipt is lost?

@@ -79,5 +79,14 @@
       "measure": "故障窗口覆盖、过期 worker 拒绝、积压与恢复延迟。",
       "case": "发布器崩溃重发事件时，操作键仍指向同一份草稿。"
     }
+  ],
+  "media": [
+    {
+      "placement": "overview",
+      "title": "完整系统架构：从入口到交付与运营反馈",
+      "file": "assets/diagrams/projects/studio/zh/system-architecture.png",
+      "alt": "个人工作室完整多Agent系统架构：控制面、执行面、数据面与外部边界",
+      "caption": "完整参考架构（3600像素宽，可点击放大）。先沿需求→编排→Agent→Host→Worker/外部系统→产物回执→审查交付的主链阅读，再看权限审批、上下文、状态记忆与运营支撑。各框表示职责，不要求全部拆成微服务，也不表示ForgePilot已部署图中每项设施。"
+    }
   ]
 }

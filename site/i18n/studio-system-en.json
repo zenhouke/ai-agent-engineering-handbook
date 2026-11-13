@@ -1,0 +1,212 @@
+{
+  "title": "Personal studio · Complete multi-Agent system architecture",
+  "description": "Integrated ingress, control, agent roles, context, capabilities, isolation, external systems, durable state and operational feedback.",
+  "subtitle": "Control, execution, data and external boundaries in one map. Solid: calls. Dashed: events, receipts and telemetry.",
+  "regions": {
+    "control": "BUSINESS CONTROL · Server-owned execution",
+    "agents": "AGENT COLLABORATION · Work units, budgets, review",
+    "capabilities": "CAPABILITIES & EXECUTION · Host-enforced access",
+    "context": "CONTEXT & METHODS",
+    "data": "DURABLE DATA · Services and repositories own facts and versions",
+    "operations": "OPERATIONS & QUALITY"
+  },
+  "labels": {
+    "authenticated": "Trusted identity and order scope",
+    "gates": "Current policy, approvals, verified funds",
+    "dispatch": "Scoped delegation / DAG / backpressure",
+    "proposals": "Model requests and structured tool proposals",
+    "receipt": "Native receipt → committed state → resume event. Unknown effects require reconciliation.",
+    "boundary": "Separate platform accounts from task execution. Agents cannot bypass commercial gates.",
+    "method": "Skills supply methods; retrieval still requires object authorization.",
+    "telemetry": "Correlate order / task / run / operation",
+    "feedback": "Quality gate / pause / human takeover"
+  },
+  "journey": "Main path: intake → frozen work units → specialists → Host checks → scoped execution → artifacts/receipts → review, settle, deliver.",
+  "legend": "Solid: commands/reads. Dashed: events/receipts/telemetry. Regions define responsibilities, not mandatory services. Reference design; validation limits in text.",
+  "nodes": {
+    "operator": {
+      "title": "Human operator",
+      "lines": [
+        "Requirements, terms, acceptance"
+      ]
+    },
+    "entry": {
+      "title": "Ingress and session services",
+      "lines": [
+        "Web / Telegram / QQ · trusted identity",
+        "Separate login, conversation, order and run"
+      ]
+    },
+    "policy": {
+      "title": "Business gates and authority",
+      "lines": [
+        "Current object policy / exact-action approval",
+        "Approved terms / verified funds / reviewed artifact"
+      ]
+    },
+    "secrets": {
+      "title": "Secret and account store",
+      "lines": [
+        "Encrypted credentials / refs",
+        "Inject into scoped adapters",
+        "Never agent context"
+      ]
+    },
+    "lead": {
+      "title": "Lead / planning agent",
+      "lines": [
+        "Scope, quotation and plan",
+        "Process results and revisions"
+      ]
+    },
+    "runtime": {
+      "title": "Orchestration service",
+      "lines": [
+        "Frozen flow / queue / budgets",
+        "Owner fencing / checkpoints",
+        "Business gates and recovery"
+      ]
+    },
+    "contracts": {
+      "title": "Work and event routing",
+      "lines": [
+        "Owner / I/O / causation",
+        "Deadline / artifact version",
+        "Resume or return to owner"
+      ]
+    },
+    "context": {
+      "title": "Context builder",
+      "lines": [
+        "Order scope / token budget"
+      ]
+    },
+    "skills": {
+      "title": "Skill loader",
+      "lines": [
+        "Pinned methods / resources"
+      ]
+    },
+    "retrieval": {
+      "title": "RAG / memory lookup",
+      "lines": [
+        "Scope / sources / versions"
+      ]
+    },
+    "research": {
+      "title": "Research agent",
+      "lines": [
+        "Read-only search / evidence",
+        "Output: sourced material"
+      ]
+    },
+    "execution": {
+      "title": "Execution agent",
+      "lines": [
+        "Scoped work unit and tools",
+        "Output: versioned code/report"
+      ]
+    },
+    "review": {
+      "title": "Reviewer and human",
+      "lines": [
+        "Acceptance and original files",
+        "Pass, revise or escalate"
+      ]
+    },
+    "platforms": {
+      "title": "External work platforms",
+      "lines": [
+        "Native customer / order / ID",
+        "Contact / accept / deliver",
+        "Exact authorized payloads",
+        "Receipt or UNKNOWN state"
+      ]
+    },
+    "model": {
+      "title": "Model gateway",
+      "lines": [
+        "Provider codec and version",
+        "Timeout / rate / cost budget",
+        "Model output and proposals"
+      ]
+    },
+    "host": {
+      "title": "Tool Host",
+      "lines": [
+        "Function Calling validation",
+        "MCP client / native adapters",
+        "Scope / approval / operation"
+      ]
+    },
+    "browser": {
+      "title": "Platform browser worker",
+      "lines": [
+        "Account-scoped actions"
+      ]
+    },
+    "sandbox": {
+      "title": "Task sandbox",
+      "lines": [
+        "Files / compute / egress limits"
+      ]
+    },
+    "providers": {
+      "title": "External model APIs",
+      "lines": [
+        "Provider inference endpoint",
+        "Bounded calls / cancellation",
+        "No platform account authority"
+      ]
+    },
+    "mcp": {
+      "title": "External capabilities",
+      "lines": [
+        "MCP tools and resources",
+        "Prompts / native APIs",
+        "Scoped discovery and reads",
+        "Results do not grant approval"
+      ]
+    },
+    "database": {
+      "title": "PostgreSQL authority",
+      "lines": [
+        "Orders / sessions / task / run",
+        "Approvals / funds / operations",
+        "CAS version / current owner"
+      ]
+    },
+    "artifacts": {
+      "title": "Artifact service / store",
+      "lines": [
+        "Original files / content hashes",
+        "Review and handoff versions",
+        "Summaries retain originals"
+      ]
+    },
+    "knowledge": {
+      "title": "Knowledge / memory store",
+      "lines": [
+        "Documents / index / lessons",
+        "Workspace scope / retention",
+        "Retrieval is not business truth"
+      ]
+    },
+    "outbox": {
+      "title": "Outbox / receipt events",
+      "lines": [
+        "Atomic state and event commit",
+        "Dedup / operation / receipts",
+        "Resume or reconcile unknown"
+      ]
+    },
+    "operations": {
+      "title": "Evaluation and telemetry",
+      "lines": [
+        "Task checks / traces / metrics",
+        "Budget / backlog / denials",
+        "Takeover / release gates"
+      ]
+    }
+  }
+}

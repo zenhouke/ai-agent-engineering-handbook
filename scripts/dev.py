@@ -47,6 +47,7 @@ def watch(stop: threading.Event) -> None:
                     "diagrams.skill_scenes",
                     "diagrams.governance_scenes",
                     "diagrams.multi_agent_scenes",
+                    "diagrams.studio_system",
                     "diagrams.studio_scenes",
                     "diagrams.solution_scenes",
                     "diagrams.deep_scenes",

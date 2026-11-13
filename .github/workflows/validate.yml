@@ -21,6 +21,7 @@ jobs:
       - run: python -m compileall -q examples
       - run: python scripts/build_site.py
       - run: python scripts/check_site.py
+      - run: python scripts/check_docs.py
       - run: node --check site/app.js
   optional-protocols:
     runs-on: ubuntu-latest

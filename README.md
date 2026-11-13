@@ -57,16 +57,17 @@ docker compose up --build -d
 
 内容、图片和样式变化会自动重新构建，刷新页面即可阅读新内容。运行端口为 32140，绑定所有网络接口。访问地址由会话提供，不写入文档。
 
-也可以使用 Python 3.11 或更新版本单独构建静态站：
+也可以使用 Python 3.11 或更新版本单独构建静态站。先安装 Noto Sans CJK 字体（Debian/Ubuntu 包为 `fonts-noto-cjk`），或通过 `HANDBOOK_FONT_FILE` 指定兼容的 CJK 字体文件；PNG 导出需要该字体，Docker 与 CI 已配置。然后执行：
 
 ```sh
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python scripts/build_site.py
 .venv/bin/python scripts/check_site.py
+.venv/bin/python scripts/check_docs.py
 ```
 
-生成的静态产物位于 `_site`，可交给普通静态文件服务器。构建依赖包含Python Markdown与resvg_py。PNG导出需要Noto Sans CJK字体；Docker和CI已配置，独立构建时安装 `fonts-noto-cjk`，或通过 `HANDBOOK_FONT_FILE` 指定字体文件。浏览器运行时不加载外部脚本或字体。
+生成的静态产物位于 `_site`，可交给普通静态文件服务器。构建依赖包含Python Markdown与resvg_py。可选 MCP、Skills 与工作流 SDK 依赖独立于构建依赖；模型代码依赖及验证范围见配套代码说明。浏览器运行时不加载外部脚本或字体。
 
 ## 目录结构
 

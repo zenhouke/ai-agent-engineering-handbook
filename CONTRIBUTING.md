@@ -4,7 +4,7 @@
 
 中文正文与英文精简笔记分别维护；英文不是完整翻译时明确标注。同步课程清单、上下课关系和页内导航。新增图需能在无外部渲染服务时直接显示，提供替代文本；生成插画要审核方向、结构和文字，精确机制保留可编辑绘图源，按用途输出SVG或高清PNG。
 
-主线内容维护在 `site/lessons/zh` 与 `site/lessons/en` 的逐课 JSON，参考实现放在 `examples`；补充推导位于 `docs/*/notes`。构建自动同步Markdown、代码块和图片；不要只改生成后的课文，否则下次构建会覆盖。每课提供明确问题、3 个方案的机制/条件/代价、至少 3 张针对该课的图和对应代码。训练代码只检查语法和静态性质，不加入 CI 训练步骤。
+主线内容维护在 `site/lessons/zh` 与 `site/lessons/en` 的逐课 JSON，参考实现放在 `examples`；补充推导位于 `docs/*/notes`。构建自动同步Markdown、代码块和图片；不要只改生成后的课文，否则下次构建会覆盖。每课提供明确问题、3 个方案的机制/条件/代价、至少 3 张针对该课的图和对应代码。训练代码只检查语法和静态性质，不加入 CI 训练步骤。方案图同时提供可折叠文字步骤、状态、失败与验证边界；每课 scope 说明代码实际覆盖范围。
 
 绘图实现集中于 `scripts/diagrams`，课程图输出到 `assets/diagrams/<阶段>/<专题（如有）>/<课程>/<语言>/`，路径从课程清单推导；不要手写另一套课程分类。概念插画放 `assets/illustrations`，手工维护的全局图放 `assets/diagrams/overview`，资料元数据放 `references/catalog.json`。新增、移动或删除课程后运行完整构建与站点检查，确认引用、图清单与发布产物一致。资产边界详见[视觉资产说明](assets/README.md)。
 
@@ -15,6 +15,7 @@ python3 -m unittest discover -s tests -v
 python3 -m compileall -q examples
 python3 scripts/build_site.py
 python3 scripts/check_site.py
+python3 scripts/check_docs.py
 node --check site/app.js
 ```
 

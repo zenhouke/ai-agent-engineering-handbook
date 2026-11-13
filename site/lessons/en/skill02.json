@@ -1,0 +1,106 @@
+{
+  "id": "skill02",
+  "example": "skill_package",
+  "problem": "A broad skill name activates on unrelated tasks; instructions grow and code changes unnoticed.",
+  "principle": "Metadata supports discovery; the body contains the method; references, templates and deterministic helpers serve different purposes. Format validity, behavior quality and code execution require separate checks.",
+  "steps": [
+    "Describe applicability",
+    "Keep decision rules",
+    "Separate resources",
+    "Check format/behavior"
+  ],
+  "before": [
+    "Vague description",
+    "Manual pasted into body",
+    "Execution claims completion"
+  ],
+  "after": [
+    "Specific artifact",
+    "Read details as needed",
+    "Test code separately"
+  ],
+  "solutions": [
+    [
+      "Compact SKILL.md",
+      "Keep a coherent short method",
+      "Small self-contained guidance",
+      "Do not manufacture empty resource folders"
+    ],
+    [
+      "Layered package",
+      "Reference conditions, templates and helpers",
+      "Substantial conditional detail",
+      "Resources must be discoverable and bounded"
+    ],
+    [
+      "Trusted registry + digest",
+      "Pin reviewed bundle bytes/version",
+      "Shared traceable deployments",
+      "Integrity is not proof of safety"
+    ]
+  ],
+  "check": "Are metadata.version and tool bindings mandatory Agent Skills fields?",
+  "answer": "No. name and description are required. This example adds version/bindings as Host conventions; allowed-tools is experimental and implementation-dependent.",
+  "diagram_title": "Author a maintainable skill package",
+  "scope": "Based on Agent Skills format; version pins, bundle digests and tool bindings are example Host conventions, not execution authority.",
+  "procedures": [
+    {
+      "steps": [
+        "Define use cases",
+        "Write decision rules",
+        "Specify artifact",
+        "Check adjacent negatives"
+      ],
+      "state": "Name, description and output contract.",
+      "failure": "Catch-all descriptions overactivate.",
+      "measure": "Relevant hits and false activations.",
+      "case": "Reviewing quotations is distinct from placing an order."
+    },
+    {
+      "steps": [
+        "Reference conditions",
+        "Store output template",
+        "Bundle deterministic helper",
+        "Read by need"
+      ],
+      "state": "Entrypoint links, formats and helper dependencies.",
+      "failure": "Reading source is not permission to execute it.",
+      "measure": "Actually test helpers and missing resources.",
+      "case": "The helper rejects invented totals when shipping is null."
+    },
+    {
+      "steps": [
+        "Review actual bundle",
+        "Pin its digest",
+        "Verify deployment bytes",
+        "Review updates again"
+      ],
+      "state": "Provenance, version, sha256 and trusted bindings.",
+      "failure": "Rehashing modified content and automatically trusting it defeats the pin.",
+      "measure": "Body/helper changes cause rejection.",
+      "case": "Same name/version with changed code fails the stored digest."
+    }
+  ],
+  "extra_snippets": [
+    {
+      "file": "examples/skills/quote-review/SKILL.md",
+      "language": "markdown",
+      "title": "Actual skill entrypoint"
+    },
+    {
+      "file": "examples/skills/quote-review/references/conditions.md",
+      "language": "markdown",
+      "title": "On-demand comparison conditions"
+    },
+    {
+      "file": "examples/skills/quote-review/assets/report.json",
+      "language": "json",
+      "title": "Report template"
+    },
+    {
+      "file": "examples/skills/quote-review/scripts/validate_report.py",
+      "language": "python",
+      "title": "Deterministic report validator"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "problem": "Stacking linear layers does not solve nonlinear relationships.",
+  "principle": "Insert nonlinear activation between affine layers. The diagram and reference code both use a 2→2→1 network.",
+  "steps": [
+    "Two inputs",
+    "Two hidden features",
+    "One output logit",
+    "Label and loss"
+  ],
+  "before": [
+    "Stack affine layers",
+    "Still one affine map",
+    "Poor nonlinear fit"
+  ],
+  "after": [
+    "Linear + ReLU",
+    "Backpropagate loss",
+    "Validate generalization"
+  ],
+  "solutions": [
+    [
+      "MLP + ReLU",
+      "Nonlinear combinations",
+      "Vector inputs",
+      "Overfitting and parameters"
+    ],
+    [
+      "SGD/Adam",
+      "Gradient-based updates",
+      "Differentiable models",
+      "Learning-rate selection"
+    ],
+    [
+      "Early stop/decay",
+      "Control complexity",
+      "Training/validation gap",
+      "Cannot fix wrong labels"
+    ]
+  ],
+  "check": "Why do two affine layers without activation remain affine?",
+  "answer": "Their matrices and biases can be combined into one transformation.",
+  "id": "f04",
+  "example": "mlp",
+  "diagram_title": "Forward/backward through a 2→2→1 network",
+  "procedures": [
+    {
+      "steps": [
+        "Project hidden features",
+        "Apply ReLU",
+        "Compute logit loss",
+        "Backpropagate layers"
+      ],
+      "state": "Layer shapes and parameters.",
+      "failure": "No activation remains linear; reject shape/label mismatches.",
+      "measure": "Tiny-set fitting diagnoses code; held-out data tests generalization.",
+      "case": "Both the diagram and code use 2→2→1."
+    },
+    {
+      "steps": [
+        "Compute gradients",
+        "Use SGD or moments",
+        "Apply step size",
+        "Clear for next batch"
+      ],
+      "state": "Adam step, first/second moments and parameter groups.",
+      "failure": "Weight-only restore loses optimizer state; large steps may diverge.",
+      "measure": "Loss curves, gradient norms and validation.",
+      "case": "Adam adjusts update statistics, not label correctness."
+    },
+    {
+      "steps": [
+        "Monitor validation",
+        "Limit weights/epochs",
+        "Keep best checkpoint",
+        "Compare held-out test"
+      ],
+      "state": "Best value, patience and weight-decay configuration.",
+      "failure": "Repeated manual selection biases validation.",
+      "measure": "Train/validation gap and repeated-run variation.",
+      "case": "Choose the best validation checkpoint rather than always the last epoch."
+    }
+  ]
+}

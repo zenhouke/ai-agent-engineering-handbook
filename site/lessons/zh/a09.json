@@ -1,0 +1,95 @@
+{
+  "problem": "模型陷入重复调用，费用超限，取消任务后远程工具还在执行。",
+  "principle": "Runtime 用程序维护步数、时间、费用和状态；调用前预留预算，调用后核对回执，未知结果进入恢复路径。",
+  "steps": [
+    "预算准入",
+    "模型提议",
+    "工具校验与执行",
+    "记录结果并退出"
+  ],
+  "before": [
+    "无限模型循环",
+    "重复工具请求",
+    "费用与任务失控"
+  ],
+  "after": [
+    "程序限制预算",
+    "可取消的工具适配",
+    "记录终止与未知结果"
+  ],
+  "solutions": [
+    [
+      "有界循环",
+      "限制步数、时长与费用",
+      "单进程起步",
+      "需自己管理恢复"
+    ],
+    [
+      "LangGraph / Checkpoint",
+      "图状态与中断恢复",
+      "多步骤长任务",
+      "状态迁移与版本管理"
+    ],
+    [
+      "Temporal 工作流 + Activity",
+      "事件历史恢复编排，Activity 执行与重试",
+      "跨日审批、长任务与可靠外部步骤",
+      "需运维服务、确定性重放与外部幂等"
+    ]
+  ],
+  "check": "超时检查是否能证明远端动作已被撤销？",
+  "answer": "不能。截止时间只限制新工作；已提交动作可能需要查询、补偿或人工核查。",
+  "id": "a09",
+  "example": "runtime_budget",
+  "diagram_title": "预算准入、工具执行与退出",
+  "procedures": [
+    {
+      "steps": [
+        "设置全局预算",
+        "每步预留调用成本",
+        "执行后结算实际量",
+        "到限停止并保存"
+      ],
+      "state": "步数、deadline、已用和预留Token/金额。",
+      "failure": "并发只查余额会超支；预留需原子化，未知调用不能直接退全额。",
+      "measure": "最大步数、截止时间、并发预留不透支。",
+      "case": "余额只够一次调用时，两个 worker 不能都通过检查。"
+    },
+    {
+      "steps": [
+        "定义 StateGraph 节点",
+        "持久化 checkpoint",
+        "interrupt 等待审批",
+        "同 thread_id 恢复"
+      ],
+      "state": "State、checkpoint、pending nodes、审批动作摘要。",
+      "failure": "interrupt 节点会重新进入；副作用放独立幂等节点。",
+      "measure": "崩溃恢复、重复 resume、审批对象改变。",
+      "case": "审批节点重跑时不创建草稿；执行节点用稳定 operation_id。"
+    },
+    {
+      "steps": [
+        "启动唯一 Workflow",
+        "记录事件历史",
+        "Activity 执行外部操作",
+        "按策略重试/超时"
+      ],
+      "state": "Workflow ID、历史、Activity attempts、操作键。",
+      "failure": "Workflow 重放要求确定性；Activity 可能重复，远端写入仍须幂等。",
+      "measure": "worker 崩溃后继续等待/重试，验证重复写不会产生第二份。",
+      "case": "人工次日审批后续跑；不把24小时等待当 HTTP 请求挂住。"
+    }
+  ],
+  "extra_examples": [
+    {
+      "example": "langgraph_recovery",
+      "title": "LangGraph：审批中断与独立执行节点",
+      "scope": "框架参考代码；可用内存检查点检查中断语义，生产跨进程恢复必须注入持久化存储。"
+    },
+    {
+      "example": "temporal_recovery",
+      "title": "Temporal：持久等待与 Activity 重试",
+      "scope": "框架参考代码；未启动 Temporal 服务或 Worker，未执行远程 Activity。"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "problem": "Why do large windows still miss constraints?",
+  "principle": "Treat context as a budget: protect trusted instructions, select relevant evidence and reserve space for tool results and output.",
+  "steps": [
+    "Trusted constraints",
+    "Current task",
+    "Relevant evidence",
+    "Output reserve"
+  ],
+  "before": [
+    "Append all history",
+    "Mix data/instructions",
+    "Bury constraints"
+  ],
+  "after": [
+    "Layered assembly",
+    "Token/priority budget",
+    "Evidence references"
+  ],
+  "solutions": [
+    [
+      "Sliding window",
+      "Recent messages",
+      "Short local dialogue",
+      "Loses early constraints"
+    ],
+    [
+      "Retrieved context",
+      "Select evidence",
+      "Large histories/docs",
+      "Recall can fail"
+    ],
+    [
+      "Layered budget/artifacts",
+      "Protect constraints and link large outputs",
+      "Long tasks",
+      "Preserve retrievable originals"
+    ]
+  ],
+  "check": "Should required constraints be silently dropped to fit?",
+  "answer": "No. Stop and revise the budget or task rather than silently changing authority.",
+  "id": "a03",
+  "example": "context_budget",
+  "diagram_title": "Layered context-window budget",
+  "procedures": [
+    {
+      "steps": [
+        "Keep recent turns",
+        "Preserve fixed constraints",
+        "Drop old narrative",
+        "Retrieve originals if needed"
+      ],
+      "state": "Window boundary, fixed instructions and artifact references.",
+      "failure": "Do not truncate changed constraints with old chat.",
+      "measure": "Continuation constraint retention and token cost.",
+      "case": "A changed budget belongs in task state, not only recent conversation."
+    },
+    {
+      "steps": [
+        "Form decision query",
+        "Retrieve scoped history/docs",
+        "Select relevant chunks",
+        "Attach cited context"
+      ],
+      "state": "Query, candidate IDs and authorized versions.",
+      "failure": "Mark missing evidence; similarity never overrides instructions.",
+      "measure": "Relevant evidence coverage and context cost.",
+      "case": "Retrieve delivery and quantity conditions rather than entire attachments."
+    },
+    {
+      "steps": [
+        "Reserve output/tools",
+        "Place trusted goal/rules",
+        "Pack prioritized evidence",
+        "Externalize large artifacts"
+      ],
+      "state": "Layer budgets, artifact index and protected fields.",
+      "failure": "Reduce the task if mandatory content cannot fit.",
+      "measure": "Cost, accuracy and constraint violations on fixed tasks.",
+      "case": "Database state and external artifacts stay separate from model context."
+    }
+  ]
+}

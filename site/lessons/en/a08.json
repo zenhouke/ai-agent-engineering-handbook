@@ -1,0 +1,83 @@
+{
+  "problem": "More agents increase cost and conflict instead of helping.",
+  "principle": "Parallelize independent deliverables only; preserve dependencies, validate evidence and bound concurrency/deadlines.",
+  "steps": [
+    "Delegation contract",
+    "Independent branches",
+    "Evidence-based join",
+    "Timeout and cleanup"
+  ],
+  "before": [
+    "Repeat the same task",
+    "Wait/conflict",
+    "Higher cost only"
+  ],
+  "after": [
+    "Split by dependency",
+    "Bound concurrency",
+    "Aggregate and verify"
+  ],
+  "solutions": [
+    [
+      "Single agent",
+      "One context",
+      "Small/dependent tasks",
+      "Serial latency"
+    ],
+    [
+      "Supervisor/workers",
+      "Central delegation/join",
+      "Independent research",
+      "Merge bottleneck/cost"
+    ],
+    [
+      "Explicit DAG/fork-join",
+      "Schedule dependencies",
+      "Clear subtask contracts",
+      "Propagate failure/cancellation"
+    ]
+  ],
+  "check": "Do three agreeing agents prove a claim?",
+  "answer": "No. Correlated errors and shared sources require independent verification.",
+  "id": "a08",
+  "example": "parallel_agents",
+  "diagram_title": "Bounded fork/join and evidence verification",
+  "procedures": [
+    {
+      "steps": [
+        "Follow dependencies",
+        "Keep one task state",
+        "Validate each result",
+        "Stop or revise on failure"
+      ],
+      "state": "Task state, tool trace and remaining budget.",
+      "failure": "Latency adds up but no distributed merge race is introduced.",
+      "measure": "Baseline success, latency and call cost.",
+      "case": "Compute totals only after collecting quotations."
+    },
+    {
+      "steps": [
+        "Split independent goals",
+        "Scope each worker",
+        "Return cited artifacts",
+        "Deduplicate and adjudicate"
+      ],
+      "state": "Assignments, sub-budgets, artifact schemas and sources.",
+      "failure": "Resolve conflicting evidence from sources, not majority voting.",
+      "measure": "Benefit versus duplicated search, merge cost and conflict rate.",
+      "case": "Research markets independently with timestamped source-backed quotations."
+    },
+    {
+      "steps": [
+        "Declare dependency edges",
+        "Schedule ready nodes",
+        "Bound concurrency",
+        "Validate join results"
+      ],
+      "state": "DAG, node states, deadlines and cancellation.",
+      "failure": "Cancel dependent work after required-node failure; await cleanup.",
+      "measure": "Critical-path latency, peak concurrency and missing/duplicate nodes.",
+      "case": "Fetch A/B concurrently; comparison C waits for both."
+    }
+  ]
+}

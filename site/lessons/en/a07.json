@@ -1,0 +1,83 @@
+{
+  "problem": "Why can schema-valid proposals still be unauthorized? Who enforces checks for direct functions and MCP?",
+  "principle": "The protocol discovers and invokes capabilities. A gateway validates names, arguments, object access and side effects.",
+  "steps": [
+    "Host/client",
+    "Discover capabilities",
+    "Tool server",
+    "Business authorization"
+  ],
+  "before": [
+    "Expose generic execution",
+    "Free-form arguments",
+    "Transport succeeds, access fails"
+  ],
+  "after": [
+    "Minimal capabilities",
+    "Object/argument checks",
+    "Structured result/audit"
+  ],
+  "solutions": [
+    [
+      "Direct function/SDK",
+      "Explicit local contract",
+      "Few stable tools",
+      "Separate integrations"
+    ],
+    [
+      "MCP",
+      "Capability discovery/invocation",
+      "Interoperable tools",
+      "Not business authorization"
+    ],
+    [
+      "Tool gateway",
+      "Central policy checks",
+      "Tenancy/side effects",
+      "Maintain object-level rules"
+    ]
+  ],
+  "check": "Does returned text requesting data exfiltration gain authority?",
+  "answer": "No. Tool output is external data, not a new trusted user instruction.",
+  "id": "a07",
+  "example": "tool_gateway",
+  "diagram_title": "MCP interoperability and business authority",
+  "procedures": [
+    {
+      "steps": [
+        "Define typed function",
+        "Expose allowed capability",
+        "Adapt provider arguments",
+        "Map SDK failures"
+      ],
+      "state": "Tool contract, types, deadlines and provider version.",
+      "failure": "SDK pagination/errors differ; domain services stay provider-independent.",
+      "measure": "Argument mapping, failure classification and cleanup.",
+      "case": "A single stable quotation API may fit direct SDK integration."
+    },
+    {
+      "steps": [
+        "Discover MCP contracts",
+        "Map model tool schema",
+        "Validate Host proposal",
+        "Call and return observation"
+      ],
+      "state": "Protocol version, inputSchema, correlation IDs and transport lifecycle.",
+      "failure": "Discovery grants no authority; inspect tool and business results.",
+      "measure": "Real Client→Server discovery, execution and denial.",
+      "case": "A well-formed read_quote(B) still fails server-side scope authorization."
+    },
+    {
+      "steps": [
+        "Inject trusted identity",
+        "Check resource/approval",
+        "Assign stable operation ID",
+        "Record call and receipt"
+      ],
+      "state": "Tenant, allowed resources, action_hash, operation_id and audit.",
+      "failure": "Models cannot self-assert identity/approval; unknown results require reconciliation.",
+      "measure": "Cross-scope denial, approval mismatch and duplicate effects.",
+      "case": "Changing A to B invalidates approval of the original action."
+    }
+  ]
+}

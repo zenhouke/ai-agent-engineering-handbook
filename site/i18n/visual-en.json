@@ -1,0 +1,324 @@
+{
+  "mode": "Visual route · Established approaches · Reference code",
+  "problem": "Start with the problem",
+  "mechanism": "See the mechanism",
+  "solutions": "Choose an established approach",
+  "code": "Reference code",
+  "code_note": "Expand the implementation corresponding to this mechanism. Training code is provided but not executed. See the reference-code guide for dependencies and verification limits.",
+  "expand_code": "Expand code and limits",
+  "check": "Change a condition",
+  "answer": "Suggested answer",
+  "more": "Optional derivation and boundaries",
+  "problem_figure": "Failure path versus controlled path",
+  "mechanism_figure": "How data, computation or state changes",
+  "selection_figure": "Choose by the problem condition",
+  "before": "Failure",
+  "after": "Controlled",
+  "diagnose": "Diagnose the problem",
+  "selection_note": "Branches express use conditions, not mutually exclusive categories. Combine only for a justified need.",
+  "table": [
+    "Approach",
+    "Mechanism",
+    "Use when",
+    "Tradeoff / boundary"
+  ],
+  "interactive": "Open the query and causal-mask demonstration",
+  "sources": "Official sources and approach rationale",
+  "orthogonal": "Agent is a system organization; the AI/ML/DL nesting does not require every agent to use deep learning.",
+  "confusion": "Prediction × actual outcome",
+  "threshold": "Thresholds change false alarms, misses and review workload.",
+  "backprop": "Backprop computes gradients; the optimizer updates parameters.",
+  "conv": "A shared kernel scans positions. One window shows multiply-adds, not trained prediction quality.",
+  "encoding": "IDs are illustrative. Embedding values are learned; ID magnitude does not encode meaning.",
+  "not_equivalent": "Valid structure ≠ supported facts ≠ authorized action. Classify failures separately.",
+  "retrieval": "Authorize and filter versions before retrieval. Generation cannot restore missing evidence.",
+  "observation": "Return tool output as external data, not higher-priority instructions.",
+  "loop_limit": "Bound tool access, steps, time and cost, then verify the final outcome.",
+  "budget": "Illustrative allocation, not a recommended ratio. Use the target tokenizer for actual budgets.",
+  "original": "Full history and artifacts",
+  "artifact": "Keep retrievable originals",
+  "protected": "Narrative may be lossy; goals, authority, unknown results and pending actions must survive.",
+  "cas": "CAS compares an expected version. Reload stale writes instead of overwriting newer progress.",
+  "provenance": "Source · verification · expiry",
+  "memory": "Scope memory before similarity. Current explicit requests supersede old preferences.",
+  "business_boundary": "Tool name · arguments · object access · approval · receipt",
+  "protocol": "MCP is interoperability, not business authorization, scheduling or recovery.",
+  "parallel": "Parallelize independent tasks, verify merged evidence, cancel and await cleanup.",
+  "runtime": "Budgets stop new work; committed remote effects need query, compensation or reconciliation.",
+  "plan": "Execute only ready dependencies. A skill provides a method, not new authority.",
+  "synthetic_scores": "Synthetic teaching data, not a benchmark: success should rise; unauthorized effects need a separate gate.",
+  "layers": "Keep dependencies one-way. Workers reuse service rules instead of bypassing authorization.",
+  "state_scope": "Critical paths shown. Failure, cancellation and manual review are explicit; in-flight cancellation requires reconciliation.",
+  "architecture": "Connect the complete architecture",
+  "architecture_figure": "Complete components and data flow",
+  "architecture_note": "Solid lines: calls/data. Dashed line: event delivery. Models propose; services and gateways enforce authority.",
+  "code_guide": "Reference code and verification limits",
+  "inside_solutions": "Inside the mainstream approaches",
+  "state": "State",
+  "failure": "Failure / recovery",
+  "measure": "Verification",
+  "walkthrough": "Concrete trace:",
+  "failure_trace": "Trace concrete data and failure boundaries",
+  "mcp_labels": {
+    "host": "Host: model + context + policy",
+    "model": "LLM adapter",
+    "quote_server": "Server A: quotations",
+    "doc_server": "Server B: documents",
+    "tools": "Tools",
+    "resources": "Resources",
+    "prompts": "Prompts",
+    "tool_result": "execute → structured result",
+    "resource_result": "URI → context content",
+    "prompt_result": "arguments → message template",
+    "old": "2025-11-25 and earlier",
+    "discover": "server/discover (optional client step)",
+    "list_meta": "tools/list + per-request _meta",
+    "call_meta": "tools/call + per-request _meta",
+    "initialize": "initialize → version/capabilities",
+    "ids": "Request id ≠ business operation_id; protocol revision ≠ SDK package version",
+    "process": "Host owns subprocess lifecycle",
+    "http_response": "POST; JSON or SSE response",
+    "same_rpc": "same RPC",
+    "authentication": "Authentication",
+    "verify": "verify token / audience",
+    "authorization": "Authorization",
+    "scope": "scope + tenant + object",
+    "domain": "Domain action",
+    "receipt": "approval + operation receipt",
+    "transport_boundary": "Transport selection does not decide data access or authorize side effects.",
+    "registration": "SDK capability registration",
+    "readonly": "shipping_cents=null; B is outside configured scope",
+    "memory_scope": "In-memory calls exercise the real SDK, not TLS/OAuth or network proxies.",
+    "catalog": "Task-scoped catalog",
+    "provider": "Provider schema adapter",
+    "gateway": "Host policy gateway",
+    "client_server": "MCP Client\n/ Server",
+    "observation": "validated result → provider tool observation → next model decision",
+    "unknown": "Unknown write outcome → reconciliation, not an unconditional retry.",
+    "proposal": "Model proposes tool call"
+  },
+  "skill_scenes": {
+    "skill01": {
+      "layers": [
+        "Skill: method, conditions, resources",
+        "Function Calling: model proposal",
+        "Host: policy, execution, acceptance",
+        "MCP / SDK: capability connection"
+      ],
+      "plan": "Plan: task dependencies and acceptance",
+      "state": "Runtime: state, budget, recovery, receipts",
+      "footer": "Layers compose; activating a Skill neither executes it nor grants new authority."
+    },
+    "skill02": {
+      "files": [
+        "SKILL.md · YAML metadata",
+        "SKILL.md · method body",
+        "references/ · conditional detail",
+        "assets/ · artifact template",
+        "scripts/ · deterministic code"
+      ],
+      "roles": [
+        "Catalog shows name + description",
+        "Inject body after activation",
+        "Read when conditions require it",
+        "Use as output material",
+        "Execute only under separate Host policy"
+      ],
+      "footer": "metadata.version is local convention; format, code and behavioral checks are separate."
+    },
+    "skill03": {
+      "tiers": [
+        "1 · Catalog metadata",
+        "2 · Activated body",
+        "3 · Requested resource"
+      ],
+      "one_body": "Only the selected method",
+      "resource": "Read one relevant reference",
+      "no_exec": "Read source ≠ execute script",
+      "dedupe": "Deduplicate name/version/digest per session; apply fresh task policy",
+      "footer": "Integrity reads are not injected tokens; the example budgets characters."
+    },
+    "skill04": {
+      "sets": [
+        "Trusted task policy",
+        "Deployed capabilities",
+        "Reviewed skill bindings"
+      ],
+      "intersection": "Available actions = intersection",
+      "allow": "read_quote(A) → Host + server authorize",
+      "deny": "read_quote(B) / create_order → deny",
+      "footer": "Valid arguments and discovered tools still need object authorization; text cannot rewrite Policy."
+    },
+    "skill05": {
+      "a": "Research A → cited artifact",
+      "b": "Research B → cited artifact",
+      "join": "Compare: validate required inputs",
+      "next": "Report contract → next phase",
+      "contract": "Schema · provenance · completeness · version",
+      "invalidate": "New evidence → invalidate comparison / downstream approval",
+      "footer": "DAG tracks dependencies; Skill supplies method. Replanning cannot erase unknown effects."
+    },
+    "skill06": {
+      "selection": "Relevance × activation: usage rate is insufficient",
+      "cells": [
+        "TP · relevant / activated",
+        "FP · irrelevant / activated",
+        "FN · relevant / missed",
+        "TN · irrelevant / unused"
+      ],
+      "baseline": "Same task: no Skill / pinned old version",
+      "candidate": "Same task: candidate Skill bundle",
+      "gate": "Artifact quality + violations + tokens/latency → regression decision",
+      "footer": "This is an evaluation design, not measured uplift; helper tests do not prove model benefit."
+    },
+    "fc01": {
+      "model": "Model: generate proposal",
+      "host": "Host: validate arguments/policy",
+      "function": "Trusted function / service",
+      "authorize": "Authorize",
+      "result": "Actual result → function_call_output(call_id) → next model turn",
+      "strict": "Strict constrains structure; applications verify evidence, object scope and effects",
+      "footer": "This describes custom client functions; provider-managed tools may execute server-side."
+    },
+    "fc02": {
+      "proposal": "Model interface: Function Calling",
+      "host": "Host: adaptation / policy",
+      "direct": "Path A: direct function / SDK → service",
+      "alternatives": "Alternative capability paths",
+      "return": "Observation → provider result format → preserve original call_id",
+      "footer": "MCP connects Client ↔ Server; it can serve model proposals or ordinary programs."
+    }
+  },
+  "governance_scenes": {
+    "session01": {
+      "actor": "Trusted subject",
+      "old": "Session S1\nexpired",
+      "new": "Session S2\nactive",
+      "task": "Business task T: durable state",
+      "run": "run-1 / run-2 → checkpoint",
+      "footer": "Conversation/thread locates context; session locates interaction; task/run tracks work. IDs grant no access."
+    },
+    "session02": {
+      "expired": "Old session: expired/revoked → deny",
+      "fresh": "New session: same subject/tenant + current role",
+      "claim": "Task paused v1 → CAS → running v2",
+      "atomic": "Same transaction as INSERT run; any failure rolls back",
+      "footer": "A new run ID cannot bypass a stale task version; logout does not undo dispatched effects."
+    },
+    "auth01": {
+      "gates": [
+        "RBAC: role allows action?",
+        "ABAC: tenant / object / evidence",
+        "ABAC: amount within current limit?"
+      ],
+      "deny": "Any failed gate → deny",
+      "allow": "All pass → allow + separate approval gate",
+      "footer": "ReBAC can evaluate sharing/inheritance relations; permission does not establish valid approval."
+    },
+    "auth02": {
+      "pep": "PEP: Host / execution service",
+      "pdp": "PDP: evaluate policy",
+      "facts": "Trusted facts / relations / version",
+      "decision": "allow / deny + reason + version",
+      "worker": "Worker delegation: subset of parent authority",
+      "service": "Domain service: authorize current object again",
+      "footer": "Cache principal/action/object plus policy/fact versions; approval cannot override deny."
+    },
+    "approval01": {
+      "action": "Canonical server-side action",
+      "fields": [
+        "tenant + task + operation",
+        "resource + currency + amount + recipient",
+        "evidence_version → action_hash",
+        "requester + policy_version + expiry"
+      ],
+      "approver": "Trusted reviewer: role + independence",
+      "record": "pending → approved: persist decision",
+      "recheck": "Before execution: session, current policy, exact action, evidence, expiry and unconsumed approval",
+      "footer": "Accepting a report is not approving a specific action; changed facts require a new decision."
+    },
+    "approval02": {
+      "transaction": "Local transaction: commit all three or roll back all three",
+      "writes": [
+        "Approval approved → consumed",
+        "INSERT unique approval→operation",
+        "Task awaiting_approval → queued"
+      ],
+      "rollback": "Unique/state conflict → full rollback",
+      "dispatch": "Dispatch after commit; lost reply → query same key",
+      "footer": "Single consumption is not exactly-once remote execution; distinguish pending, executing, UNKNOWN and confirmed."
+    }
+  },
+  "multi_design": {
+    "ma01": {
+      "goal": "Task: accepted result + constraints",
+      "a": "owner A → evidence-v1",
+      "b": "owner B → evidence-v1",
+      "merge": "Comparison owner → report-v1",
+      "ownership": "One accountable owner per artifact; split by independent work, expertise, context or failure domain.",
+      "footer": "Start with a single-Agent baseline; role names and Agent count do not establish benefit."
+    },
+    "ma02": {
+      "sender": "Authenticated sender: researcher",
+      "receiver": "Receiver: comparer",
+      "fields": [
+        "schema / event",
+        "task_id / run_id",
+        "message_id / causation_id",
+        "sender / recipient",
+        "artifact_id / deadline"
+      ],
+      "artifact": "Reference an artifact, not just done",
+      "accept": "Check edge, expiry, scope, contract",
+      "footer": "Durable Inbox/Outbox supports delivery; message deduplication differs from effect idempotency."
+    },
+    "ma03": {
+      "claims": [
+        "Worker A: free, source X",
+        "Worker B: free, same source X",
+        "Worker C: shipping 80, Y/v2"
+      ],
+      "conflict": "Reducer: preserve conflict, sources, versions",
+      "no_vote": "Check conditions; a 2:1 vote proves no fact",
+      "footer": "Partition artifacts, validate/reduce, then CAS shared state; last writer does not establish truth."
+    },
+    "ma04": {
+      "pending": "Pending: dependencies",
+      "slots": "Running: limit = 2",
+      "done": "Done: completed node results",
+      "jobs": [
+        "A / B: independent",
+        "C: needs A",
+        "D: needs B + C"
+      ],
+      "release": "Completion opens successors; without a slot, work remains pending",
+      "footer": "Backpressure limits admission; cancellation awaits cleanup, while remote effects need reconciliation."
+    },
+    "ma05": {
+      "failure": "Partial task failure",
+      "unknown": "External effect UNKNOWN",
+      "confirmed": "Confirmed effect exists",
+      "query": "Query SAME operation_id",
+      "compensate": "Reverse compensation + fresh policy",
+      "footer": "Compensation is a new business action; unqueryable/irreversible effects require manual review."
+    },
+    "ma06": {
+      "cases": [
+        "Same tasks/evidence",
+        "Same model/tool snapshots",
+        "Same budget/acceptance"
+      ],
+      "single": "Single-Agent baseline",
+      "multi": "Multi-Agent candidate",
+      "metrics": "Task success / cost / latency",
+      "gate": "Independently check handoffs, duplicates, authority and recovery; success cannot offset unauthorized actions.",
+      "footer": "This is evaluation structure, without a model experiment or uplift statistic."
+    },
+    "ma07": {
+      "traffic": "Task rate λ × mean call fanout",
+      "quota": "Model / tool / storage quotas",
+      "formula": "Mean concurrency ≈ task arrival rate × mean calls/task × mean call time",
+      "footer": "Split processes by resources, authority and failure domains, not role names; validate estimates under real load."
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "id": "approval01",
+  "example": "approval_lifecycle",
+  "problem": "Why cannot an old “yes” approve a changed amount or recipient?",
+  "principle": "Approval is a server-side record bound to canonical action, evidence, tenant, task, requester, approver, expiry and policy version, not model-generated approved=true.",
+  "steps": [
+    "Fix exact action",
+    "Independent review",
+    "Persist approval",
+    "Recheck before effect"
+  ],
+  "before": [
+    "Chat text as approval",
+    "Change parameters later",
+    "Use stale facts"
+  ],
+  "after": [
+    "Canonical action",
+    "Approver/expiry checks",
+    "Current authorization"
+  ],
+  "solutions": [
+    [
+      "Read-only preview",
+      "Show evidence without writing",
+      "Research and recommendations",
+      "Preview acceptance is not action approval"
+    ],
+    [
+      "Server-side action approval",
+      "Bind exact action and approver",
+      "Precisely defined side effects",
+      "Canonicalization, independence and expiry"
+    ],
+    [
+      "Workflow human interrupt",
+      "Durably wait then resume",
+      "Long approval waits",
+      "Pause does not authenticate reviewer"
+    ]
+  ],
+  "check": "Must approval bind yesterday’s browser session ID?",
+  "answer": "Not necessarily: bind actor/task/action and reauthenticate/re-authorize the new session.",
+  "diagram_title": "Approval binding: action, evidence, expiry and approver",
+  "scope": "Local reference: trusted identity injection and SQLite transactions, without a login server or remote writes.",
+  "procedures": [
+    {
+      "steps": [
+        "Prepare read-only report",
+        "Preserve sources",
+        "Show unknowns",
+        "Await exact action request"
+      ],
+      "state": "Report and evidence versions.",
+      "failure": "A positive report comment does not authorize an order.",
+      "measure": "Zero writes before approval.",
+      "case": "Liking the comparison does not approve an amount/recipient."
+    },
+    {
+      "steps": [
+        "Check request authority",
+        "Fix action fields",
+        "Review identical action",
+        "Persist approver/deadline"
+      ],
+      "state": "Tenant/task, hash, evidence, requester/approver and expiry.",
+      "failure": "Changed facts require review; no self-approval in this example.",
+      "measure": "Mutation, self-approval, tenant and expiry denial.",
+      "case": "25000 cents to supplier-a is not approval for supplier-b."
+    },
+    {
+      "steps": [
+        "Persist pending action",
+        "Interrupt/signal wait",
+        "Authenticate review entry",
+        "Validate approval record"
+      ],
+      "state": "Workflow ID, pending action and approval reference.",
+      "failure": "resume=true is not an approval credential.",
+      "measure": "No effect without valid approval.",
+      "case": "LangGraph/Temporal resume execution; service validates authority."
+    }
+  ],
+  "extra_examples": [
+    {
+      "example": "governance/approvals",
+      "title": "Server-side approval and consumption",
+      "scope": "Local architecture reference without live external effects."
+    },
+    {
+      "example": "governance/handlers",
+      "title": "Action request boundary",
+      "scope": "Local architecture reference without live external effects."
+    },
+    {
+      "example": "governance/routes",
+      "title": "Trusted entry assembly",
+      "scope": "Local architecture reference without live external effects."
+    }
+  ]
+}

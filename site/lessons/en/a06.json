@@ -1,0 +1,83 @@
+{
+  "problem": "Memory treats guesses as facts or retrieves another user’s records.",
+  "principle": "Store scope, provenance, verification and expiry. Filter access before similarity ranking.",
+  "steps": [
+    "Scope filter",
+    "Verify provenance",
+    "Check expiry",
+    "Recall relevant facts"
+  ],
+  "before": [
+    "One memory pool",
+    "Similarity first",
+    "Cross-tenant/stale facts"
+  ],
+  "after": [
+    "Filter identity first",
+    "Check evidence/expiry",
+    "Rank allowed records"
+  ],
+  "solutions": [
+    [
+      "Task state",
+      "Current progress",
+      "Short-term recovery",
+      "Not permanent preference"
+    ],
+    [
+      "Structured memory",
+      "Versioned facts and sources",
+      "Explicit stable preferences",
+      "Resolve conflicts"
+    ],
+    [
+      "Vector memory + metadata",
+      "Semantic recall with scope",
+      "Long records",
+      "Similarity is not current truth"
+    ]
+  ],
+  "check": "What wins over an old remembered preference?",
+  "answer": "The current explicit request. Supersede or reverify the old record instead of overriding new authority.",
+  "id": "a06",
+  "example": "memory_scope",
+  "diagram_title": "Scope filtering before memory recall",
+  "procedures": [
+    {
+      "steps": [
+        "Load task-scoped state",
+        "Persist evidence/pending work",
+        "Archive on completion",
+        "Apply retention"
+      ],
+      "state": "task_id, tenant, state version and artifact references.",
+      "failure": "Do not promote temporary assumptions into persistent preferences.",
+      "measure": "Check whether new tasks inherit stale constraints.",
+      "case": "A budget of 1000 for one task is not a permanent preference."
+    },
+    {
+      "steps": [
+        "Extract candidate fact",
+        "Attach source/validity",
+        "Resolve trusted conflicts",
+        "Commit a new version"
+      ],
+      "state": "Subject, field, value, provenance, validity and revocation.",
+      "failure": "Flag conflicts; current explicit instructions outrank historical facts.",
+      "measure": "Conflict accuracy and expired-fact usage.",
+      "case": "A changed invoice name supersedes the historical name with an audit trail."
+    },
+    {
+      "steps": [
+        "Filter tenant/subject",
+        "Retrieve by embedding",
+        "Rerank by freshness",
+        "Inject cited evidence"
+      ],
+      "state": "Embedding version, authorization scope, time and source ID.",
+      "failure": "Similarity cannot establish truth or current relevance.",
+      "measure": "Zero cross-scope leakage; memory recall and stale-use rate.",
+      "case": "Exclude other customers before retrieving purchasing preferences."
+    }
+  ]
+}

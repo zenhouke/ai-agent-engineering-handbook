@@ -1,0 +1,95 @@
+{
+  "problem": "An agent loops, overspends or leaves tools running after cancellation.",
+  "principle": "Runtime enforces steps, deadlines, cost and state. Reserve before calls, reconcile receipts and retain unknown outcomes.",
+  "steps": [
+    "Admit budget",
+    "Model proposal",
+    "Validate/execute tool",
+    "Record and stop"
+  ],
+  "before": [
+    "Unbounded loop",
+    "Repeated calls",
+    "Runaway cost"
+  ],
+  "after": [
+    "Programmatic limits",
+    "Cancellable adapters",
+    "Record stop/unknown"
+  ],
+  "solutions": [
+    [
+      "Bounded loop",
+      "Steps/time/cost caps",
+      "Small process",
+      "Own recovery logic"
+    ],
+    [
+      "LangGraph / checkpoints",
+      "State/checkpoints/interrupts",
+      "Long workflows",
+      "Version and state management"
+    ],
+    [
+      "Temporal workflows + Activities",
+      "History recovers orchestration; Activities perform/retry effects",
+      "Long waits and reliable external steps",
+      "Service operations, deterministic replay and external idempotency"
+    ]
+  ],
+  "check": "Does a deadline check prove a remote effect was cancelled?",
+  "answer": "No. It limits new work; committed effects may require query or compensation.",
+  "id": "a09",
+  "example": "runtime_budget",
+  "diagram_title": "Admission, execution and bounded exit",
+  "procedures": [
+    {
+      "steps": [
+        "Set global budget",
+        "Reserve cost per call",
+        "Settle actual usage",
+        "Stop and save at limit"
+      ],
+      "state": "Steps, deadline, spent and reserved tokens/cost.",
+      "failure": "Balance checks race; reserve atomically and retain unknown-call liability.",
+      "measure": "Step/deadline limits and concurrent reservation bounds.",
+      "case": "With funds for one call, two workers cannot both reserve it."
+    },
+    {
+      "steps": [
+        "Define StateGraph",
+        "Persist checkpoints",
+        "Interrupt for approval",
+        "Resume same thread_id"
+      ],
+      "state": "State, checkpoint, pending nodes and approved action hash.",
+      "failure": "Interrupt nodes restart; isolate idempotent external effects.",
+      "measure": "Crash recovery, repeated resumes and changed proposals.",
+      "case": "Approval replay creates nothing; execution uses stable operation_id."
+    },
+    {
+      "steps": [
+        "Start unique Workflow",
+        "Persist event history",
+        "Run external Activity",
+        "Apply retry/timeouts"
+      ],
+      "state": "Workflow ID, history, Activity attempts and operation key.",
+      "failure": "Workflow replay must be deterministic; Activities may repeat remote writes.",
+      "measure": "Restart a worker and verify waits/retries resume without duplicate effects.",
+      "case": "Continue after next-day approval without holding an HTTP request open."
+    }
+  ],
+  "extra_examples": [
+    {
+      "example": "langgraph_recovery",
+      "title": "LangGraph: approval interrupt and separate execution",
+      "scope": "Framework reference; in-memory checks demonstrate interrupts, while cross-process recovery needs a persistent checkpointer."
+    },
+    {
+      "example": "temporal_recovery",
+      "title": "Temporal: durable waits and Activity retries",
+      "scope": "Framework reference; no Temporal service/Worker is started and no remote Activity runs."
+    }
+  ]
+}

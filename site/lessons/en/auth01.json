@@ -1,0 +1,91 @@
+{
+  "id": "auth01",
+  "example": "permission_policy",
+  "problem": "Why does a tool allowlist still leak objects? How does login differ from permission for this exact action?",
+  "principle": "Authorize trusted principal/action/resource/context. RBAC maps roles, ABAC checks attributes, ReBAC models relationships. Default deny; never accept model-asserted authority.",
+  "steps": [
+    "Trusted principal",
+    "Action/resource",
+    "Policy decision",
+    "Enforce at execution"
+  ],
+  "before": [
+    "Tool name only",
+    "Model claims admin",
+    "Tool opens entire database"
+  ],
+  "after": [
+    "Role and object conditions",
+    "Trusted facts",
+    "Authorize every action"
+  ],
+  "solutions": [
+    [
+      "RBAC",
+      "Map roles to actions",
+      "Stable organizational duties",
+      "Role explosion and object scope"
+    ],
+    [
+      "ABAC",
+      "Evaluate object/context attributes",
+      "Tenant, amount, time and evidence rules",
+      "Attribute provenance/freshness"
+    ],
+    [
+      "ReBAC",
+      "Authorize through resource relations",
+      "Teams, projects and inherited access",
+      "Consistency, revocation and graph modeling"
+    ]
+  ],
+  "check": "Must RBAC, ABAC and ReBAC be exclusive?",
+  "answer": "No. Coarse role gates can combine with attributes/relations based on the domain.",
+  "diagram_title": "RBAC, ABAC and ReBAC for Agents",
+  "scope": "Local reference: trusted identity injection and SQLite transactions, without a login server or remote writes.",
+  "procedures": [
+    {
+      "steps": [
+        "Read trusted membership",
+        "Check action set",
+        "Deny unknown roles",
+        "Record policy version"
+      ],
+      "state": "Subject, tenant, role and action.",
+      "failure": "Model roles are untrusted; read_quote does not grant every object.",
+      "measure": "Role changes affect later actions.",
+      "case": "Operators propose drafts; reviewers approve them."
+    },
+    {
+      "steps": [
+        "Load trusted facts",
+        "Check tenant/owner",
+        "Check limit/evidence",
+        "Return reason/version"
+      ],
+      "state": "Resource ownership, limits, evidence and policy epoch.",
+      "failure": "An old allow is not permanent.",
+      "measure": "Cross-scope, excess amount and evidence-change denial.",
+      "case": "A role allowing drafts still rejects excessive amounts."
+    },
+    {
+      "steps": [
+        "Define relations",
+        "Write trusted tuples",
+        "Check subject/object relation",
+        "Enforce consistency"
+      ],
+      "state": "Relationship tuples, model version and consistency.",
+      "failure": "Knowing an ID does not establish a relation.",
+      "measure": "Sharing, revocation, inheritance and isolation.",
+      "case": "OpenFGA can model project membership to quotation viewer access."
+    }
+  ],
+  "extra_examples": [
+    {
+      "example": "governance/policies",
+      "title": "Local role/attribute policy",
+      "scope": "Local architecture reference without live external effects."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "problem": "High accuracy still misses late orders, and test data may leak the future.",
+  "principle": "Split by decision time and entity. Choose thresholds under false-alarm costs and review capacity, not accuracy alone.",
+  "steps": [
+    "Time split",
+    "Fit on training",
+    "Select on validation",
+    "Held-out test"
+  ],
+  "before": [
+    "Future features leak",
+    "High accuracy",
+    "Missed late orders"
+  ],
+  "after": [
+    "Respect decision time",
+    "Precision and recall",
+    "Cost-aware threshold"
+  ],
+  "solutions": [
+    [
+      "Logistic regression",
+      "Linear score",
+      "Tabular baseline",
+      "Limited nonlinear interactions"
+    ],
+    [
+      "Trees/boosting",
+      "Splits and ensembles",
+      "Nonlinear tabular data",
+      "Still vulnerable to leakage"
+    ],
+    [
+      "Time/group split",
+      "Isolate future/entities",
+      "Deployment-like evaluation",
+      "Must match use conditions"
+    ]
+  ],
+  "check": "Does accuracy replace recall for TP=15, FP=10, FN=5, TN=70?",
+  "answer": "No: accuracy is 85%, recall 75%, precision 60%. They answer different questions.",
+  "id": "f03",
+  "example": "ml_pipeline",
+  "diagram_title": "Confusion matrix and threshold costs",
+  "procedures": [
+    {
+      "steps": [
+        "Fit train-only scaling",
+        "Compute linear logit",
+        "Map to risk score",
+        "Select cost-aware threshold"
+      ],
+      "state": "Scaling statistics, weights, threshold and calibration.",
+      "failure": "Diagnose validation groups; never tune on final test.",
+      "measure": "Recall at equal human-review volume.",
+      "case": "With capacity for ten reviews, compare the ten highest-risk orders."
+    },
+    {
+      "steps": [
+        "Split feature regions",
+        "Fit residual/gradient",
+        "Add weak learners",
+        "Early stop on validation"
+      ],
+      "state": "Trees, depth, learning rate and split version.",
+      "failure": "Depth/iterations overfit; leakage still invalidates results.",
+      "measure": "PR/ROC, subgroup errors and future test.",
+      "case": "Trees model interactions between quantity and region."
+    },
+    {
+      "steps": [
+        "Group deployment entities",
+        "Split by decision time",
+        "Fit preprocessing on train",
+        "Seal final test"
+      ],
+      "state": "Entity IDs, time boundaries and dedup rules.",
+      "failure": "Regroup when one order appears in multiple sets.",
+      "measure": "Audit entity overlap and future features.",
+      "case": "Hold suppliers out as whole groups when targeting unseen suppliers."
+    }
+  ]
+}

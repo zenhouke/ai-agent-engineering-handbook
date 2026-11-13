@@ -1,0 +1,83 @@
+{
+  "problem": "When should you use prompting, RAG, SFT or LoRA?",
+  "principle": "Retrieve changing facts; adapt stable behavior. LoRA freezes W and learns BA. It is an update method, not a separate task objective.",
+  "steps": [
+    "Frozen base W",
+    "Low-rank A",
+    "Low-rank B",
+    "Add adapted output"
+  ],
+  "before": [
+    "Stale quotations",
+    "Fine-tune prices",
+    "Hard to update/cite"
+  ],
+  "after": [
+    "Classify the error",
+    "Retrieve or adapt",
+    "Evaluate separately"
+  ],
+  "solutions": [
+    [
+      "RAG",
+      "Inject evidence at request time",
+      "Changing/private facts",
+      "Retrieval and access control"
+    ],
+    [
+      "SFT",
+      "Learn demonstrations",
+      "Stable task behavior",
+      "Bias and regressions"
+    ],
+    [
+      "LoRA/QLoRA",
+      "Low-rank adaptation, optionally quantized base",
+      "Lower adaptation resources",
+      "Base and activations still cost memory"
+    ]
+  ],
+  "check": "Must you choose either SFT or LoRA?",
+  "answer": "No. SFT is an objective/data setup; LoRA is a parameter-update method. They can be combined.",
+  "id": "f08",
+  "example": "lora",
+  "diagram_title": "LoRA: frozen base plus low-rank update",
+  "procedures": [
+    {
+      "steps": [
+        "Version source material",
+        "Retrieve authorized evidence",
+        "Assemble context",
+        "Verify citations/abstention"
+      ],
+      "state": "Document versions, ACL, index and source locations.",
+      "failure": "Missing evidence requires abstention, not invention.",
+      "measure": "Measure retrieval recall and support separately.",
+      "case": "Update an index for changing prices rather than repeatedly fine-tuning them."
+    },
+    {
+      "steps": [
+        "Curate demonstrations",
+        "Deduplicate/split sources",
+        "Mask response loss",
+        "Evaluate regressions"
+      ],
+      "state": "Examples, masks, base model and configuration.",
+      "failure": "Always-full examples can reward fabrication.",
+      "measure": "Separate format, fact, refusal and general capability.",
+      "case": "Include nulls and conflicts in stable extraction demonstrations."
+    },
+    {
+      "steps": [
+        "Freeze base parameters",
+        "Initialize low-rank A/B",
+        "Update adapters only",
+        "Load and evaluate adapter"
+      ],
+      "state": "Rank, alpha, target layers and matched versions.",
+      "failure": "QLoRA adds quantization; activations/cache still cost memory.",
+      "measure": "Trainable count, resources and held-out quality.",
+      "case": "At rank 8 a 4096-square layer adds 65,536 parameters; output uses scaled BA."
+    }
+  ]
+}

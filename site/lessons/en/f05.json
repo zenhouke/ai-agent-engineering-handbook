@@ -1,0 +1,83 @@
+{
+  "problem": "Images, sequences and text have different structure.",
+  "principle": "Choose an inductive bias: convolution for locality, recurrence for ordered state, attention for position-wise interaction.",
+  "steps": [
+    "Local pixels",
+    "Shared kernel",
+    "Feature map",
+    "Classification"
+  ],
+  "before": [
+    "Flatten pixels",
+    "Lose locality",
+    "High sample demand"
+  ],
+  "after": [
+    "Shared convolution",
+    "Compose features",
+    "Validate boundaries"
+  ],
+  "solutions": [
+    [
+      "CNN",
+      "Shared local kernels",
+      "Spatial patterns",
+      "Downsampling loses detail"
+    ],
+    [
+      "RNN/LSTM",
+      "Recurrent state",
+      "Ordered streams",
+      "Serial and long-range limits"
+    ],
+    [
+      "Transformer/multimodal",
+      "Position interactions",
+      "Rich context and image-text",
+      "Input quality and compute"
+    ]
+  ],
+  "check": "Should a larger model be the first fix for a misread decimal point?",
+  "answer": "Inspect the image and extraction, preserve source locations and validate amounts first.",
+  "id": "f05",
+  "example": "vision",
+  "diagram_title": "Multiply-add in one convolution window",
+  "procedures": [
+    {
+      "steps": [
+        "Share a local kernel",
+        "Scan windows",
+        "Stack receptive fields",
+        "Pool and classify/detect"
+      ],
+      "state": "Kernel, stride, padding and map sizes.",
+      "failure": "Retain resolution when downsampling loses small defects.",
+      "measure": "Evaluate by defect size/location.",
+      "case": "One 2×2 multiply-add gives -3; useful predictions still need training."
+    },
+    {
+      "steps": [
+        "Read ordered inputs",
+        "Update recurrent state",
+        "Gate retention",
+        "Produce sequence output"
+      ],
+      "state": "Hidden state, sequence boundaries and truncation length.",
+      "failure": "Do not share state across unrelated sequences.",
+      "measure": "Error/latency by sequence length.",
+      "case": "Streaming sensors can maintain an incremental state."
+    },
+    {
+      "steps": [
+        "Encode modalities",
+        "Add position/type",
+        "Exchange context",
+        "Output with source location"
+      ],
+      "state": "Modal encodings, input quality and evidence regions.",
+      "failure": "Validate OCR decimals/layout independently.",
+      "measure": "Blur, multi-page tables and citation location tests.",
+      "case": "Check a recognized 1.80 against the original image and units."
+    }
+  ]
+}

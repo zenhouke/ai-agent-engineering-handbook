@@ -1,0 +1,83 @@
+{
+  "problem": "The prediction is wrong; which parameter should change and in which direction?",
+  "principle": "The chain rule computes local sensitivity. An optimizer follows the negative gradient; autograd does not choose good data or a good step size.",
+  "steps": [
+    "Forward/loss",
+    "Chain rule",
+    "Optimizer step",
+    "Recompute loss"
+  ],
+  "before": [
+    "Guess weights",
+    "Unstable error",
+    "Hard to reproduce"
+  ],
+  "after": [
+    "Define loss",
+    "Bound gradient step",
+    "Compare losses"
+  ],
+  "solutions": [
+    [
+      "Analytic gradient",
+      "Apply the chain rule",
+      "Small examples",
+      "Easy to omit terms"
+    ],
+    [
+      "Finite differences",
+      "Perturb parameters",
+      "Check gradients",
+      "Expensive and approximate"
+    ],
+    [
+      "Autograd",
+      "Differentiate a graph",
+      "Neural network code",
+      "Manage accumulation and graph lifetime"
+    ]
+  ],
+  "check": "Why can learning rate 0.3 increase the loss?",
+  "answer": "A local descent direction does not justify any step size. Here loss becomes 7.84 rather than 0.16.",
+  "id": "f02",
+  "example": "autograd",
+  "diagram_title": "Chain rule and one parameter update",
+  "procedures": [
+    {
+      "steps": [
+        "Expand computation graph",
+        "Apply chain rule",
+        "Accumulate derivatives",
+        "Take negative-gradient step"
+      ],
+      "state": "Intermediate values, derivatives and learning rate.",
+      "failure": "Check signs and shapes before proceeding.",
+      "measure": "Compare known solutions and finite differences.",
+      "case": "At x=2,y=4,w=1 the gradient is -8; rate .1 gives w=1.8."
+    },
+    {
+      "steps": [
+        "Choose small epsilon",
+        "Compute L(w+ε)",
+        "Compute L(w−ε)",
+        "Use central difference"
+      ],
+      "state": "Perturbation size and both losses.",
+      "failure": "Large steps bias the estimate; tiny steps lose precision.",
+      "measure": "Relative error against the analytic gradient.",
+      "case": "Compare the centered difference with -8."
+    },
+    {
+      "steps": [
+        "Mark trainable values",
+        "Record forward graph",
+        "Backpropagate",
+        "Update and clear grads"
+      ],
+      "state": "requires_grad, buffers and train/eval mode.",
+      "failure": "Unintended accumulation or retained graphs alter results/cost.",
+      "measure": "Inspect a tiny known graph.",
+      "case": "Reference values: weight 1.8, loss before 4, after .16; training is not executed."
+    }
+  ]
+}

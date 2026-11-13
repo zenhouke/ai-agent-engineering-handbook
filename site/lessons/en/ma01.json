@@ -1,0 +1,84 @@
+{
+  "id": "ma01",
+  "example": "task_decomposition",
+  "problem": "Why split a task a single Agent can already solve? Are role names an architecture?",
+  "principle": "Start from task acceptance and a single-Agent baseline. Split independent work, expertise, context or failure boundaries with accountable owners and artifact contracts.",
+  "steps": [
+    "Goal and constraints",
+    "Independent units",
+    "Owners/contracts",
+    "Compare baseline"
+  ],
+  "before": [
+    "Invent role names",
+    "Duplicate work",
+    "No accountable output"
+  ],
+  "after": [
+    "Task-driven boundaries",
+    "Artifact ownership",
+    "Measure net benefit"
+  ],
+  "solutions": [
+    [
+      "Single Agent + tools",
+      "One task context and controlled tools",
+      "Narrow or dependent work",
+      "Sequential latency/context pressure"
+    ],
+    [
+      "Specialists + contracts",
+      "Divide expertise/input boundaries",
+      "Independent evidence or isolation",
+      "Handoff and merge costs"
+    ],
+    [
+      "Stage workflow",
+      "Accept stage artifacts before progress",
+      "Stable reviewable phases",
+      "Not every reasoning choice is fixed"
+    ]
+  ],
+  "check": "What must a split justify?",
+  "answer": "Why multiple Agents, which artifacts each owns and how it improves the baseline.",
+  "diagram_title": "Task decomposition, Agent responsibilities and artifact ownership",
+  "scope": "Design reference and local contracts; no model training or measured collaboration uplift.",
+  "procedures": [
+    {
+      "steps": [
+        "Freeze acceptance",
+        "Build baseline",
+        "Measure failures/cost",
+        "Justify splitting"
+      ],
+      "state": "Task criteria, evidence and total cost.",
+      "failure": "Role count alone proves no benefit.",
+      "measure": "Task success, cost, p95 and violations.",
+      "case": "A short quotation does not need three debating roles."
+    },
+    {
+      "steps": [
+        "Identify independent goals",
+        "Assign one owner",
+        "Version contracts",
+        "Budget and accept"
+      ],
+      "state": "Work unit, owner, edges, schema and budget.",
+      "failure": "Resolve overlapping responsibility explicitly.",
+      "measure": "Contract completeness and duplicate work.",
+      "case": "Market researchers own evidence; comparer owns normalized comparison."
+    },
+    {
+      "steps": [
+        "Define phase goals",
+        "Specify dependencies",
+        "Define failure exits",
+        "Replan from evidence"
+      ],
+      "state": "Phase state, contracts and exceptions.",
+      "failure": "Renaming failed steps is not recovery.",
+      "measure": "Legal edges, accepted artifacts and recovery.",
+      "case": "Research, comparison, approval and draft have different acceptance gates."
+    }
+  ]
+}

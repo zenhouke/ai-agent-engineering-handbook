@@ -1,0 +1,83 @@
+{
+  "problem": "A model saying “I checked” is not a tool receipt.",
+  "principle": "Let the model propose, validate and execute in code, then feed observations back. Verify the final outcome.",
+  "steps": [
+    "Model decision",
+    "Authorize tool",
+    "Execute/observe",
+    "Verify or continue"
+  ],
+  "before": [
+    "Claim completion",
+    "No tool receipt",
+    "No verifiable facts"
+  ],
+  "after": [
+    "Structured proposal",
+    "Authorized execution",
+    "Evidence-based acceptance"
+  ],
+  "solutions": [
+    [
+      "Direct answer",
+      "One generation",
+      "Sufficient context",
+      "No new external facts"
+    ],
+    [
+      "ReAct + tool calling",
+      "Observe and choose",
+      "Progressive research",
+      "Bound steps and cost"
+    ],
+    [
+      "Workflow",
+      "Code chooses steps",
+      "Predictable tasks",
+      "Less flexible"
+    ]
+  ],
+  "check": "Why verify a final answer after a tool succeeds?",
+  "answer": "A tool finishes only a step. Evidence, comparison units and user acceptance still need checking.",
+  "id": "a01",
+  "example": "react_loop",
+  "diagram_title": "Propose, execute and observe",
+  "procedures": [
+    {
+      "steps": [
+        "Verify input evidence",
+        "Build bounded prompt",
+        "Generate once",
+        "Check source support"
+      ],
+      "state": "Input, prompt/model versions and citations.",
+      "failure": "Escalate missing fresh facts instead of guessing.",
+      "measure": "No-tool baseline accuracy, latency and cost.",
+      "case": "Three complete provided quotations may need no autonomous loop."
+    },
+    {
+      "steps": [
+        "Propose from observations",
+        "Validate tool/arguments",
+        "Execute and append result",
+        "Stop or continue"
+      ],
+      "state": "Visible trace, allow-list and budgets.",
+      "failure": "Deny unknown tools; stop no-progress loops; no hidden-reasoning requirement.",
+      "measure": "Task success, tool choice and duplicate calls.",
+      "case": "Read conditions after a price lacks delivery evidence; HTTP success is not task success."
+    },
+    {
+      "steps": [
+        "Fix domain steps",
+        "Use local model extraction",
+        "Check branches in code",
+        "Wait/fail explicitly"
+      ],
+      "state": "States, transition events and output contracts.",
+      "failure": "Reject out-of-path actions; wait for missing fields.",
+      "measure": "Compare reliability/cost with ReAct on the same tasks.",
+      "case": "Extraction, validation, arithmetic and approval can remain deterministic."
+    }
+  ]
+}

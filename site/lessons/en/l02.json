@@ -1,0 +1,83 @@
+{
+  "problem": "Vector search misses identifiers, conditions or the latest version.",
+  "principle": "Combine lexical and semantic candidates, fuse rankings, rerank, then verify source support and version.",
+  "steps": [
+    "Authorized candidates",
+    "Lexical and vector",
+    "Fuse and rerank",
+    "Answer or abstain"
+  ],
+  "before": [
+    "Vector similarity only",
+    "Miss conditions",
+    "False commitment"
+  ],
+  "after": [
+    "Access/version filter",
+    "Hybrid retrieval",
+    "Complete evidence"
+  ],
+  "solutions": [
+    [
+      "BM25/keywords",
+      "Match terms/IDs",
+      "Exact identifiers",
+      "Weak on paraphrases"
+    ],
+    [
+      "Vector retrieval",
+      "Semantic proximity",
+      "Paraphrases",
+      "Similarity is not support"
+    ],
+    [
+      "Hybrid + reranker",
+      "Fuse then refine candidates",
+      "Mixed queries",
+      "Cannot restore missing ingestion"
+    ]
+  ],
+  "check": "If price is retrieved but a quantity condition is not, where should debugging start?",
+  "answer": "Start with ingestion/chunking and retrieval completeness, not only the answer prompt.",
+  "id": "l02",
+  "example": "hybrid_retrieval",
+  "diagram_title": "Hybrid lexical and semantic retrieval",
+  "procedures": [
+    {
+      "steps": [
+        "Index lexical terms",
+        "Score frequency/rarity",
+        "Filter scope/version",
+        "Return exact-term candidates"
+      ],
+      "state": "Terms, lengths, index and access version.",
+      "failure": "Fix identifier tokenization before changing generation prompts.",
+      "measure": "Recall@k for IDs and model numbers.",
+      "case": "Exact product identifiers benefit from lexical matching."
+    },
+    {
+      "steps": [
+        "Encode source chunks",
+        "Encode query consistently",
+        "Retrieve similar vectors",
+        "Attach source/ACL metadata"
+      ],
+      "state": "Encoder version, dimensions and chunk provenance.",
+      "failure": "Changing encoders requires compatible indexing; similarity is not truth.",
+      "measure": "Recall for paraphrases and rare questions.",
+      "case": "Delivery-time paraphrases may match semantically."
+    },
+    {
+      "steps": [
+        "Retrieve lexical/vector sets",
+        "Fuse ranks with RRF",
+        "Cross-encode query/chunk pairs",
+        "Deduplicate/expand evidence"
+      ],
+      "state": "Candidate IDs, ranks, rerank scores and selected evidence.",
+      "failure": "Bound candidates/context; fix missing ingestion upstream.",
+      "measure": "Complete evidence, support, p95 and cost.",
+      "case": "Retrieve both a price and its >500-unit exception before committing to delivery."
+    }
+  ]
+}

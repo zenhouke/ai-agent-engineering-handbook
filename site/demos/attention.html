@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{lang}}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{demo_title}}</title>
+<style>
+:root{--ink:#0B1F3A;--accent:#1F4E9C;--line:#A6B7CC;--paper:#F4F6FA;--surface:#fff;--font:"Noto Sans CJK SC","Microsoft YaHei",system-ui,sans-serif;--small:.9rem;--body:1.05rem;--heading:clamp(1.7rem,4vw,2.4rem);--leading:1.8}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:var(--body)/var(--leading) var(--font)}main{max-width:980px;margin:auto;padding:2rem 1.3rem}h1{font-size:var(--heading);line-height:1.4}a{color:var(--accent)}header{display:flex;justify-content:space-between;gap:1rem}button{font:inherit;background:var(--surface);color:var(--accent);border:1px solid var(--line);padding:.4rem .9rem;border-radius:.3rem;cursor:pointer}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.controls{display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem;padding:1rem;background:var(--surface);border-radius:.5rem}.controls label{display:flex;gap:.6rem;align-items:center}.controls input[type=range]{width:130px;accent-color:var(--accent)}input[type=checkbox]{accent-color:var(--accent);width:20px;height:20px}.figure{background:var(--surface);padding:1rem;border-radius:.5rem;margin:1.5rem 0;overflow-x:auto}svg{display:block;width:100%;min-width:580px;height:auto}svg text{font-family:var(--font);fill:var(--ink);font-size:18px}svg rect{fill:var(--paper);stroke:var(--line)}.flow{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:6 5}.playing .flow{animation:flow 1s linear infinite}.stage{opacity:.25;transition:opacity .25s}.stage.active{opacity:1}.readout{font-variant-numeric:tabular-nums;font-family:Consolas,monospace}.result{border-left:3px solid var(--accent);padding:.8rem 1rem;background:var(--surface)}.note{font-size:var(--small)}@keyframes flow{to{stroke-dashoffset:-22}}@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><main>
+<header><a href="../{{edition}}/f07.html">{{back}}</a><a href="attention-{{other}}.html">{{language}}</a></header>
+<h1>{{demo_title}}</h1><p>{{intro}}</p>
+<div class="controls">
+<label for="query">Query q <input id="query" type="range" min="-3" max="3" step=".1" value="1"><output id="q-value">1.0</output></label>
+<label for="mask"><input id="mask" type="checkbox">{{mask}}</label>
+<button id="play" data-play="{{play}}" data-pause="{{pause}}">{{play}}</button><button id="step">{{step}}</button><button id="reset">{{reset}}</button>
+</div>
+<div class="figure"><svg viewBox="0 0 900 310" role="img" aria-labelledby="fig-title fig-desc"><title id="fig-title">{{figure_title}}</title><desc id="fig-desc">{{figure_desc}}</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10" fill="#1F4E9C"/></marker></defs>
+<g class="stage" data-stage="0"><rect x="15" y="35" width="180" height="150" rx="8"/><text x="30" y="70">Q · Kᵀ</text><text x="30" y="110">K = [1, 0]</text><text x="30" y="150" class="readout" id="scores"></text></g>
+<path class="flow" d="M198 110H241" marker-end="url(#arrow)"/>
+<g class="stage" data-stage="1"><rect x="245" y="35" width="185" height="150" rx="8"/><text x="260" y="70">{{mask_stage}}</text><text x="260" y="115" class="readout" id="masked"></text><text x="260" y="150">dₖ = 1</text></g>
+<path class="flow" d="M433 110H476" marker-end="url(#arrow)"/>
+<g class="stage" data-stage="2"><rect x="480" y="35" width="185" height="150" rx="8"/><text x="495" y="70">Softmax</text><text x="495" y="115" class="readout" id="weights-a"></text><text x="495" y="150" class="readout" id="weights-b"></text></g>
+<path class="flow" d="M668 110H711" marker-end="url(#arrow)"/>
+<g class="stage" data-stage="3"><rect x="715" y="35" width="170" height="150" rx="8"/><text x="730" y="70">Σ aᵢvᵢ</text><text x="730" y="115">v₁ = [2,0]</text><text x="730" y="150">v₂ = [0,2]</text></g>
+<text x="25" y="235">{{output}}</text><text x="25" y="275" class="readout" id="vector"></text>
+</svg></div>
+<p class="result" id="explanation" data-masked="{{masked_explanation}}" data-open="{{open_explanation}}"></p>
+<p class="note">{{note}}</p><p id="stage-status" role="status" aria-live="polite" data-label="{{stage_label}}"></p>
+<script>
+const query=document.querySelector('#query'), mask=document.querySelector('#mask');
+const play=document.querySelector('#play'), status=document.querySelector('#stage-status');
+let position=0,timer=null;
+function render(){
+ const q=Number(query.value), peak=Math.max(q,0);
+ const ex1=Math.exp(q-peak),ex2=mask.checked?0:Math.exp(-peak);
+ const a=ex1/(ex1+ex2),b=ex2/(ex1+ex2);
+ document.querySelector('#q-value').textContent=q.toFixed(1);
+ document.querySelector('#scores').textContent='['+q.toFixed(1)+', 0]';
+ document.querySelector('#masked').textContent=mask.checked?'['+q.toFixed(1)+', −∞]':'['+q.toFixed(1)+', 0]';
+ document.querySelector('#weights-a').textContent='a₁ = '+a.toFixed(4);
+ document.querySelector('#weights-b').textContent='a₂ = '+b.toFixed(4);
+ document.querySelector('#vector').textContent='O = ['+(2*a).toFixed(4)+', '+(2*b).toFixed(4)+']';
+ const explanation=document.querySelector('#explanation');
+ explanation.textContent=mask.checked?explanation.dataset.masked:explanation.dataset.open;
+ document.querySelectorAll('.stage').forEach(node=>node.classList.toggle('active',Number(node.dataset.stage)<=position));
+ status.textContent=status.dataset.label+' '+(position+1)+' / 4';
+}
+function pause(){clearInterval(timer);timer=null;play.textContent=play.dataset.play;document.body.classList.remove('playing')}
+play.addEventListener('click',()=>{
+ if(timer){pause();return}
+ if(position===3)position=0;
+ play.textContent=play.dataset.pause;document.body.classList.add('playing');render();
+ timer=setInterval(()=>{position++;render();if(position===3)pause()},1100);
+});
+document.querySelector('#step').addEventListener('click',()=>{pause();position=(position+1)%4;render()});
+document.querySelector('#reset').addEventListener('click',()=>{pause();position=0;query.value=1;mask.checked=false;render()});
+query.addEventListener('input',render);mask.addEventListener('change',render);
+window.addEventListener('pagehide',pause);render();
+</script></main></body></html>

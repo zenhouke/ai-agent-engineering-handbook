@@ -1,0 +1,46 @@
+{
+  "problem": "Local calls work, but remote clients get auth errors or interrupted streams.",
+  "principle": "Transport carries messages; authentication establishes identity; domain services enforce scope and objects. Streamable HTTP may return JSON or SSE, unlike legacy HTTP+SSE.",
+  "steps": [
+    "Local stdio",
+    "Remote HTTP/SSE",
+    "Identity/scope",
+    "Object authorization"
+  ],
+  "before": [
+    "Shared service secret",
+    "Model chooses tenant",
+    "Unauthorized access"
+  ],
+  "after": [
+    "Bind identity/audience",
+    "Limit scopes/objects",
+    "Configure streaming proxy"
+  ],
+  "solutions": [
+    [
+      "stdio",
+      "SDK-managed subprocess and newline frames",
+      "Local host tools",
+      "Reserve stdout; close processes"
+    ],
+    [
+      "Streamable HTTP",
+      "Independent HTTP service, optional SSE",
+      "Remote clients",
+      "TLS, Origin, buffering, timeouts"
+    ],
+    [
+      "OAuth + domain policy",
+      "Audience-bound token then object checks",
+      "Authenticated remote service",
+      "Scope is not tenant access; no token passthrough"
+    ]
+  ],
+  "check": "Does a generated tenant=A argument establish membership?",
+  "answer": "No. Derive authority from verified identity or trusted local configuration.",
+  "diagram_title": "Transport, identity and object-level access",
+  "id": "mcp04",
+  "example": "mcp_transports",
+  "scope": "Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are labeled separately."
+}

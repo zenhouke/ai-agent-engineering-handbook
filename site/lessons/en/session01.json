@@ -1,0 +1,96 @@
+{
+  "id": "session01",
+  "example": "session_lifecycle",
+  "problem": "Why should tasks survive page refresh or session expiry? Does knowing thread_id grant access?",
+  "principle": "Identity, application session, conversation, task and run have different lifetimes. Locators grant no authority; resumption requires fresh trusted identity and scope checks.",
+  "steps": [
+    "Identity",
+    "Application session",
+    "Business task",
+    "Run/checkpoint"
+  ],
+  "before": [
+    "Chat history is task state",
+    "Guess ID to read",
+    "Disconnect loses work"
+  ],
+  "after": [
+    "Separate storage",
+    "Check ownership",
+    "Persist task independently"
+  ],
+  "solutions": [
+    [
+      "Process-local session",
+      "Keep temporary messages/state",
+      "Disposable demos",
+      "No crash durability"
+    ],
+    [
+      "Server session + task store",
+      "Bind trusted subject; persist tasks separately",
+      "Multiple tabs and resumption",
+      "Expiry, revocation and ownership design"
+    ],
+    [
+      "Framework thread/checkpointer",
+      "Locate execution state by stable thread",
+      "Graph Agents and interrupts",
+      "Thread IDs are not credentials"
+    ]
+  ],
+  "check": "Does logout automatically revoke an issued remote write?",
+  "answer": "No. Session invalidation, task cancellation and remote reconciliation are distinct.",
+  "diagram_title": "Sessions, conversations, tasks and runs",
+  "scope": "Local reference: trusted identity injection and SQLite transactions, without a login server or remote writes.",
+  "procedures": [
+    {
+      "steps": [
+        "Create session object",
+        "Keep temporary state",
+        "Scope its task",
+        "Discard at end"
+      ],
+      "state": "Subject and session lifetime.",
+      "failure": "A Python session object is not an authentication credential.",
+      "measure": "No cross-subject inheritance.",
+      "case": "The Skills Session is only a context container."
+    },
+    {
+      "steps": [
+        "Inject identity",
+        "Create server session",
+        "Persist independent task",
+        "Authorize each access"
+      ],
+      "state": "session_id, subject, tenant, task_id and version.",
+      "failure": "Session closure does not cancel effects.",
+      "measure": "Cross-scope denial and task survival.",
+      "case": "Alice resumes in a new session; Bob cannot use a guessed task ID."
+    },
+    {
+      "steps": [
+        "Map task to thread",
+        "Persist checkpoint",
+        "Authorize actor",
+        "Resume same thread"
+      ],
+      "state": "Task mapping, thread ID and checkpoint version.",
+      "failure": "Storage does not invent business authorization.",
+      "measure": "Authorized resume and cross-scope denial.",
+      "case": "Authorize access before loading a LangGraph thread."
+    }
+  ],
+  "extra_examples": [
+    {
+      "example": "governance/domain",
+      "title": "Identity, context and action contracts",
+      "scope": "Local architecture reference without live external effects."
+    },
+    {
+      "example": "governance/sessions",
+      "title": "Session/task lifecycle service",
+      "scope": "Local architecture reference without live external effects."
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "fc01",
+  "example": "function_calling",
+  "problem": "Why has no function run after a model emits its name and JSON arguments? Does strict=true establish authority?",
+  "principle": "Custom client Function Calling supplies schemas and model proposals. The application validates, authorizes, executes and returns observations under the original call_id. Provider-managed tools may execute on the provider and are a separate case.",
+  "steps": [
+    "Expose tool schema",
+    "Receive model proposal",
+    "Host executes allowed tool",
+    "Return correlated result"
+  ],
+  "before": [
+    "Text implies execution",
+    "Execute arguments blindly",
+    "Shape implies authority"
+  ],
+  "after": [
+    "Structured proposal",
+    "Host authorization",
+    "Observe before next turn"
+  ],
+  "solutions": [
+    [
+      "Free-text parsing",
+      "Extract intent from prose",
+      "Prototype/no tool interface",
+      "Ambiguous; not a reliable execution contract"
+    ],
+    [
+      "Client Function Calling",
+      "Schema plus application execution",
+      "Model chooses exposed tools",
+      "Handle refusals, zero/multiple calls and errors"
+    ],
+    [
+      "Programmatic invocation",
+      "Business rules choose the function",
+      "Known deterministic paths",
+      "Avoid needless model rounds"
+    ]
+  ],
+  "check": "Can schema-valid read_quote(B) run when the task allows only A?",
+  "answer": "No. Schema checks shape; policy checks tool/object access. call_id correlates observations, not approval or idempotency.",
+  "diagram_title": "From model proposal to execution",
+  "scope": "Model-side examples use Responses custom client-function shapes; no model request is sent.",
+  "procedures": [
+    {
+      "steps": [
+        "Parse intent",
+        "Check tool allowlist",
+        "Validate arguments",
+        "Authorize execution"
+      ],
+      "state": "Parsed intent, rejection reason and function registry.",
+      "failure": "Never eval/exec model prose.",
+      "measure": "Ambiguity rejection and no arbitrary execution.",
+      "case": "A sentence claiming creation is not a remote receipt."
+    },
+    {
+      "steps": [
+        "Supply narrow schema",
+        "Receive function_call",
+        "Validate/execute in Host",
+        "Return call_id output"
+      ],
+      "state": "Argument contract, provider call_id and observations.",
+      "failure": "Strict structure does not establish truth or object access.",
+      "measure": "Argument denial, scope denial and correlation.",
+      "case": "A real quotation arrives only after Host execution."
+    },
+    {
+      "steps": [
+        "Choose rule branch",
+        "Construct arguments",
+        "Call domain service",
+        "Validate receipt"
+      ],
+      "state": "Rules, service permissions and receipt state.",
+      "failure": "Deterministic flows still face unknown network outcomes.",
+      "measure": "Branches, rollback and deduplication.",
+      "case": "Reading a known ID need not ask a model to choose the action."
+    }
+  ]
+}

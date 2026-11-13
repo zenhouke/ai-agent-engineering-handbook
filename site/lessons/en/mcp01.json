@@ -1,0 +1,46 @@
+{
+  "problem": "Why does every new model/tool pairing require another adapter?",
+  "principle": "MCP standardizes capability/context exchange. The host owns the model and policy; clients connect; servers wrap domain services rather than replacing them.",
+  "steps": [
+    "Host: model/policy",
+    "Client: discovery/calls",
+    "Server: capabilities",
+    "Domain/data"
+  ],
+  "before": [
+    "Direct model/backend links",
+    "Repeated adapters",
+    "Scattered policy"
+  ],
+  "after": [
+    "Shared MCP contract",
+    "Separate responsibilities",
+    "Keep domain authorization"
+  ],
+  "solutions": [
+    [
+      "Direct functions/SDK",
+      "Local explicit contracts",
+      "Few internal tools",
+      "Per-interface coupling"
+    ],
+    [
+      "MCP adapter",
+      "Discover/invoke capabilities",
+      "Multiple hosts/teams",
+      "Version/auth/domain policy remain"
+    ],
+    [
+      "Business HTTP API",
+      "Expose domain services",
+      "Existing services",
+      "MCP can wrap them"
+    ]
+  ],
+  "check": "Has generating read_quote arguments already sent an MCP request?",
+  "answer": "No. The host maps an authorized model proposal to a client request; generation is not execution.",
+  "diagram_title": "Host, client, server and domain backend",
+  "id": "mcp01",
+  "example": "mcp_overview",
+  "scope": "Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are labeled separately."
+}

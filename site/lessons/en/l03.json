@@ -1,0 +1,83 @@
+{
+  "problem": "Long prompts, outputs and concurrency exhaust memory or latency budgets.",
+  "principle": "Measure prefill, decode and queues separately. KV caching, batching and quantization involve workload-specific tradeoffs.",
+  "steps": [
+    "Prefill inputs",
+    "Build KV cache",
+    "Decode tokens",
+    "Capacity admission"
+  ],
+  "before": [
+    "One short request",
+    "Concurrent queues",
+    "Tail latency/OOM"
+  ],
+  "after": [
+    "Group by length",
+    "Estimate KV budget",
+    "Admit under SLO"
+  ],
+  "solutions": [
+    [
+      "KV cache",
+      "Reuse past keys/values",
+      "Autoregressive decode",
+      "Memory grows with load"
+    ],
+    [
+      "Continuous batching (e.g. vLLM)",
+      "Mix request lifetimes",
+      "Throughput",
+      "Queues may worsen latency"
+    ],
+    [
+      "Quantization/admission",
+      "Reduce precision or load",
+      "Limited capacity",
+      "Hardware and quality tradeoffs"
+    ]
+  ],
+  "check": "Is more throughput with worse p95 first-token latency a success?",
+  "answer": "Only if it meets the workload SLO. Interactive latency and offline throughput are separate objectives.",
+  "id": "l03",
+  "example": "inference_budget",
+  "diagram_title": "Prefill, decode and KV cache",
+  "procedures": [
+    {
+      "steps": [
+        "Prefill past K/V",
+        "Store per-layer cache",
+        "Append new K/V only",
+        "Attend over cached history"
+      ],
+      "state": "Layer K/V, positions, length and cache ownership.",
+      "failure": "Do not mix models/prefixes/access scopes; long context still costs memory.",
+      "measure": "First-token latency, token time and KV bytes.",
+      "case": "The stated 32-layer example needs about 512 MiB of KV, excluding other memory."
+    },
+    {
+      "steps": [
+        "Queue and admit",
+        "Batch active sequences",
+        "Release finished slots",
+        "Admit waiting work"
+      ],
+      "state": "Lengths, KV block tables, queues and limits.",
+      "failure": "Do not trade unbounded queues for throughput.",
+      "measure": "Throughput and p95 at equal arrival rates.",
+      "case": "vLLM-style scheduling/cache management still needs workload SLO tests."
+    },
+    {
+      "steps": [
+        "Choose hardware precision",
+        "Load supported kernels",
+        "Reserve cache/headroom",
+        "Limit or degrade load"
+      ],
+      "state": "Weight/cache precision, operators and quotas.",
+      "failure": "Fall back on unsupported kernels or regressions; do not blindly repeat OOMs.",
+      "measure": "Quality, latency and peak memory under fixed loads.",
+      "case": "Fitting weights alone does not establish long-context concurrency capacity."
+    }
+  ]
+}

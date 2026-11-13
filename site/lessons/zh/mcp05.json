@@ -1,0 +1,73 @@
+{
+  "problem": "教程只给一个普通 Python 函数，却没有 MCP 发现、Schema 或真实客户端，如何补齐？",
+  "principle": "用官方 SDK 2.3.0 的 MCPServer 注册三个原语，由 Client 真正发现和调用；业务权限仍经 handlers→services→repos。用内存连接验证，不依赖模型。",
+  "steps": [
+    "注册工具/资源/模板",
+    "SDK 生成协议契约",
+    "Client 发现与调用",
+    "验证结构化结果"
+  ],
+  "before": [
+    "普通函数套 MCP 名字",
+    "未验证协议行为",
+    "无法知道能否互通"
+  ],
+  "after": [
+    "固定 SDK 版本",
+    "Client 对 Server 真调用",
+    "校验 Schema 与错误结果"
+  ],
+  "solutions": [
+    [
+      "MCPServer 装饰/注册",
+      "类型注解生成输入契约",
+      "常规工具服务起步",
+      "注册不等于完整业务授权"
+    ],
+    [
+      "Client(server) 内存验证",
+      "真实 SDK 协议层但没有端口/子进程",
+      "单元与集成回归",
+      "不验证 TLS、代理或网络认证"
+    ],
+    [
+      "远程 Client/stdio 客户端",
+      "替换传输接同一服务契约",
+      "跨进程或远程集成",
+      "仍须分别做传输与授权测试"
+    ]
+  ],
+  "check": "把内存测试通过写成“远程 OAuth 部署已通过”正确吗？",
+  "answer": "不正确。内存测试验证发现、Schema、调用、原语与业务规则；没有验证网络、TLS、OAuth 或代理。",
+  "diagram_title": "注册、业务分层与真实 SDK 验证",
+  "id": "mcp05",
+  "example": "mcp_server_example",
+  "scope": "本专题以 MCP 2026-07-28、官方 Python SDK 2.3.0 为基准；旧版握手另行标注。",
+  "extra_examples": [
+    {
+      "example": "mcp_app/domain",
+      "title": "领域报价数据",
+      "scope": "与上方真实 SDK Server 装配为同一个实现。"
+    },
+    {
+      "example": "mcp_app/repos",
+      "title": "数据访问",
+      "scope": "与上方真实 SDK Server 装配为同一个实现。"
+    },
+    {
+      "example": "mcp_app/services",
+      "title": "可信作用域与对象授权",
+      "scope": "与上方真实 SDK Server 装配为同一个实现。"
+    },
+    {
+      "example": "mcp_app/handlers",
+      "title": "参数与协议错误映射",
+      "scope": "与上方真实 SDK Server 装配为同一个实现。"
+    },
+    {
+      "example": "mcp_app/routes",
+      "title": "注册 Tool、Resource 与 Prompt",
+      "scope": "与上方真实 SDK Server 装配为同一个实现。"
+    }
+  ]
+}

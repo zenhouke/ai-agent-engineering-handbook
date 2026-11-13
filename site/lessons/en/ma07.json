@@ -1,0 +1,84 @@
+{
+  "id": "ma07",
+  "example": "deployment_capacity",
+  "problem": "Must every Agent be a microservice, and where is the real scaling bottleneck?",
+  "principle": "Choose process boundaries from isolation, resources and independent scaling, not role names. Estimate arrival rate, fanout, mean service time and quotas, then validate under measured load/failure.",
+  "steps": [
+    "Isolation/resource needs",
+    "Process/worker boundaries",
+    "Capacity/bottlenecks",
+    "Validate recovery/cost"
+  ],
+  "before": [
+    "Role equals service",
+    "Model QPS only",
+    "More workers exhaust quotas"
+  ],
+  "after": [
+    "Requirement-driven boundaries",
+    "Task capacity model",
+    "Measured scaling"
+  ],
+  "solutions": [
+    [
+      "Modular single process",
+      "Typed boundaries and injected adapters",
+      "Early/small deployments",
+      "Shared failure and scaling"
+    ],
+    [
+      "Worker pools + services",
+      "Resource/permission isolation",
+      "Throughput or distinct tool access",
+      "Queues, leases and duplicates"
+    ],
+    [
+      "Durable orchestration",
+      "Platform manages long waits/recovery",
+      "Days-long approvals and workflows",
+      "Platform, history and version governance"
+    ]
+  ],
+  "check": "Can p95 replace mean service time in Little’s law?",
+  "answer": "No. Mean relationships require means and assumptions; tail goals need separate validation.",
+  "diagram_title": "Deployment boundaries, capacity, isolation and technology choice",
+  "scope": "Design reference and local contracts; no model training or measured collaboration uplift.",
+  "procedures": [
+    {
+      "steps": [
+        "Separate duties",
+        "Bound concurrency/tools",
+        "Trace tasks",
+        "Split from evidence"
+      ],
+      "state": "Contracts, shared resources and failure domain.",
+      "failure": "Logical Agents need not be OS processes.",
+      "measure": "Peak resource and rule consistency.",
+      "case": "Research and writing can begin as separate work units in one process."
+    },
+    {
+      "steps": [
+        "Group workloads",
+        "Isolate capability scope",
+        "Admit by quota/backlog",
+        "Scale observed bottleneck"
+      ],
+      "state": "Slots, backlog, quotas, memory and tenant limits.",
+      "failure": "More workers cannot exceed an external quota.",
+      "measure": "Backpressure, isolation and unit cost.",
+      "case": "CPU parsing and remote model calls need different pool policies."
+    },
+    {
+      "steps": [
+        "Choose recovery semantics",
+        "Deploy workflows/workers",
+        "Manage identity/storage",
+        "Test load and failures"
+      ],
+      "state": "History, worker versions, stores and availability.",
+      "failure": "Platforms do not replace business authorization or idempotency.",
+      "measure": "Outage, migration, recovery time and unit task cost.",
+      "case": "Use mean time for capacity; test tail latency and bursts separately."
+    }
+  ]
+}

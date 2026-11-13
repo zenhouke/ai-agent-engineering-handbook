@@ -1,0 +1,114 @@
+{
+  "id": "studio",
+  "language": "en",
+  "example": "studio_contracts",
+  "problem": "A solo AI services studio must discover leads, quote, execute and deliver. Who owns each action when the UI closes, a worker crashes, terms change or a receipt is lost?",
+  "principle": "Use the order as the business spine. Agents interpret and propose; scoped workers act. Server-owned transitions, trusted approvals and verified funds control progress.",
+  "scope": "This teaching design derives from inspected ForgePilot workflows and runtime boundaries. Pure Python contracts are rewritten here; project mechanisms, local tests and unverified production integrations are distinguished.",
+  "steps": [
+    "Discover / scope",
+    "Quote / verify funds",
+    "Execute / review",
+    "Settle / deliver"
+  ],
+  "before": [
+    "Shared account access",
+    "Chat consent as authority",
+    "Resend after timeout"
+  ],
+  "after": [
+    "Task-scoped capabilities",
+    "Frozen actions and gates",
+    "Receipt reconciliation"
+  ],
+  "diagram_title": "Personal studio: Agent proposals and server-controlled business actions",
+  "solutions": [
+    [
+      "Business workflow + specialist agents",
+      "State machines own gates; models handle interpretation",
+      "Clear discovery, quotation and delivery ownership",
+      "Add roles only for concrete task needs"
+    ],
+    [
+      "Durable state + frozen handoffs",
+      "Link order versions, runs, artifacts and approvals",
+      "Long jobs, channel messages and human waits",
+      "Checkpoints do not ensure remote exactly-once"
+    ],
+    [
+      "Isolated workers + action ledger",
+      "Separate credentials from execution; reconcile receipts",
+      "Contacting, accepting and delivering on platforms",
+      "Never blindly resend unknown effects"
+    ]
+  ],
+  "procedures": [
+    {
+      "steps": [
+        "Discover and deduplicate native order IDs",
+        "Freeze scope and quote with the lead agent",
+        "Human approves exact platform communication",
+        "Verify confirmation and deposit before start"
+      ],
+      "state": "Order/quote revisions, customer confirmation, verified funds, commercial and run approvals.",
+      "failure": "Changed terms reopen quotation; a payment claim waits for verification.",
+      "measure": "Zero starts without quote/funds gates; quotes trace back to scoped requirements.",
+      "case": "A 1000 CNY job requires a 300 CNY deposit: a chat claim is insufficient; verify a matching 30000-minor-unit receipt."
+    },
+    {
+      "steps": [
+        "Freeze workflow and bounded work units",
+        "Execution agent commits versioned artifacts",
+        "Reviewer binds original content hashes",
+        "Approve exact delivery after full settlement"
+      ],
+      "state": "Flow snapshot, task/run, scopes, artifact hashes, original references and review/delivery approvals.",
+      "failure": "Changed output invalidates delivery approval; rejected work returns to its owner.",
+      "measure": "Delivered hash equals reviewed hash; reject cross-order access and credential exposure.",
+      "case": "Report v3 was approved; v4 changes an attachment and needs renewed review despite the same order ID."
+    },
+    {
+      "steps": [
+        "Atomically persist action and unique operation",
+        "Current owner claims authorized work",
+        "Send exact payload and save native receipt",
+        "Lost response enters UNKNOWN reconciliation"
+      ],
+      "state": "Owner token, operation ID, payload hash, attempt, native receipt and unknown/confirmed state.",
+      "failure": "Fence obsolete owners; unqueryable platform writes require human reconciliation.",
+      "measure": "Repeated events create no new operation; uncertainty remains visible and traceable.",
+      "case": "Delivery reached the platform but its response was lost: reconcile the original action instead of resending under a new key."
+    }
+  ],
+  "check": "Does automatic run approval allow repricing, trusting payment claims and delivering any later artifact version?",
+  "answer": "No. Run authority, commercial terms, verified funds and exact artifact delivery have separate gates. Scope, quote and artifact changes require corresponding revalidation.",
+  "extra_examples": [
+    {
+      "example": "outbox_recovery",
+      "title": "Transaction/recovery assembly",
+      "scope": "Reusable SQLite/fake-remote mechanics; adapting to studio actions requires new domain fields while retaining gates and idempotency."
+    },
+    {
+      "example": "outbox/domain",
+      "title": "Idempotent backend contract",
+      "scope": "Reusable SQLite/fake-remote mechanics; adapting to studio actions requires new domain fields while retaining gates and idempotency."
+    },
+    {
+      "example": "outbox/services",
+      "title": "Approval queueing and unknown-result recovery",
+      "scope": "Reusable SQLite/fake-remote mechanics; adapting to studio actions requires new domain fields while retaining gates and idempotency."
+    },
+    {
+      "example": "outbox/repos",
+      "title": "CAS and Outbox in one transaction",
+      "scope": "Reusable SQLite/fake-remote mechanics; adapting to studio actions requires new domain fields while retaining gates and idempotency."
+    }
+  ],
+  "extra_snippets": [
+    {
+      "file": "examples/outbox/schema.sql",
+      "language": "sql",
+      "title": "Database constraints and states"
+    }
+  ]
+}

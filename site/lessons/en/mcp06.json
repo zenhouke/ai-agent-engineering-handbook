@@ -1,0 +1,46 @@
+{
+  "problem": "Ten servers expose too many tools, wrong schemas and incompatible versions.",
+  "principle": "The host selects tools per task, adapts schemas to model APIs, authorizes calls and feeds observations back. A provider tool API is not MCP.",
+  "steps": [
+    "Select tools",
+    "Adapt provider schemas",
+    "Authorize MCP call",
+    "Return observation"
+  ],
+  "before": [
+    "Expose every tool",
+    "Wrong tool/arguments",
+    "Retries and scope errors"
+  ],
+  "after": [
+    "Task-scoped catalog",
+    "Validate contract/objects",
+    "Classify and trace failures"
+  ],
+  "solutions": [
+    [
+      "Catalog/gateway",
+      "Filter by tenant/task and load lazily",
+      "Many services/tools",
+      "Invalidate schema/access caches"
+    ],
+    [
+      "Provider adapter",
+      "Map definitions and correlate call IDs",
+      "Multiple model APIs",
+      "Schema subsets differ"
+    ],
+    [
+      "Bounded recovery/tracing",
+      "Version/tool/error records",
+      "Timeouts and changes",
+      "Reconcile unknown writes before retry"
+    ]
+  ],
+  "check": "Should a changing request ID also identify a retried business effect?",
+  "answer": "No. A request ID correlates one exchange; operation_id must stay stable across side-effect retries.",
+  "diagram_title": "Provider adapter, catalog, gateway and MCP boundaries",
+  "id": "mcp06",
+  "example": "mcp_host_bridge",
+  "scope": "Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are labeled separately."
+}

@@ -1,0 +1,12 @@
+{
+  "a10": {
+    "target": "skill05",
+    "source": "docs/zh/agent/10.md",
+    "en_source": "docs/en/a10.md"
+  },
+  "capstone": {
+    "target": "studio",
+    "source": "docs/zh/projects/01-capstone.md",
+    "en_source": "docs/en/capstone.md"
+  }
+}

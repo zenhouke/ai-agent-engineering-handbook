@@ -1,0 +1,83 @@
+{
+  "problem": "How can a token use context without reading the future?",
+  "principle": "Q/K compute scores, a causal mask hides future positions, and normalized weights mix V. Heads, residuals and FFNs form a block.",
+  "steps": [
+    "Q/K projections",
+    "Causal mask",
+    "Softmax weights",
+    "Mix V and residual"
+  ],
+  "before": [
+    "Read all positions",
+    "Leak future labels",
+    "Fail at generation"
+  ],
+  "after": [
+    "Mask future scores",
+    "Normalize each row",
+    "Use prefixes only"
+  ],
+  "solutions": [
+    [
+      "Multi-head causal attention",
+      "Mix projected past values",
+      "Autoregressive decoding",
+      "Correct masks and shapes"
+    ],
+    [
+      "Positions/RoPE",
+      "Represent order",
+      "Sequence modeling",
+      "Validate length extrapolation"
+    ],
+    [
+      "Pre-Norm + residual",
+      "Preserve information",
+      "Deep decoder blocks",
+      "Still needs sound optimization"
+    ]
+  ],
+  "check": "Why is clearing future probabilities after softmax not equivalent?",
+  "answer": "Future scores already changed the denominator. Mask scores before normalization.",
+  "id": "f07",
+  "example": "transformer",
+  "diagram_title": "Causal attention: mask before mixing",
+  "procedures": [
+    {
+      "steps": [
+        "Project Q/K/V",
+        "Split heads and score",
+        "Mask then normalize",
+        "Concatenate/project"
+      ],
+      "state": "Shapes, heads and allowed positions.",
+      "failure": "Test future leakage, fully masked rows and padding.",
+      "measure": "Changing future inputs must not change past outputs.",
+      "case": "Two-position weights .731/.269 become 1/0 after masking."
+    },
+    {
+      "steps": [
+        "Assign position indices",
+        "Add vectors/rotate Q,K",
+        "Compute ordered matches",
+        "Validate target lengths"
+      ],
+      "state": "Indices, training lengths and RoPE settings.",
+      "failure": "Length extrapolation needs independent tests.",
+      "measure": "Word-order and long-distance evaluation.",
+      "case": "An unordered bag of token embeddings cannot preserve word order by itself."
+    },
+    {
+      "steps": [
+        "Normalize inputs",
+        "Attention plus residual",
+        "FFN plus residual",
+        "Stack then emit logits"
+      ],
+      "state": "Layer inputs, normalization and skip paths.",
+      "failure": "Check shapes before addition and diagnose numerical instability.",
+      "measure": "Layer shapes, gradients and mask consistency.",
+      "case": "The block keeps [B,T,D]; embedding and vocabulary head are outside it."
+    }
+  ]
+}

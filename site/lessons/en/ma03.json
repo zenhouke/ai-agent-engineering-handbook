@@ -1,0 +1,91 @@
+{
+  "id": "ma03",
+  "example": "shared_artifacts",
+  "problem": "Why do workers overwrite shared state, and do copied claims count as independent evidence?",
+  "principle": "Partition artifacts by owner and use an explicit reducer. Commit shared state by expected version; resolve factual conflicts from provenance and conditions, not majority votes.",
+  "steps": [
+    "Versioned worker artifacts",
+    "Align sources/conditions",
+    "Expose conflicts",
+    "CAS accepted state"
+  ],
+  "before": [
+    "Mutable blackboard",
+    "Last writer wins",
+    "Votes become facts"
+  ],
+  "after": [
+    "Partition ownership",
+    "Explicit conflicts",
+    "Trusted resolution"
+  ],
+  "solutions": [
+    [
+      "Partitioned artifacts + aggregator",
+      "Workers own independent results",
+      "Parallel research",
+      "Aggregator bottleneck"
+    ],
+    [
+      "CAS shared state",
+      "Update only expected version",
+      "Shared metadata/checkpoints",
+      "Reload on conflict"
+    ],
+    [
+      "Conflict reducer",
+      "Keep conflicting evidence visible",
+      "Conflicting sources/versions",
+      "May require review"
+    ]
+  ],
+  "check": "Can the latest result overwrite a field?",
+  "answer": "Only with deliberate overwrite semantics; factual or approval-bound fields require explicit resolution.",
+  "diagram_title": "Shared state, artifact versions and conflict resolution",
+  "scope": "Design reference and local contracts; no model training or measured collaboration uplift.",
+  "procedures": [
+    {
+      "steps": [
+        "Partition outputs",
+        "Attach source versions",
+        "Validate contracts",
+        "Aggregate once"
+      ],
+      "state": "Artifact ID, owner, schema and sources.",
+      "failure": "Workers cannot overwrite each other.",
+      "measure": "Coverage, duplication and provenance.",
+      "case": "Separate market reports feed one normalized comparison."
+    },
+    {
+      "steps": [
+        "Read version",
+        "Compute legal transition",
+        "Conditional update",
+        "Reload/re-evaluate"
+      ],
+      "state": "Version, state and update reason.",
+      "failure": "State CAS does not prove remote outcome.",
+      "measure": "No stale overwrite or lost update.",
+      "case": "Only one v7 reader commits v8."
+    },
+    {
+      "steps": [
+        "Group claims",
+        "Dedup sources",
+        "Compare conditions/versions",
+        "Preserve and investigate"
+      ],
+      "state": "Claim, value, source and version.",
+      "failure": "Copied claims are not independent evidence.",
+      "measure": "No silent value choice or voting truth.",
+      "case": "Reconcile free-shipping advert versus an 80-cent contract."
+    }
+  ],
+  "extra_examples": [
+    {
+      "example": "checkpoints",
+      "title": "Version-conditional persistence",
+      "scope": "Local architecture reference without live external effects."
+    }
+  ]
+}

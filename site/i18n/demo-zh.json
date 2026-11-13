@@ -1,0 +1,22 @@
+{
+  "lang": "zh-CN",
+  "edition": "zh",
+  "other": "en",
+  "language": "English",
+  "back": "返回 Transformer 课程",
+  "demo_title": "看见注意力怎样混合信息",
+  "intro": "改变 Query，观察匹配分数、概率和输出；屏蔽第二个位置，模拟不能读取未来的因果注意力。",
+  "mask": "第二位置是未来：屏蔽",
+  "play": "播放步骤",
+  "pause": "暂停",
+  "step": "下一步",
+  "reset": "重置",
+  "figure_title": "注意力的四个计算步骤",
+  "figure_desc": "分数计算、因果掩码、softmax 归一化、Value 加权和。",
+  "mask_stage": "先加 Mask",
+  "output": "最终输出（始终显示，便于比较）：",
+  "masked_explanation": "第二位置已屏蔽：其概率为 0。无论 Query 怎样改变，唯一可见的 Value 都得到全部权重。",
+  "open_explanation": "两个位置都可见：Query 越大，第一个 Key 的分数越高，输出越偏向第一个 Value。",
+  "note": "这是 dₖ=1 的单 Query 数值演示，不是已训练网络。q=0 时权重各 0.5；q=1 时约为 0.7311 和 0.2689。动画仅展示顺序，数值计算即时完成。",
+  "stage_label": "已显示步骤"
+}

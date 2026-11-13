@@ -1,0 +1,8 @@
+services:
+  handbook:
+    build: .
+    ports:
+      - "0.0.0.0:32140:32140"
+    volumes:
+      - .:/workspace
+    restart: unless-stopped

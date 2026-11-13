@@ -1,4 +1,6 @@
-# 学习资料与核验记录
+# Agent 资料与历史核验记录
+
+完整课程的新参考方法见[参考课程](docs/zh/resources.md)。以下保留 2026-11-12 的核验范围，不代表本次重新执行全部核验。
 
 [返回导读](README.md)
 
@@ -20,13 +22,7 @@
 
 ## 推荐顺序
 
-```mermaid
-flowchart LR
-  A[课程入门] --> B[状态与上下文]
-  B --> C[记忆与恢复]
-  C --> D[理解执行与恢复过程]
-  D --> E[协议与生产评测]
-```
+![从基础到 Agent 系统的学习路线](assets/diagrams/learning-map.svg)
 
 先读本手册的逐步案例，再读大型项目。不要为了学习记忆同时安装 Mem0 和 Letta，也不要从 Codex 全仓编译开始。找到接口、数据结构和失败测试，比浏览全部目录更有效。
 
@@ -81,3 +77,40 @@ flowchart LR
 
 记录 commit/tag → 查许可证变化 → 查接口与数据迁移 → 运行本地回归集 → 更新 sources.json。依赖升级、课程链接可用和协议兼容是不同检查，不要用一个绿色勾代替全部。
 
+
+## MCP 版本与可靠执行专题依据（2026-11-13）
+
+- [MCP 当前版本与兼容](https://modelcontextprotocol.io/docs/2026-07-28/learn/versioning)：逐请求声明版本、可选预先发现，与旧初始化握手区分。
+- [官方 Python SDK 入门](https://py.sdk.modelcontextprotocol.io/get-started/)：MCPServer、Client 与无网络内存协议测试；本课程固定 mcp==2.3.0。
+- [LangGraph 中断](https://docs.langchain.com/oss/python/langgraph/interrupts)：节点重入、thread_id 与 Command(resume=...)，不能把中断前副作用当作只执行一次。
+- [Temporal Python 错误处理](https://docs.temporal.io/develop/python/best-practices/error-handling)：Activity 幂等、重试边界与超时。
+- [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)：同事务保存状态/待发事件，重复投递仍需幂等。
+
+上述参考中的协议与 SDK 版本分开记录；本地验证范围以配套代码说明为准，不把内存测试或直接 Activity 调用当作部署验收。
+
+## Skills 与模型工具接口依据（2026-11-13）
+
+[Agent Skills 格式](https://agentskills.io/specification)用于包结构和字段；[Host 集成](https://agentskills.io/client-implementation/adding-skills-support)用于三层披露与激活；[技能产物评测](https://agentskills.io/skill-creation/evaluating-skills)用于成对对照。[Function Calling](https://developers.openai.com/api/docs/guides/function-calling)及[客户端工具调用](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)用于区分模型提议、应用执行和不同提供方的结果格式。Host 示例的绑定、哈希注册表和版本策略由本课程自行定义，不冒称跨产品统一标准。
+
+## 架构设计维度与治理依据
+
+- [OWASP 会话管理](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)：身份、失效与撤销边界；本例应用会话不是浏览器登录实现。
+- [Cedar 授权概念](https://docs.cedarpolicy.com/authorization/overview.html)、[OPA 策略](https://www.openpolicyagent.org/docs/policy-language)、[OpenFGA 授权模型](https://openfga.dev/docs/authorization-concepts)：区分策略求值、角色属性和关系模型。
+- [OWASP 事务授权](https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html)：明确交易数据、服务端校验、时效和单次授权。
+- [多Agent研究系统实践](https://www.anthropic.com/research/multi-agent-research-system)：任务分解、协调、评测和可靠性经验，不能把上游效果套用成本例收益。
+- [OpenTelemetry Traces](https://opentelemetry.io/docs/concepts/signals/traces/)、[Saga 编排](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html)：链路关联与补偿机制。
+
+## 个人工作室的多仓库对照（2026-11-13）
+
+参考 ForgePilot 本地版本 `13d673c` 的订单、资金、审批与执行边界，再对照上游：
+
+| 仓库 | 用来解决的问题 | 本课程的选择与限制 |
+|---|---|---|
+| [LangGraph](https://github.com/langchain-ai/langgraph) | 状态持久化与人工中断 | 显式续接；节点重入需要独立副作用幂等 |
+| [Temporal Python SDK](https://github.com/temporalio/sdk-python) | 长业务流程、确定性与外部活动 | 持久执行候选；不与自建调度器同时持有执行历史 |
+| [CrewAI](https://github.com/crewAIInc/crewAI) | 专职角色与受控流程组合 | 协作放在业务门禁内；角色名称不授予权限 |
+| [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) | 顺序、并发、交接与多语言编排 | 候选方案；[AutoGen](https://github.com/microsoft/autogen)已归档，只作历史参考 |
+| [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) | 能力发现与调用 | 固定SDK版本；订单授权由业务服务负责 |
+| [Agent Skills](https://github.com/agentskills/agentskills) | 可复用方法与按需披露 | 冻结方法版本；不能替代当前计划和审批 |
+
+核对上游 README、LangGraph interrupt 实现和 Temporal 确定性说明；没有把这些仓库全部安装或部署。工作室项目正文给出具体取舍与故障验收。参考阅读不等于复制第三方实现，也不代表 ForgePilot 依赖上述框架。

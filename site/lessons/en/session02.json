@@ -1,0 +1,91 @@
+{
+  "id": "session02",
+  "example": "task_resume",
+  "problem": "How can a new session resume work without cross-tenant access, stale authority or competing workers?",
+  "principle": "Recheck current session and policy, then claim a task with an expected version and a new run. Conversation text cannot establish execution ownership.",
+  "steps": [
+    "Validate session",
+    "Check task ownership",
+    "Read current role",
+    "CAS and insert run"
+  ],
+  "before": [
+    "Reuse cached allow",
+    "Resume any task",
+    "Overwrite concurrent state"
+  ],
+  "after": [
+    "Fresh authorization",
+    "Subject/tenant check",
+    "Transactional CAS"
+  ],
+  "solutions": [
+    [
+      "Server-side session state",
+      "Query expiry/revocation",
+      "Central interactive revocation",
+      "Storage availability/cost"
+    ],
+    [
+      "Versioned task claim",
+      "CAS and run insertion atomically",
+      "Competing workers",
+      "Lease/fencing/timeouts still needed"
+    ],
+    [
+      "Scoped background identity",
+      "Separate short-lived task authority",
+      "Long-running background work",
+      "Workload identity and revocation"
+    ]
+  ],
+  "check": "Can a new run_id bypass a stale task version?",
+  "answer": "No. Run identity and task ownership/version checks serve separate purposes.",
+  "diagram_title": "Session switching, concurrent resume and revocation",
+  "scope": "Local reference: trusted identity injection and SQLite transactions, without a login server or remote writes.",
+  "procedures": [
+    {
+      "steps": [
+        "Locate session",
+        "Verify subject",
+        "Check expiry/revocation",
+        "Read current membership"
+      ],
+      "state": "Subject, tenant, expiry and revocation.",
+      "failure": "Closing a session does not delete tasks.",
+      "measure": "Expiry, revocation and cross-subject denials.",
+      "case": "An expired session fails; a new authorized session can resume."
+    },
+    {
+      "steps": [
+        "Read version",
+        "Check state",
+        "CAS transition",
+        "Insert unique run"
+      ],
+      "state": "Task version, run ID and session binding.",
+      "failure": "Insert failure rolls back; stale workers later require fencing.",
+      "measure": "Reject stale versions and rollback failed inserts.",
+      "case": "Two v1 claims produce only one v2 transition."
+    },
+    {
+      "steps": [
+        "Derive authorized scope",
+        "Bind resources/deadline",
+        "Recheck policy",
+        "Record receipt"
+      ],
+      "state": "Task/run, workload identity, delegated scope and policy version.",
+      "failure": "Do not retain unlimited login tokens.",
+      "measure": "No amplification or fresh writes after expiry.",
+      "case": "Next-day approval resumes via a worker identity, not yesterday’s browser cookie."
+    }
+  ],
+  "extra_snippets": [
+    {
+      "file": "examples/governance/schema.sql",
+      "language": "sql",
+      "title": "Persistence constraints"
+    }
+  ]
+}

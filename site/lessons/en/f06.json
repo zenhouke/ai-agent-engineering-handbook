@@ -1,0 +1,83 @@
+{
+  "problem": "How does text become next-token probabilities, and why can fluent output be wrong?",
+  "principle": "Encode pieces as IDs, look up embeddings, predict from the prefix, then append the selected token.",
+  "steps": [
+    "Tokenize",
+    "Embedding lookup",
+    "Next-token distribution",
+    "Append to prefix"
+  ],
+  "before": [
+    "Characters equal tokens",
+    "Wrong budget",
+    "Truncated output"
+  ],
+  "after": [
+    "Match tokenizer",
+    "Count actual tokens",
+    "Inspect stop reason"
+  ],
+  "solutions": [
+    [
+      "Bigram",
+      "Adjacent transition counts",
+      "Probability baseline",
+      "One-symbol context"
+    ],
+    [
+      "Subwords + embeddings",
+      "IDs to learned vectors",
+      "Modern LM inputs",
+      "Match vocabulary/template"
+    ],
+    [
+      "Temperature/top-p",
+      "Change sampling",
+      "Diversity control",
+      "No truth guarantee"
+    ]
+  ],
+  "check": "Does supplying a new quotation permanently update model parameters?",
+  "answer": "Not during ordinary inference. It changes context, not the trained parameters.",
+  "id": "f06",
+  "example": "language_model",
+  "diagram_title": "Tokens, IDs, embeddings and prediction",
+  "procedures": [
+    {
+      "steps": [
+        "Count transitions",
+        "Add bounds/smoothing",
+        "Normalize probabilities",
+        "Sample successor"
+      ],
+      "state": "Counts, vocabulary and smoothing coefficient.",
+      "failure": "Unseen transitions are not necessarily impossible.",
+      "measure": "Held-out negative log-likelihood.",
+      "case": "aba/abb probabilities depend on boundary/smoothing choices; code includes both."
+    },
+    {
+      "steps": [
+        "Tokenize fixed vocabulary",
+        "Map pieces to IDs",
+        "Lookup embeddings",
+        "Add positions for model"
+      ],
+      "state": "Tokenizer, special tokens and chat template version.",
+      "failure": "Keep vocabulary and weights compatible.",
+      "measure": "Token counts, fragmentation and template tests.",
+      "case": "ID magnitude does not define semantic distance."
+    },
+    {
+      "steps": [
+        "Temperature-scale logits",
+        "Keep top-p candidates",
+        "Sample distribution",
+        "Inspect stop reason"
+      ],
+      "state": "Seed, sampling settings and completion state.",
+      "failure": "Low temperature is not truth; reject truncated structures.",
+      "measure": "Quality, diversity and format failures.",
+      "case": "A length-limited half-object is not a complete answer."
+    }
+  ]
+}

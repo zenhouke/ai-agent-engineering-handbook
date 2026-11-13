@@ -1,0 +1,324 @@
+{
+  "mode": "图解主线 · 对照主流方案 · 配参考代码",
+  "problem": "先看问题",
+  "mechanism": "图解工作原理",
+  "solutions": "主流方案怎么选",
+  "code": "参考代码",
+  "code_note": "展开查看与本课机制对应的实现。训练函数仅提供代码，不执行实际训练；依赖与验证范围见配套代码说明。",
+  "expand_code": "展开代码与实现边界",
+  "check": "改变条件，检查理解",
+  "answer": "展开参考答案",
+  "more": "按需展开：原理推导与边界补充",
+  "problem_figure": "失败路径与解决路径对照",
+  "mechanism_figure": "机制：数据、计算或状态怎样变化",
+  "selection_figure": "按问题条件选择方案",
+  "before": "问题路径",
+  "after": "解决路径",
+  "diagnose": "先定位问题类型",
+  "selection_note": "分支表示适用条件，不代表方案互斥；可组合，但每个组件都要有需求依据。",
+  "table": [
+    "方案",
+    "怎样解决",
+    "适用条件",
+    "代价与边界"
+  ],
+  "interactive": "打开可调 Query 与因果掩码的互动演示",
+  "sources": "查看官方资料与方案依据",
+  "orthogonal": "Agent 是系统组织方式；图中 AI、ML、DL 的嵌套关系不表示所有 Agent 都需要深度学习。",
+  "confusion": "预测 × 实际：四类结果",
+  "threshold": "阈值变化会改变误报、漏报与复核工作量。",
+  "backprop": "反向传播计算梯度；优化器更新参数。",
+  "conv": "卷积核在位置间共享参数；这里展示一个窗口的逐元素乘加，不是模型效果。",
+  "encoding": "这里的 ID 仅是教学编码；向量数值需要训练，不能由 ID 大小解释语义。",
+  "not_equivalent": "结构合法 ≠ 事实有证据 ≠ 动作获授权；失败要分类处理。",
+  "retrieval": "先授权与版本过滤，再召回与融合；未召回条款不能靠生成补出来。",
+  "observation": "工具结果作为外部数据返回，不升级为指令。",
+  "loop_limit": "设置工具允许列表、步数、时间与成本上限；循环结束仍要验收。",
+  "budget": "图中比例只是示意，不是推荐配置；真实预算使用模型对应 tokenizer。",
+  "original": "完整历史与原始产物",
+  "artifact": "保留原文，可按引用取回",
+  "protected": "压缩叙述可以有损；目标、授权、未知结果与待执行操作不能被改写。",
+  "cas": "CAS 表示按期望版本比较更新。被拒绝的旧写入应重读状态，不能覆盖新进度。",
+  "provenance": "来源 · 核验 · 有效期",
+  "memory": "先限制记忆作用域，再做相似度排序；当前明确要求优先于旧偏好。",
+  "business_boundary": "工具名 · 参数 · 对象权限 · 审批 · 回执",
+  "protocol": "MCP 负责互操作，不替代业务权限、任务调度、审批或幂等恢复。",
+  "parallel": "只并行独立任务；合并需查证据，超时需取消并等待资源收尾。",
+  "runtime": "预算限制新工作；远程动作已发生时，需要确认、补偿或对账。",
+  "plan": "依赖就绪才能执行；技能只提供方法，不授予新权限。",
+  "synthetic_scores": "教学示意数据，不是实测分数：前三行希望成功高，未授权动作数必须单独检查。",
+  "layers": "业务调用方向单向；运行时复用服务规则，不绕过授权直接修改存储。",
+  "state_scope": "关键路径示意；失败、取消、人工核查均有明确状态。执行中的取消需先确认外部结果。",
+  "architecture": "把模块连成完整架构",
+  "architecture_figure": "完整组件与数据流",
+  "architecture_note": "实线为调用/数据流，虚线为事件领取；模型只提议，服务与工具网关落实授权。",
+  "code_guide": "配套代码说明与验证范围",
+  "inside_solutions": "主流方案内部怎样运行",
+  "state": "关键状态",
+  "failure": "失败与恢复",
+  "measure": "如何验证",
+  "walkthrough": "具体推演：",
+  "failure_trace": "用具体数据推演边界",
+  "mcp_labels": {
+    "host": "Host：模型、上下文与策略",
+    "model": "模型接口适配器",
+    "quote_server": "Server A：报价能力",
+    "doc_server": "Server B：文档能力",
+    "tools": "工具 Tools",
+    "resources": "资源 Resources",
+    "prompts": "模板 Prompts",
+    "tool_result": "执行 → 结构化结果",
+    "resource_result": "URI → 上下文内容",
+    "prompt_result": "参数 → 消息模板",
+    "old": "旧版：2025-11-25 及以前",
+    "discover": "server/discover（客户端可选）",
+    "list_meta": "tools/list + 每请求 _meta",
+    "call_meta": "tools/call + 每请求 _meta",
+    "initialize": "initialize → 协商版本与能力",
+    "ids": "请求 id ≠ 业务 operation_id；协议日期 ≠ SDK 版本",
+    "process": "Host 管理子进程生命周期",
+    "http_response": "POST；JSON 或 SSE 响应",
+    "same_rpc": "相同 RPC；替代传输",
+    "authentication": "身份认证",
+    "verify": "验证令牌、受众",
+    "authorization": "资源授权",
+    "scope": "scope、租户与对象",
+    "domain": "领域动作",
+    "receipt": "审批与操作回执",
+    "transport_boundary": "传输选择不能决定数据访问权，也不能授予写权限。",
+    "registration": "SDK 注册协议能力",
+    "readonly": "运费未知；B 超出配置的可读范围",
+    "memory_scope": "内存调用验证真实 SDK 路径；网络、TLS/OAuth 和代理尚未验证。",
+    "catalog": "任务范围工具目录",
+    "provider": "模型工具格式适配",
+    "gateway": "Host 校验与授权",
+    "client_server": "MCP Client\n/ Server",
+    "observation": "核验结果 → 模型工具观察 → 下一次模型决策",
+    "unknown": "写结果未知 → 对账核查；不直接盲重试。",
+    "proposal": "模型提议工具调用"
+  },
+  "skill_scenes": {
+    "skill01": {
+      "layers": [
+        "Skill：方法、条件与资源",
+        "Function Calling：模型工具提议",
+        "Host：授权、调用和结果验收",
+        "MCP / SDK：接入实际能力"
+      ],
+      "plan": "计划：本次任务的依赖与验收",
+      "state": "运行时：状态、预算、恢复和回执",
+      "footer": "不同层可以组合；加载 Skill 不等于执行，更不等于授予新权限。"
+    },
+    "skill02": {
+      "files": [
+        "SKILL.md · YAML metadata",
+        "SKILL.md · 正文方法",
+        "references/ · 条件细则",
+        "assets/ · 产物模板",
+        "scripts/ · 确定性代码"
+      ],
+      "roles": [
+        "目录只呈现 name + description",
+        "激活后进入当前任务上下文",
+        "遇到相应条件才读取",
+        "作为输出材料，不当通用指令",
+        "经独立授权执行；先检查代码与依赖"
+      ],
+      "footer": "metadata.version 是本例约定；格式有效、代码可运行、行为有效分别验收。"
+    },
+    "skill03": {
+      "tiers": [
+        "1 · 目录元数据",
+        "2 · 激活正文",
+        "3 · 指定资源"
+      ],
+      "one_body": "仅本任务选中的方法",
+      "resource": "读取具体条件细则",
+      "no_exec": "读脚本源码 ≠ 运行脚本",
+      "dedupe": "会话内 name + version + digest 去重；新任务重新应用权限",
+      "footer": "完整性读取的磁盘字节不等于模型看到的 Token；示例预算按字符计。"
+    },
+    "skill04": {
+      "sets": [
+        "可信任务权限",
+        "已部署可用工具",
+        "受审技能绑定"
+      ],
+      "intersection": "可用动作 = 三者交集",
+      "allow": "read_quote(A) → Host + 服务授权通过",
+      "deny": "read_quote(B) / create_order → 拒绝",
+      "footer": "即使工具参数合法、MCP工具已发现，仍须对象授权；技能文本不能改写 Policy。"
+    },
+    "skill05": {
+      "a": "调研 A → 带来源产物",
+      "b": "调研 B → 带来源产物",
+      "join": "比较方法：验收必要输入",
+      "next": "报告契约 → 下一阶段",
+      "contract": "schema · 来源 · 完整性 · 版本",
+      "invalidate": "新证据 → 比较与下游审批失效",
+      "footer": "DAG 保存任务依赖；Skill 保存方法。外部动作结果未知时，重规划不能跳过对账。"
+    },
+    "skill06": {
+      "selection": "相关性 × 是否激活：不要只看使用率",
+      "cells": [
+        "TP · 相关且激活",
+        "FP · 无关却激活",
+        "FN · 相关未激活",
+        "TN · 无关未激活"
+      ],
+      "baseline": "同一任务：无技能 / 已固定旧版",
+      "candidate": "同一任务：候选技能包",
+      "gate": "产物质量 + 违规数 + Token / 延迟 → 回归决策",
+      "footer": "图是评价结构，不是实测提升；脚本通过不能证明模型任务收益。"
+    },
+    "fc01": {
+      "model": "模型：生成调用提议",
+      "host": "Host：校验参数与权限",
+      "function": "受控函数 / 业务服务",
+      "authorize": "授权执行",
+      "result": "实际结果 → function_call_output(call_id) → 下一轮模型",
+      "strict": "strict 约束结构；事实、对象权限与副作用仍由应用验证",
+      "footer": "这里只讨论自定义客户端函数；平台托管工具可能由提供方执行。"
+    },
+    "fc02": {
+      "proposal": "模型接口：Function Calling",
+      "host": "Host：适配与授权",
+      "direct": "路径 A：直接函数 / SDK → 业务服务",
+      "alternatives": "两种能力接入路径",
+      "return": "实际观察 → 转为模型结果格式 → 保留原 call_id",
+      "footer": "MCP 位于 Client ↔ Server；它可以承接 Function Calling，也可以由普通程序直接使用。"
+    }
+  },
+  "governance_scenes": {
+    "session01": {
+      "actor": "可信主体\nsubject",
+      "old": "应用会话 S1\n已过期",
+      "new": "应用会话 S2\n当前有效",
+      "task": "业务任务 T：独立持久化",
+      "run": "run-1 / run-2 → checkpoint",
+      "footer": "conversation/thread 定位上下文；session 定位应用会话；task/run 管业务进度。ID 都不是权限凭据。"
+    },
+    "session02": {
+      "expired": "旧会话：到期 / 撤销 → 拒绝",
+      "fresh": "新会话：同主体 + 同租户 + 当前角色",
+      "claim": "任务 paused, v1 → CAS → running, v2",
+      "atomic": "与 INSERT run 同事务；任一步失败都回滚",
+      "footer": "新run_id不能绕过旧任务版本；会话退出不等于取消已派发外部动作。"
+    },
+    "auth01": {
+      "gates": [
+        "RBAC：角色与动作",
+        "ABAC：租户/对象/证据",
+        "ABAC：当前金额限额"
+      ],
+      "deny": "任一条件失败 → deny",
+      "allow": "全部通过 → allow + 独立审批门",
+      "footer": "ReBAC 可把对象条件改为共享/继承关系查询；权限允许仍不等于审批有效。"
+    },
+    "auth02": {
+      "pep": "PEP：Host / 执行服务",
+      "pdp": "PDP：策略求值",
+      "facts": "可信属性 / 关系 / 版本",
+      "decision": "allow / deny + reason + version",
+      "worker": "委派 worker：只能收窄父任务范围",
+      "service": "领域服务：当前对象再次授权",
+      "footer": "缓存键需覆盖主体、动作、对象与策略事实版本；审批不能覆盖deny。"
+    },
+    "approval01": {
+      "action": "服务器固定的规范化动作",
+      "fields": [
+        "tenant + task + operation",
+        "resource + currency + amount + recipient",
+        "evidence_version → action_hash",
+        "requester + policy_version + expiry"
+      ],
+      "approver": "可信审批人：角色 + 独立性",
+      "record": "pending → approved：保存审批记录",
+      "recheck": "执行前：会话有效、当前权限、动作摘要、证据、期限、未消费状态全部核验",
+      "footer": "“同意报告”不是具体动作审批；金额、对象、证据改变需要重新确认。"
+    },
+    "approval02": {
+      "transaction": "本地事务：三者一起提交或一起回滚",
+      "writes": [
+        "审批 approved → consumed",
+        "INSERT 唯一 approval→operation",
+        "任务 awaiting_approval → queued"
+      ],
+      "rollback": "唯一键 / 状态冲突 → 完整回滚",
+      "dispatch": "提交后派发；丢响应 → 同键查回执",
+      "footer": "只消费一次不等于远端恰好一次；pending、executing、UNKNOWN、confirmed分别建模。"
+    }
+  },
+  "multi_design": {
+    "ma01": {
+      "goal": "验收标准\n任务约束",
+      "a": "owner A → evidence-v1",
+      "b": "owner B → evidence-v1",
+      "merge": "汇总 owner\nreport-v1",
+      "ownership": "每个交付有唯一责任者；拆分理由来自独立工作、专长、上下文或故障域。",
+      "footer": "先建立单Agent基线；角色名称、Agent数量本身不是架构收益。"
+    },
+    "ma02": {
+      "sender": "可信发送者\nresearcher",
+      "receiver": "接收者：comparer",
+      "fields": [
+        "schema / event",
+        "task_id / run_id",
+        "message_id / causation_id",
+        "sender / recipient",
+        "artifact_id / deadline"
+      ],
+      "artifact": "消息引用产物，不只说“完成”",
+      "accept": "校验边、期限、归属、契约",
+      "footer": "可靠消费需持久Inbox/Outbox；消息去重和远端操作幂等是不同边界。"
+    },
+    "ma03": {
+      "claims": [
+        "worker A：包邮，来源 X",
+        "worker B：包邮，同来源 X",
+        "worker C：运费80，合同 Y/v2"
+      ],
+      "conflict": "reducer：保留冲突 + 来源 + 版本",
+      "no_vote": "回到条件核验；不按 2:1 宣布包邮",
+      "footer": "产物先分区，再验收归并；共享任务状态用版本CAS提交，不能让最后写入决定事实。"
+    },
+    "ma04": {
+      "pending": "pending：检查依赖",
+      "slots": "running：并发上限=2",
+      "done": "done：已完成的节点结果",
+      "jobs": [
+        "A / B：独立",
+        "C：依赖 A",
+        "D：依赖 B + C"
+      ],
+      "release": "完成事件开放后继；没有执行槽时保留pending",
+      "footer": "背压限制新工作；超时取消并等待清理。写操作的远端效果仍需独立核查。"
+    },
+    "ma05": {
+      "failure": "部分任务失败",
+      "unknown": "外部写结果 UNKNOWN",
+      "confirmed": "效果已确认存在",
+      "query": "同 operation_id\n查询回执",
+      "compensate": "逆序提出补偿 + 新授权",
+      "footer": "补偿是新业务动作；不可查询或不可补偿时保留人工核查，不伪称全局rollback。"
+    },
+    "ma06": {
+      "cases": [
+        "相同任务与证据",
+        "相同模型/工具快照",
+        "相同预算与验收"
+      ],
+      "single": "单Agent基线",
+      "multi": "多Agent候选",
+      "metrics": "任务成功 / 成本 / 延迟",
+      "gate": "交接、重复写、越权和恢复分别验收；提高平均成功率不能抵消未授权动作。",
+      "footer": "此图表示评测结构，没有运行模型实验或给出提升百分比。"
+    },
+    "ma07": {
+      "traffic": "任务到达率 λ × 平均调用扇出",
+      "quota": "模型 / 工具 / 存储配额",
+      "formula": "平均并发 ≈ 任务到达率 × 平均调用数 × 平均调用时长",
+      "footer": "按资源、权限和故障域拆进程，不按Agent名字拆微服务；容量估算需要实测验证。"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "lang": "en",
+  "edition": "en",
+  "other": "zh",
+  "language": "中文",
+  "back": "Back to the Transformer lesson",
+  "demo_title": "Watch attention mix information",
+  "intro": "Change the query to inspect scores, probabilities and output. Mask the second position to simulate a future token that must not be read.",
+  "mask": "Mask the future position",
+  "play": "Play steps",
+  "pause": "Pause",
+  "step": "Next step",
+  "reset": "Reset",
+  "figure_title": "Four attention computations",
+  "figure_desc": "Scores, causal mask, softmax normalization and weighted values.",
+  "mask_stage": "Apply mask first",
+  "output": "Final output (always visible for comparison):",
+  "masked_explanation": "The second position has zero probability. With only one visible value, changing the query cannot change the output.",
+  "open_explanation": "Both positions are visible. A larger query favors the first key and moves the output toward the first value.",
+  "note": "A single-query example with dₖ=1, not a trained network. At q=0, both weights are 0.5; at q=1 they are about 0.7311 and 0.2689. Animation reveals order; values update immediately.",
+  "stage_label": "Steps revealed"
+}

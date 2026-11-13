@@ -1,0 +1,83 @@
+{
+  "problem": "Where should planning and review sit when task paths vary?",
+  "principle": "Use fixed control for stable paths, routing for classes, planning for dependencies and bounded review for revisions.",
+  "steps": [
+    "Stable sequence",
+    "Route by type",
+    "Plan then execute",
+    "Bounded review"
+  ],
+  "before": [
+    "Free choice everywhere",
+    "Repeated replanning",
+    "Uncontrolled cost"
+  ],
+  "after": [
+    "Choose a pattern",
+    "Constrain contracts",
+    "Compare on one task"
+  ],
+  "solutions": [
+    [
+      "Router",
+      "Select a specialized path",
+      "Clear task classes",
+      "Misrouting propagates"
+    ],
+    [
+      "Plan-and-Execute",
+      "Decompose and execute",
+      "Dependent subtasks",
+      "Validate the plan too"
+    ],
+    [
+      "Reflection",
+      "Revise from feedback",
+      "Checkable artifacts",
+      "Self-review is not evidence"
+    ]
+  ],
+  "check": "Should an agent force an old plan through missing quotations?",
+  "answer": "No. Replan or wait for evidence within authority and budget.",
+  "id": "a02",
+  "example": "agent_patterns",
+  "diagram_title": "Sequence, routing, planning and review",
+  "procedures": [
+    {
+      "steps": [
+        "Extract intent/class",
+        "Select with confidence",
+        "Run specialist path",
+        "Clarify uncertain classes"
+      ],
+      "state": "Class, routing rationale and scoped capabilities.",
+      "failure": "Do not force unknown tasks into a known class.",
+      "measure": "Class confusion, misroutes and end-task success.",
+      "case": "Fixed extraction and open research take different paths."
+    },
+    {
+      "steps": [
+        "Plan checkable subtasks",
+        "Build dependencies/budgets",
+        "Run ready steps",
+        "Replan on new evidence"
+      ],
+      "state": "Step IDs, inputs, artifacts, status and remaining budget.",
+      "failure": "Reject cycles/unauthorized steps; failed attempts are not completion.",
+      "measure": "Plan validity, execution success and replan cost.",
+      "case": "Price comparison waits for compatible specifications and tax basis."
+    },
+    {
+      "steps": [
+        "Review against criteria",
+        "Return specific defects",
+        "Revise relevant parts",
+        "Stop at round limit"
+      ],
+      "state": "Rubric, draft version, evidence and round count.",
+      "failure": "Correlated self-review needs independent evidence.",
+      "measure": "Error reduction versus extra calls/cost.",
+      "case": "Useful feedback identifies missing delivery evidence, not just writing style."
+    }
+  ]
+}

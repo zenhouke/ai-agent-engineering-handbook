@@ -1,0 +1,84 @@
+{
+  "id": "ma06",
+  "example": "collaboration_evaluation",
+  "problem": "Why can every worker say done while the user task fails?",
+  "principle": "Compare whole tasks under matched model/tool/evidence/budget conditions. Measure artifacts, handoffs, effects and cost; trace bottlenecks and gate violations independently.",
+  "steps": [
+    "Matched baseline",
+    "Inspect full trace",
+    "Compare quality/cost",
+    "Attribute and gate"
+  ],
+  "before": [
+    "Self-scored workers",
+    "Cherry-picked wins",
+    "Average hides violations"
+  ],
+  "after": [
+    "Paired tasks",
+    "Check handoffs/artifacts",
+    "Independent policy gate"
+  ],
+  "solutions": [
+    [
+      "Paired task comparison",
+      "Same cases for single/multi-Agent",
+      "Decide whether collaboration pays",
+      "Sample size/randomness/budget"
+    ],
+    [
+      "Trace/fault evaluation",
+      "Inspect handoffs, state and recovery",
+      "Complex coordination/effects",
+      "Replayable events/assertions"
+    ],
+    [
+      "Online SLO + staged rollout",
+      "Observe real traces and queues",
+      "Traffic and rollback capability",
+      "Not a substitute for offline quality"
+    ]
+  ],
+  "check": "Does better worker accuracy establish better system quality?",
+  "answer": "No. Handoffs, evidence merge, budgets, latency and business acceptance also matter.",
+  "diagram_title": "Validate collaboration benefit and operational quality",
+  "scope": "Design reference and local contracts; no model training or measured collaboration uplift.",
+  "procedures": [
+    {
+      "steps": [
+        "Freeze tasks/evidence",
+        "Run matched baseline",
+        "Record whole-task outcome",
+        "Compare benefit/cost"
+      ],
+      "state": "Task IDs, snapshots, success, cost and latency.",
+      "failure": "Do not drop failed candidate tasks.",
+      "measure": "Matched cases, success delta, cost and p95.",
+      "case": "More success can still be unacceptable with violations."
+    },
+    {
+      "steps": [
+        "Correlate task/run/message/op IDs",
+        "Inject delay/replay/crash",
+        "Check recovery policy",
+        "Attribute failed edges"
+      ],
+      "state": "Spans, artifacts, retries and denial.",
+      "failure": "Final prose can hide forbidden actions.",
+      "measure": "Late messages, duplicate effects and orphan tasks.",
+      "case": "Missing required evidence fails the task despite claimed completion."
+    },
+    {
+      "steps": [
+        "Define task SLO",
+        "Collect minimal telemetry",
+        "Bound candidate traffic",
+        "Rollback on gates"
+      ],
+      "state": "Task latency, success, quotas, backlog and version.",
+      "failure": "Avoid unbounded labels and raw sensitive context.",
+      "measure": "Actionable alerts, reproducible rollback and minimization.",
+      "case": "Tool quota saturation differs from slow final synthesis."
+    }
+  ]
+}

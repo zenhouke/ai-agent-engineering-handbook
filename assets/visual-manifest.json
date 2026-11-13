@@ -1,0 +1,1280 @@
+[
+  {
+    "lesson": "a01",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a01-problem.svg",
+      "assets/lessons/zh/a01-mechanism.svg",
+      "assets/lessons/zh/a01-selection.svg",
+      "assets/lessons/zh/a01-solution-1.svg",
+      "assets/lessons/zh/a01-solution-2.svg",
+      "assets/lessons/zh/a01-solution-3.svg"
+    ],
+    "example": "examples/react_loop.py"
+  },
+  {
+    "lesson": "a02",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a02-problem.svg",
+      "assets/lessons/zh/a02-mechanism.svg",
+      "assets/lessons/zh/a02-selection.svg",
+      "assets/lessons/zh/a02-solution-1.svg",
+      "assets/lessons/zh/a02-solution-2.svg",
+      "assets/lessons/zh/a02-solution-3.svg"
+    ],
+    "example": "examples/agent_patterns.py"
+  },
+  {
+    "lesson": "a03",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a03-problem.svg",
+      "assets/lessons/zh/a03-mechanism.svg",
+      "assets/lessons/zh/a03-selection.svg",
+      "assets/lessons/zh/a03-solution-1.svg",
+      "assets/lessons/zh/a03-solution-2.svg",
+      "assets/lessons/zh/a03-solution-3.svg"
+    ],
+    "example": "examples/context_budget.py"
+  },
+  {
+    "lesson": "a04",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a04-problem.svg",
+      "assets/lessons/zh/a04-mechanism.svg",
+      "assets/lessons/zh/a04-selection.svg",
+      "assets/lessons/zh/a04-solution-1.svg",
+      "assets/lessons/zh/a04-solution-2.svg",
+      "assets/lessons/zh/a04-solution-3.svg"
+    ],
+    "example": "examples/compaction.py"
+  },
+  {
+    "lesson": "a05",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a05-problem.svg",
+      "assets/lessons/zh/a05-mechanism.svg",
+      "assets/lessons/zh/a05-selection.svg",
+      "assets/lessons/zh/a05-solution-1.svg",
+      "assets/lessons/zh/a05-solution-2.svg",
+      "assets/lessons/zh/a05-solution-3.svg"
+    ],
+    "example": "examples/checkpoints.py"
+  },
+  {
+    "lesson": "a06",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a06-problem.svg",
+      "assets/lessons/zh/a06-mechanism.svg",
+      "assets/lessons/zh/a06-selection.svg",
+      "assets/lessons/zh/a06-solution-1.svg",
+      "assets/lessons/zh/a06-solution-2.svg",
+      "assets/lessons/zh/a06-solution-3.svg"
+    ],
+    "example": "examples/memory_scope.py"
+  },
+  {
+    "lesson": "a07",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a07-problem.svg",
+      "assets/lessons/zh/a07-mechanism.svg",
+      "assets/lessons/zh/a07-selection.svg",
+      "assets/lessons/zh/a07-solution-1.svg",
+      "assets/lessons/zh/a07-solution-2.svg",
+      "assets/lessons/zh/a07-solution-3.svg"
+    ],
+    "example": "examples/tool_gateway.py"
+  },
+  {
+    "lesson": "a08",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a08-problem.svg",
+      "assets/lessons/zh/a08-mechanism.svg",
+      "assets/lessons/zh/a08-selection.svg",
+      "assets/lessons/zh/a08-solution-1.svg",
+      "assets/lessons/zh/a08-solution-2.svg",
+      "assets/lessons/zh/a08-solution-3.svg"
+    ],
+    "example": "examples/parallel_agents.py"
+  },
+  {
+    "lesson": "a09",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a09-problem.svg",
+      "assets/lessons/zh/a09-mechanism.svg",
+      "assets/lessons/zh/a09-selection.svg",
+      "assets/lessons/zh/a09-solution-1.svg",
+      "assets/lessons/zh/a09-solution-2.svg",
+      "assets/lessons/zh/a09-solution-3.svg",
+      "assets/lessons/zh/a09-replay-boundary.svg"
+    ],
+    "example": "examples/runtime_budget.py"
+  },
+  {
+    "lesson": "a11",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a11-problem.svg",
+      "assets/lessons/zh/a11-mechanism.svg",
+      "assets/lessons/zh/a11-selection.svg",
+      "assets/lessons/zh/a11-solution-1.svg",
+      "assets/lessons/zh/a11-solution-2.svg",
+      "assets/lessons/zh/a11-solution-3.svg"
+    ],
+    "example": "examples/evaluation.py"
+  },
+  {
+    "lesson": "a12",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/a12-problem.svg",
+      "assets/lessons/zh/a12-mechanism.svg",
+      "assets/lessons/zh/a12-selection.svg",
+      "assets/lessons/zh/a12-solution-1.svg",
+      "assets/lessons/zh/a12-solution-2.svg",
+      "assets/lessons/zh/a12-solution-3.svg"
+    ],
+    "example": "examples/architecture_recipe.py"
+  },
+  {
+    "lesson": "approval01",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/approval01-problem.svg",
+      "assets/lessons/zh/approval01-mechanism.svg",
+      "assets/lessons/zh/approval01-selection.svg",
+      "assets/lessons/zh/approval01-solution-1.svg",
+      "assets/lessons/zh/approval01-solution-2.svg",
+      "assets/lessons/zh/approval01-solution-3.svg"
+    ],
+    "example": "examples/approval_lifecycle.py"
+  },
+  {
+    "lesson": "approval02",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/approval02-problem.svg",
+      "assets/lessons/zh/approval02-mechanism.svg",
+      "assets/lessons/zh/approval02-selection.svg",
+      "assets/lessons/zh/approval02-solution-1.svg",
+      "assets/lessons/zh/approval02-solution-2.svg",
+      "assets/lessons/zh/approval02-solution-3.svg"
+    ],
+    "example": "examples/approval_recovery.py"
+  },
+  {
+    "lesson": "auth01",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/auth01-problem.svg",
+      "assets/lessons/zh/auth01-mechanism.svg",
+      "assets/lessons/zh/auth01-selection.svg",
+      "assets/lessons/zh/auth01-solution-1.svg",
+      "assets/lessons/zh/auth01-solution-2.svg",
+      "assets/lessons/zh/auth01-solution-3.svg"
+    ],
+    "example": "examples/permission_policy.py"
+  },
+  {
+    "lesson": "auth02",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/auth02-problem.svg",
+      "assets/lessons/zh/auth02-mechanism.svg",
+      "assets/lessons/zh/auth02-selection.svg",
+      "assets/lessons/zh/auth02-solution-1.svg",
+      "assets/lessons/zh/auth02-solution-2.svg",
+      "assets/lessons/zh/auth02-solution-3.svg"
+    ],
+    "example": "examples/permission_decisions.py"
+  },
+  {
+    "lesson": "f01",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/f01-problem.svg",
+      "assets/lessons/zh/f01-mechanism.svg",
+      "assets/lessons/zh/f01-selection.svg",
+      "assets/lessons/zh/f01-solution-1.svg",
+      "assets/lessons/zh/f01-solution-2.svg",
+      "assets/lessons/zh/f01-solution-3.svg"
+    ],
+    "example": "examples/problem_framing.py"
+  },
+  {
+    "lesson": "f02",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/f02-problem.svg",
+      "assets/lessons/zh/f02-mechanism.svg",
+      "assets/lessons/zh/f02-selection.svg",
+      "assets/lessons/zh/f02-solution-1.svg",
+      "assets/lessons/zh/f02-solution-2.svg",
+      "assets/lessons/zh/f02-solution-3.svg"
+    ],
+    "example": "examples/autograd.py"
+  },
+  {
+    "lesson": "f03",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/f03-problem.svg",
+      "assets/lessons/zh/f03-mechanism.svg",
+      "assets/lessons/zh/f03-selection.svg",
+      "assets/lessons/zh/f03-solution-1.svg",
+      "assets/lessons/zh/f03-solution-2.svg",
+      "assets/lessons/zh/f03-solution-3.svg"
+    ],
+    "example": "examples/ml_pipeline.py"
+  },
+  {
+    "lesson": "f04",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/f04-problem.svg",
+      "assets/lessons/zh/f04-mechanism.svg",
+      "assets/lessons/zh/f04-selection.svg",
+      "assets/lessons/zh/f04-solution-1.svg",
+      "assets/lessons/zh/f04-solution-2.svg",
+      "assets/lessons/zh/f04-solution-3.svg"
+    ],
+    "example": "examples/mlp.py"
+  },
+  {
+    "lesson": "f05",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/f05-problem.svg",
+      "assets/lessons/zh/f05-mechanism.svg",
+      "assets/lessons/zh/f05-selection.svg",
+      "assets/lessons/zh/f05-solution-1.svg",
+      "assets/lessons/zh/f05-solution-2.svg",
+      "assets/lessons/zh/f05-solution-3.svg"
+    ],
+    "example": "examples/vision.py"
+  },
+  {
+    "lesson": "f06",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/f06-problem.svg",
+      "assets/lessons/zh/f06-mechanism.svg",
+      "assets/lessons/zh/f06-selection.svg",
+      "assets/lessons/zh/f06-solution-1.svg",
+      "assets/lessons/zh/f06-solution-2.svg",
+      "assets/lessons/zh/f06-solution-3.svg"
+    ],
+    "example": "examples/language_model.py"
+  },
+  {
+    "lesson": "f07",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/f07-problem.svg",
+      "assets/lessons/zh/f07-mechanism.svg",
+      "assets/lessons/zh/f07-selection.svg",
+      "assets/lessons/zh/f07-architecture.svg",
+      "assets/lessons/zh/f07-solution-1.svg",
+      "assets/lessons/zh/f07-solution-2.svg",
+      "assets/lessons/zh/f07-solution-3.svg"
+    ],
+    "example": "examples/transformer.py"
+  },
+  {
+    "lesson": "f08",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/f08-problem.svg",
+      "assets/lessons/zh/f08-mechanism.svg",
+      "assets/lessons/zh/f08-selection.svg",
+      "assets/lessons/zh/f08-solution-1.svg",
+      "assets/lessons/zh/f08-solution-2.svg",
+      "assets/lessons/zh/f08-solution-3.svg"
+    ],
+    "example": "examples/lora.py"
+  },
+  {
+    "lesson": "fc01",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/fc01-problem.svg",
+      "assets/lessons/zh/fc01-mechanism.svg",
+      "assets/lessons/zh/fc01-selection.svg",
+      "assets/lessons/zh/fc01-solution-1.svg",
+      "assets/lessons/zh/fc01-solution-2.svg",
+      "assets/lessons/zh/fc01-solution-3.svg"
+    ],
+    "example": "examples/function_calling.py"
+  },
+  {
+    "lesson": "fc02",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/fc02-problem.svg",
+      "assets/lessons/zh/fc02-mechanism.svg",
+      "assets/lessons/zh/fc02-selection.svg",
+      "assets/lessons/zh/fc02-solution-1.svg",
+      "assets/lessons/zh/fc02-solution-2.svg",
+      "assets/lessons/zh/fc02-solution-3.svg"
+    ],
+    "example": "examples/function_calling_mcp.py"
+  },
+  {
+    "lesson": "l01",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/l01-problem.svg",
+      "assets/lessons/zh/l01-mechanism.svg",
+      "assets/lessons/zh/l01-selection.svg",
+      "assets/lessons/zh/l01-solution-1.svg",
+      "assets/lessons/zh/l01-solution-2.svg",
+      "assets/lessons/zh/l01-solution-3.svg"
+    ],
+    "example": "examples/output_contract.py"
+  },
+  {
+    "lesson": "l02",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/l02-problem.svg",
+      "assets/lessons/zh/l02-mechanism.svg",
+      "assets/lessons/zh/l02-selection.svg",
+      "assets/lessons/zh/l02-solution-1.svg",
+      "assets/lessons/zh/l02-solution-2.svg",
+      "assets/lessons/zh/l02-solution-3.svg",
+      "assets/lessons/zh/l02-rank-trace.svg"
+    ],
+    "example": "examples/hybrid_retrieval.py"
+  },
+  {
+    "lesson": "l03",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/l03-problem.svg",
+      "assets/lessons/zh/l03-mechanism.svg",
+      "assets/lessons/zh/l03-selection.svg",
+      "assets/lessons/zh/l03-solution-1.svg",
+      "assets/lessons/zh/l03-solution-2.svg",
+      "assets/lessons/zh/l03-solution-3.svg"
+    ],
+    "example": "examples/inference_budget.py"
+  },
+  {
+    "lesson": "ma01",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/ma01-problem.svg",
+      "assets/lessons/zh/ma01-mechanism.svg",
+      "assets/lessons/zh/ma01-selection.svg",
+      "assets/lessons/zh/ma01-solution-1.svg",
+      "assets/lessons/zh/ma01-solution-2.svg",
+      "assets/lessons/zh/ma01-solution-3.svg"
+    ],
+    "example": "examples/task_decomposition.py"
+  },
+  {
+    "lesson": "ma02",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/ma02-problem.svg",
+      "assets/lessons/zh/ma02-mechanism.svg",
+      "assets/lessons/zh/ma02-selection.svg",
+      "assets/lessons/zh/ma02-solution-1.svg",
+      "assets/lessons/zh/ma02-solution-2.svg",
+      "assets/lessons/zh/ma02-solution-3.svg"
+    ],
+    "example": "examples/agent_messages.py"
+  },
+  {
+    "lesson": "ma03",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/ma03-problem.svg",
+      "assets/lessons/zh/ma03-mechanism.svg",
+      "assets/lessons/zh/ma03-selection.svg",
+      "assets/lessons/zh/ma03-solution-1.svg",
+      "assets/lessons/zh/ma03-solution-2.svg",
+      "assets/lessons/zh/ma03-solution-3.svg"
+    ],
+    "example": "examples/shared_artifacts.py"
+  },
+  {
+    "lesson": "ma04",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/ma04-problem.svg",
+      "assets/lessons/zh/ma04-mechanism.svg",
+      "assets/lessons/zh/ma04-selection.svg",
+      "assets/lessons/zh/ma04-solution-1.svg",
+      "assets/lessons/zh/ma04-solution-2.svg",
+      "assets/lessons/zh/ma04-solution-3.svg"
+    ],
+    "example": "examples/dag_scheduler.py"
+  },
+  {
+    "lesson": "ma05",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/ma05-problem.svg",
+      "assets/lessons/zh/ma05-mechanism.svg",
+      "assets/lessons/zh/ma05-selection.svg",
+      "assets/lessons/zh/ma05-solution-1.svg",
+      "assets/lessons/zh/ma05-solution-2.svg",
+      "assets/lessons/zh/ma05-solution-3.svg"
+    ],
+    "example": "examples/failure_recovery.py"
+  },
+  {
+    "lesson": "ma06",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/ma06-problem.svg",
+      "assets/lessons/zh/ma06-mechanism.svg",
+      "assets/lessons/zh/ma06-selection.svg",
+      "assets/lessons/zh/ma06-solution-1.svg",
+      "assets/lessons/zh/ma06-solution-2.svg",
+      "assets/lessons/zh/ma06-solution-3.svg"
+    ],
+    "example": "examples/collaboration_evaluation.py"
+  },
+  {
+    "lesson": "ma07",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/ma07-problem.svg",
+      "assets/lessons/zh/ma07-mechanism.svg",
+      "assets/lessons/zh/ma07-selection.svg",
+      "assets/lessons/zh/ma07-solution-1.svg",
+      "assets/lessons/zh/ma07-solution-2.svg",
+      "assets/lessons/zh/ma07-solution-3.svg"
+    ],
+    "example": "examples/deployment_capacity.py"
+  },
+  {
+    "lesson": "mcp01",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/mcp01-problem.svg",
+      "assets/lessons/zh/mcp01-mechanism.svg",
+      "assets/lessons/zh/mcp01-selection.svg"
+    ],
+    "example": "examples/mcp_overview.py"
+  },
+  {
+    "lesson": "mcp02",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/mcp02-problem.svg",
+      "assets/lessons/zh/mcp02-mechanism.svg",
+      "assets/lessons/zh/mcp02-selection.svg"
+    ],
+    "example": "examples/mcp_primitives.py"
+  },
+  {
+    "lesson": "mcp03",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/mcp03-problem.svg",
+      "assets/lessons/zh/mcp03-mechanism.svg",
+      "assets/lessons/zh/mcp03-selection.svg"
+    ],
+    "example": "examples/mcp_messages.py"
+  },
+  {
+    "lesson": "mcp04",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/mcp04-problem.svg",
+      "assets/lessons/zh/mcp04-mechanism.svg",
+      "assets/lessons/zh/mcp04-selection.svg"
+    ],
+    "example": "examples/mcp_transports.py"
+  },
+  {
+    "lesson": "mcp05",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/mcp05-problem.svg",
+      "assets/lessons/zh/mcp05-mechanism.svg",
+      "assets/lessons/zh/mcp05-selection.svg"
+    ],
+    "example": "examples/mcp_server_example.py"
+  },
+  {
+    "lesson": "mcp06",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/mcp06-problem.svg",
+      "assets/lessons/zh/mcp06-mechanism.svg",
+      "assets/lessons/zh/mcp06-selection.svg"
+    ],
+    "example": "examples/mcp_host_bridge.py"
+  },
+  {
+    "lesson": "session01",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/session01-problem.svg",
+      "assets/lessons/zh/session01-mechanism.svg",
+      "assets/lessons/zh/session01-selection.svg",
+      "assets/lessons/zh/session01-solution-1.svg",
+      "assets/lessons/zh/session01-solution-2.svg",
+      "assets/lessons/zh/session01-solution-3.svg"
+    ],
+    "example": "examples/session_lifecycle.py"
+  },
+  {
+    "lesson": "session02",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/session02-problem.svg",
+      "assets/lessons/zh/session02-mechanism.svg",
+      "assets/lessons/zh/session02-selection.svg",
+      "assets/lessons/zh/session02-solution-1.svg",
+      "assets/lessons/zh/session02-solution-2.svg",
+      "assets/lessons/zh/session02-solution-3.svg"
+    ],
+    "example": "examples/task_resume.py"
+  },
+  {
+    "lesson": "skill01",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/skill01-problem.svg",
+      "assets/lessons/zh/skill01-mechanism.svg",
+      "assets/lessons/zh/skill01-selection.svg",
+      "assets/lessons/zh/skill01-solution-1.svg",
+      "assets/lessons/zh/skill01-solution-2.svg",
+      "assets/lessons/zh/skill01-solution-3.svg"
+    ],
+    "example": "examples/skill_host.py"
+  },
+  {
+    "lesson": "skill02",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/skill02-problem.svg",
+      "assets/lessons/zh/skill02-mechanism.svg",
+      "assets/lessons/zh/skill02-selection.svg",
+      "assets/lessons/zh/skill02-solution-1.svg",
+      "assets/lessons/zh/skill02-solution-2.svg",
+      "assets/lessons/zh/skill02-solution-3.svg"
+    ],
+    "example": "examples/skill_package.py"
+  },
+  {
+    "lesson": "skill03",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/skill03-problem.svg",
+      "assets/lessons/zh/skill03-mechanism.svg",
+      "assets/lessons/zh/skill03-selection.svg",
+      "assets/lessons/zh/skill03-solution-1.svg",
+      "assets/lessons/zh/skill03-solution-2.svg",
+      "assets/lessons/zh/skill03-solution-3.svg"
+    ],
+    "example": "examples/skill_loading.py"
+  },
+  {
+    "lesson": "skill04",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/skill04-problem.svg",
+      "assets/lessons/zh/skill04-mechanism.svg",
+      "assets/lessons/zh/skill04-selection.svg",
+      "assets/lessons/zh/skill04-solution-1.svg",
+      "assets/lessons/zh/skill04-solution-2.svg",
+      "assets/lessons/zh/skill04-solution-3.svg"
+    ],
+    "example": "examples/skill_mcp_integration.py"
+  },
+  {
+    "lesson": "skill05",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/skill05-problem.svg",
+      "assets/lessons/zh/skill05-mechanism.svg",
+      "assets/lessons/zh/skill05-selection.svg",
+      "assets/lessons/zh/skill05-solution-1.svg",
+      "assets/lessons/zh/skill05-solution-2.svg",
+      "assets/lessons/zh/skill05-solution-3.svg"
+    ],
+    "example": "examples/skill_composition.py"
+  },
+  {
+    "lesson": "skill06",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/skill06-problem.svg",
+      "assets/lessons/zh/skill06-mechanism.svg",
+      "assets/lessons/zh/skill06-selection.svg",
+      "assets/lessons/zh/skill06-solution-1.svg",
+      "assets/lessons/zh/skill06-solution-2.svg",
+      "assets/lessons/zh/skill06-solution-3.svg"
+    ],
+    "example": "examples/skill_evaluation.py"
+  },
+  {
+    "lesson": "studio",
+    "language": "zh",
+    "images": [
+      "assets/lessons/zh/studio-problem.svg",
+      "assets/lessons/zh/studio-mechanism.svg",
+      "assets/lessons/zh/studio-selection.svg",
+      "assets/lessons/zh/studio-solution-1.svg",
+      "assets/lessons/zh/studio-solution-2.svg",
+      "assets/lessons/zh/studio-solution-3.svg",
+      "assets/lessons/zh/studio-deployment.svg",
+      "assets/lessons/zh/studio-gates.svg",
+      "assets/lessons/zh/studio-sessions.svg",
+      "assets/lessons/zh/studio-recovery.svg"
+    ],
+    "example": "examples/studio_contracts.py"
+  },
+  {
+    "lesson": "a01",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a01-problem.svg",
+      "assets/lessons/en/a01-mechanism.svg",
+      "assets/lessons/en/a01-selection.svg",
+      "assets/lessons/en/a01-solution-1.svg",
+      "assets/lessons/en/a01-solution-2.svg",
+      "assets/lessons/en/a01-solution-3.svg"
+    ],
+    "example": "examples/react_loop.py"
+  },
+  {
+    "lesson": "a02",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a02-problem.svg",
+      "assets/lessons/en/a02-mechanism.svg",
+      "assets/lessons/en/a02-selection.svg",
+      "assets/lessons/en/a02-solution-1.svg",
+      "assets/lessons/en/a02-solution-2.svg",
+      "assets/lessons/en/a02-solution-3.svg"
+    ],
+    "example": "examples/agent_patterns.py"
+  },
+  {
+    "lesson": "a03",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a03-problem.svg",
+      "assets/lessons/en/a03-mechanism.svg",
+      "assets/lessons/en/a03-selection.svg",
+      "assets/lessons/en/a03-solution-1.svg",
+      "assets/lessons/en/a03-solution-2.svg",
+      "assets/lessons/en/a03-solution-3.svg"
+    ],
+    "example": "examples/context_budget.py"
+  },
+  {
+    "lesson": "a04",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a04-problem.svg",
+      "assets/lessons/en/a04-mechanism.svg",
+      "assets/lessons/en/a04-selection.svg",
+      "assets/lessons/en/a04-solution-1.svg",
+      "assets/lessons/en/a04-solution-2.svg",
+      "assets/lessons/en/a04-solution-3.svg"
+    ],
+    "example": "examples/compaction.py"
+  },
+  {
+    "lesson": "a05",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a05-problem.svg",
+      "assets/lessons/en/a05-mechanism.svg",
+      "assets/lessons/en/a05-selection.svg",
+      "assets/lessons/en/a05-solution-1.svg",
+      "assets/lessons/en/a05-solution-2.svg",
+      "assets/lessons/en/a05-solution-3.svg"
+    ],
+    "example": "examples/checkpoints.py"
+  },
+  {
+    "lesson": "a06",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a06-problem.svg",
+      "assets/lessons/en/a06-mechanism.svg",
+      "assets/lessons/en/a06-selection.svg",
+      "assets/lessons/en/a06-solution-1.svg",
+      "assets/lessons/en/a06-solution-2.svg",
+      "assets/lessons/en/a06-solution-3.svg"
+    ],
+    "example": "examples/memory_scope.py"
+  },
+  {
+    "lesson": "a07",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a07-problem.svg",
+      "assets/lessons/en/a07-mechanism.svg",
+      "assets/lessons/en/a07-selection.svg",
+      "assets/lessons/en/a07-solution-1.svg",
+      "assets/lessons/en/a07-solution-2.svg",
+      "assets/lessons/en/a07-solution-3.svg"
+    ],
+    "example": "examples/tool_gateway.py"
+  },
+  {
+    "lesson": "a08",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a08-problem.svg",
+      "assets/lessons/en/a08-mechanism.svg",
+      "assets/lessons/en/a08-selection.svg",
+      "assets/lessons/en/a08-solution-1.svg",
+      "assets/lessons/en/a08-solution-2.svg",
+      "assets/lessons/en/a08-solution-3.svg"
+    ],
+    "example": "examples/parallel_agents.py"
+  },
+  {
+    "lesson": "a09",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a09-problem.svg",
+      "assets/lessons/en/a09-mechanism.svg",
+      "assets/lessons/en/a09-selection.svg",
+      "assets/lessons/en/a09-solution-1.svg",
+      "assets/lessons/en/a09-solution-2.svg",
+      "assets/lessons/en/a09-solution-3.svg",
+      "assets/lessons/en/a09-replay-boundary.svg"
+    ],
+    "example": "examples/runtime_budget.py"
+  },
+  {
+    "lesson": "a11",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a11-problem.svg",
+      "assets/lessons/en/a11-mechanism.svg",
+      "assets/lessons/en/a11-selection.svg",
+      "assets/lessons/en/a11-solution-1.svg",
+      "assets/lessons/en/a11-solution-2.svg",
+      "assets/lessons/en/a11-solution-3.svg"
+    ],
+    "example": "examples/evaluation.py"
+  },
+  {
+    "lesson": "a12",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/a12-problem.svg",
+      "assets/lessons/en/a12-mechanism.svg",
+      "assets/lessons/en/a12-selection.svg",
+      "assets/lessons/en/a12-solution-1.svg",
+      "assets/lessons/en/a12-solution-2.svg",
+      "assets/lessons/en/a12-solution-3.svg"
+    ],
+    "example": "examples/architecture_recipe.py"
+  },
+  {
+    "lesson": "approval01",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/approval01-problem.svg",
+      "assets/lessons/en/approval01-mechanism.svg",
+      "assets/lessons/en/approval01-selection.svg",
+      "assets/lessons/en/approval01-solution-1.svg",
+      "assets/lessons/en/approval01-solution-2.svg",
+      "assets/lessons/en/approval01-solution-3.svg"
+    ],
+    "example": "examples/approval_lifecycle.py"
+  },
+  {
+    "lesson": "approval02",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/approval02-problem.svg",
+      "assets/lessons/en/approval02-mechanism.svg",
+      "assets/lessons/en/approval02-selection.svg",
+      "assets/lessons/en/approval02-solution-1.svg",
+      "assets/lessons/en/approval02-solution-2.svg",
+      "assets/lessons/en/approval02-solution-3.svg"
+    ],
+    "example": "examples/approval_recovery.py"
+  },
+  {
+    "lesson": "auth01",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/auth01-problem.svg",
+      "assets/lessons/en/auth01-mechanism.svg",
+      "assets/lessons/en/auth01-selection.svg",
+      "assets/lessons/en/auth01-solution-1.svg",
+      "assets/lessons/en/auth01-solution-2.svg",
+      "assets/lessons/en/auth01-solution-3.svg"
+    ],
+    "example": "examples/permission_policy.py"
+  },
+  {
+    "lesson": "auth02",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/auth02-problem.svg",
+      "assets/lessons/en/auth02-mechanism.svg",
+      "assets/lessons/en/auth02-selection.svg",
+      "assets/lessons/en/auth02-solution-1.svg",
+      "assets/lessons/en/auth02-solution-2.svg",
+      "assets/lessons/en/auth02-solution-3.svg"
+    ],
+    "example": "examples/permission_decisions.py"
+  },
+  {
+    "lesson": "f01",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/f01-problem.svg",
+      "assets/lessons/en/f01-mechanism.svg",
+      "assets/lessons/en/f01-selection.svg",
+      "assets/lessons/en/f01-solution-1.svg",
+      "assets/lessons/en/f01-solution-2.svg",
+      "assets/lessons/en/f01-solution-3.svg"
+    ],
+    "example": "examples/problem_framing.py"
+  },
+  {
+    "lesson": "f02",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/f02-problem.svg",
+      "assets/lessons/en/f02-mechanism.svg",
+      "assets/lessons/en/f02-selection.svg",
+      "assets/lessons/en/f02-solution-1.svg",
+      "assets/lessons/en/f02-solution-2.svg",
+      "assets/lessons/en/f02-solution-3.svg"
+    ],
+    "example": "examples/autograd.py"
+  },
+  {
+    "lesson": "f03",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/f03-problem.svg",
+      "assets/lessons/en/f03-mechanism.svg",
+      "assets/lessons/en/f03-selection.svg",
+      "assets/lessons/en/f03-solution-1.svg",
+      "assets/lessons/en/f03-solution-2.svg",
+      "assets/lessons/en/f03-solution-3.svg"
+    ],
+    "example": "examples/ml_pipeline.py"
+  },
+  {
+    "lesson": "f04",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/f04-problem.svg",
+      "assets/lessons/en/f04-mechanism.svg",
+      "assets/lessons/en/f04-selection.svg",
+      "assets/lessons/en/f04-solution-1.svg",
+      "assets/lessons/en/f04-solution-2.svg",
+      "assets/lessons/en/f04-solution-3.svg"
+    ],
+    "example": "examples/mlp.py"
+  },
+  {
+    "lesson": "f05",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/f05-problem.svg",
+      "assets/lessons/en/f05-mechanism.svg",
+      "assets/lessons/en/f05-selection.svg",
+      "assets/lessons/en/f05-solution-1.svg",
+      "assets/lessons/en/f05-solution-2.svg",
+      "assets/lessons/en/f05-solution-3.svg"
+    ],
+    "example": "examples/vision.py"
+  },
+  {
+    "lesson": "f06",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/f06-problem.svg",
+      "assets/lessons/en/f06-mechanism.svg",
+      "assets/lessons/en/f06-selection.svg",
+      "assets/lessons/en/f06-solution-1.svg",
+      "assets/lessons/en/f06-solution-2.svg",
+      "assets/lessons/en/f06-solution-3.svg"
+    ],
+    "example": "examples/language_model.py"
+  },
+  {
+    "lesson": "f07",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/f07-problem.svg",
+      "assets/lessons/en/f07-mechanism.svg",
+      "assets/lessons/en/f07-selection.svg",
+      "assets/lessons/en/f07-architecture.svg",
+      "assets/lessons/en/f07-solution-1.svg",
+      "assets/lessons/en/f07-solution-2.svg",
+      "assets/lessons/en/f07-solution-3.svg"
+    ],
+    "example": "examples/transformer.py"
+  },
+  {
+    "lesson": "f08",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/f08-problem.svg",
+      "assets/lessons/en/f08-mechanism.svg",
+      "assets/lessons/en/f08-selection.svg",
+      "assets/lessons/en/f08-solution-1.svg",
+      "assets/lessons/en/f08-solution-2.svg",
+      "assets/lessons/en/f08-solution-3.svg"
+    ],
+    "example": "examples/lora.py"
+  },
+  {
+    "lesson": "fc01",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/fc01-problem.svg",
+      "assets/lessons/en/fc01-mechanism.svg",
+      "assets/lessons/en/fc01-selection.svg",
+      "assets/lessons/en/fc01-solution-1.svg",
+      "assets/lessons/en/fc01-solution-2.svg",
+      "assets/lessons/en/fc01-solution-3.svg"
+    ],
+    "example": "examples/function_calling.py"
+  },
+  {
+    "lesson": "fc02",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/fc02-problem.svg",
+      "assets/lessons/en/fc02-mechanism.svg",
+      "assets/lessons/en/fc02-selection.svg",
+      "assets/lessons/en/fc02-solution-1.svg",
+      "assets/lessons/en/fc02-solution-2.svg",
+      "assets/lessons/en/fc02-solution-3.svg"
+    ],
+    "example": "examples/function_calling_mcp.py"
+  },
+  {
+    "lesson": "l01",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/l01-problem.svg",
+      "assets/lessons/en/l01-mechanism.svg",
+      "assets/lessons/en/l01-selection.svg",
+      "assets/lessons/en/l01-solution-1.svg",
+      "assets/lessons/en/l01-solution-2.svg",
+      "assets/lessons/en/l01-solution-3.svg"
+    ],
+    "example": "examples/output_contract.py"
+  },
+  {
+    "lesson": "l02",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/l02-problem.svg",
+      "assets/lessons/en/l02-mechanism.svg",
+      "assets/lessons/en/l02-selection.svg",
+      "assets/lessons/en/l02-solution-1.svg",
+      "assets/lessons/en/l02-solution-2.svg",
+      "assets/lessons/en/l02-solution-3.svg",
+      "assets/lessons/en/l02-rank-trace.svg"
+    ],
+    "example": "examples/hybrid_retrieval.py"
+  },
+  {
+    "lesson": "l03",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/l03-problem.svg",
+      "assets/lessons/en/l03-mechanism.svg",
+      "assets/lessons/en/l03-selection.svg",
+      "assets/lessons/en/l03-solution-1.svg",
+      "assets/lessons/en/l03-solution-2.svg",
+      "assets/lessons/en/l03-solution-3.svg"
+    ],
+    "example": "examples/inference_budget.py"
+  },
+  {
+    "lesson": "ma01",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/ma01-problem.svg",
+      "assets/lessons/en/ma01-mechanism.svg",
+      "assets/lessons/en/ma01-selection.svg",
+      "assets/lessons/en/ma01-solution-1.svg",
+      "assets/lessons/en/ma01-solution-2.svg",
+      "assets/lessons/en/ma01-solution-3.svg"
+    ],
+    "example": "examples/task_decomposition.py"
+  },
+  {
+    "lesson": "ma02",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/ma02-problem.svg",
+      "assets/lessons/en/ma02-mechanism.svg",
+      "assets/lessons/en/ma02-selection.svg",
+      "assets/lessons/en/ma02-solution-1.svg",
+      "assets/lessons/en/ma02-solution-2.svg",
+      "assets/lessons/en/ma02-solution-3.svg"
+    ],
+    "example": "examples/agent_messages.py"
+  },
+  {
+    "lesson": "ma03",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/ma03-problem.svg",
+      "assets/lessons/en/ma03-mechanism.svg",
+      "assets/lessons/en/ma03-selection.svg",
+      "assets/lessons/en/ma03-solution-1.svg",
+      "assets/lessons/en/ma03-solution-2.svg",
+      "assets/lessons/en/ma03-solution-3.svg"
+    ],
+    "example": "examples/shared_artifacts.py"
+  },
+  {
+    "lesson": "ma04",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/ma04-problem.svg",
+      "assets/lessons/en/ma04-mechanism.svg",
+      "assets/lessons/en/ma04-selection.svg",
+      "assets/lessons/en/ma04-solution-1.svg",
+      "assets/lessons/en/ma04-solution-2.svg",
+      "assets/lessons/en/ma04-solution-3.svg"
+    ],
+    "example": "examples/dag_scheduler.py"
+  },
+  {
+    "lesson": "ma05",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/ma05-problem.svg",
+      "assets/lessons/en/ma05-mechanism.svg",
+      "assets/lessons/en/ma05-selection.svg",
+      "assets/lessons/en/ma05-solution-1.svg",
+      "assets/lessons/en/ma05-solution-2.svg",
+      "assets/lessons/en/ma05-solution-3.svg"
+    ],
+    "example": "examples/failure_recovery.py"
+  },
+  {
+    "lesson": "ma06",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/ma06-problem.svg",
+      "assets/lessons/en/ma06-mechanism.svg",
+      "assets/lessons/en/ma06-selection.svg",
+      "assets/lessons/en/ma06-solution-1.svg",
+      "assets/lessons/en/ma06-solution-2.svg",
+      "assets/lessons/en/ma06-solution-3.svg"
+    ],
+    "example": "examples/collaboration_evaluation.py"
+  },
+  {
+    "lesson": "ma07",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/ma07-problem.svg",
+      "assets/lessons/en/ma07-mechanism.svg",
+      "assets/lessons/en/ma07-selection.svg",
+      "assets/lessons/en/ma07-solution-1.svg",
+      "assets/lessons/en/ma07-solution-2.svg",
+      "assets/lessons/en/ma07-solution-3.svg"
+    ],
+    "example": "examples/deployment_capacity.py"
+  },
+  {
+    "lesson": "mcp01",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/mcp01-problem.svg",
+      "assets/lessons/en/mcp01-mechanism.svg",
+      "assets/lessons/en/mcp01-selection.svg"
+    ],
+    "example": "examples/mcp_overview.py"
+  },
+  {
+    "lesson": "mcp02",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/mcp02-problem.svg",
+      "assets/lessons/en/mcp02-mechanism.svg",
+      "assets/lessons/en/mcp02-selection.svg"
+    ],
+    "example": "examples/mcp_primitives.py"
+  },
+  {
+    "lesson": "mcp03",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/mcp03-problem.svg",
+      "assets/lessons/en/mcp03-mechanism.svg",
+      "assets/lessons/en/mcp03-selection.svg"
+    ],
+    "example": "examples/mcp_messages.py"
+  },
+  {
+    "lesson": "mcp04",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/mcp04-problem.svg",
+      "assets/lessons/en/mcp04-mechanism.svg",
+      "assets/lessons/en/mcp04-selection.svg"
+    ],
+    "example": "examples/mcp_transports.py"
+  },
+  {
+    "lesson": "mcp05",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/mcp05-problem.svg",
+      "assets/lessons/en/mcp05-mechanism.svg",
+      "assets/lessons/en/mcp05-selection.svg"
+    ],
+    "example": "examples/mcp_server_example.py"
+  },
+  {
+    "lesson": "mcp06",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/mcp06-problem.svg",
+      "assets/lessons/en/mcp06-mechanism.svg",
+      "assets/lessons/en/mcp06-selection.svg"
+    ],
+    "example": "examples/mcp_host_bridge.py"
+  },
+  {
+    "lesson": "session01",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/session01-problem.svg",
+      "assets/lessons/en/session01-mechanism.svg",
+      "assets/lessons/en/session01-selection.svg",
+      "assets/lessons/en/session01-solution-1.svg",
+      "assets/lessons/en/session01-solution-2.svg",
+      "assets/lessons/en/session01-solution-3.svg"
+    ],
+    "example": "examples/session_lifecycle.py"
+  },
+  {
+    "lesson": "session02",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/session02-problem.svg",
+      "assets/lessons/en/session02-mechanism.svg",
+      "assets/lessons/en/session02-selection.svg",
+      "assets/lessons/en/session02-solution-1.svg",
+      "assets/lessons/en/session02-solution-2.svg",
+      "assets/lessons/en/session02-solution-3.svg"
+    ],
+    "example": "examples/task_resume.py"
+  },
+  {
+    "lesson": "skill01",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/skill01-problem.svg",
+      "assets/lessons/en/skill01-mechanism.svg",
+      "assets/lessons/en/skill01-selection.svg",
+      "assets/lessons/en/skill01-solution-1.svg",
+      "assets/lessons/en/skill01-solution-2.svg",
+      "assets/lessons/en/skill01-solution-3.svg"
+    ],
+    "example": "examples/skill_host.py"
+  },
+  {
+    "lesson": "skill02",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/skill02-problem.svg",
+      "assets/lessons/en/skill02-mechanism.svg",
+      "assets/lessons/en/skill02-selection.svg",
+      "assets/lessons/en/skill02-solution-1.svg",
+      "assets/lessons/en/skill02-solution-2.svg",
+      "assets/lessons/en/skill02-solution-3.svg"
+    ],
+    "example": "examples/skill_package.py"
+  },
+  {
+    "lesson": "skill03",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/skill03-problem.svg",
+      "assets/lessons/en/skill03-mechanism.svg",
+      "assets/lessons/en/skill03-selection.svg",
+      "assets/lessons/en/skill03-solution-1.svg",
+      "assets/lessons/en/skill03-solution-2.svg",
+      "assets/lessons/en/skill03-solution-3.svg"
+    ],
+    "example": "examples/skill_loading.py"
+  },
+  {
+    "lesson": "skill04",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/skill04-problem.svg",
+      "assets/lessons/en/skill04-mechanism.svg",
+      "assets/lessons/en/skill04-selection.svg",
+      "assets/lessons/en/skill04-solution-1.svg",
+      "assets/lessons/en/skill04-solution-2.svg",
+      "assets/lessons/en/skill04-solution-3.svg"
+    ],
+    "example": "examples/skill_mcp_integration.py"
+  },
+  {
+    "lesson": "skill05",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/skill05-problem.svg",
+      "assets/lessons/en/skill05-mechanism.svg",
+      "assets/lessons/en/skill05-selection.svg",
+      "assets/lessons/en/skill05-solution-1.svg",
+      "assets/lessons/en/skill05-solution-2.svg",
+      "assets/lessons/en/skill05-solution-3.svg"
+    ],
+    "example": "examples/skill_composition.py"
+  },
+  {
+    "lesson": "skill06",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/skill06-problem.svg",
+      "assets/lessons/en/skill06-mechanism.svg",
+      "assets/lessons/en/skill06-selection.svg",
+      "assets/lessons/en/skill06-solution-1.svg",
+      "assets/lessons/en/skill06-solution-2.svg",
+      "assets/lessons/en/skill06-solution-3.svg"
+    ],
+    "example": "examples/skill_evaluation.py"
+  },
+  {
+    "lesson": "studio",
+    "language": "en",
+    "images": [
+      "assets/lessons/en/studio-problem.svg",
+      "assets/lessons/en/studio-mechanism.svg",
+      "assets/lessons/en/studio-selection.svg",
+      "assets/lessons/en/studio-solution-1.svg",
+      "assets/lessons/en/studio-solution-2.svg",
+      "assets/lessons/en/studio-solution-3.svg",
+      "assets/lessons/en/studio-deployment.svg",
+      "assets/lessons/en/studio-gates.svg",
+      "assets/lessons/en/studio-sessions.svg",
+      "assets/lessons/en/studio-recovery.svg"
+    ],
+    "example": "examples/studio_contracts.py"
+  }
+]

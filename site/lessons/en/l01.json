@@ -1,0 +1,83 @@
+{
+  "problem": "Why can valid JSON still contain a false amount?",
+  "principle": "Validate structure, factual support and action authority independently. A schema is not evidence.",
+  "steps": [
+    "Task and evidence",
+    "Schema",
+    "Facts",
+    "Authority"
+  ],
+  "before": [
+    "Parseable JSON",
+    "Use amount directly",
+    "Unknown shipping becomes zero"
+  ],
+  "after": [
+    "Validate fields",
+    "Verify support/units",
+    "Return unknown"
+  ],
+  "solutions": [
+    [
+      "Schema/type validation",
+      "Check fields and ranges",
+      "Structured extraction",
+      "No factual guarantee"
+    ],
+    [
+      "Constrained output + bounded repair",
+      "Limit syntax and repair errors",
+      "Format reliability",
+      "Provider-dependent capabilities"
+    ],
+    [
+      "Deterministic math + citations",
+      "Calculate and verify",
+      "Critical amounts",
+      "Missing facts stay unknown"
+    ]
+  ],
+  "check": "Can “shipping extra” produce a total including shipping?",
+  "answer": "No. Keep the subtotal, mark shipping and total unknown, and request evidence when permitted.",
+  "id": "l01",
+  "example": "output_contract",
+  "diagram_title": "Independent structure, evidence and authority checks",
+  "procedures": [
+    {
+      "steps": [
+        "Define nullable fields",
+        "Parse and check types",
+        "Validate ranges/extras",
+        "Return error location"
+      ],
+      "state": "Schema version, parsed value and error paths.",
+      "failure": "Bound repair; do not replace parse failures with defaults.",
+      "measure": "Field validity and unresolved repairs.",
+      "case": "Unknown shipping may be null; a nonnumeric amount fails."
+    },
+    {
+      "steps": [
+        "Inspect provider support",
+        "Send supported constraints",
+        "Independently validate",
+        "Repair bounded errors"
+      ],
+      "state": "Capability matrix, schema and retry count.",
+      "failure": "Reject or explicitly degrade unsupported schema features.",
+      "measure": "Format accuracy, latency and cost on fixed cases.",
+      "case": "Valid JSON does not prove that a price came from the source."
+    },
+    {
+      "steps": [
+        "Link fields to evidence",
+        "Normalize units/tax",
+        "Compute deterministically",
+        "Ask for missing facts"
+      ],
+      "state": "Citations, precise currency units and calculation basis.",
+      "failure": "Do not invent missing shipping or source support.",
+      "measure": "Evidence support and arithmetic consistency.",
+      "case": "1000×180 cents is a subtotal, not a total including unknown shipping."
+    }
+  ]
+}

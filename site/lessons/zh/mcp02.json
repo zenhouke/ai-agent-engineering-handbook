@@ -1,0 +1,46 @@
+{
+  "problem": "读取报价、提供合同上下文、复用比较模板，为什么不全做成一个万能工具？",
+  "principle": "Tool 是可执行能力，Resource 是由应用选用的上下文，Prompt 是可选择的交互模板。三者需要各自的发现、参数和授权规则，不能混为模型记忆。",
+  "steps": [
+    "Tool 执行能力",
+    "Resource 读取上下文",
+    "Prompt 取得模板",
+    "Host 组合给模型"
+  ],
+  "before": [
+    "所有东西都是工具",
+    "工具表膨胀",
+    "上下文与动作混淆"
+  ],
+  "after": [
+    "按三类原语拆分",
+    "列出或读取所需内容",
+    "Host 决定怎么组合"
+  ],
+  "solutions": [
+    [
+      "Tools",
+      "tools/list 与 tools/call，包含输入/输出 Schema",
+      "按条件查询或触发领域操作",
+      "是否只读不能只信注解"
+    ],
+    [
+      "Resources",
+      "resources/read 按 URI 取数据，模板另有列表",
+      "合同、表结构、已有文档",
+      "资源列表不保证包含所有模板实例"
+    ],
+    [
+      "Prompts",
+      "prompts/get 用参数渲染消息",
+      "用户选择固定分析方法",
+      "不是系统最高权限指令，也不会自行调用模型"
+    ]
+  ],
+  "check": "Server 返回 Prompt 模板，是否就启动了一个 Agent？",
+  "answer": "没有。它返回消息模板；由 Host 决定是否采用、如何放入上下文以及何时调用模型。",
+  "diagram_title": "三类原语的消息、控制与返回结果",
+  "id": "mcp02",
+  "example": "mcp_primitives",
+  "scope": "本专题以 MCP 2026-07-28、官方 Python SDK 2.3.0 为基准；旧版握手另行标注。"
+}

@@ -1,0 +1,84 @@
+{
+  "id": "ma02",
+  "example": "agent_messages",
+  "problem": "How can “done” identify the correct task/run/version, duplicate or late result?",
+  "principle": "Bind messages to task/run, authenticated endpoints, schema, causation, deadline and artifact references. Delivery and business-effect idempotency are separate.",
+  "steps": [
+    "Task/run correlation",
+    "Allowed handoff",
+    "Typed artifact",
+    "Deduplicate/accept"
+  ],
+  "before": [
+    "Prose as interface",
+    "Old-run callback",
+    "Duplicate progress"
+  ],
+  "after": [
+    "Typed envelope",
+    "Check scope/deadline",
+    "Validate artifact and durable dedup"
+  ],
+  "solutions": [
+    [
+      "Typed local calls",
+      "Structured function input/output",
+      "One service",
+      "Shared process failure"
+    ],
+    [
+      "Request/response handoff",
+      "Explicit recipient/correlation",
+      "Independent services",
+      "Timeout and unknown results"
+    ],
+    [
+      "Events + durable Inbox/Outbox",
+      "At-least-once with atomic deduplication",
+      "Async loosely coupled stages",
+      "Ordering, idempotency and backlog"
+    ]
+  ],
+  "check": "Does MCP replace all Agent messaging?",
+  "answer": "No. Handoff ownership, causation, artifacts and execution state remain application contracts.",
+  "diagram_title": "Inter-Agent messaging, handoff and contracts",
+  "scope": "Design reference and local contracts; no model training or measured collaboration uplift.",
+  "procedures": [
+    {
+      "steps": [
+        "Define types",
+        "Call registered worker",
+        "Return reference/state",
+        "Validate progress"
+      ],
+      "state": "Context, schema and deadline.",
+      "failure": "Function success is not task completion.",
+      "measure": "Type, failure and artifact acceptance.",
+      "case": "Return evidence objects instead of a done sentence."
+    },
+    {
+      "steps": [
+        "Assign message/causation ID",
+        "Bind task/run/recipient",
+        "Check handoff edge",
+        "Check deadline/schema"
+      ],
+      "state": "Envelope, artifact reference and causation.",
+      "failure": "Reject late runs and untrusted sender claims.",
+      "measure": "Wrong scope, sender, receiver and expiry tests.",
+      "case": "run-2 cannot accept a stale run-1 report."
+    },
+    {
+      "steps": [
+        "Commit Outbox",
+        "Publish stable message ID",
+        "Atomically dedup/advance",
+        "Confirm business operation"
+      ],
+      "state": "Events, Inbox keys, versions and operation IDs.",
+      "failure": "Message dedup is not effect dedup; this code validates envelopes only.",
+      "measure": "Duplicates, reordering, crash and replay.",
+      "case": "Repeated artifact-ready cannot issue repeated writes."
+    }
+  ]
+}

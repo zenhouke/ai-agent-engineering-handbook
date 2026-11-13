@@ -1,0 +1,84 @@
+{
+  "id": "auth02",
+  "example": "permission_decisions",
+  "problem": "Can a service trust one allow forever? Should child workers inherit all parent credentials?",
+  "principle": "Enforce current facts at execution. Cache by principal/action/object plus policy/fact versions. Delegation narrows scope; approval cannot convert deny into allow.",
+  "steps": [
+    "Trusted identity",
+    "Current service facts",
+    "Policy decision",
+    "Gateway/domain enforcement"
+  ],
+  "before": [
+    "Permanent cached allow",
+    "Copy all authority",
+    "Approval overrides deny"
+  ],
+  "after": [
+    "Versioned facts",
+    "Minimal scope",
+    "Independent gates"
+  ],
+  "solutions": [
+    [
+      "In-process policy service",
+      "Evaluate local role/attribute rules",
+      "Small stable rule sets",
+      "Distributed rules become hard to audit"
+    ],
+    [
+      "External policy engine",
+      "PDP decides; application PEP enforces",
+      "Cross-service policy governance",
+      "Network/cache/consistency/failure choices"
+    ],
+    [
+      "Scoped task delegation",
+      "Require child scope subset",
+      "Multi-agent/background workers",
+      "Audience, expiry, revocation and audit"
+    ]
+  ],
+  "check": "Can human approval override a policy deny?",
+  "answer": "No. Approval supplements permission; it cannot bypass hard resource/tenant/amount constraints.",
+  "diagram_title": "Policy enforcement, caching and delegation",
+  "scope": "Local reference: trusted identity injection and SQLite transactions, without a login server or remote writes.",
+  "procedures": [
+    {
+      "steps": [
+        "Centralize checks",
+        "Inject trusted context",
+        "Load current object",
+        "Record reason"
+      ],
+      "state": "Identity, objects and policy version.",
+      "failure": "Reuse service rules from handlers and workers.",
+      "measure": "Consistent denial across entrypoints.",
+      "case": "Role downgrade blocks a new run in an existing session."
+    },
+    {
+      "steps": [
+        "Construct trusted input",
+        "Evaluate policy",
+        "Handle unavailable decisions",
+        "Check freshness"
+      ],
+      "state": "Principal/action/resource/context, version and reason.",
+      "failure": "Cedar/OPA policy evaluation differs from OpenFGA relation queries.",
+      "measure": "Invalidation, unavailable engine and changed object tests.",
+      "case": "Do not cache allow by user ID alone."
+    },
+    {
+      "steps": [
+        "Define parent scope",
+        "Request minimal child",
+        "Reject amplification",
+        "Authorize again server-side"
+      ],
+      "state": "Task/run, actions/resources, expiry and policy version.",
+      "failure": "A Python set is not a signed capability system.",
+      "measure": "Out-of-scope delegation and revoked authority fail.",
+      "case": "A quote-a reader cannot request quote-b or draft creation."
+    }
+  ]
+}

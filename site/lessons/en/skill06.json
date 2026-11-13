@@ -1,0 +1,84 @@
+{
+  "id": "skill06",
+  "example": "skill_evaluation",
+  "problem": "Why is one good answer insufficient? What should change checks cover after editing descriptions or helpers?",
+  "principle": "Separate selection, artifact quality and operating cost. Pair identical tasks with/without Skills and old/new versions; pin reviewed bytes for reproducible regression and rollback.",
+  "steps": [
+    "Positive/negative selection",
+    "Paired ablation",
+    "Check artifact/actions",
+    "Regress pinned versions"
+  ],
+  "before": [
+    "One attractive answer",
+    "Overactivation looks useful",
+    "Untracked hot edits"
+  ],
+  "after": [
+    "Positive/negative variants",
+    "Quality and cost",
+    "Traceable versions"
+  ],
+  "solutions": [
+    [
+      "Format/deterministic checks",
+      "Check metadata, paths and calculations",
+      "Every bundle change",
+      "Does not test model selection/use"
+    ],
+    [
+      "Selection + ablation",
+      "Compare selection and paired task quality",
+      "Description/method changes",
+      "Fix model, tool snapshots and rubrics"
+    ],
+    [
+      "Versioned rollout/regression",
+      "Pin bundles, record traces, roll back",
+      "Shared maintained Skills",
+      "Example mechanisms, not a rollout platform"
+    ]
+  ],
+  "check": "Do passing helper tests prove a 20% model success improvement?",
+  "answer": "No. Deterministic correctness and model benefit differ; without paired measurements there is no improvement statistic.",
+  "diagram_title": "Selection evals, ablation and version regression",
+  "scope": "Based on Agent Skills format; version pins, bundle digests and tool bindings are example Host conventions, not execution authority.",
+  "procedures": [
+    {
+      "steps": [
+        "Parse actual metadata",
+        "Check resource paths",
+        "Run deterministic helper",
+        "Reject changed bundles"
+      ],
+      "state": "Formats, input/output boundaries and bundle digest.",
+      "failure": "Null-to-zero must fail; integrity is not behavior quality.",
+      "measure": "Money, unknowns, scope and traversal denial.",
+      "case": "Reject a definitive A total when shipping remains unknown."
+    },
+    {
+      "steps": [
+        "Create positive/negative tasks",
+        "Fix model/tool environment",
+        "Run paired variants",
+        "Separate quality/cost metrics"
+      ],
+      "state": "Prompt variants, snapshots, outputs, traces and rubric version.",
+      "failure": "High selection can be overactivation; calibrate semantic judging.",
+      "measure": "Precision/recall, completeness, violations, tokens and p95.",
+      "case": "Review reports should activate; weather requests should not. No fabricated results."
+    },
+    {
+      "steps": [
+        "Review candidate bundle",
+        "Pin version/digest",
+        "Regress limited rollout",
+        "Rollback with audit"
+      ],
+      "state": "Version, artifact contract, traces and active-task pins.",
+      "failure": "Never silently replace an active task bundle.",
+      "measure": "Reproducible old/new regression and rollback.",
+      "case": "Keep old packages/contracts available for tasks already pinned to them."
+    }
+  ]
+}

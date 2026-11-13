@@ -1,0 +1,46 @@
+{
+  "problem": "连上服务不代表工具可用；怎样识别版本、能力、请求、通知和两种错误？",
+  "principle": "当前版本每个请求通过 _meta 携带版本等元数据；Client 可先调用 server/discover，再 tools/list 与 tools/call。请求 ID 只关联响应，不是幂等键。",
+  "steps": [
+    "可选 server/discover",
+    "tools/list 取 Schema",
+    "tools/call 带参数",
+    "解析结果与错误"
+  ],
+  "before": [
+    "照搬旧 initialize 示例",
+    "新旧能力字段混用",
+    "发现或调用失败"
+  ],
+  "after": [
+    "先确认协议版本",
+    "请求自带元数据",
+    "区分协议错与执行错"
+  ],
+  "solutions": [
+    [
+      "当前无状态协议",
+      "每请求声明版本，服务支持 server/discover",
+      "2026-07-28 及匹配 SDK",
+      "发现可缓存，权限和能力可能变化"
+    ],
+    [
+      "旧版握手兼容",
+      "initialize → initialized → operation",
+      "2025-11-25 及以前客户端",
+      "要按旧规范/SDK实现，不能混接新流程"
+    ],
+    [
+      "分层错误处理",
+      "JSON-RPC error 与 result.isError 分开",
+      "调用失败诊断与模型纠错",
+      "工具成功仍需业务验收"
+    ]
+  ],
+  "check": "tools/call 收到 result.isError=true，与 JSON-RPC error 是一回事吗？",
+  "answer": "不是。前者是工具执行失败，后者是协议/请求层失败。两者也都不同于最终任务验收不通过。",
+  "diagram_title": "当前发现流程与旧版握手的对照",
+  "id": "mcp03",
+  "example": "mcp_messages",
+  "scope": "本专题以 MCP 2026-07-28、官方 Python SDK 2.3.0 为基准；旧版握手另行标注。"
+}

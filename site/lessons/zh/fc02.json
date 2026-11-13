@@ -1,0 +1,96 @@
+{
+  "id": "fc02",
+  "example": "function_calling_mcp",
+  "problem": "Function Calling 和 MCP 都能“调用工具”，为什么不是二选一？把 MCP inputSchema 原样贴给模型就够了吗？",
+  "principle": "Function Calling 位于模型与应用之间；MCP 位于应用 Client 与能力 Server 之间。Host 转换 schema、校验权限与参数、映射结果；同一个模型提议可以走直接 SDK 或 MCP。",
+  "steps": [
+    "模型函数提议",
+    "Host适配授权",
+    "直接SDK或MCP执行",
+    "工具观察回到模型"
+  ],
+  "before": [
+    "把协议当模型功能",
+    "透传所有工具",
+    "关联ID混为操作键"
+  ],
+  "after": [
+    "区分两侧契约",
+    "Host缩小工具目录",
+    "保留各层错误和ID"
+  ],
+  "solutions": [
+    [
+      "Function Calling + 直接函数",
+      "Host把提议分发给注册函数/SDK",
+      "少量本地稳定能力",
+      "每类后端适配独立维护"
+    ],
+    [
+      "Function Calling + MCP",
+      "Host通过MCP Client调用外部Server",
+      "共享工具服务和多个Host",
+      "额外传输、认证和契约适配"
+    ],
+    [
+      "固定工作流 + MCP",
+      "程序决定何时调用MCP",
+      "固定步骤、无需模型选工具",
+      "有MCP并不必然存在Function Calling"
+    ]
+  ],
+  "check": "没有 MCP 能用 Function Calling 吗？没有模型也能用 MCP 吗？",
+  "answer": "都可以。模型提议可由本地函数执行；普通程序可直接用MCP Client读资源、工具或模板。本例无模型请求也运行真实MCP调用。",
+  "diagram_title": "与 MCP 的区别及完整衔接",
+  "scope": "模型侧示例采用 Responses 的自定义客户端函数形状；不发送模型请求。",
+  "procedures": [
+    {
+      "steps": [
+        "模型返回调用提议",
+        "Host检查参数权限",
+        "直接SDK访问服务",
+        "按provider格式回结果"
+      ],
+      "state": "provider call_id、服务契约和工具回执。",
+      "failure": "工具接口变化由应用适配；模型不直接运行函数。",
+      "measure": "相同提议下正确返回与拒绝。",
+      "case": "报价业务服务既能给SDK适配器使用，也能被MCP Server包装。"
+    },
+    {
+      "steps": [
+        "MCP发现能力",
+        "映射模型工具schema",
+        "Host授权后Client调用",
+        "转换content为模型观察"
+      ],
+      "state": "inputSchema、provider call_id、RPC id及业务操作键。",
+      "failure": "各模型schema子集不同；JSON-RPC错误与isError不能丢。",
+      "measure": "同一调用链的参数、权限、结果和关联。",
+      "case": "function_call(read_quote,A)最终变为MCP tools/call；返回仍用原call_id。"
+    },
+    {
+      "steps": [
+        "程序读取任务状态",
+        "按依赖选择MCP工具",
+        "检查执行和业务结果",
+        "保存进度或对账"
+      ],
+      "state": "任务状态、MCP契约、外部回执。",
+      "failure": "协议日期与SDK版本各自固定；写超时不证明失败。",
+      "measure": "不依赖LLM也能完成MCP契约测试。",
+      "case": "Client(server)的真实只读测试不需要Function Calling响应。"
+    }
+  ],
+  "extra_examples": [
+    {
+      "example": "function_calling",
+      "title": "模型侧契约与提议校验",
+      "scope": "Host 示例；固定输入与可注入适配器，不调用模型。"
+    },
+    {
+      "example": "mcp_host_bridge",
+      "title": "Host 到 MCP 的范围检查",
+      "scope": "Host 示例；固定输入与可注入适配器，不调用模型。"
+    }
+  ]
+}

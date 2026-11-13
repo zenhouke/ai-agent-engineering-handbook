@@ -1,0 +1,84 @@
+{
+  "id": "skill05",
+  "example": "skill_composition",
+  "problem": "Why does concatenating three Skills still produce wrong order, conflicts and approval based on stale evidence?",
+  "principle": "Compose around task dependencies and typed artifacts. Methods do not replace state machines. Validate artifacts before advancing; invalidate descendants after evidence changes and reconcile pending effects.",
+  "steps": [
+    "Declare dependencies",
+    "Version input artifacts",
+    "Run ready methods",
+    "Accept or replan"
+  ],
+  "before": [
+    "Concatenate bodies",
+    "Calls count as done",
+    "Reuse stale approvals"
+  ],
+  "after": [
+    "DAG/contracts",
+    "Validate before progress",
+    "Invalidate and reconcile"
+  ],
+  "solutions": [
+    [
+      "Sequential method chain",
+      "Accepted output becomes next input",
+      "Small dependent flows",
+      "Stop on invalid intermediate output"
+    ],
+    [
+      "Explicit DAG",
+      "Schedule ready permitted methods",
+      "Parallel research plus merge",
+      "Define join, cancellation and conflicts"
+    ],
+    [
+      "Plan-and-Execute replanning",
+      "Evidence revises affected steps",
+      "Open-ended changing tasks",
+      "Preserve policy and known effects"
+    ]
+  ],
+  "check": "Can a changed quotation keep the old action approval?",
+  "answer": "No. Invalidate dependent comparison/approval; already-issued operations still need reconciliation.",
+  "diagram_title": "Composition, artifact contracts and replanning",
+  "scope": "Based on Agent Skills format; version pins, bundle digests and tool bindings are example Host conventions, not execution authority.",
+  "procedures": [
+    {
+      "steps": [
+        "Define stage contracts",
+        "Run first method",
+        "Validate artifact",
+        "Pass accepted output"
+      ],
+      "state": "Schemas, skill version and provenance.",
+      "failure": "An invalid artifact cannot complete a node.",
+      "measure": "Schema, provenance and uncertainty propagation.",
+      "case": "Unknown shipping must stay unknown in later stages."
+    },
+    {
+      "steps": [
+        "Declare edges",
+        "Check cycles/policy",
+        "Run ready branches",
+        "Validate before join"
+      ],
+      "state": "Node state, budget, artifact version and deadline.",
+      "failure": "Required-branch failure blocks dependents.",
+      "measure": "Cycles, missing inputs and failure propagation.",
+      "case": "Independent markets run together; comparison waits for necessary evidence."
+    },
+    {
+      "steps": [
+        "Receive new evidence",
+        "Supersede stale nodes",
+        "Invalidate descendants",
+        "Plan under constraints"
+      ],
+      "state": "Plan version, reasons, approval hash and pending effects.",
+      "failure": "A new plan cannot erase an already-issued write.",
+      "measure": "Approval invalidation and pending-effect retention.",
+      "case": "Recompare/reapprove changed quotes; reconcile unknown writes first."
+    }
+  ]
+}

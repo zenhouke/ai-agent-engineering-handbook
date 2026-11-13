@@ -1,0 +1,73 @@
+{
+  "problem": "A plain Python function is not an MCP server or an interoperability test.",
+  "principle": "Register capabilities with official MCPServer 2.3.0 and use a real Client. Domain checks remain in layered code. In-memory calls need no model.",
+  "steps": [
+    "Register primitives",
+    "SDK creates contracts",
+    "Discover/call via Client",
+    "Verify typed results"
+  ],
+  "before": [
+    "Rename a function MCP",
+    "No protocol test",
+    "Unknown interoperability"
+  ],
+  "after": [
+    "Pin SDK version",
+    "Real client/server calls",
+    "Verify schema and errors"
+  ],
+  "solutions": [
+    [
+      "MCPServer registration",
+      "Type-hinted contracts",
+      "Ordinary tool servers",
+      "Still enforce business policy"
+    ],
+    [
+      "Client(server)",
+      "Real SDK, no port/subprocess",
+      "Regression testing",
+      "No TLS/proxy/auth coverage"
+    ],
+    [
+      "HTTP/stdio client",
+      "Change transport, retain capabilities",
+      "Remote/cross-process",
+      "Test network and authorization separately"
+    ]
+  ],
+  "check": "Does an in-memory pass prove remote OAuth deployment works?",
+  "answer": "No. It verifies protocol behavior and domain rules, not transport infrastructure or OAuth.",
+  "diagram_title": "Registration, domain layers and real SDK validation",
+  "id": "mcp05",
+  "example": "mcp_server_example",
+  "scope": "Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are labeled separately.",
+  "extra_examples": [
+    {
+      "example": "mcp_app/domain",
+      "title": "Quotation domain",
+      "scope": "Part of the same real SDK Server assembled above."
+    },
+    {
+      "example": "mcp_app/repos",
+      "title": "Repository",
+      "scope": "Part of the same real SDK Server assembled above."
+    },
+    {
+      "example": "mcp_app/services",
+      "title": "Trusted scope and resource authorization",
+      "scope": "Part of the same real SDK Server assembled above."
+    },
+    {
+      "example": "mcp_app/handlers",
+      "title": "Handlers and protocol error mapping",
+      "scope": "Part of the same real SDK Server assembled above."
+    },
+    {
+      "example": "mcp_app/routes",
+      "title": "Register Tool, Resource and Prompt",
+      "scope": "Part of the same real SDK Server assembled above."
+    }
+  ]
+}

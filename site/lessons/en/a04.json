@@ -1,0 +1,83 @@
+{
+  "problem": "Compaction loses a changed budget or an unresolved operation.",
+  "principle": "Separate protected trusted fields from lossy narrative. Preserve provenance and uncertainty, then test continuation.",
+  "steps": [
+    "Goal/constraints",
+    "Lossy narrative",
+    "Pending operations",
+    "Original references"
+  ],
+  "before": [
+    "Summarize the story",
+    "Drop a correction",
+    "Resume outside scope"
+  ],
+  "after": [
+    "Protect trusted fields",
+    "Compress with references",
+    "Test continuation"
+  ],
+  "solutions": [
+    [
+      "Truncation",
+      "Drop old messages",
+      "Low-risk short tasks",
+      "Irrecoverable loss"
+    ],
+    [
+      "Summary",
+      "Compress narrative",
+      "Long dialogue",
+      "Can mix fact and inference"
+    ],
+    [
+      "Continuation packet",
+      "Protect goal/state/references",
+      "Resumable tasks",
+      "Still needs originals"
+    ]
+  ],
+  "check": "What if “unknown outcome” becomes “not executed” in a summary?",
+  "answer": "A resumed agent may duplicate an already committed action. Preserve uncertainty explicitly.",
+  "id": "a04",
+  "example": "compaction",
+  "diagram_title": "Compress narrative; protect trusted state",
+  "procedures": [
+    {
+      "steps": [
+        "Choose retention boundary",
+        "Drop old low-value text",
+        "Keep current observations",
+        "Store original references"
+      ],
+      "state": "Cut boundary, protected fields and source locations.",
+      "failure": "Cheap but lossy; unsuitable for unrecoverable critical context.",
+      "measure": "Token savings versus continuation loss.",
+      "case": "Old chat can leave; pending effects cannot disappear."
+    },
+    {
+      "steps": [
+        "Summarize chunks",
+        "Separate fact/inference",
+        "Preserve decisions/citations",
+        "Replay continuation cases"
+      ],
+      "state": "Summary versions, sources and uncertainty.",
+      "failure": "Reject inferred facts presented as verified.",
+      "measure": "Continuation, factual fidelity and missing constraints.",
+      "case": "Changing unknown shipping into free shipping fails compaction."
+    },
+    {
+      "steps": [
+        "Extract trusted fields",
+        "Freeze goals/authority/ops",
+        "Compress narrative only",
+        "Rebuild next input"
+      ],
+      "state": "Goal, constraints, checkpoints and pending operations.",
+      "failure": "Resolve protected-field conflicts from trusted evidence, not free-form merging.",
+      "measure": "Same recovered events should permit the same lawful decisions.",
+      "case": "Preserve operation_id and UNKNOWN to prevent duplicate effects."
+    }
+  ]
+}

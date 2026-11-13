@@ -1,0 +1,84 @@
+{
+  "id": "ma05",
+  "example": "failure_recovery",
+  "problem": "Which work should stop after failure, and can remote successes be rolled back by a local transaction?",
+  "principle": "Distinguish recomputation, safe read retries and unknown writes. Recover orchestration separately from effects; compensation is a new authorized business action.",
+  "steps": [
+    "Classify impact",
+    "Restore known progress",
+    "Reconcile unknowns",
+    "Authorize compensation"
+  ],
+  "before": [
+    "Retry every error",
+    "Mint new key",
+    "Undo history by naming rollback"
+  ],
+  "after": [
+    "Classify failures",
+    "Same-key lookup",
+    "Authorize compensation"
+  ],
+  "solutions": [
+    [
+      "Bounded local retry",
+      "Retry transient safe work",
+      "Reads/idempotent operations",
+      "Amplified load/cost"
+    ],
+    [
+      "Durable workflow recovery",
+      "Restore checkpoint/history",
+      "Long waits and crashes",
+      "Replay/version semantics"
+    ],
+    [
+      "Saga + reconciliation",
+      "Propose reverse business actions",
+      "Partial external success",
+      "Compensation can fail and needs authority"
+    ]
+  ],
+  "check": "Does calling compensation rollback bypass approval?",
+  "answer": "No. It is a new externally visible action governed by current policy.",
+  "diagram_title": "Failure propagation, retries, compensation and reconciliation",
+  "scope": "Design reference and local contracts; no model training or measured collaboration uplift.",
+  "procedures": [
+    {
+      "steps": [
+        "Classify errors",
+        "Bound/back off",
+        "Charge task budget",
+        "Escalate at limit"
+      ],
+      "state": "Attempt, deadline, error and budget.",
+      "failure": "Never retry permission denial indefinitely.",
+      "measure": "Retry caps, propagation and cost.",
+      "case": "429 may back off; cross-tenant deny will not improve."
+    },
+    {
+      "steps": [
+        "Stable execution ID",
+        "Persist completed results",
+        "Resume pending work",
+        "Dedup effects separately"
+      ],
+      "state": "Checkpoint/history and operation keys.",
+      "failure": "Nodes/Activities may rerun.",
+      "measure": "Crash windows, resumes and lost success replies.",
+      "case": "Keep the original business operation ID after recovery."
+    },
+    {
+      "steps": [
+        "Query UNKNOWN first",
+        "Reverse confirmed steps",
+        "Authorize compensation",
+        "Record receipt/review"
+      ],
+      "state": "Confirmed effects, operation IDs and compensation proposals.",
+      "failure": "Unknown or irreversible effects need investigation.",
+      "measure": "Correct reverse order and no unauthorized compensation.",
+      "case": "Query a draft before proposing deletion."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "problem": "How can tasks resume without workers overwriting newer progress?",
+  "principle": "Persist tenant/task-scoped checkpoints and compare versions. External effects require separate reconciliation.",
+  "steps": [
+    "Save version v",
+    "Execute a step",
+    "Commit v+1",
+    "Reject conflict/resume"
+  ],
+  "before": [
+    "Chat log only",
+    "Lose execution state",
+    "Stale overwrite"
+  ],
+  "after": [
+    "Persist checkpoints",
+    "Compare expected version",
+    "Reload conflicts"
+  ],
+  "solutions": [
+    [
+      "Checkpoint (e.g. LangGraph)",
+      "Persist resumable state",
+      "Long tasks",
+      "Not external-effect proof"
+    ],
+    [
+      "Optimistic lock/CAS",
+      "Version-conditioned updates",
+      "Competing workers",
+      "Handle reload/retry"
+    ],
+    [
+      "Idempotency/reconciliation",
+      "Identify one external operation",
+      "Side effects",
+      "Remote support required"
+    ]
+  ],
+  "check": "Does a checkpoint guarantee one email?",
+  "answer": "No. An unknown receipt requires external query/idempotency or manual reconciliation.",
+  "id": "a05",
+  "example": "checkpoints",
+  "diagram_title": "Two workers competing on versions",
+  "procedures": [
+    {
+      "steps": [
+        "Define serializable State",
+        "Commit at node boundaries",
+        "Load stable thread_id",
+        "Resume pending work"
+      ],
+      "state": "State schema, nodes/versions, pending tasks and checkpoint ID.",
+      "failure": "Uncommitted work can replay; external effects need separate deduplication.",
+      "measure": "Crash before/after nodes; inspect resume point and remote write count.",
+      "case": "Reuse saved quotations; recompute an incomplete comparison."
+    },
+    {
+      "steps": [
+        "Read state/version",
+        "Compute legal transition",
+        "Update expected version",
+        "Reload on conflict"
+      ],
+      "state": "Task ID, version, lease and fencing token where required.",
+      "failure": "Zero updated rows means lost ownership; stale workers cannot overwrite.",
+      "measure": "Only one concurrent version wins; stale worker is rejected.",
+      "case": "Two workers read v7; one writes v8 and the other reloads."
+    },
+    {
+      "steps": [
+        "Persist operation key",
+        "Call using same key",
+        "Record timeout UNKNOWN",
+        "Query before resuming"
+      ],
+      "state": "operation_id, request fingerprint, state and receipt.",
+      "failure": "Reject changed payloads under one key; escalate without query/dedup support.",
+      "measure": "Lose a success response; verify restart creates no duplicate.",
+      "case": "Find draft-42 by original key after a timed-out creation."
+    }
+  ]
+}

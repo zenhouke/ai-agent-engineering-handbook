@@ -1,0 +1,83 @@
+{
+  "problem": "Does one successful demo or self-awarded score prove reliability?",
+  "principle": "Measure success, evidence, safety, latency and cost separately using frozen cases and baselines.",
+  "steps": [
+    "Frozen cases",
+    "Task/evidence scores",
+    "Independent safety gate",
+    "Equal-budget comparison"
+  ],
+  "before": [
+    "Cherry-pick demos",
+    "Average hides incidents",
+    "Unreproducible gain"
+  ],
+  "after": [
+    "Freeze expectations",
+    "Categorize failures",
+    "Report baselines/groups"
+  ],
+  "solutions": [
+    [
+      "Rules/exact match",
+      "Deterministic constraints",
+      "Fields, amounts, permissions",
+      "Limited open semantics"
+    ],
+    [
+      "Calibrated LLM judge",
+      "Assist semantic grading",
+      "Open-ended reports",
+      "Bias; needs human calibration"
+    ],
+    [
+      "Trajectory/fault tests",
+      "Inspect actions/recovery",
+      "Tool agents",
+      "Observable traces and injected failures"
+    ]
+  ],
+  "check": "Can high average success offset a tenant-data leak?",
+  "answer": "No. Access violations fail a separate acceptance gate.",
+  "id": "a11",
+  "example": "evaluation",
+  "diagram_title": "Grouped quality and an independent safety gate",
+  "procedures": [
+    {
+      "steps": [
+        "Define objective assertions",
+        "Freeze examples",
+        "Check results directly",
+        "Group failure causes"
+      ],
+      "state": "Amounts/field truth, legal transitions and permission expectations.",
+      "failure": "Valid JSON alone misses wrong totals and unauthorized actions.",
+      "measure": "Exact correctness and violation counts.",
+      "case": "Unknown shipping cannot yield a definitive total."
+    },
+    {
+      "steps": [
+        "Write anchored rubric",
+        "Human-label calibration",
+        "Blind and swap order",
+        "Inspect disagreement"
+      ],
+      "state": "Rubric, judge version, anonymized outputs and human labels.",
+      "failure": "Order/style/provider bias remains; authorization is deterministic.",
+      "measure": "Human agreement, subgroup bias and scoring variance.",
+      "case": "Score evidence support and coverage separately from writing polish."
+    },
+    {
+      "steps": [
+        "Record complete traces",
+        "Inject timeout/replay/crash",
+        "Replay recovery",
+        "Assert business end state"
+      ],
+      "state": "task_id, tool calls, operation_id, states and receipts.",
+      "failure": "Final prose can hide an earlier forbidden action.",
+      "measure": "Duplicate writes, failed recovery and unauthorized actions.",
+      "case": "Lose the create response and verify only one draft exists after recovery."
+    }
+  ]
+}

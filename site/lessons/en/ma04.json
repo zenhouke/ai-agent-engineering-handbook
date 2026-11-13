@@ -1,0 +1,84 @@
+{
+  "id": "ma04",
+  "example": "dag_scheduler",
+  "problem": "Why can more workers be slower/costlier, and how do dependencies, queues and cancellation behave?",
+  "principle": "Schedule ready nodes with bounded concurrency and task-level budgets. Backpressure limits admission; cancellation awaits cleanup but cannot undo a remote write.",
+  "steps": [
+    "Validate DAG",
+    "Run ready work",
+    "Bound resources",
+    "Cancel and await"
+  ],
+  "before": [
+    "Start everything",
+    "Unbounded retries/backlog",
+    "Orphan tasks"
+  ],
+  "after": [
+    "Valid dependencies",
+    "Bounded readiness",
+    "Owned budget/cancellation"
+  ],
+  "solutions": [
+    [
+      "Bounded fork/join",
+      "Parallel independent branches then merge",
+      "Small fixed fanout",
+      "Slow-branch and failure policy"
+    ],
+    [
+      "Ready-queue DAG",
+      "Open successors when parents finish",
+      "Multi-level varied-duration work",
+      "Failure propagation/cycle checks"
+    ],
+    [
+      "Durable queue + admission",
+      "Buffer jobs with leases/resource reservations",
+      "Bursts and long scalable work",
+      "Delivery duplicates and fencing"
+    ]
+  ],
+  "check": "Do per-Agent budgets guarantee the task budget?",
+  "answer": "No. Aggregate children, retries, merges and concurrent reservations in one task ledger.",
+  "diagram_title": "DAG scheduling, backpressure, budgets and cancellation",
+  "scope": "Design reference and local contracts; no model training or measured collaboration uplift.",
+  "procedures": [
+    {
+      "steps": [
+        "Confirm independence",
+        "Bound concurrency",
+        "Await required outputs",
+        "Validate join"
+      ],
+      "state": "Child IDs, budgets and deadlines.",
+      "failure": "Missing branches are not complete results.",
+      "measure": "Concurrency, coverage and latency.",
+      "case": "Compare only after required quotations arrive."
+    },
+    {
+      "steps": [
+        "Validate full graph",
+        "Track states",
+        "Fill slots with ready jobs",
+        "Fail fast and await cleanup"
+      ],
+      "state": "Edges, pending/running/done and results.",
+      "failure": "This is process-local read-only fail-fast execution.",
+      "measure": "Cycles, ordering, concurrency and timeout cleanup.",
+      "case": "A branch can advance without unrelated slow work."
+    },
+    {
+      "steps": [
+        "Reserve budget",
+        "Claim lease",
+        "Limit tenant/tool concurrency",
+        "Apply backpressure"
+      ],
+      "state": "Backlog, leases, reservations and quotas.",
+      "failure": "Balance checks race; cancelling await cannot undo effects.",
+      "measure": "No overspend and stale-worker rejection.",
+      "case": "More workers do not increase a saturated tool quota."
+    }
+  ]
+}

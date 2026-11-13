@@ -1,0 +1,83 @@
+{
+  "problem": "Can one model handle prediction, document reading and external actions?",
+  "principle": "Define inputs, outputs and authority before choosing a model. A prediction score is not execution permission.",
+  "steps": [
+    "Rules",
+    "Learned mapping",
+    "Deep representation",
+    "Controlled action"
+  ],
+  "before": [
+    "Vague wish",
+    "Generate directly",
+    "No acceptance rule"
+  ],
+  "after": [
+    "Task contract",
+    "Choose capabilities",
+    "Verify outcomes"
+  ],
+  "solutions": [
+    [
+      "Rules/workflow",
+      "Explicit conditions",
+      "Stable steps",
+      "Exceptions need maintenance"
+    ],
+    [
+      "Supervised learning",
+      "Fit labeled examples",
+      "Risk prediction",
+      "Labels and held-out evaluation"
+    ],
+    [
+      "LLM + tools",
+      "Interpret and propose",
+      "Unstructured tasks",
+      "Authorization and stopping rules"
+    ]
+  ],
+  "check": "Why do price comparison and order creation need different acceptance rules?",
+  "answer": "Comparison needs evidence and consistent units; creation also needs authority, approval and a verifiable receipt.",
+  "id": "f01",
+  "example": "problem_framing",
+  "diagram_title": "AI scope and task capabilities",
+  "procedures": [
+    {
+      "steps": [
+        "Encode conditions",
+        "Branch on fields",
+        "Return result/reason",
+        "Escalate exceptions"
+      ],
+      "state": "Rule version, input snapshot and matched rule ID.",
+      "failure": "Stop on required missing fields; defaults are not facts.",
+      "measure": "Recompute identical inputs; measure uncovered exceptions.",
+      "case": "Deterministically compare totals; missing shipping keeps the total unknown."
+    },
+    {
+      "steps": [
+        "Define decision time",
+        "Build past features",
+        "Fit training mapping",
+        "Evaluate future period"
+      ],
+      "state": "Features, labels, time split and model version.",
+      "failure": "Repair leakage before tuning models.",
+      "measure": "Compare recall/review cost against a historical-rate baseline.",
+      "case": "Predict from records available before an order, not its eventual shipping date."
+    },
+    {
+      "steps": [
+        "Select capabilities",
+        "Model proposes call",
+        "Authorize and execute",
+        "Observe then decide"
+      ],
+      "state": "Goal, allowed tools, evidence and pending operations.",
+      "failure": "Bound failures/cost; reconcile unknown writes.",
+      "measure": "Evaluate complete-task success and wrong actions.",
+      "case": "Use a model for quotation text, code for amounts and separate approval for ordering."
+    }
+  ]
+}

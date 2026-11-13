@@ -1,0 +1,83 @@
+{
+  "problem": "How should a useful assistant grow into an advanced architecture?",
+  "principle": "Start from one task. Add components for demonstrated state, recovery, concurrency and isolation requirements.",
+  "steps": [
+    "Task/contracts",
+    "Business service",
+    "Model/tool capabilities",
+    "State/repositories"
+  ],
+  "before": [
+    "Start from frameworks",
+    "Add agents/queues",
+    "No complete task"
+  ],
+  "after": [
+    "Build one task path",
+    "Add for bottlenecks",
+    "Keep boundaries/evaluation"
+  ],
+  "solutions": [
+    [
+      "Modular process",
+      "Separate business/capabilities/storage",
+      "Small workloads",
+      "Shared failure domain"
+    ],
+    [
+      "Persistent workflow",
+      "State and recovery",
+      "Long tasks/approval",
+      "Migration/replay design"
+    ],
+    [
+      "Multiple workers",
+      "Queues, leases, idempotency",
+      "Throughput/isolation",
+      "Operational consistency cost"
+    ]
+  ],
+  "check": "When is a queue more useful than another agent?",
+  "answer": "When the problem is asynchronous ownership, concurrency or recovery, not an additional reasoning role.",
+  "id": "a12",
+  "example": "architecture_recipe",
+  "diagram_title": "Layered responsibilities and gradual growth",
+  "procedures": [
+    {
+      "steps": [
+        "Parse application input",
+        "Enforce service rules",
+        "Adapt external tools",
+        "Persist domain state"
+      ],
+      "state": "Domain objects, service boundaries and replaceable adapters.",
+      "failure": "Avoid framework/model types leaking through every business layer.",
+      "measure": "Swap a model/tool while preserving business rules.",
+      "case": "Direct SDK and MCP use the same quotation authorization."
+    },
+    {
+      "steps": [
+        "Create workflow instance",
+        "Persist approval wait",
+        "Isolate external Activity",
+        "Recover from history/state"
+      ],
+      "state": "Workflow ID, code version, approval, activities and receipts.",
+      "failure": "Framework state is not remote business truth; version replay intentionally.",
+      "measure": "Restart processes without losing approval/effect boundaries.",
+      "case": "Resume next-day approval from verified research evidence."
+    },
+    {
+      "steps": [
+        "Commit state + Outbox",
+        "Publish at least once",
+        "Claim with version",
+        "Deduplicate and store receipt"
+      ],
+      "state": "Task, Outbox, lease/fencing, operation record and version.",
+      "failure": "A crash after send causes redelivery; consumers/remote systems deduplicate.",
+      "measure": "Crash windows, stale-worker rejection, backlog and recovery latency.",
+      "case": "Publisher retries still reference the same draft operation key."
+    }
+  ]
+}

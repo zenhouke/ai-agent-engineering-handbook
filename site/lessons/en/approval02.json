@@ -1,0 +1,98 @@
+{
+  "id": "approval02",
+  "example": "approval_recovery",
+  "problem": "How do concurrent callbacks and crashes avoid duplicate effects or consumed approvals without work?",
+  "principle": "Commit approval consumption, task transition and pending operation atomically. Uniqueness prevents multiple operations per approval. Queueing, effects and receipts are distinct; reconcile unknown outcomes.",
+  "steps": [
+    "Current authorization",
+    "Atomic consumption",
+    "Persist pending operation",
+    "Dispatch and receipt lookup"
+  ],
+  "before": [
+    "Duplicate callbacks",
+    "Split commits",
+    "Retry with new key"
+  ],
+  "after": [
+    "Single transaction",
+    "Uniqueness/CAS",
+    "Query original operation"
+  ],
+  "solutions": [
+    [
+      "Single consumption + uniqueness",
+      "Consume and insert operation atomically",
+      "Duplicate/concurrent callbacks",
+      "Not exactly-once remote execution"
+    ],
+    [
+      "Transactional Outbox",
+      "Persist work then publish at least once",
+      "Async workers and outages",
+      "Deduplicate delivery/effects"
+    ],
+    [
+      "Revocation + reconciliation",
+      "Block fresh actions; inspect issued ones",
+      "Withdrawal or changed policy/evidence",
+      "Revocation cannot undo history"
+    ]
+  ],
+  "check": "Does single-use approval guarantee one remote effect?",
+  "answer": "No. Stable operation keys and remote deduplication/reconciliation remain necessary.",
+  "diagram_title": "Revocation, single consumption and recovery boundaries",
+  "scope": "Local reference: trusted identity injection and SQLite transactions, without a login server or remote writes.",
+  "procedures": [
+    {
+      "steps": [
+        "Load valid approval",
+        "Match current action",
+        "CAS consumption",
+        "Insert unique approval operation"
+      ],
+      "state": "Approval ID, operation ID, hash and task state.",
+      "failure": "Insert conflicts must roll back consumption.",
+      "measure": "One winning connection; no partial commit.",
+      "case": "Two workers claim approval-a; only one prepares work."
+    },
+    {
+      "steps": [
+        "Persist pending work",
+        "Publish after commit",
+        "Redeliver same key",
+        "Record receipt"
+      ],
+      "state": "Event, stable operation ID and receipt.",
+      "failure": "The operations table is pending work, not a deployed broker.",
+      "measure": "Lost replies recover the same receipt.",
+      "case": "Pending does not mean the remote draft exists."
+    },
+    {
+      "steps": [
+        "Check before dispatch",
+        "Stop undispatched work",
+        "Query issued operation",
+        "Compensate or reconcile"
+      ],
+      "state": "Revocation time, dispatch state, UNKNOWN and receipts.",
+      "failure": "Do not reset consumed effects to never-happened.",
+      "measure": "No new writes after revocation; preserve UNKNOWN.",
+      "case": "Find the old operation after a lost success reply rather than asserting cancellation."
+    }
+  ],
+  "extra_examples": [
+    {
+      "example": "governance/repos",
+      "title": "Transaction, CAS and unique constraints",
+      "scope": "Local architecture reference without live external effects."
+    }
+  ],
+  "extra_snippets": [
+    {
+      "file": "examples/governance/schema.sql",
+      "language": "sql",
+      "title": "Persistence constraints"
+    }
+  ]
+}

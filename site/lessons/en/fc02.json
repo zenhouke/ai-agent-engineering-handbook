@@ -1,0 +1,96 @@
+{
+  "id": "fc02",
+  "example": "function_calling_mcp",
+  "problem": "Both appear to “call tools”; why are Function Calling and MCP not alternatives? Can inputSchema be passed through unchanged?",
+  "principle": "Function Calling connects model and application; MCP connects application Client and capability Server. The Host adapts schemas, enforces policy and maps results. One proposal can use a direct SDK or MCP.",
+  "steps": [
+    "Model function proposal",
+    "Host adaptation/policy",
+    "Direct SDK or MCP",
+    "Return tool observation"
+  ],
+  "before": [
+    "Protocol mistaken for model feature",
+    "Expose every tool",
+    "Confuse correlation and operation IDs"
+  ],
+  "after": [
+    "Separate contracts",
+    "Scope tool catalog",
+    "Preserve layered errors/IDs"
+  ],
+  "solutions": [
+    [
+      "Function Calling + direct SDK",
+      "Dispatch proposal to trusted local adapter",
+      "Few stable internal tools",
+      "Maintain backend adapters"
+    ],
+    [
+      "Function Calling + MCP",
+      "Host uses Client to reach Server",
+      "Shared capability services/Hosts",
+      "Transport, authorization and adaptation"
+    ],
+    [
+      "Fixed workflow + MCP",
+      "Program decides which RPC to call",
+      "No need for model tool selection",
+      "MCP does not require Function Calling"
+    ]
+  ],
+  "check": "Can Function Calling work without MCP, and MCP without a model?",
+  "answer": "Yes. Local functions can execute model proposals; ordinary programs can use MCP. The reference runs real MCP without a model request.",
+  "diagram_title": "Distinction from MCP and their connection",
+  "scope": "Model-side examples use Responses custom client-function shapes; no model request is sent.",
+  "procedures": [
+    {
+      "steps": [
+        "Receive model proposal",
+        "Check arguments/policy",
+        "Invoke direct SDK",
+        "Format provider observation"
+      ],
+      "state": "Provider call_id, service contract and receipt.",
+      "failure": "Applications adapt backend changes; models do not run functions.",
+      "measure": "Correct results and denials under identical proposals.",
+      "case": "One domain service can support both direct SDK and MCP adapters."
+    },
+    {
+      "steps": [
+        "Discover MCP contract",
+        "Adapt model tool schema",
+        "Authorize and call Client",
+        "Map result to observation"
+      ],
+      "state": "inputSchema, provider call_id, RPC ID and operation key.",
+      "failure": "Schema subsets differ; retain RPC errors versus tool isError.",
+      "measure": "Arguments, scope, outcomes and correlation across both interfaces.",
+      "case": "A read_quote(A) proposal becomes tools/call; keep the original call_id."
+    },
+    {
+      "steps": [
+        "Read workflow state",
+        "Choose dependent MCP call",
+        "Check execution/business result",
+        "Persist or reconcile"
+      ],
+      "state": "Task state, MCP contract and receipts.",
+      "failure": "Pin protocol and SDK separately; timeout proves no failure.",
+      "measure": "MCP contracts work without an LLM response.",
+      "case": "Client(server) needs no Function Calling generation."
+    }
+  ],
+  "extra_examples": [
+    {
+      "example": "function_calling",
+      "title": "Model-side contract and proposal checks",
+      "scope": "Host reference with fixed inputs/injected adapters, without a model request."
+    },
+    {
+      "example": "mcp_host_bridge",
+      "title": "Host-to-MCP scope validation",
+      "scope": "Host reference with fixed inputs/injected adapters, without a model request."
+    }
+  ]
+}

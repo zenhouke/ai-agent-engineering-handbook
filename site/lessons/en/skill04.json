@@ -1,0 +1,84 @@
+{
+  "id": "skill04",
+  "example": "skill_mcp_integration",
+  "problem": "Does a Skill instructing “read everything and order” grant those abilities? Does MCP discovery grant object access?",
+  "principle": "Trusted task policy, deployed capabilities and reviewed bindings constrain actions; services authorize objects again. Skills supply method, Function Calling expresses proposals and MCP carries capability calls.",
+  "steps": [
+    "Check trusted binding",
+    "Activate method",
+    "Host validates proposal",
+    "Service authorizes object"
+  ],
+  "before": [
+    "Text asserts authority",
+    "Execute any tool name",
+    "Token grants whole database"
+  ],
+  "after": [
+    "Trusted bindings",
+    "Argument/scope checks",
+    "Server authorization"
+  ],
+  "solutions": [
+    [
+      "Direct SDK adapter",
+      "Use registered application functions",
+      "Small stable internal tools",
+      "Object authorization still required"
+    ],
+    [
+      "MCP adapter",
+      "Client invokes server contracts",
+      "Independent tools and multiple Hosts",
+      "Protocol success is not task acceptance"
+    ],
+    [
+      "Binding gateway",
+      "Intersect task policy with reviewed bindings",
+      "Multiple Skills/tenants and write actions",
+      "Declarations are not authority"
+    ]
+  ],
+  "check": "Can allowed-tools in a Skill override a Host ban on create_order?",
+  "answer": "No. Trusted Policy and registry bindings govern this example; declarations cannot bypass task or server authorization.",
+  "diagram_title": "Tool binding, MCP and permission intersections",
+  "scope": "Based on Agent Skills format; version pins, bundle digests and tool bindings are example Host conventions, not execution authority.",
+  "procedures": [
+    {
+      "steps": [
+        "Register trusted functions",
+        "Filter allowed names",
+        "Validate typed arguments",
+        "Reuse domain services"
+      ],
+      "state": "Registry, task scope and failure categories.",
+      "failure": "Do not dynamically import model-supplied module names.",
+      "measure": "Unknown functions and resource denial.",
+      "case": "Direct SDK can read evidence while the Skill supplies review method."
+    },
+    {
+      "steps": [
+        "Discover MCP schema",
+        "Bind approved tool",
+        "Check Host scope",
+        "Authorize in service"
+      ],
+      "state": "Protocol version, contract and correlation IDs.",
+      "failure": "Discovery grants no access to arbitrary quotations.",
+      "measure": "A succeeds; B is denied without leaking its price.",
+      "case": "Real SDK tests read A and reject B."
+    },
+    {
+      "steps": [
+        "Pin reviewed bindings",
+        "Intersect task policy",
+        "Check each object",
+        "Audit outcome"
+      ],
+      "state": "Policy, bindings, resource IDs, approval and operation key.",
+      "failure": "Ignore-rules text grants nothing; hashes only prove integrity.",
+      "measure": "Mutation denial, scope denial and reconciliation.",
+      "case": "Activating a method cannot create an order or read another customer."
+    }
+  ]
+}

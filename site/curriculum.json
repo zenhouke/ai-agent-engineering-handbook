@@ -1,0 +1,533 @@
+[
+  {
+    "id": "index",
+    "group": 0,
+    "source": "docs/zh/index.md",
+    "en_source": "docs/en/index.md",
+    "title": "学习地图：从入门到多 Agent 架构设计",
+    "en_title": "Learning map: from models to multi-Agent architecture"
+  },
+  {
+    "id": "f01",
+    "group": 1,
+    "source": "docs/zh/foundations/01-map.md",
+    "en_source": "docs/en/f01.md",
+    "title": "从一个预测问题认识 AI",
+    "en_title": "Frame an AI problem",
+    "kind": "core"
+  },
+  {
+    "id": "f02",
+    "group": 1,
+    "source": "docs/zh/foundations/02-math.md",
+    "en_source": "docs/en/f02.md",
+    "title": "只学现在用得上的数学",
+    "en_title": "Vectors, probability and gradients",
+    "kind": "core"
+  },
+  {
+    "id": "f03",
+    "group": 1,
+    "source": "docs/zh/foundations/03-machine-learning.md",
+    "en_source": "docs/en/f03.md",
+    "title": "从数据到可信的机器学习实验",
+    "en_title": "Design a trustworthy ML experiment",
+    "kind": "core"
+  },
+  {
+    "id": "f04",
+    "group": 1,
+    "source": "docs/zh/foundations/04-neural-networks.md",
+    "en_source": "docs/en/f04.md",
+    "title": "神经网络为什么能学习非线性规则",
+    "en_title": "Neural networks and backpropagation",
+    "kind": "core"
+  },
+  {
+    "id": "f05",
+    "group": 1,
+    "source": "docs/zh/foundations/05-modalities.md",
+    "en_source": "docs/en/f05.md",
+    "title": "图像、序列与生成模型：选择合适的归纳偏置",
+    "en_title": "Images, sequences and generative models",
+    "kind": "core"
+  },
+  {
+    "id": "f06",
+    "group": 1,
+    "source": "docs/zh/foundations/06-language-models.md",
+    "en_source": "docs/en/f06.md",
+    "title": "从字符计数走到语言模型",
+    "en_title": "Tokens and language modeling",
+    "kind": "core"
+  },
+  {
+    "id": "f07",
+    "group": 1,
+    "source": "docs/zh/foundations/07-transformer.md",
+    "en_source": "docs/en/f07.md",
+    "title": "手算注意力，再看 Transformer",
+    "en_title": "Attention and the Transformer",
+    "kind": "core"
+  },
+  {
+    "id": "f08",
+    "group": 1,
+    "source": "docs/zh/foundations/08-training.md",
+    "en_source": "docs/en/f08.md",
+    "title": "预训练、SFT、偏好优化与 LoRA",
+    "en_title": "Pretraining, SFT and LoRA",
+    "kind": "core"
+  },
+  {
+    "id": "l01",
+    "group": 2,
+    "source": "docs/zh/llm/01-prompting.md",
+    "en_source": "docs/en/l01.md",
+    "title": "提示、结构化输出与工具契约",
+    "en_title": "Prompts and output contracts",
+    "kind": "core",
+    "section": "llm-applications"
+  },
+  {
+    "id": "l02",
+    "group": 2,
+    "source": "docs/zh/llm/02-rag.md",
+    "en_source": "docs/en/l02.md",
+    "title": "RAG：把检索与回答分别做对",
+    "en_title": "Retrieval-augmented generation",
+    "kind": "core",
+    "section": "llm-applications"
+  },
+  {
+    "id": "l03",
+    "group": 2,
+    "source": "docs/zh/llm/03-inference.md",
+    "en_source": "docs/en/l03.md",
+    "title": "推理部署：延迟、吞吐、显存与评价",
+    "en_title": "Inference, memory and evaluation",
+    "kind": "core",
+    "section": "llm-applications"
+  },
+  {
+    "id": "a01",
+    "group": 2,
+    "source": "docs/zh/agent/01.md",
+    "en_source": "docs/en/a01.md",
+    "title": "LLM 与 Agent 基础：从“会回答”到“会办事”",
+    "en_title": "Models and agents",
+    "section": "agent-foundations",
+    "kind": "core"
+  },
+  {
+    "id": "a02",
+    "group": 2,
+    "source": "docs/zh/agent/02.md",
+    "en_source": "docs/en/a02.md",
+    "title": "Agent控制流：固定工作流与动态循环",
+    "en_title": "Agent control flow: workflows and dynamic loops",
+    "section": "agent-foundations",
+    "kind": "core"
+  },
+  {
+    "id": "a03",
+    "group": 2,
+    "source": "docs/zh/agent/03.md",
+    "en_source": "docs/en/a03.md",
+    "title": "Context Engineering：给研究员准备一张干净的办公桌",
+    "en_title": "Context engineering",
+    "section": "context",
+    "kind": "core"
+  },
+  {
+    "id": "a04",
+    "group": 2,
+    "source": "docs/zh/agent/04.md",
+    "en_source": "docs/en/a04.md",
+    "title": "Context Compaction：不是删聊天，而是打包行李",
+    "en_title": "Context compaction",
+    "section": "context",
+    "kind": "core"
+  },
+  {
+    "id": "a07",
+    "group": 2,
+    "source": "docs/zh/agent/07.md",
+    "en_source": "docs/en/a07.md",
+    "title": "工具网关：从模型提议到受控执行",
+    "en_title": "Tool gateway: model proposals to controlled execution",
+    "section": "function-calling",
+    "kind": "core"
+  },
+  {
+    "id": "fc01",
+    "group": 2,
+    "section": "function-calling",
+    "source": "docs/zh/tools/fc01.md",
+    "en_source": "docs/en/fc01.md",
+    "title": "模型提议怎样变成实际函数调用？",
+    "en_title": "From model proposal to execution",
+    "kind": "function"
+  },
+  {
+    "id": "fc02",
+    "group": 2,
+    "section": "function-calling",
+    "source": "docs/zh/tools/fc02.md",
+    "en_source": "docs/en/fc02.md",
+    "title": "与 MCP 的区别及完整衔接",
+    "en_title": "Distinction from MCP and their connection",
+    "kind": "function"
+  },
+  {
+    "id": "mcp01",
+    "group": 2,
+    "source": "docs/zh/mcp/mcp01.md",
+    "en_source": "docs/en/mcp01.md",
+    "title": "为什么需要协议，Host / Client / Server 各做什么？",
+    "en_title": "Why a protocol? Host, client and server",
+    "kind": "protocol",
+    "section": "mcp"
+  },
+  {
+    "id": "mcp02",
+    "group": 2,
+    "source": "docs/zh/mcp/mcp02.md",
+    "en_source": "docs/en/mcp02.md",
+    "title": "Tools、Resources、Prompts 怎么配合？",
+    "en_title": "Tools, resources and prompts",
+    "kind": "protocol",
+    "section": "mcp"
+  },
+  {
+    "id": "mcp03",
+    "group": 2,
+    "source": "docs/zh/mcp/mcp03.md",
+    "en_source": "docs/en/mcp03.md",
+    "title": "发现、JSON-RPC 与一次完整工具调用",
+    "en_title": "Discovery, JSON-RPC and a complete call",
+    "kind": "protocol",
+    "section": "mcp"
+  },
+  {
+    "id": "mcp04",
+    "group": 2,
+    "source": "docs/zh/mcp/mcp04.md",
+    "en_source": "docs/en/mcp04.md",
+    "title": "stdio、Streamable HTTP 与授权怎么选？",
+    "en_title": "Transports and authorization",
+    "kind": "protocol",
+    "section": "mcp"
+  },
+  {
+    "id": "mcp05",
+    "group": 2,
+    "source": "docs/zh/mcp/mcp05.md",
+    "en_source": "docs/en/mcp05.md",
+    "title": "用官方 SDK 构建真实 Server 与 Client",
+    "en_title": "Build a real SDK server and client",
+    "kind": "protocol",
+    "section": "mcp"
+  },
+  {
+    "id": "mcp06",
+    "group": 2,
+    "source": "docs/zh/mcp/mcp06.md",
+    "en_source": "docs/en/mcp06.md",
+    "title": "接入 Agent：工具膨胀、错误恢复与版本迁移",
+    "en_title": "Host integration, failures and migration",
+    "kind": "protocol",
+    "section": "mcp"
+  },
+  {
+    "id": "skill01",
+    "group": 2,
+    "section": "skills",
+    "source": "docs/zh/skills/skill01.md",
+    "en_source": "docs/en/skill01.md",
+    "title": "方法、Prompt、工具与工作流各管什么？",
+    "en_title": "Methods, prompts, tools and workflows",
+    "kind": "skill"
+  },
+  {
+    "id": "skill02",
+    "group": 2,
+    "section": "skills",
+    "source": "docs/zh/skills/skill02.md",
+    "en_source": "docs/en/skill02.md",
+    "title": "把专业方法写成可维护的技能包",
+    "en_title": "Author a maintainable skill package",
+    "kind": "skill"
+  },
+  {
+    "id": "skill03",
+    "group": 2,
+    "section": "skills",
+    "source": "docs/zh/skills/skill03.md",
+    "en_source": "docs/en/skill03.md",
+    "title": "发现、激活、按需加载与上下文生命周期",
+    "en_title": "Discovery, activation and context lifecycle",
+    "kind": "skill"
+  },
+  {
+    "id": "skill04",
+    "group": 2,
+    "section": "skills",
+    "source": "docs/zh/skills/skill04.md",
+    "en_source": "docs/en/skill04.md",
+    "title": "工具绑定、MCP 接入与权限交集",
+    "en_title": "Tool binding, MCP and permission intersections",
+    "kind": "skill"
+  },
+  {
+    "id": "skill05",
+    "group": 2,
+    "section": "skills",
+    "source": "docs/zh/skills/skill05.md",
+    "en_source": "docs/en/skill05.md",
+    "title": "多技能组合、产物契约与重规划",
+    "en_title": "Composition, artifact contracts and replanning",
+    "kind": "skill"
+  },
+  {
+    "id": "skill06",
+    "group": 2,
+    "section": "skills",
+    "source": "docs/zh/skills/skill06.md",
+    "en_source": "docs/en/skill06.md",
+    "title": "触发评测、消融对照与版本回归",
+    "en_title": "Selection evals, ablation and version regression",
+    "kind": "skill"
+  },
+  {
+    "id": "a05",
+    "group": 2,
+    "source": "docs/zh/agent/05.md",
+    "en_source": "docs/en/a05.md",
+    "title": "短期记忆：断电以后，订单不能失忆",
+    "en_title": "Checkpoints and short-term state",
+    "section": "memory",
+    "kind": "core"
+  },
+  {
+    "id": "a06",
+    "group": 2,
+    "source": "docs/zh/agent/06.md",
+    "en_source": "docs/en/a06.md",
+    "title": "长期记忆：记住客户，不要替客户编历史",
+    "en_title": "Long-term memory",
+    "section": "memory",
+    "kind": "core"
+  },
+  {
+    "id": "ma01",
+    "group": 3,
+    "section": "task-design",
+    "source": "docs/zh/architecture/ma01.md",
+    "en_source": "docs/en/ma01.md",
+    "title": "任务分解、Agent 职责与产物所有权",
+    "en_title": "Task decomposition, Agent responsibilities and artifact ownership",
+    "kind": "architecture"
+  },
+  {
+    "id": "a08",
+    "group": 3,
+    "source": "docs/zh/agent/08.md",
+    "en_source": "docs/en/a08.md",
+    "title": "协作拓扑：顺序、Supervisor 与 DAG",
+    "en_title": "Collaboration topology: sequence, supervisor and DAG",
+    "section": "collaboration",
+    "kind": "core"
+  },
+  {
+    "id": "ma02",
+    "group": 3,
+    "section": "collaboration",
+    "source": "docs/zh/architecture/ma02.md",
+    "en_source": "docs/en/ma02.md",
+    "title": "Agent 间通信、交接与消息契约",
+    "en_title": "Inter-Agent messaging, handoff and contracts",
+    "kind": "architecture"
+  },
+  {
+    "id": "session01",
+    "group": 3,
+    "section": "sessions",
+    "source": "docs/zh/governance/session01.md",
+    "en_source": "docs/en/session01.md",
+    "title": "会话、对话、任务和运行实例的区别",
+    "en_title": "Sessions, conversations, tasks and runs",
+    "kind": "architecture"
+  },
+  {
+    "id": "session02",
+    "group": 3,
+    "section": "sessions",
+    "source": "docs/zh/governance/session02.md",
+    "en_source": "docs/en/session02.md",
+    "title": "会话切换、并发续接与撤销",
+    "en_title": "Session switching, concurrent resume and revocation",
+    "kind": "architecture"
+  },
+  {
+    "id": "ma03",
+    "group": 3,
+    "section": "state-consistency",
+    "source": "docs/zh/architecture/ma03.md",
+    "en_source": "docs/en/ma03.md",
+    "title": "共享状态、产物版本与冲突裁决",
+    "en_title": "Shared state, artifact versions and conflict resolution",
+    "kind": "architecture"
+  },
+  {
+    "id": "auth01",
+    "group": 3,
+    "section": "permissions",
+    "source": "docs/zh/governance/auth01.md",
+    "en_source": "docs/en/auth01.md",
+    "title": "RBAC、ABAC、ReBAC 怎样约束 Agent",
+    "en_title": "RBAC, ABAC and ReBAC for Agents",
+    "kind": "architecture"
+  },
+  {
+    "id": "auth02",
+    "group": 3,
+    "section": "permissions",
+    "source": "docs/zh/governance/auth02.md",
+    "en_source": "docs/en/auth02.md",
+    "title": "策略执行点、缓存与多 Agent 委派",
+    "en_title": "Policy enforcement, caching and delegation",
+    "kind": "architecture"
+  },
+  {
+    "id": "approval01",
+    "group": 3,
+    "section": "approvals",
+    "source": "docs/zh/governance/approval01.md",
+    "en_source": "docs/en/approval01.md",
+    "title": "审批绑定什么：动作、证据、时效与审批人",
+    "en_title": "Approval binding: action, evidence, expiry and approver",
+    "kind": "architecture"
+  },
+  {
+    "id": "approval02",
+    "group": 3,
+    "section": "approvals",
+    "source": "docs/zh/governance/approval02.md",
+    "en_source": "docs/en/approval02.md",
+    "title": "审批撤销、单次消费与恢复边界",
+    "en_title": "Revocation, single consumption and recovery boundaries",
+    "kind": "architecture"
+  },
+  {
+    "id": "a09",
+    "group": 3,
+    "source": "docs/zh/agent/09.md",
+    "en_source": "docs/en/a09.md",
+    "title": "Runtime 与 Harness：模型负责建议，系统负责兑现",
+    "en_title": "Runtime and harness",
+    "section": "execution-design",
+    "kind": "core"
+  },
+  {
+    "id": "ma04",
+    "group": 3,
+    "section": "execution-design",
+    "source": "docs/zh/architecture/ma04.md",
+    "en_source": "docs/en/ma04.md",
+    "title": "DAG 调度、背压、预算与取消",
+    "en_title": "DAG scheduling, backpressure, budgets and cancellation",
+    "kind": "architecture"
+  },
+  {
+    "id": "ma05",
+    "group": 3,
+    "section": "execution-design",
+    "source": "docs/zh/architecture/ma05.md",
+    "en_source": "docs/en/ma05.md",
+    "title": "失败传播、重试、补偿与人工核查",
+    "en_title": "Failure propagation, retries, compensation and reconciliation",
+    "kind": "architecture"
+  },
+  {
+    "id": "a11",
+    "group": 3,
+    "source": "docs/zh/agent/11.md",
+    "en_source": "docs/en/a11.md",
+    "title": "评测、监控与安全：漂亮答案不等于可靠系统",
+    "en_title": "Evaluation and safety",
+    "section": "assurance",
+    "kind": "core"
+  },
+  {
+    "id": "ma06",
+    "group": 3,
+    "section": "assurance",
+    "source": "docs/zh/architecture/ma06.md",
+    "en_source": "docs/en/ma06.md",
+    "title": "怎样证明多 Agent 比单 Agent 更合适",
+    "en_title": "Validate collaboration benefit and operational quality",
+    "kind": "architecture"
+  },
+  {
+    "id": "ma07",
+    "group": 3,
+    "section": "deployment",
+    "source": "docs/zh/architecture/ma07.md",
+    "en_source": "docs/en/ma07.md",
+    "title": "部署边界、容量、隔离与技术选型",
+    "en_title": "Deployment boundaries, capacity, isolation and technology choice",
+    "kind": "architecture"
+  },
+  {
+    "id": "a12",
+    "group": 3,
+    "source": "docs/zh/agent/12.md",
+    "en_source": "docs/en/a12.md",
+    "title": "架构分层装配与集成验收",
+    "en_title": "Layered architecture assembly and integration acceptance",
+    "section": "deployment",
+    "kind": "core"
+  },
+  {
+    "id": "studio",
+    "group": 4,
+    "source": "docs/zh/projects/personal-studio.md",
+    "en_source": "docs/en/studio.md",
+    "title": "个人工作室：AI 接单到交付的多 Agent 架构",
+    "en_title": "Personal studio: multi-Agent architecture from leads to delivery",
+    "kind": "project"
+  },
+  {
+    "id": "labs",
+    "group": 4,
+    "source": "docs/zh/projects/02-labs.md",
+    "en_source": "docs/en/labs.md",
+    "title": "四个可选实验：把原理变成可观察结果",
+    "en_title": "Four offline experiments"
+  },
+  {
+    "id": "code-guide",
+    "group": 4,
+    "source": "docs/zh/projects/03-code-guide.md",
+    "en_source": "docs/en/code-guide.md",
+    "title": "配套代码与验证边界",
+    "en_title": "Reference code and verification limits"
+  },
+  {
+    "id": "resources",
+    "group": 4,
+    "source": "docs/zh/resources.md",
+    "en_source": "docs/en/resources.md",
+    "title": "参考课程：带着问题阅读",
+    "en_title": "How to use the reference courses"
+  },
+  {
+    "id": "glossary",
+    "group": 4,
+    "source": "GLOSSARY.md",
+    "en_source": "docs/en/glossary.md",
+    "title": "新手随手词典",
+    "en_title": "Glossary"
+  }
+]

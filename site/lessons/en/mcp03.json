@@ -1,0 +1,46 @@
+{
+  "problem": "A connection is not proof of compatible versions, schemas or successful execution.",
+  "principle": "Current requests carry version metadata. Discovery is optional for clients; servers implement it. Tool listing and execution follow. Request IDs correlate responses, not durable effects.",
+  "steps": [
+    "Optional server/discover",
+    "tools/list schemas",
+    "tools/call arguments",
+    "Classify response"
+  ],
+  "before": [
+    "Copy old initialize",
+    "Mix revisions",
+    "Discovery/call fails"
+  ],
+  "after": [
+    "Check revision",
+    "Self-contained metadata",
+    "Separate error layers"
+  ],
+  "solutions": [
+    [
+      "Current stateless protocol",
+      "Per-request version and discovery",
+      "2026-07-28 SDKs",
+      "Cache needs invalidation"
+    ],
+    [
+      "Legacy handshake",
+      "initialize then initialized",
+      "2025-11-25 and earlier",
+      "Use matching compatibility code"
+    ],
+    [
+      "Layered errors",
+      "RPC error versus result.isError",
+      "Failure diagnosis",
+      "Success still needs business checks"
+    ]
+  ],
+  "check": "Is result.isError=true a JSON-RPC error?",
+  "answer": "No. It is tool-execution failure, distinct from request/protocol failure and business acceptance.",
+  "diagram_title": "Current discovery versus legacy initialization",
+  "id": "mcp03",
+  "example": "mcp_messages",
+  "scope": "Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are labeled separately."
+}

@@ -1,0 +1,46 @@
+{
+  "problem": "Why not expose document context, queries and templates as one generic tool?",
+  "principle": "Tools execute capabilities; resources supply application-selected context; prompts supply selectable message templates. Each has distinct discovery and access rules.",
+  "steps": [
+    "Execute tool",
+    "Read resource",
+    "Get prompt",
+    "Host composes context"
+  ],
+  "before": [
+    "Everything is a tool",
+    "Huge tool catalog",
+    "Mix context/actions"
+  ],
+  "after": [
+    "Separate primitives",
+    "Discover/read what is needed",
+    "Host composes them"
+  ],
+  "solutions": [
+    [
+      "Tools",
+      "tools/list and tools/call with schemas",
+      "Queries/actions",
+      "Annotations are not enforcement"
+    ],
+    [
+      "Resources",
+      "Read URI-addressed context",
+      "Documents/schema",
+      "Templates need separate discovery"
+    ],
+    [
+      "Prompts",
+      "Render parameterized messages",
+      "User-selected workflow guidance",
+      "Not top-priority instructions or inference"
+    ]
+  ],
+  "check": "Does returning a prompt start an agent?",
+  "answer": "No. The host decides whether to use the messages and invoke a model.",
+  "diagram_title": "Three primitives: methods, control and results",
+  "id": "mcp02",
+  "example": "mcp_primitives",
+  "scope": "Baseline: MCP 2026-07-28 and official Python SDK 2.3.0; legacy handshakes are labeled separately."
+}

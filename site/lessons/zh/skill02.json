@@ -1,0 +1,106 @@
+{
+  "id": "skill02",
+  "example": "skill_package",
+  "problem": "同一个 Skill 名称触发了不相关任务；正文越来越长，脚本和规则改了也不知道版本变了。",
+  "principle": "name 与 description 帮助发现，正文保存关键方法；条件细则、模板和确定性代码分开。格式校验、行为评测和代码执行是三件不同的事。",
+  "steps": [
+    "精确描述适用条件",
+    "正文保留决策规则",
+    "分离资料模板脚本",
+    "验证格式和行为"
+  ],
+  "before": [
+    "描述过于宽泛",
+    "正文堆满手册",
+    "调用后自称完成"
+  ],
+  "after": [
+    "说明适用与产物",
+    "需要时读细节",
+    "代码独立验证"
+  ],
+  "solutions": [
+    [
+      "短而完整的 SKILL.md",
+      "内聚方法和明确产物",
+      "内容少且无需资源",
+      "不能强行为拆分制造空文件"
+    ],
+    [
+      "技能包分层资源",
+      "入口指向条件、模板和纯函数",
+      "细则多或有重复确定性计算",
+      "引用要可发现且不递归泛读"
+    ],
+    [
+      "Host 注册与摘要固定",
+      "固定批准版本及整个包摘要",
+      "共享包和需要可追溯部署",
+      "摘要证明未变，不能证明代码安全"
+    ]
+  ],
+  "check": "metadata.version 和工具绑定是不是 Agent Skills 的必填字段？",
+  "answer": "不是。name、description 是格式必填；本例的 version 和受信绑定是自定义 Host 约定。allowed-tools 为实验字段，支持程度依 Host 而异。",
+  "diagram_title": "把专业方法写成可维护的技能包",
+  "scope": "基于 Agent Skills 公开格式；版本、摘要固定与工具绑定是本例 Host 约定，不是通用执行权限。",
+  "procedures": [
+    {
+      "steps": [
+        "明确使用场景",
+        "写必要判断规则",
+        "给出输入输出例子",
+        "用相邻负例检查"
+      ],
+      "state": "name、description、产物约定。",
+      "failure": "万能描述会过度触发；正文不重复通用常识。",
+      "measure": "相关命中与不相关误触发。",
+      "case": "报价审查与真正下单分开，不用“处理全部采购工作”。"
+    },
+    {
+      "steps": [
+        "条件放 reference",
+        "模板放 assets",
+        "确定计算放 script",
+        "按需引用对应文件"
+      ],
+      "state": "入口引用、资源格式、脚本依赖。",
+      "failure": "读取脚本源码不等于授权执行；路径逃逸须拒绝。",
+      "measure": "脚本真运行测试、资源可读与缺失处理。",
+      "case": "null 运费留为 null；校验器拒绝捏造总价。"
+    },
+    {
+      "steps": [
+        "审阅实际包内容",
+        "形成固定摘要",
+        "部署时校验摘要",
+        "更新须重新批准"
+      ],
+      "state": "来源、版本、sha256、批准绑定。",
+      "failure": "重新对修改包计算摘要并自动信任会让固定失效。",
+      "measure": "修改正文或脚本均触发拒绝。",
+      "case": "同名同版本替换脚本后，旧注册摘要不能继续通过。"
+    }
+  ],
+  "extra_snippets": [
+    {
+      "file": "examples/skills/quote-review/SKILL.md",
+      "language": "markdown",
+      "title": "实际技能入口"
+    },
+    {
+      "file": "examples/skills/quote-review/references/conditions.md",
+      "language": "markdown",
+      "title": "按需读取的比较细则"
+    },
+    {
+      "file": "examples/skills/quote-review/assets/report.json",
+      "language": "json",
+      "title": "报告模板"
+    },
+    {
+      "file": "examples/skills/quote-review/scripts/validate_report.py",
+      "language": "python",
+      "title": "确定性报告校验器"
+    }
+  ]
+}

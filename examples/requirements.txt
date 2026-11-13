@@ -1,0 +1,4 @@
+# Optional reference-code dependencies; not needed to read or build the site.
+# No dependency installation or model training is triggered by the documentation.
+torch>=2.5,<3
+scikit-learn>=1.5,<2

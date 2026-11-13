@@ -1,0 +1,3 @@
+# Optional non-training framework examples, checked with these versions.
+langgraph==1.2.21
+temporalio==1.36.0
